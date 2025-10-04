@@ -45,7 +45,7 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 ## 6. Workspace Runtime Baseline
 - Provide reproducible environments (devcontainer, VM image, cloud IDE, VDI) with required dependencies, tooling, and automation.
 - Configure least-privilege access; ensure secrets flow through managed vaults.
-- Install Delivery Team tooling (Aider, Cline, Continue, OpenHands, etc.) and onboarding scripts for agents/humans.
+- Install Developer tooling (Aider, Cline, Continue, OpenHands, etc.) and onboarding scripts for Humans / AI / Hybrid pairs.
 - Capture telemetry (runtime utilization, spend, gate durations) for Delivery Pulse inspection and Conformance L3.
 
 ## 7. Planning & Delivery Flow

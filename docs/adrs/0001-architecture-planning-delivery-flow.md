@@ -1,7 +1,7 @@
-# ADR 0001: Planning & Delivery Flow (Delivery Lead + Delivery Team)
+# ADR 0001: Planning & Delivery Flow (Delivery Lead + Developers)
 
 - Status: Accepted (updated terminology in spec v0.3.0)
-- Deprecated terms: “Program Director” / “dual-loop” now map to **Delivery Lead** and “planning & delivery flow.”
+- Deprecated terms: “Program Director” / “Delivery Team” / “dual-loop” now map to **Delivery Lead**, **Developers**, and “planning & delivery flow.”
 
 ## Context
 
