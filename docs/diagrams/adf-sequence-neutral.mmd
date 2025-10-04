@@ -1,24 +1,25 @@
-%% Agentic Delivery Framework — Dual-Loop Sequence (Neutral)
+%% Agentic Delivery Framework — Planning & Delivery Sequence (Neutral)
 sequenceDiagram
-  participant PD as Program Director (Outer)
-  participant WM as Work Management System (Iteration)
+  participant DL as Delivery Lead (outside runtime)
+  participant PO as Product Owner
+  participant WM as Work Management System (Sprint)
   participant WR as Workspace Runtime
-  participant DT as Delivery Team (Inner)
-  participant CR as Change Request Gates
+  participant DEV as Developers (workspace)
+  participant CRG as Change Request Gates
 
-  PD->>WM: Select active Iteration & Stories
-  PD->>WR: Create/Resume Workspace Runtime (warm starts, secrets)
-  PD->>WR: Start Delivery Team session
-  DT->>WR: git switch -c feat/&lt;work-item&gt;
-  DT->>WR: Implement Tasks (plan/edit/run/test)
-  DT->>CR: Open Change Request ("Closes &lt;work-item&gt;")
-  CR->>CR: CI / QA Verification / Security Review / Automated Review / Human Review
+  DL->>WM: Facilitate Sprint Planning & set Sprint Goal
+  PO->>WM: Order PBIs for Sprint Backlog
+  DL->>WR: Create/Resume Workspace Runtime (warm starts, secrets)
+  DL->>DEV: Brief Developers; confirm WIP limits & DoD
+  DEV->>WR: git switch -c feat/&lt;story&gt;
+  DEV->>CRG: Open Change Request ("Closes &lt;story&gt;") with Story Preview
+  CRG->>CRG: CI/Tests | QA | Security | Automated | Human | Performance Budget
   alt All gates pass
-    CR->>WR: Merge to protected branch
-    PD->>WM: Move work item to Done
-    PD->>WR: Hibernate/Stop Workspace Runtime
+    CRG->>WR: Merge to protected branch (Increment meets DoD)
+    DL->>WM: Update Sprint board & telemetry
   else Any gate fails
-    CR->>DT: Feedback & failing checks
-    DT->>WR: Iterate fixes on branch
+    CRG->>DEV: Feedback & failing checks
+    DEV->>WR: Iterate fixes on branch
   end
-  PD->>WM: Iteration Review & Plan Next
+  DL->>DEV: Delivery Pulse — review Pulse Increment & next actions
+  DL->>WM: Sprint Review & plan next Sprint

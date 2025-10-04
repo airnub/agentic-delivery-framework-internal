@@ -4,15 +4,15 @@ ADF governance balances neutrality with traceability. Editors steward the method
 
 ## Editors & Maintainers
 
-- **Program Director Editors** oversee Iteration planning guidance, conformance expectations, and Program Director responsibilities.
-- **Delivery Team Editors** focus on workspace runtime practices, safety rails, and change-request lifecycle content.
+- **Delivery Lead Editors** oversee Sprint planning guidance, conformance expectations, and Delivery Lead responsibilities.
+- **Developer Editors** focus on workspace runtime practices, safety rails, Story Preview requirements, and Change Request lifecycle content.
 - **Maintainers** (appointed by Airnub) delegate editor seats, manage security disclosures, and ensure trademark and licensing policies remain current.
 - Editor appointments or removals are proposed via change request, recorded through an RFC or ADR when substantive, and ratified by the maintainers.
 
 ## Decision Process
 
 1. **Proposal** — Open a change request that cites relevant issues or RFCs. Normative updates REQUIRE an RFC using the repository template.
-2. **Review** — At least one Program Director Editor and one Delivery Team Editor review each normative change. Additional subject-matter reviewers (e.g., trademark counsel) join when policy updates are involved.
+2. **Review** — At least one Delivery Lead Editor and one Developer Editor review each normative change. Additional subject-matter reviewers (e.g., trademark counsel) join when policy updates are involved.
 3. **Approval** — Changes merge after both editor groups approve and all documentation checks (lint, link, policy enforcement) succeed. Non-normative edits may be merged by a single editor when consensus is clear.
 4. **Appeals** — Disagreements escalate to the maintainer group, which issues a written decision captured in an ADR or governance note.
 

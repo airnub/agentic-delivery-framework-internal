@@ -1,24 +1,24 @@
 sequenceDiagram
-  %% Agentic Delivery Framework — Dual-Loop Sequence
-  participant PD as Program Director (Outer)
-  participant GH as GitHub Projects (Iterations)
+  %% Agentic Delivery Framework — Planning & Delivery Sequence (GitHub profile)
+  participant DL as Delivery Lead (GitHub App)
+  participant GH as GitHub Projects (Sprints)
   participant CS as GitHub Codespaces
-  participant DT as Delivery Team (Inner)
-  participant PR as Pull Request Gates
+  participant DEV as Developers (workspace)
+  participant PRG as Pull Request Gates
 
-  PD->>GH: Select active Iteration & Stories
-  PD->>CS: Create/Resume Codespace (prebuilds, secrets)
-  PD->>CS: Start DT via gh codespace ssh -c
-  DT->>CS: git switch -c feat/&lt;issue-key&gt;
-  DT->>CS: Implement Tasks (edit/run/test)
-  DT->>PR: Open PR with "Closes #&lt;issue-id&gt;"
-  PR->>PR: CI / QA Verification / Security Review / Copilot Review / Human Review
+  DL->>GH: Select active Sprint & Stories
+  DL->>CS: Create/Resume Codespace (prebuilds, secrets)
+  DL->>DEV: Start session via `gh codespace ssh -c`
+  DEV->>CS: git switch -c feat/&lt;issue-key&gt;
+  DEV->>DEV: Implement slices (edit/run/test)
+  DEV->>PRG: Open PR with "Closes #&lt;issue-id&gt;" + Story Preview
+  PRG->>PRG: CI / QA Verification / Security Review / Automated Review / Human Review / Performance Budget
   alt All gates pass
-    PR->>CS: Merge to default branch
-    PD->>GH: Move Story to Done
-    PD->>CS: Stop/Hibernate Codespace
+    PRG->>CS: Merge to default branch (Increment meets DoD)
+    DL->>GH: Move Story to Done; publish Pulse Increment
+    DL->>CS: Stop/Hibernate Codespace if idle
   else Any gate fails
-    PR->>DT: Comments & failing checks
-    DT->>CS: Iterate fixes on branch
+    PRG->>DEV: Comments & failing checks
+    DEV->>CS: Iterate fixes on branch
   end
-  PD->>GH: Iteration Review & Plan Next
+  DL->>GH: Sprint Review & plan next Sprint

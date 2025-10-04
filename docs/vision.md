@@ -1,45 +1,34 @@
 # Vision
 
 Build a **safe, vendor-neutral Agentic Delivery Framework (ADF)** that:
-- Treats **ADF Iterations** (Sprint/Cycle) as the primary unit of planning and execution.
-- Runs **all code changes inside a managed workspace runtime**, never on unmanaged developer laptops.
-- Uses **change request-first governance** with automated and human review gates.
-- Stays **model-agnostic** by calling industry LLMs (OpenAI/Anthropic/Google/etc.).
-- Scales from solo repos to multi-team programs while remaining auditable and compliant.
+- Treats **Sprints (aka Iterations)** as the primary unit of planning and inspection.
+- Runs **all code changes inside a governed workspace runtime**, never on unmanaged developer laptops.
+- Uses **Change Request-first governance** with automated and human review gates plus Performance Budget checks when needed.
+- Stays **model-agnostic** by calling best-fit LLMs and automation services.
+- Scales from solo repos to multi-team programs while remaining auditable, observable, and compliant.
 
-The end state: a repeatable two-loop system where product intent (Epics/Stories) flows into a ready workspace runtime, the Delivery Team ships increments under transparent gates, and the Program Director plans the next Iteration from observed outcomes. Neutral terminology keeps directors, PMO, and engineering aligned without vendor lock-in while allowing profiles to map into specific platforms.
+The end state: a repeatable planning and delivery flow where the **Delivery Lead** and **Product Owner** align on goals, **Developers** (Human / AI / Hybrid) ship increments inside the workspace runtime, and Story Previews + Pulse Increments keep stakeholders informed every day.
 
-## Dual-Loop Overview
+## Planning & Delivery Flow Overview
 ```mermaid
-sequenceDiagram
-  %% Agentic Delivery Framework — Dual-Loop Sequence (Neutral)
-  participant PD as Program Director (Outer)
-  participant WM as Work Management System (Iteration)
-  participant WR as Workspace Runtime
-  participant DT as Delivery Team (Inner)
-  participant CR as Change Request Gates
-
-  PD->>WM: Select active Iteration & Stories
-  PD->>WR: Create/Resume Workspace Runtime (warm starts, secrets)
-  PD->>WR: Start Delivery Team session
-  DT->>WR: git switch -c feat/&lt;work-item&gt;
-  DT->>WR: Implement Tasks (plan/edit/run/test)
-  DT->>CR: Open Change Request ("Closes &lt;work-item&gt;")
-  CR->>CR: CI / QA Verification / Security Review / Automated Review / Human Review
-  alt All gates pass
-    CR->>WR: Merge to protected branch
-    PD->>WM: Move work item to Done
-    PD->>WR: Hibernate/Stop Workspace Runtime
-  else Any gate fails
-    CR->>DT: Feedback & failing checks
-    DT->>WR: Iterate fixes on branch
-  end
-  PD->>WM: Iteration Review & Plan Next
+flowchart TD
+  PO[Product Owner] --> SP[Sprint Planning]
+  DL[Delivery Lead] --> SP
+  SP --> SB[Sprint Backlog]
+  SB --> DEV[Development (Developers: Human/AI/Hybrid)]
+  DEV --> CR[Change Request]
+  CR --> G{{CR Gates\nCI/Tests | QA | Security | Automated | Human | Performance Budget}}
+  G -->|pass| INC[Increment (meets DoD)]
+  G -->|changes requested| DEV
+  INC --> REV[Sprint Review]
+  REV --> REF[Backlog Refinement]
+  DL --> DP[Delivery Pulse]
+  INC -. daily aggregate .-> PI[Pulse Increment (daily demo build)]
+  DP --> PI
+  REV --> RET[Retrospective]
 ```
 
-Embedding the sequence clarifies how enterprise teams de-risk autonomous edits: the Program Director controls environments and work intake while the Delivery Team ships inside governed workspace runtimes with explicit change request gates.
-
-_Figure: Sequence diagram traces the outer Program Director loop and inner Delivery Team loop with neutral terminology. Formerly Agentic-Agile dual-loop._
+Embedding the sequence clarifies how enterprise teams de-risk autonomous edits: the Delivery Lead steers Sprint events and governance, the Product Owner maintains intent, and Developers deliver inside the workspace runtime with explicit Change Request gates, Story Previews, and daily Pulse Increment evidence.
 
 ---
 

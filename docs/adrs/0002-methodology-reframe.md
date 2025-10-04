@@ -2,6 +2,7 @@
 
 - Status: Accepted
 - Date: 2025-10-04
+- Update (2025-10-04): Spec v0.3.0 transitions to Delivery Lead / Product Owner / Developers vocabulary while keeping this ADR for history.
 
 ## Context
 
@@ -9,7 +10,7 @@ The initial ADF documentation emphasized GitHub-specific services (Projects, Cod
 
 ## Decision
 
-- Reposition ADF as a vendor-neutral methodology with the Program Director and Delivery Team roles unchanged.
+- Reposition ADF as a vendor-neutral methodology with the Delivery Lead, Product Owner, and Developers accountabilities as the neutral core.
 - Introduce [CONFORMANCE.md](../CONFORMANCE.md) to define L1–L3 requirements using RFC 2119/8174 language.
 - Create [PROFILES.md](../PROFILES.md) and profile directories to map neutral terminology to specific platforms (initially GitHub).
 - Preserve historical documents and diagrams while adding neutral equivalents.

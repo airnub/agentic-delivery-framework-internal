@@ -13,7 +13,7 @@ Minor clarifications, typo fixes, or non-normative examples typically do **not**
 ## Workflow
 
 1. **Draft** — Copy [0000-template.md](0000-template.md) to `docs/RFCs/NNNN-short-title.md`, replacing `NNNN` with the next available number.
-2. **Discuss** — Open a change request including the RFC. Invite feedback from Program Director and Delivery Team stewards.
+2. **Discuss** — Open a change request including the RFC. Invite feedback from Delivery Lead, Product Owner, and Developer stewards.
 3. **Decide** — Editors record the outcome (Accepted/Rejected/Deferred) in the RFC header and merge the change request with supporting documentation.
 4. **Implement** — Follow up with specification updates, profile mappings, or ADRs as required by the RFC.
 

@@ -1,5 +1,10 @@
 # ADF Specification Changelog
 
+## v0.3.0 — 2025-10-04
+- Repo-wide vocabulary alignment (Delivery Lead, Delivery Pulse).
+- Added Story Preview and Pulse Increment artifacts; Performance Budget gate and WIP limit guidance.
+- Backward compatible with v0.0.21 (minor semver bump).
+
 ## v0.0.21 — 2025-10-04
 - Docs/legal update: adopt CC BY-SA 4.0 for the methodology/spec; clarify no code in this repo; add governance/trademark/policy docs.
 - No normative behavior change relative to v0.0.20.

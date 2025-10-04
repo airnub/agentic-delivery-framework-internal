@@ -6,41 +6,44 @@ ADF conformance is structured across three levels. Higher levels include lower-l
 
 ## Level 1 (L1) — Planning & Governance
 Organizations **MUST**:
-- Operate Iterations (or equivalent timeboxes) in a work management system that tracks Epics → Stories → Tasks.
-- Require change requests before merging to protected branches.
-- Enforce at least two gates per change request: continuous integration/tests **MUST** run, and at least one human review **MUST** approve before merge.
+- Operate Sprints (aka Iterations) in a work management system that tracks Epics → Stories → Tasks with a Sprint Goal.
+- Require Change Requests before merging to protected branches (**CR-first**).
+- Enforce CR gates so CI/tests, QA verification, security review, automated review, required human approval(s), and **Performance Budget** checks (when performance-sensitive paths change) pass before merge.
+- Define and publish a Definition of Done (DoD) that includes Story Preview expectations.
 
 Organizations **SHOULD**:
-- Link work items to change requests via automation or templates.
-- Maintain audit trails for Iteration decisions and gate outcomes.
+- Link work items to Change Requests via automation or templates.
+- Maintain audit trails for Sprint decisions, gate outcomes, and DoD/Performance Budget exceptions.
 
 Organizations **MAY**:
 - Incorporate additional governance such as compliance sign-offs or portfolio reviews.
 
-## Level 2 (L2) — Execution Loop
+## Level 2 (L2) — Execution & Evidence
 In addition to L1, organizations **MUST**:
-- Allow the Program Director to provision, resume, and stop a managed workspace runtime for the Delivery Team.
-- Ensure the Delivery Team iterates within the workspace runtime from work item intake to merged change request.
-- Provide mechanisms for responding to feedback from automated or human gates within the same Iteration.
+- Allow the Delivery Lead to provision, resume, and stop a managed workspace runtime for Developers.
+- Ensure Developers iterate inside the workspace runtime from Story intake to merged Change Request.
+- Produce **Story Previews** (runnable demos + evidence) before Stories are marked Done.
+- Publish a daily **Pulse Increment** ahead of the Delivery Pulse.
 
 Organizations **SHOULD**:
-- Automate workspace runtime warm starts with seeded secrets and tooling.
-- Provide observable status of change requests, including outstanding gates and feedback.
+- Automate workspace warm starts with seeded secrets and tooling for Humans / AI / Hybrid modalities.
+- Provide observable status of Change Requests, including outstanding gates, Performance Budget status, and Story Preview evidence.
 
 Organizations **MAY**:
-- Employ multiple specialized agents (e.g., testing, documentation) inside the workspace runtime.
+- Employ multiple specialized agents (e.g., testing, documentation, cost analysis) inside the workspace runtime.
 
-## Level 3 (L3) — Telemetry & Cost
+## Level 3 (L3) — Telemetry, Cost, & Flow
 In addition to L1 and L2, organizations **MUST**:
 - Implement an idle shutdown policy for workspace runtimes to control spend and reduce risk.
-- Track budget usage or consumption signals for workspace runtimes and automated services.
+- Track budget usage, Performance Budget trends, and WIP metrics for Delivery Pulse reporting.
 
 Organizations **SHOULD**:
 - Enable warm start strategies (snapshots, caches) to minimize cold-start time while respecting policies.
-- Surface Iteration-level telemetry (lead time, gate rework, runtime utilization) to Program Director dashboards.
+- Surface Sprint-level telemetry (lead time, gate rework, runtime utilization, Pulse Increment health) to Delivery Lead dashboards.
+- Enforce configurable **WIP limits** (e.g., `wip_limits.active_stories_per_team: 3`).
 
 Organizations **MAY**:
-- Integrate anomaly detection or predictive scaling for workspace runtimes based on Iteration forecasts.
+- Integrate anomaly detection or predictive scaling for workspace runtimes and Pulse Increment quality based on Sprint forecasts.
 
 ---
 

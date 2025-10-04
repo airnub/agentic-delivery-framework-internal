@@ -2,7 +2,7 @@
 
 - Status: Draft
 - Authors: <Name(s)>
-- Stakeholders: Program Director Editors, Delivery Team Editors, Maintainers
+- Stakeholders: Delivery Lead Editors, Product Owner Editors, Developer Editors, Maintainers
 - Start Date: <YYYY-MM-DD>
 - Target Release: <v0.x.y>
 

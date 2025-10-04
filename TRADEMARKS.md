@@ -12,7 +12,7 @@ The names **“Agentic Delivery Framework”**, **“ADF”**, and any associate
 
 - Do not imply endorsement, sponsorship, or partnership by Airnub or the ADF maintainers without written permission.
 - Do not alter, stylize, or combine the marks with your own trademarks in a way that causes confusion about ownership or origin.
-- Do not use the marks in domain names, social media handles, or package names that could mislead users into believing your project is the official ADF specification or Program Director service.
+- Do not use the marks in domain names, social media handles, or package names that could mislead users into believing your project is the official ADF specification or Delivery Lead service.
 
 ## Quality and Compliance
 
