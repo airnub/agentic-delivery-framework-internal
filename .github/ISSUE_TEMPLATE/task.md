@@ -1,6 +1,6 @@
 ---
 name: "Task"
-about: "Track a discrete piece of work or spike"
+about: "Track a discrete documentation or governance task"
 title: "task: "
 labels: [task]
 assignees: []
@@ -14,9 +14,13 @@ What needs to be accomplished?
 - [ ] Output 2
 
 ## Links
-Related stories, PRs, documents.
+Related stories, RFCs, changelog entries, or external implementation issues.
 
 ## Definition of Done
-- [ ] Tests/automation updated (if needed)
-- [ ] Documentation updated (if needed)
-- [ ] Reviewed with stakeholder/agent lead
+- [ ] Documentation updated (including license notice)
+- [ ] Governance reviewers consulted as needed
+- [ ] Follow-up actions captured in roadmap or reference repos
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

@@ -40,3 +40,7 @@ Adopt the **Agentic Delivery Framework (ADF)** naming set:
 - Program Director/Delivery Team labels appear in prompts, ADRs, specs, and roadmap.
 - Future work can refer to the enterprise naming doc for alternative sets if
   organizations need variation.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

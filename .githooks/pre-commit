@@ -1,0 +1,47 @@
+#!/bin/sh
+# Pre-commit hook to ensure the CC BY-SA 4.0 notice exists on Markdown and YAML files.
+# The hook adds the notice automatically when it is missing to keep contributors aligned with the docs-only policy.
+
+set -e
+
+LICENSE_LINE="This methodology/spec is licensed under CC BY-SA 4.0."
+
+# Collect staged files that are added or modified.
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+
+if [ -z "$staged_files" ]; then
+  exit 0
+fi
+
+add_notice_md() {
+  file="$1"
+  if ! grep -Fq "$LICENSE_LINE" "$file"; then
+    printf '\n%s\n' "$LICENSE_LINE" >> "$file"
+    git add "$file"
+    printf 'Added license notice to %s\n' "$file"
+  fi
+}
+
+add_notice_yaml() {
+  file="$1"
+  if ! grep -Fq "$LICENSE_LINE" "$file"; then
+    printf '\n# %s\n' "$LICENSE_LINE" >> "$file"
+    git add "$file"
+    printf 'Added license notice to %s\n' "$file"
+  fi
+}
+
+for file in $staged_files; do
+  [ -f "$file" ] || continue
+  case "$file" in
+    *.md)
+      add_notice_md "$file"
+      ;;
+    *.yml|*.yaml)
+      add_notice_yaml "$file"
+      ;;
+  esac
+done
+
+exit 0
+# This methodology/spec is licensed under CC BY-SA 4.0.

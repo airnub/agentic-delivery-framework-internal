@@ -32,3 +32,7 @@
 - Added **Mermaid overview flow** and **dual-loop sequence** diagrams (`docs/diagrams/adf-overview-flow.mmd`, `docs/diagrams/adf-sequence.mmd`).
 - Embedded diagrams across `README.md`, `docs/vision.md`, `docs/roadmap.md`, and `docs/adrs/0001-architecture-dual-loop.md` for quick reference.
 - Updated `docs/prompts/initial_agent_prompt.md` with links so future agents keep visuals and behavior in sync.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

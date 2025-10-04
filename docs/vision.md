@@ -40,3 +40,7 @@ sequenceDiagram
 Embedding the sequence clarifies how enterprise teams de-risk autonomous edits: the Program Director controls environments and work intake while the Delivery Team ships inside governed workspace runtimes with explicit change request gates.
 
 _Figure: Sequence diagram traces the outer Program Director loop and inner Delivery Team loop with neutral terminology. Formerly Agentic-Agile dual-loop._
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.
