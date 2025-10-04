@@ -4,7 +4,7 @@ The Agentic Delivery Framework (ADF) specification is vendor-neutral. Platform p
 
 ## Using Profiles
 
-1. Implement the neutral methodology by following the [ADF Specification](specs/spec.v0.2.0.md) and [Conformance Levels](CONFORMANCE.md).
+1. Implement the neutral methodology by following the [ADF Specification](specs/spec.v0.0.20.md) and [Conformance Levels](CONFORMANCE.md).
 2. Select a platform profile to understand how Iterations, workspace runtimes, and change request gates map to specific products.
 3. Extend or author new profiles as your organization adopts additional platforms.
 

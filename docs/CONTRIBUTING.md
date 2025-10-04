@@ -4,7 +4,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology. Contributi
 
 ## Before You Start
 
-- Review the [Governance](GOVERNANCE.md) model and the latest [Specification](specs/spec.v0.2.0.md).
+- Review the [Governance](GOVERNANCE.md) model and the latest [Specification](specs/spec.v0.0.20.md).
 - Check open RFCs in [docs/RFCs](RFCs/README.md) to avoid duplicating proposals.
 - Align proposed terminology with the neutral glossary in [AGENTS.md](../AGENTS.md).
 

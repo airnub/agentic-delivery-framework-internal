@@ -1,6 +1,6 @@
 # ADR 0001: Dual-Loop Architecture (Program Director + Delivery Team)
 
-> Status: Accepted — superseded terms retained historically; see spec v0.2.0 for neutral nomenclature.
+> Status: Accepted — superseded terms retained historically; see spec v0.0.20 for neutral nomenclature.
 > Also Known As: formerly Agentic-Agile dual-loop (Outer Orchestrator / Inner Dev Agents).
 
 ## Context

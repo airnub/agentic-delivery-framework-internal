@@ -30,7 +30,7 @@ Adopt the **Agentic Delivery Framework (ADF)** naming set:
 
 - Aligns with enterprise language for program/delivery management.
 - Matches GitHub-native concepts (Projects Iterations, PR governance).
-- Keeps the spec behavior unchanged—semver patch (v0.1.1) captures naming-only update.
+- Keeps the spec behavior unchanged—semver patch (v0.0.11) captures naming-only update.
 - Provides glossary consistency across README, AGENTS, docs, prompts, and specs.
 
 ## Consequences

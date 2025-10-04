@@ -1,8 +1,8 @@
-# Spec v0.2.0 — Methodology Terminology Refactor
+# Spec v0.0.20 — Methodology Terminology Refactor
 
 ## Changelog
 
-- Structural/terminology update: reframed ADF as a vendor-neutral methodology with platform profiles. No behavioral change relative to v0.1.3.
+- Structural/terminology update: reframed ADF as a vendor-neutral methodology with platform profiles. No behavioral change relative to v0.0.13.
 - Introduced references to [Conformance Levels](../CONFORMANCE.md) and [Platform Profiles](../PROFILES.md).
 
 ## 1. Architecture
@@ -40,5 +40,5 @@
 - **Profiles**: Platform-specific terminology and automation belong in [docs/PROFILES.md](../PROFILES.md) and related files (e.g., [GitHub profile](../profiles/github.md)).
 
 ## 7. References
-- Previous spec versions (v0.1.x) retain GitHub-centric language for historical context.
+- Previous spec versions (v0.0.10–v0.0.13) retain GitHub-centric language for historical context.
 - Companion implementations: see [airnub/adf-github-suite](https://github.com/airnub/adf-github-suite) for an example aligned with the GitHub profile.
