@@ -33,6 +33,36 @@ A GitHub‑native framework for **agentic software delivery** that enterprises c
 - `docs/adrs/0001-architecture-dual-loop.md` – ADR for dual‑loop (Program Director + Codespaces).
 - `docs/prompts/initial_agent_prompt.md` – comprehensive coding‑agent prompt to (re)generate docs and wire the loop.
 
+## Architecture at a Glance (ADF)
+```mermaid
+flowchart TD
+  %% Agentic Delivery Framework — Overview Flow
+  A[Program Director\n(Outside Codespaces)] --> B{Select Iteration\nvia GitHub Projects}
+  B -->|For each Story| C{Codespace exists?}
+  C -->|No| D[Create Codespace\n(prebuilds, secrets, retention)]
+  C -->|Yes| E[Resume Codespace]
+  D --> F[Start Delivery Team inside Codespace\n(Aider/Cline/Continue/OpenHands)]
+  E --> F
+  F --> G[Create branch\nfeat/<issue-key>]
+  G --> H[Implement Tasks\nplan → edit → run → test]
+  H --> I[Open PR with checklists\n"Closes #<issue-id>"]
+  I --> J{{PR Gates}}
+  J --> J1[CI / Tests]
+  J --> J2[QA Verification]
+  J --> J3[Security Review\n(CodeQL / deps)]
+  J --> J4[Copilot Code Review]
+  J --> J5[Human Reviewer(s)]
+  J -->|All pass| K[Merge → Close Issue →\nMove Story to Done]
+  J -->|Fail| F
+  K --> L{More Stories in Iteration?}
+  L -->|Yes| B
+  L -->|No| M[Stop/Hibernate Codespace\nGenerate Metrics]
+  M --> N[Iteration Review & Retro\nProgram Director plans next Iteration]
+```
+Program Director (outer) orchestrates Iterations & Codespaces; Delivery Team (inner) ships via PRs under QA/Sec gates.
+
+_Figure: Dual-loop flow shows how the Program Director guides Codespaces usage while the Delivery Team completes stories through PR gates. Formerly Agentic-Agile overview._
+
 ## Enterprise Naming & Roles
 
 See [Enterprise-friendly naming schemes (method-agnostic)](docs/naming/enterprise-friendly-naming.md) for recommended terminology, enterprise aliases, and glossary guidance across Program Director, Delivery Team, Iterations, and work items.
