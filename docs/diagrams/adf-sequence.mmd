@@ -9,9 +9,9 @@ sequenceDiagram
   PD->>GH: Select active Iteration & Stories
   PD->>CS: Create/Resume Codespace (prebuilds, secrets)
   PD->>CS: Start DT via `gh codespace ssh -c`
-  DT->>CS: git switch -c feat/<issue-key>
+  DT->>CS: git switch -c feat/&lt;issue-key&gt;
   DT->>CS: Implement Tasks (edit/run/test)
-  DT->>PR: Open PR with "Closes #<issue-id>"
+  DT->>PR: Open PR with "Closes #&lt;issue-id&gt;"
   PR->>PR: CI / QA Verification / Security Review / Copilot Review / Human Review
   alt All gates pass
     PR->>CS: Merge to default branch

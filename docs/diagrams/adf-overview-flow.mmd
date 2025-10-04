@@ -6,9 +6,9 @@ flowchart TD
   C -->|Yes| E[Resume Codespace]
   D --> F[Start Delivery Team inside Codespace\n(Aider/Cline/Continue/OpenHands)]
   E --> F
-  F --> G[Create branch\nfeat/<issue-key>]
+  F --> G[Create branch\nfeat/&lt;issue-key&gt;]
   G --> H[Implement Tasks\nplan → edit → run → test]
-  H --> I[Open PR with checklists\n"Closes #<issue-id>"]
+  H --> I[Open PR with checklists\n"Closes #&lt;issue-id&gt;"]
   I --> J{{PR Gates}}
   J --> J1[CI / Tests]
   J --> J2[QA Verification]

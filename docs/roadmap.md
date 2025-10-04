@@ -28,9 +28,9 @@ flowchart TD
   WR -->|Yes| C2[Resume Workspace Runtime]
   C1 --> DT[Start Delivery Team inside workspace]
   C2 --> DT
-  DT --> B1[Branch feat/<work-item>]
+  DT --> B1[Branch feat/&lt;work-item&gt;]
   B1 --> W[Implement Tasks \n plan → edit → run → test]
-  W --> CR[Open Change Request \n with checklists ("Closes <work-item>")]
+  W --> CR[Open Change Request \n with checklists ("Closes &lt;work-item&gt;")]
   CR --> G{{Change Request Gates}}
   G --> G1[CI / Tests]
   G --> G2[QA Verification]

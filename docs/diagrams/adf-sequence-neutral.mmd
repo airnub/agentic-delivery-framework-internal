@@ -9,9 +9,9 @@ sequenceDiagram
   PD->>WM: Select active Iteration & Stories
   PD->>WR: Create/Resume Workspace Runtime (warm starts, secrets)
   PD->>WR: Start Delivery Team session
-  DT->>WR: git switch -c feat/<work-item>
+  DT->>WR: git switch -c feat/&lt;work-item&gt;
   DT->>WR: Implement Tasks (plan/edit/run/test)
-  DT->>CR: Open Change Request ("Closes <work-item>")
+  DT->>CR: Open Change Request ("Closes &lt;work-item&gt;")
   CR->>CR: CI / QA Verification / Security Review / Automated Review / Human Review
   alt All gates pass
     CR->>WR: Merge to protected branch
