@@ -1,67 +1,60 @@
-
 # ADR 0001: Dual-Loop Architecture (Program Director + Delivery Team)
 
+> Status: Accepted — superseded terms retained historically; see spec v0.2.0 for neutral nomenclature.
 > Also Known As: formerly Agentic-Agile dual-loop (Outer Orchestrator / Inner Dev Agents).
 
 ## Context
 
-> Repository renamed from `airnub/agentic-agile` to `airnub/agentic-delivery-framework` (docs-only update; no behavioral changes).
+Repository renamed from `airnub/agentic-agile` to `airnub/agentic-delivery-framework` (docs-only update; no behavioral changes).
 
-We need safe, auditable agentic development that maps onto ADF Iterations and keeps all
-execution inside GitHub’s ecosystem (existing NDAs, org policies, and audit).
+We need safe, auditable agentic development that maps onto ADF Iterations and keeps all execution inside a governed workspace runtime while aligning with enterprise governance.
 
 ## Decision
 
 Adopt a **dual-loop** architecture:
 
-- **Program Director** (product/program layer) outside Codespaces controls Iterations,
-  selects Stories/Epics, manages Codespaces lifecycle, and applies PR governance.
-- **Delivery Team** (engineering layer) runs inside Codespaces and implements Stories via
-  PRs under strict gates.
+- **Program Director** (product/program layer) outside the workspace runtime controls Iterations, selects Stories/Epics, manages the workspace runtime lifecycle, and applies change request governance.
+- **Delivery Team** (engineering layer) runs inside the workspace runtime and implements Stories via change requests under strict gates.
 
 ## Diagrams
-- [Mermaid overview flow](../diagrams/adf-overview-flow.mmd)
-- [Mermaid dual-loop sequence](../diagrams/adf-sequence.mmd)
+- Historical diagrams: [Mermaid overview flow (GitHub-centric)](../diagrams/adf-overview-flow.mmd), [Mermaid dual-loop sequence (GitHub-centric)](../diagrams/adf-sequence.mmd).
+- Neutral diagrams: [Mermaid overview flow](../diagrams/adf-overview-neutral.mmd), [Mermaid dual-loop sequence](../diagrams/adf-sequence-neutral.mmd).
 
 ```mermaid
 sequenceDiagram
-  %% Agentic Delivery Framework — Dual-Loop Sequence
+  %% Agentic Delivery Framework — Dual-Loop Sequence (Neutral)
   participant PD as Program Director (Outer)
-  participant GH as GitHub Projects (Iterations)
-  participant CS as GitHub Codespaces
+  participant WM as Work Management System (Iteration)
+  participant WR as Workspace Runtime
   participant DT as Delivery Team (Inner)
-  participant PR as Pull Request Gates
+  participant CR as Change Request Gates
 
-  PD->>GH: Select active Iteration & Stories
-  PD->>CS: Create/Resume Codespace (prebuilds, secrets)
-  PD->>CS: Start DT via `gh codespace ssh -c`
-  DT->>CS: git switch -c feat/<issue-key>
-  DT->>CS: Implement Tasks (edit/run/test)
-  DT->>PR: Open PR with "Closes #<issue-id>"
-  PR->>PR: CI / QA Verification / Security Review / Copilot Review / Human Review
+  PD->>WM: Select active Iteration & Stories
+  PD->>WR: Create/Resume Workspace Runtime (warm starts, secrets)
+  PD->>WR: Start Delivery Team session
+  DT->>WR: git switch -c feat/<work-item>
+  DT->>WR: Implement Tasks (plan/edit/run/test)
+  DT->>CR: Open Change Request ("Closes <work-item>")
+  CR->>CR: CI / QA Verification / Security Review / Automated Review / Human Review
   alt All gates pass
-    PR->>CS: Merge to default branch
-    PD->>GH: Move Story to Done
-    PD->>CS: Stop/Hibernate Codespace
+    CR->>WR: Merge to protected branch
+    PD->>WM: Move work item to Done
+    PD->>WR: Hibernate/Stop Workspace Runtime
   else Any gate fails
-    PR->>DT: Comments & failing checks
-    DT->>CS: Iterate fixes on branch
+    CR->>DT: Feedback & failing checks
+    DT->>WR: Iterate fixes on branch
   end
-  PD->>GH: Iteration Review & Plan Next
+  PD->>WM: Iteration Review & Plan Next
 ```
-_Figure: Sequence diagram documents the Program Director ↔ Delivery Team interactions and review gates (formerly Agentic-Agile dual-loop)._
+_Figure: Sequence diagram documents the Program Director ↔ Delivery Team interactions and review gates using neutral terminology._
 
 ## Alternatives Considered
 
-- **Managed cloud agents** (OpenAI Codex, Anthropic Computer Use, Google/Gemini IDEs):
-  faster to start, but limited container control, portability, and alignment with GitHub
-  governance.
+- **Managed cloud agents** (single-vendor IDEs or hosted sandboxes): faster to start, but limited environment control, portability, and alignment with enterprise governance.
 - **Local developer machines**: unsafe and non-reproducible for autonomous edits.
 - **Single big agent run (waterfall)**: poor feedback loops; hard to govern.
 
 ## Consequences
 
-- **Pros**: safety (no local edits), GitHub-native governance, model choice via GitHub
-  Models, reproducible envs, enterprise naming alignment.
-- **Cons**: we own orchestration (Codespaces minutes, prebuilds, secrets, costs). We
-  mitigate with prebuilds, idle shutdowns, and budgets.
+- **Pros**: safety (no unmanaged edits), governance through change request gates, model choice via open APIs, reproducible environments, enterprise naming alignment.
+- **Cons**: we own orchestration costs (workspace runtime minutes, warm starts, secrets). Mitigate with idle shutdowns, budgets, and telemetry per [Conformance L3](../CONFORMANCE.md).

@@ -1,72 +1,85 @@
-# Agentic Delivery Framework (ADF)
+# Agentic Delivery Framework (ADF) — Methodology
 
-A GitHub‑native framework for **agentic software delivery** that enterprises can adopt without changing their governance model.
+A vendor-neutral methodology for **agentic software delivery** that enterprises can adopt without changing governance.
 
-> Formerly **agentic-agile**.
+> Formerly positioned as a GitHub-native delivery framework; historic references remain in prior spec versions and profiles.
 
-- **Program Director (Product/Program layer)** runs **outside Codespaces**. It spins or reuses Codespaces per Iteration/story, seeds tasks, watches progress via Projects (Iterations), and gates merges with PR rules and Copilot Code Review.
-- **Delivery Team (Engineering layer)** runs **inside Codespaces** (your devcontainer) using tools like **Aider**, **Cline**, **Continue**, or **OpenHands**. They iterate on stories, run the stack (Docker/Supabase), push branches, and open PRs. **No local machine** is touched.
+The Agentic Delivery Framework brings together two collaborating roles:
 
-> Why: Waterfall‑ish, one‑shot “generate my app” runs often break in real teams. This project embraces **tight Agile loops** with observable state (Issues/PRs/Checks), containerized dev envs (Codespaces), and GitHub‑native security & audit.
+- **Program Director (outer orchestration)** operates outside the workspace runtime to select Iterations, manage work items, govern change requests, and monitor cost/safety.
+- **Delivery Team (inner execution)** works inside a workspace runtime to implement Stories/Tasks, run tests, and iterate on change requests until acceptance.
 
-## Core Principles
-- **Safety first**: all edits happen in Codespaces; merges only via PR with required checks.
-- **Agile loops**: stories → tasks → PRs → reviews → acceptance; new Iteration (Sprint/Cycle) = fresh Codespace.
-- **GitHub‑native**: Projects (Iterations), Actions, Branch Protection, Copilot Code Review.
-- **Model‑agnostic**: call **GitHub Models** (OpenAI/Anthropic/Google) from both layers.
-- **Reproducible envs**: devcontainer + Prebuilds; optional Supabase + Docker‑in‑Docker.
+## Core Concepts
 
-## Quick Start
-1. Add docs from `/docs` and `AGENTS.md` in repo root.
-2. Enable **Projects (Iterations)** for planning. Create an Iteration (Sprint/Cycle) board.
-3. Turn on **Branch Protection** + required checks; enable **Copilot Code Review** on PRs.
-4. (Optional) Configure **Codespaces Prebuilds** and **Codespaces Secrets** for tokens.
-5. Use the prompt in `docs/prompts/initial_agent_prompt.md` with your chosen agent (e.g., Aider/Continue/OpenHands) to wire the first Iteration loop.
+- **Program Director** – orchestrates Iterations, manages the workspace runtime lifecycle, and enforces change request gates.
+- **Delivery Team** – implements work inside a controlled workspace runtime using agent tooling and human oversight.
+- **Iteration** – a timeboxed planning window managed in a work management system.
+- **Change Request Gates** – CI/tests, QA verification, security review, automated review, and human review before merge.
+- **Workspace Runtime** – any managed development environment (devcontainer, cloud IDE, ephemeral VM, VDI) used by the Delivery Team.
 
-## What’s Inside
-- `AGENTS.md` – roles, capabilities, and safety rails for the Program Director and Delivery Team.
-- `docs/vision.md` – long‑term vision and outcomes.
-- `docs/problem-statement.md` – what breaks today (waterfallish agents, unsafe local writes).
-- `docs/goals.md` – measurable MVP goals and guardrails.
-- `docs/roadmap.md` – phased plan (P0→P3).
-- `docs/specs/spec.v0.1.3.md` – semver MVP spec for orchestration + Delivery Team loop (naming update).
-- `docs/adrs/0001-architecture-dual-loop.md` – ADR for dual‑loop (Program Director + Codespaces).
-- `docs/prompts/initial_agent_prompt.md` – comprehensive coding‑agent prompt to (re)generate docs and wire the loop.
+## Spec & Conformance
 
-## Architecture at a Glance (ADF)
+- [ADF Specification v0.2.0](docs/specs/spec.v0.2.0.md)
+- [Conformance Levels (L1–L3)](docs/CONFORMANCE.md)
+
+## Platform Profiles
+
+- [Profiles Overview](docs/PROFILES.md)
+- [GitHub Profile Mapping](docs/profiles/github.md)
+
+## Implementations
+
+- [ADF GitHub Suite](https://github.com/airnub/adf-github-suite) — example implementation aligned with the GitHub profile (informative).
+
+## Method Diagram
+
 ```mermaid
 flowchart TD
-  %% Agentic Delivery Framework — Overview Flow
-  A[Program Director\n(Outside Codespaces)] --> B{Select Iteration\nvia GitHub Projects}
-  B -->|For each Story| C{Codespace exists?}
-  C -->|No| D[Create Codespace\n(prebuilds, secrets, retention)]
-  C -->|Yes| E[Resume Codespace]
-  D --> F[Start Delivery Team inside Codespace\n(Aider/Cline/Continue/OpenHands)]
-  E --> F
-  F --> G[Create branch\nfeat/<issue-key>]
-  G --> H[Implement Tasks\nplan → edit → run → test]
-  H --> I[Open PR with checklists\n"Closes #<issue-id>"]
-  I --> J{{PR Gates}}
-  J --> J1[CI / Tests]
-  J --> J2[QA Verification]
-  J --> J3[Security Review\n(CodeQL / deps)]
-  J --> J4[Copilot Code Review]
-  J --> J5[Human Reviewer(s)]
-  J -->|All pass| K[Merge → Close Issue →\nMove Story to Done]
-  J -->|Fail| F
-  K --> L{More Stories in Iteration?}
-  L -->|Yes| B
-  L -->|No| M[Stop/Hibernate Codespace\nGenerate Metrics]
-  M --> N[Iteration Review & Retro\nProgram Director plans next Iteration]
+  PD[Program Director (outer)] --> P1{Select Iteration \n in Work Management System}
+  P1 -->|For each Story| WR{Workspace Runtime available?}
+  WR -->|No| C1[Create Workspace Runtime \n (warm start, secrets, retention)]
+  WR -->|Yes| C2[Resume Workspace Runtime]
+  C1 --> DT[Start Delivery Team inside workspace]
+  C2 --> DT
+  DT --> B1[Branch feat/<work-item>]
+  B1 --> W[Implement Tasks \n plan → edit → run → test]
+  W --> CR[Open Change Request \n with checklists ("Closes <work-item>")]
+  CR --> G{{Change Request Gates}}
+  G --> G1[CI / Tests]
+  G --> G2[QA Verification]
+  G --> G3[Security Review]
+  G --> G4[Automated Review]
+  G --> G5[Human Review]
+  G -->|All pass| M[Merge → Close Work Item]
+  G -->|Fail| DT
+  M --> R{More Stories in Iteration?}
+  R -->|Yes| P1
+  R -->|No| H[Hibernate/Stop Workspace \n Generate Metrics]
 ```
-Program Director (outer) orchestrates Iterations & Codespaces; Delivery Team (inner) ships via PRs under QA/Sec gates.
 
-_Figure: Dual-loop flow shows how the Program Director guides Codespaces usage while the Delivery Team completes stories through PR gates. Formerly Agentic-Agile overview._
+Program Director (outer loop) orchestrates Iterations and workspace runtimes; the Delivery Team (inner loop) delivers change requests through transparent gates.
 
-## Enterprise Naming & Roles
+## What’s Inside
 
-See [Enterprise-friendly naming schemes (method-agnostic)](docs/naming/enterprise-friendly-naming.md) for recommended terminology, enterprise aliases, and glossary guidance across Program Director, Delivery Team, Iterations, and work items.
+- `AGENTS.md` – roles, capabilities, and safety rails for the Program Director and Delivery Team.
+- `docs/vision.md` – long-term method outcomes (safety, auditability, iterative delivery).
+- `docs/problem-statement.md` – challenges with waterfall agents, unsafe local writes, and vendor lock-in.
+- `docs/goals.md` – measurable methodology goals and guardrails.
+- `docs/roadmap.md` – evolution of conformance, governance, and profile support.
+- `docs/specs/spec.v0.2.0.md` – semver-tracked specification for orchestration and Delivery Team loop.
+- `docs/specs/CHANGELOG.md` – release notes for specification revisions.
+- `docs/CONFORMANCE.md` – normative conformance levels (L1–L3).
+- `docs/PROFILES.md` – platform profiles and mappings to neutral terminology.
+- `docs/profiles/github.md` – informative mapping for GitHub implementations; links to example tooling.
+- `docs/adrs/0001-architecture-dual-loop.md` & `docs/adrs/0002-methodology-reframe.md` – architectural decisions and methodology evolution.
+- `docs/prompts/initial_methodology_prompt.md` – initial operator prompt for neutral methodology adoption.
+
+## Governance & Contribution
+
+- [Governance](docs/GOVERNANCE.md) – editors, decision process, and release cadence.
+- [Contributing](docs/CONTRIBUTING.md) – propose changes via change requests and RFCs.
+- [RFC Process](docs/RFCs/README.md) – submit RFCs using the provided template.
 
 ## Status
-Documentation scaffold. Next steps: implement the Program Director (as a GitHub App or service) and pick a Delivery Team agent (Aider/Cline/Continue/OpenHands) to run inside Codespaces.
 
+Documentation scaffold for the vendor-neutral methodology. Platform-specific implementations live in companion repositories and profiles; use the GitHub profile for the `adf-github-suite` example stack.
