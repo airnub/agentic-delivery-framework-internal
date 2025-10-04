@@ -1,52 +1,45 @@
 # Roadmap
 
 ## P0 — Documentation & Conventions
-- Land this methodology scaffold; define branch naming, change request templates, and work item templates aligned to ADF (Program Director + Delivery Team).
+- Land this methodology scaffold; define branch naming, Change Request templates, and work item templates aligned to ADF (Delivery Lead + Product Owner + Developers).
 
-## P1 — Manual Program Director
-- A lightweight service or script that:
-  - Reads the active **Iteration** from the work management system.
-  - Creates/reuses a workspace runtime; injects secrets; starts the Delivery Team session.
-  - Monitors change request status; moves the work item to Done on merge; hibernates the workspace runtime.
+## P1 — Delivery Lead orchestration (manual)
+- Lightweight service or script that:
+  - Reads the active **Sprint** from the work management system and upholds one Sprint Goal.
+  - Creates/reuses a workspace runtime; injects secrets; briefs Developers on Story Preview expectations and WIP limits.
+  - Monitors Change Request status; verifies Performance Budget evidence when applicable; moves the work item to Done on merge; hibernates the workspace runtime.
+  - Publishes daily Pulse Increment snapshots ahead of the Delivery Pulse.
 
-## P2 — Managed Program Director
+## P2 — Managed Delivery Lead tooling
 - Replace personal credentials with managed auth (app/service principal).
-- Add budget controls and automatic warm starts.
-- Multi-repo program view and cross-team story planning.
+- Add budget controls, WIP dashboards, and automatic warm starts.
+- Multi-repo program view and cross-team story planning with Story Preview visibility.
 
 ## P3 — Advanced
-- Multi-agent Delivery Team (test agent, docs agent, fixit agent).
-- Risk-based gates (e.g., extra reviewers for migrations/infra changes).
-- Runbooks for rollbacks and hotfix Iterations.
+- Multi-agent Developer team (test agent, docs agent, fixit agent) collaborating with humans.
+- Risk-based gates (e.g., extra reviewers for migrations/infra changes, deeper Performance Budget analysis).
+- Runbooks for rollbacks and hotfix Sprints integrated into Delivery Pulse updates.
 
-## Iteration Flow
+## Sprint Flow
 ```mermaid
 flowchart TD
-  PD[Program Director (outer)] --> P1{Select Iteration <br/> in Work Management System}
-  P1 -->|For each Story| WR{Workspace Runtime available?}
-  WR -->|No| C1[Create Workspace Runtime <br/> (warm start, secrets, retention)]
-  WR -->|Yes| C2[Resume Workspace Runtime]
-  C1 --> DT[Start Delivery Team inside workspace]
-  C2 --> DT
-  DT --> B1[Branch feat/&lt;work-item&gt;]
-  B1 --> W[Implement Tasks <br/> plan → edit → run → test]
-  W --> CR[Open Change Request <br/> with checklists ("Closes &lt;work-item&gt;")]
-  CR --> G{{Change Request Gates}}
-  G --> G1[CI / Tests]
-  G --> G2[QA Verification]
-  G --> G3[Security Review]
-  G --> G4[Automated Review]
-  G --> G5[Human Review]
-  G -->|All pass| M[Merge → Close Work Item]
-  G -->|Fail| DT
-  M --> R{More Stories in Iteration?}
-  R -->|Yes| P1
-  R -->|No| H[Hibernate/Stop Workspace <br/> Generate Metrics]
+  PO[Product Owner] --> SP[Sprint Planning]
+  DL[Delivery Lead] --> SP
+  SP --> SB[Sprint Backlog]
+  SB --> DEV[Development (Developers: Human/AI/Hybrid)]
+  DEV --> CR[Change Request]
+  CR --> G{{CR Gates\nCI/Tests | QA | Security | Automated | Human | Performance Budget}}
+  G -->|pass| INC[Increment (meets DoD)]
+  G -->|changes requested| DEV
+  INC --> REV[Sprint Review]
+  REV --> REF[Backlog Refinement]
+  DL --> DP[Delivery Pulse]
+  INC -. daily aggregate .-> PI[Pulse Increment (daily demo build)]
+  DP --> PI
+  REV --> RET[Retrospective]
 ```
 
-Telemetry and budget controls attach at workspace runtime creation/resume (nodes C1/C2) and at hibernate/stop (node H) so the Program Director can meter spend across Iterations.
-
-_Figure: Overview flow anchors roadmap stages to the outer Program Director loop and inner Delivery Team cadence using neutral terminology. Formerly Agentic-Agile iteration flow._
+Telemetry and budget controls attach when the Delivery Lead creates/resumes the workspace runtime and during Delivery Pulse inspection so spend, WIP, and Performance Budgets stay visible throughout the Sprint.
 
 ---
 

@@ -4,7 +4,7 @@
 
 ## High-Level Objective
 
-Establish or refresh the repository documentation so the **Program Director** can select Issues in the active **Iteration** and run the loop safely.
+Establish or refresh the repository documentation so the **Delivery Lead** can select Issues in the active **Sprint (aka Iteration)** and run the loop safely.
 
 ## Must-Have Outputs
 
@@ -15,9 +15,9 @@ Establish or refresh the repository documentation so the **Program Director** ca
    - `/docs/problem-statement.md`
    - `/docs/goals.md`
    - `/docs/roadmap.md`
-   - `/docs/specs/spec.v0.0.21.md` (latest semver spec)
-   - `/docs/adrs/0001-architecture-dual-loop.md`
-   - `/docs/naming/enterprise-friendly-naming.md`
+   - `/docs/specs/spec.v0.3.0.md` (latest semver spec)
+   - `/docs/adrs/0001-architecture-planning-delivery-flow.md`
+   - `/docs/naming/enterprise-friendly-naming.v0.0.3.md`
 2. Add methodology hygiene if missing:
    - `.github/ISSUE_TEMPLATE/` set (Story, Task, Bug, plus optional Change Request template)
    - `.github/PULL_REQUEST_TEMPLATE.md` with documentation-focused checklist
@@ -33,11 +33,11 @@ Establish or refresh the repository documentation so the **Program Director** ca
 
 ## Visual References
 - [ADF overview flow Mermaid source](../diagrams/adf-overview-flow.mmd)
-- [ADF dual-loop sequence Mermaid source](../diagrams/adf-sequence.mmd)
+- [ADF planning & delivery sequence Mermaid source](../diagrams/adf-sequence.mmd)
 
 ## Inputs (from conversation distilled)
 
-- Program Director operates outside the workspace runtime and controls lifecycle via the chosen platform APIs or tooling.
+- Delivery Lead operates outside the workspace runtime and controls lifecycle via the chosen platform APIs or tooling.
 - Delivery Team agents run inside the managed workspace runtime (devcontainer, cloud IDE, etc.) and iterate on Stories before opening change requests.
 - Use platform-neutral terminology and link to the relevant profile when platform-specific guidance is needed.
 - Safety: keep work inside the governed workspace runtime with branch protection, required checks, and automated review configured per conformance level.
@@ -48,7 +48,7 @@ Establish or refresh the repository documentation so the **Program Director** ca
 
 1. Verify and (re)generate the files listed under **Must-Have Outputs** using the content and intent in this repo.
 2. Create `.github/` templates described above with concise, policy-aligned checklists.
-3. Open a PR summarizing how the updates reinforce the Program Director + Delivery Team dual-loop architecture.
+3. Open a PR summarizing how the updates reinforce the Delivery Lead + Developers planning and delivery flow.
 
 ## Definition of Done
 

@@ -1,68 +1,95 @@
-# AGENTS — Program Director & Delivery Team
+# AGENTS — Delivery Lead, Product Owner, Developers
 
 > Mini-glossary:
-> - **Agentic Delivery Framework (ADF)** = overall system.
-> - **Program Director** = orchestration service outside the workspace runtime.
-> - **Delivery Team** = inner workspace runtime agents + humans.
-> - **Iteration** = timebox (Sprint/Cycle).
-> - **Work items** = Epic → Story → Task (optional Change Request).
->
-> Formerly positioned as a GitHub-native framework; the methodology is now vendor-neutral.
+> - **Agentic Delivery Framework (ADF)** = overall methodology.
+> - **Delivery Lead** = accountability that steers the planning & delivery flow outside the workspace runtime.
+> - **Product Owner** = accountability that curates outcomes and acceptance.
+> - **Developers** = accountability that plans, builds, and verifies increments inside the workspace runtime (Humans / AI / Hybrid pairs).
+> - **Sprint (aka Iteration)** = timebox for planning, Delivery Pulse, and inspection/adaptation.
+> - **Delivery Pulse** = automated overnight pulse + short human sync to inspect progress and publish the Pulse Increment.
+> - **Change Request (CR)** = PR/MR/CL depending on the platform; merges only when all gates + Definition of Done (DoD) pass.
+> - **Story Preview** = per-story demo + evidence before setting a story to Done.
+> - **Pulse Increment** = daily demo build of merged, green work used during the Delivery Pulse.
 
-This repo defines two cooperating agent layers inside the Agentic Delivery Framework (ADF).
+---
 
-## 1) Program Director (Product/Program)
+## Role Modality Charter (applies to all accountabilities)
+- **Allowed modalities:** Human, AI, or Hybrid pair for Delivery Lead, Product Owner, and Developers.
+- **Provenance:** Record actor identity (human id, agent id, or pair), reasoning summary, and outputs (CR links, test evidence, telemetry).
+- **Policy knobs:** Organizations MAY require human sign-off for sensitive domains, set **WIP limits** (e.g., `wip_limits.active_stories_per_team: 3`), or restrict specific modalities per risk appetite.
+- **Enablement:** Maintain tool access, security contexts, and guardrails so each modality can fulfill its accountability.
 
-**Lives**: Outside the workspace runtime (SaaS service or local daemon, ideally as a managed application).
+---
+
+## 1) Delivery Lead (Flow steward)
+
+**Lives**: Outside the workspace runtime (SaaS orchestration service, local daemon, or managed application).
 
 **Responsible for**:
+- Sprint cadences: facilitate Sprint Planning, Delivery Pulse, Review, and Retrospective.
+- Backlog & flow: uphold a single Sprint Goal, monitor WIP limits, and remove impediments.
+- Workspace runtime lifecycle: create/reuse/stop per Sprint or Story; seed tasks, secrets, and context.
+- Change request governance: enforce CR-first policy, DoD, Performance Budget checks when applicable, and required gates before merge.
+- Telemetry & budgets: track spend, cost of runbooks, and Delivery Pulse insights.
 
-- Iteration planning via a **work management system** with an Iteration timebox; selecting Stories for the active Iteration.
-- **Workspace runtime lifecycle**: create/reuse/stop per Iteration or per Story; seed tasks and secrets.
-- **Kicking off the Delivery Team** via remote execution or orchestration hooks.
-- **Model calls** (OpenAI, Anthropic, Google, etc.) for planning/synthesis.
-- **Change request governance**: enforce branch protections; ensure automated review and required gates before merge; move work items to Done.
-- **Cost & safety**: set retention windows, stop idle workspace runtimes, keep secrets in secure vaults.
+**Key tools**: work management system, orchestration hooks, automated review/security scanners, observability, budgeting/telemetry dashboards.
 
-**Key tools**: API integrations to the selected platform(s), workspace runtime management, observability, automated review/security scanning.
+---
 
-## 2) Delivery Team (Engineering)
+## 2) Product Owner (Outcome steward)
 
-**Lives**: Inside the workspace runtime (your devcontainer, cloud IDE, ephemeral VM, or VDI).
+**Lives**: In product/backlog systems integrated with the workspace runtime.
 
-**Options**:
+**Responsible for**:
+- Maintaining the Product Goal and Product Backlog.
+- Ordering Product Backlog Items (PBIs) and clarifying acceptance criteria.
+- Partnering during Story Preview and Sprint Review to confirm value and acceptance.
+- Updating stakeholders based on Pulse Increment evidence and Sprint outcomes.
 
-- **Aider (CLI)** – diff/commit/change-request workflow, terminal-first.
-- **Cline (VS Code extension)** – executes terminal commands with human-in-the-loop approvals.
-- **Continue (ext/CLI)** – extensible agent framework with MCP tools and custom tools.
-- **OpenHands (OpenDevin)** – sandboxed “AI engineer,” runs commands/tests and proposes change requests.
+---
 
-**Responsible for**: cloning Story context, running the stack (Docker/Supabase if enabled), writing code and tests, opening change requests that **reference and close** Stories/Tasks, and iterating until acceptance.
+## 3) Developers (Team delivering increments)
+
+**Lives**: Inside the governed workspace runtime (devcontainer, cloud IDE, ephemeral VM, VDI).
+
+**Responsible for**:
+- Branching from protected defaults, implementing acceptance criteria, running tests/linters, and opening CRs referencing Stories/Tasks.
+- Producing Story Previews and ensuring CR gates (CI/tests, QA, security, automated review, human approvals, Performance Budget) pass.
+- Publishing daily Pulse Increment telemetry and notes during the Delivery Pulse.
+- Iterating with reviewers until merge, then updating documentation/runbooks as needed.
 
 **Safety rails**:
+- No direct pushes to protected branches.
+- Follow CR templates (including Story Preview checklist and Performance Budget check when applicable).
+- Keep environment reproducible; document local run recipes.
 
-- No push to `main`/`release` branches.
-- Always develop on `feat/<work-item>-<slug>`; all changes via change requests.
-- Respect repo linters/formatters and required checks (tests, security scanning, linting, etc.).
+---
 
-## Loop Summary
+## Story Preview vs. Pulse Increment
+- **Story Preview**: Per-story demo before marking Done. Lives on the feature branch or dedicated preview environment with run instructions, test evidence, and rollback notes inside the CR. Required for each Story.
+- **Pulse Increment**: Daily aggregate demo build of merged, green work. Generated automatically (preferred) ahead of the Delivery Pulse and reviewed during the human sync for transparency.
 
-1. The Program Director selects Stories in the current **Iteration** and opens/assigns them.
-2. The Program Director spins/reuses a **workspace runtime**; starts the Delivery Team on a `feat/*` branch.
-3. The Delivery Team iterates (plan → edit → run → test) and opens a change request ("Closes <work-item>").
-4. **Automated review**, security scanning, and status checks gate merges; a human reviewer can nudge the Delivery Team.
-5. On merge, the Program Director moves the work item to **Done** and hibernates or tears down the workspace runtime.
+---
 
-> Formerly Agentic-Agile terminology (Outer Orchestrator / Inner Dev Agents).
+## Planning & Delivery Flow (formerly “dual-loop”)
+1. The Delivery Lead and Product Owner align on the Sprint Goal and ordered PBIs.
+2. The Delivery Lead prepares or resumes a workspace runtime, briefs the Developers, and ensures WIP limits are respected.
+3. Developers iterate (plan → edit → run → test) inside the runtime, raising Change Requests for every slice.
+4. **CR gates** (CI/tests, QA verification, security review, automated review, Performance Budget, human approvals) plus the DoD govern merges.
+5. Story Previews provide reviewers with runnable demos before Stories move to Done.
+6. Delivery Pulse publishes the daily Pulse Increment, surfaces impediments, and steers next actions.
+7. After merge, the Delivery Lead updates the work management system, captures telemetry, and may hibernate or stop the workspace runtime.
+
+> Historical terms such as “Program Director” or “dual-loop” remain in archived specs for provenance. Current work SHOULD use the vocabulary above.
 
 ---
 
 ### Glossary
-
-- **Workspace Runtime**: any controlled development environment (cloud dev container, ephemeral VM, or VDI).
-- **Change Request**: PR/MR/CL depending on the selected platform.
-- **Automated Review**: any automated code review tool (examples live in platform profiles).
+- **Workspace Runtime**: Any controlled development environment (cloud dev container, ephemeral VM, or VDI).
+- **Change Request (CR)**: Platform-specific request to merge (PR/MR/CL).
+- **Automated Review**: Tooling that summarizes code deltas, risks, and suggestions.
 - **Security Review**: SAST/DAST/dependency scanning pipelines applicable to the selected platform.
+- **Performance Budget**: Agreed-upon thresholds for latency, resource use, or throughput enforced at CR/DoD gates when performance-sensitive paths change.
 
 ---
 
