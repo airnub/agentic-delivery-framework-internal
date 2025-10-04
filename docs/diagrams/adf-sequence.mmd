@@ -8,7 +8,7 @@ sequenceDiagram
 
   PD->>GH: Select active Iteration & Stories
   PD->>CS: Create/Resume Codespace (prebuilds, secrets)
-  PD->>CS: Start DT via `gh codespace ssh -c`
+  PD->>CS: Start DT via gh codespace ssh -c
   DT->>CS: git switch -c feat/&lt;issue-key&gt;
   DT->>CS: Implement Tasks (edit/run/test)
   DT->>PR: Open PR with "Closes #&lt;issue-id&gt;"

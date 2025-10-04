@@ -1,23 +1,23 @@
 flowchart TD
   %% Agentic Delivery Framework — Overview Flow
-  A[Program Director\n(Outside Codespaces)] --> B{Select Iteration\nvia GitHub Projects}
+  A[Program Director<br/>(Outside Codespaces)] --> B{Select Iteration<br/>via GitHub Projects}
   B -->|For each Story| C{Codespace exists?}
-  C -->|No| D[Create Codespace\n(prebuilds, secrets, retention)]
+  C -->|No| D[Create Codespace<br/>(prebuilds, secrets, retention)]
   C -->|Yes| E[Resume Codespace]
-  D --> F[Start Delivery Team inside Codespace\n(Aider/Cline/Continue/OpenHands)]
+  D --> F[Start Delivery Team inside Codespace<br/>(Aider/Cline/Continue/OpenHands)]
   E --> F
-  F --> G[Create branch\nfeat/&lt;issue-key&gt;]
-  G --> H[Implement Tasks\nplan → edit → run → test]
-  H --> I[Open PR with checklists\n"Closes #&lt;issue-id&gt;"]
+  F --> G[Create branch<br/>feat/&lt;issue-key&gt;]
+  G --> H[Implement Tasks<br/>plan → edit → run → test]
+  H --> I[Open PR with checklists<br/>"Closes #&lt;issue-id&gt;"]
   I --> J{{PR Gates}}
   J --> J1[CI / Tests]
   J --> J2[QA Verification]
-  J --> J3[Security Review\n(CodeQL / deps)]
+  J --> J3[Security Review<br/>(CodeQL / deps)]
   J --> J4[Copilot Code Review]
   J --> J5[Human Reviewer(s)]
-  J -->|All pass| K[Merge → Close Issue →\nMove Story to Done]
+  J -->|All pass| K[Merge → Close Issue →<br/>Move Story to Done]
   J -->|Fail| F
   K --> L{More Stories in Iteration?}
   L -->|Yes| B
-  L -->|No| M[Stop/Hibernate Codespace\nGenerate Metrics]
-  M --> N[Iteration Review & Retro\nProgram Director plans next Iteration]
+  L -->|No| M[Stop/Hibernate Codespace<br/>Generate Metrics]
+  M --> N[Iteration Review & Retro<br/>Program Director plans next Iteration]

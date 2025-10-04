@@ -30,15 +30,15 @@ See [docs/PROFILES.md](docs/PROFILES.md) and [docs/profiles/github.md](docs/prof
 
 ```mermaid
 flowchart TD
-  PD[Program Director (outer)] --> P1{Select Iteration \n in Work Management System}
+  PD[Program Director (outer)] --> P1{Select Iteration <br/> in Work Management System}
   P1 -->|For each Story| WR{Workspace Runtime available?}
-  WR -->|No| C1[Create Workspace Runtime \n (warm start, secrets, retention)]
+  WR -->|No| C1[Create Workspace Runtime <br/> (warm start, secrets, retention)]
   WR -->|Yes| C2[Resume Workspace Runtime]
   C1 --> DT[Start Delivery Team inside workspace]
   C2 --> DT
   DT --> B1[Branch feat/&lt;work-item&gt;]
-  B1 --> W[Implement Tasks \n plan → edit → run → test]
-  W --> CR[Open Change Request \n with checklists ("Closes &lt;work-item&gt;")]
+  B1 --> W[Implement Tasks <br/> plan → edit → run → test]
+  W --> CR[Open Change Request <br/> with checklists ("Closes &lt;work-item&gt;")]
   CR --> G{{Change Request Gates}}
   G --> G1[CI / Tests]
   G --> G2[QA Verification]
@@ -49,7 +49,7 @@ flowchart TD
   G -->|Fail| DT
   M --> R{More Stories in Iteration?}
   R -->|Yes| P1
-  R -->|No| H[Hibernate/Stop Workspace \n Generate Metrics]
+  R -->|No| H[Hibernate/Stop Workspace <br/> Generate Metrics]
 ```
 
 Program Director (outer loop) orchestrates Iterations and workspace runtimes; the Delivery Team (inner loop) delivers change requests through transparent gates.
