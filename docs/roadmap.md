@@ -1,18 +1,18 @@
 # Roadmap
 
 ## P0 — Documentation & Conventions
-- Land this docs scaffold; define branch naming, PR templates, and Issue templates aligned to ADF (Program Director + Delivery Team).
+- Land this methodology scaffold; define branch naming, change request templates, and work item templates aligned to ADF (Program Director + Delivery Team).
 
 ## P1 — Manual Program Director
-- A small Node/TS script (or GitHub App) that:
-  - Reads the active **Iteration** from Projects.
-  - Creates/reuses a Codespace; injects secrets; runs `gh codespace ssh -c` to start the Delivery Team.
-  - Monitors PR status; moves Issue to Done on merge; stops/parks the Codespace.
+- A lightweight service or script that:
+  - Reads the active **Iteration** from the work management system.
+  - Creates/reuses a workspace runtime; injects secrets; starts the Delivery Team session.
+  - Monitors change request status; moves the work item to Done on merge; hibernates the workspace runtime.
 
-## P2 — GitHub App Program Director
-- Replace PAT with App auth; fine-grained permissions.
-- Add budget controls and automatic prebuild warmups.
-- Multi-repo program view and cross-repo story planning.
+## P2 — Managed Program Director
+- Replace personal credentials with managed auth (app/service principal).
+- Add budget controls and automatic warm starts.
+- Multi-repo program view and cross-team story planning.
 
 ## P3 — Advanced
 - Multi-agent Delivery Team (test agent, docs agent, fixit agent).
@@ -22,30 +22,28 @@
 ## Iteration Flow
 ```mermaid
 flowchart TD
-  %% Agentic Delivery Framework — Overview Flow
-  A[Program Director\n(Outside Codespaces)] --> B{Select Iteration\nvia GitHub Projects}
-  B -->|For each Story| C{Codespace exists?}
-  C -->|No| D[Create Codespace\n(prebuilds, secrets, retention)]
-  C -->|Yes| E[Resume Codespace]
-  D --> F[Start Delivery Team inside Codespace\n(Aider/Cline/Continue/OpenHands)]
-  E --> F
-  F --> G[Create branch\nfeat/<issue-key>]
-  G --> H[Implement Tasks\nplan → edit → run → test]
-  H --> I[Open PR with checklists\n"Closes #<issue-id>"]
-  I --> J{{PR Gates}}
-  J --> J1[CI / Tests]
-  J --> J2[QA Verification]
-  J --> J3[Security Review\n(CodeQL / deps)]
-  J --> J4[Copilot Code Review]
-  J --> J5[Human Reviewer(s)]
-  J -->|All pass| K[Merge → Close Issue →\nMove Story to Done]
-  J -->|Fail| F
-  K --> L{More Stories in Iteration?}
-  L -->|Yes| B
-  L -->|No| M[Stop/Hibernate Codespace\nGenerate Metrics]
-  M --> N[Iteration Review & Retro\nProgram Director plans next Iteration]
+  PD[Program Director (outer)] --> P1{Select Iteration \n in Work Management System}
+  P1 -->|For each Story| WR{Workspace Runtime available?}
+  WR -->|No| C1[Create Workspace Runtime \n (warm start, secrets, retention)]
+  WR -->|Yes| C2[Resume Workspace Runtime]
+  C1 --> DT[Start Delivery Team inside workspace]
+  C2 --> DT
+  DT --> B1[Branch feat/<work-item>]
+  B1 --> W[Implement Tasks \n plan → edit → run → test]
+  W --> CR[Open Change Request \n with checklists ("Closes <work-item>")]
+  CR --> G{{Change Request Gates}}
+  G --> G1[CI / Tests]
+  G --> G2[QA Verification]
+  G --> G3[Security Review]
+  G --> G4[Automated Review]
+  G --> G5[Human Review]
+  G -->|All pass| M[Merge → Close Work Item]
+  G -->|Fail| DT
+  M --> R{More Stories in Iteration?}
+  R -->|Yes| P1
+  R -->|No| H[Hibernate/Stop Workspace \n Generate Metrics]
 ```
-Telemetry and budget controls attach at Codespace creation/resume (nodes D/E) and at stop/hibernate (node M) so the Program Director can meter spend across Iterations.
 
-_Figure: Overview flow anchors roadmap stages to the outer Program Director loop and inner Delivery Team cadence. Formerly Agentic-Agile iteration flow._
+Telemetry and budget controls attach at workspace runtime creation/resume (nodes C1/C2) and at hibernate/stop (node H) so the Program Director can meter spend across Iterations.
 
+_Figure: Overview flow anchors roadmap stages to the outer Program Director loop and inner Delivery Team cadence using neutral terminology. Formerly Agentic-Agile iteration flow._

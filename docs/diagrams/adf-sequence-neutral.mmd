@@ -1,0 +1,24 @@
+%% Agentic Delivery Framework — Dual-Loop Sequence (Neutral)
+sequenceDiagram
+  participant PD as Program Director (Outer)
+  participant WM as Work Management System (Iteration)
+  participant WR as Workspace Runtime
+  participant DT as Delivery Team (Inner)
+  participant CR as Change Request Gates
+
+  PD->>WM: Select active Iteration & Stories
+  PD->>WR: Create/Resume Workspace Runtime (warm starts, secrets)
+  PD->>WR: Start Delivery Team session
+  DT->>WR: git switch -c feat/<work-item>
+  DT->>WR: Implement Tasks (plan/edit/run/test)
+  DT->>CR: Open Change Request ("Closes <work-item>")
+  CR->>CR: CI / QA Verification / Security Review / Automated Review / Human Review
+  alt All gates pass
+    CR->>WR: Merge to protected branch
+    PD->>WM: Move work item to Done
+    PD->>WR: Hibernate/Stop Workspace Runtime
+  else Any gate fails
+    CR->>DT: Feedback & failing checks
+    DT->>WR: Iterate fixes on branch
+  end
+  PD->>WM: Iteration Review & Plan Next
