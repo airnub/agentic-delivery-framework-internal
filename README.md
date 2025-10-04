@@ -1,13 +1,8 @@
 # Agentic Delivery Framework (ADF) — Methodology
 
-A vendor-neutral methodology for **agentic software delivery** that enterprises can adopt without changing governance.
+**Licensed under CC BY-SA 4.0.**
 
-> Formerly positioned as a GitHub-native delivery framework; historic references remain in prior spec versions and profiles.
-
-The Agentic Delivery Framework brings together two collaborating roles:
-
-- **Program Director (outer orchestration)** operates outside the workspace runtime to select Iterations, manage work items, govern change requests, and monitor cost/safety.
-- **Delivery Team (inner execution)** works inside a workspace runtime to implement Stories/Tasks, run tests, and iterate on change requests until acceptance.
+The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for agentic software delivery. It pairs a Program Director operating outside the workspace runtime with a Delivery Team working inside the runtime to plan Iterations, implement Stories, and route every change request through auditable gates.
 
 ## Core Concepts
 
@@ -17,19 +12,19 @@ The Agentic Delivery Framework brings together two collaborating roles:
 - **Change Request Gates** – CI/tests, QA verification, security review, automated review, and human review before merge.
 - **Workspace Runtime** – any managed development environment (devcontainer, cloud IDE, ephemeral VM, VDI) used by the Delivery Team.
 
-## Spec & Conformance
+## Specification & Conformance
 
-- [ADF Specification v0.0.20](docs/specs/spec.v0.0.20.md)
+- [ADF Specification v0.0.21](docs/specs/spec.v0.0.21.md)
+- [Specification Changelog](docs/specs/CHANGELOG.md)
 - [Conformance Levels (L1–L3)](docs/CONFORMANCE.md)
 
-## Platform Profiles
+## Implementations & Code
 
-- [Profiles Overview](docs/PROFILES.md)
-- [GitHub Profile Mapping](docs/profiles/github.md)
+This repository hosts the methodology and specification only—no executable code lives here. Reference implementations are maintained separately:
 
-## Implementations
+- [ADF GitHub Suite](https://github.com/airnub/adf-github-suite) — example stack aligned with the GitHub profile.
 
-- [ADF GitHub Suite](https://github.com/airnub/adf-github-suite) — example implementation aligned with the GitHub profile (informative).
+See [docs/PROFILES.md](docs/PROFILES.md) and [docs/profiles/github.md](docs/profiles/github.md) for informative mappings to specific platforms.
 
 ## Method Diagram
 
@@ -66,7 +61,7 @@ Program Director (outer loop) orchestrates Iterations and workspace runtimes; th
 - `docs/problem-statement.md` – challenges with waterfall agents, unsafe local writes, and vendor lock-in.
 - `docs/goals.md` – measurable methodology goals and guardrails.
 - `docs/roadmap.md` – evolution of conformance, governance, and profile support.
-- `docs/specs/spec.v0.0.20.md` – semver-tracked specification for orchestration and Delivery Team loop.
+- `docs/specs/spec.v0.0.21.md` – semver-tracked specification for orchestration and Delivery Team loop.
 - `docs/specs/CHANGELOG.md` – release notes for specification revisions.
 - `docs/CONFORMANCE.md` – normative conformance levels (L1–L3).
 - `docs/PROFILES.md` – platform profiles and mappings to neutral terminology.
@@ -79,7 +74,19 @@ Program Director (outer loop) orchestrates Iterations and workspace runtimes; th
 - [Governance](docs/GOVERNANCE.md) – editors, decision process, and release cadence.
 - [Contributing](docs/CONTRIBUTING.md) – propose changes via change requests and RFCs.
 - [RFC Process](docs/RFCs/README.md) – submit RFCs using the provided template.
+- [Trademarks](TRADEMARKS.md) – usage guidelines for the Agentic Delivery Framework name and marks.
+- [No-Code Policy](docs/NO-CODE-POLICY.md) – this repository hosts methodology/spec artifacts only.
+
+## Policies & Legal
+
+- [LICENSE](LICENSE) – Creative Commons Attribution-ShareAlike 4.0 International.
+- [NOTICE](NOTICE) – scope of licensed artifacts and reference implementations.
+- [TRADEMARKS](TRADEMARKS.md) – non-endorsement and quality requirements for mark usage.
 
 ## Status
 
 Documentation scaffold for the vendor-neutral methodology. Platform-specific implementations live in companion repositories and profiles; use the GitHub profile for the `adf-github-suite` example stack.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

@@ -2,7 +2,7 @@
 
 - Status: Draft
 - Authors: <Name(s)>
-- Stakeholders: Program Director Stewards, Delivery Team Stewards
+- Stakeholders: Program Director Editors, Delivery Team Editors, Maintainers
 - Start Date: <YYYY-MM-DD>
 - Target Release: <v0.x.y>
 
@@ -35,3 +35,7 @@ List other options evaluated and why they were not chosen.
 ## Unresolved Questions
 
 Highlight open issues or risks that need resolution before acceptance.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

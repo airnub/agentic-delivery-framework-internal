@@ -15,3 +15,7 @@ We require a system that:
 - Uses **automated review** + branch protection + security review as guardrails.
 - Allows **multi-model** reasoning across commercial and open models.
 - Speaks enterprise language—**Program Director** and **Delivery Team**—so PMO, product, security, and engineering stay aligned with the Agentic Delivery Framework.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

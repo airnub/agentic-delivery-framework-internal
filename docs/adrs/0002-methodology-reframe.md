@@ -27,3 +27,7 @@ The initial ADF documentation emphasized GitHub-specific services (Projects, Cod
 - Future platform support can iterate independently via profiles and RFCs.
 - Contributors must follow the governance + RFC process when proposing normative updates or new profiles.
 - Implementations reference companion repositories instead of embedding vendor-specific automation in the spec.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

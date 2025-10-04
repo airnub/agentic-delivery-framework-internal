@@ -1,26 +1,33 @@
 # Governance
 
-## Editors & Stewards
+ADF governance balances neutrality with traceability. Editors steward the methodology, specification, and supporting documentation while keeping executable code in separate reference repositories.
 
-- **Program Director Stewards**: maintain the methodology, curate releases, and coordinate profile updates.
-- **Delivery Team Stewards**: evaluate tooling changes, ensure workspace runtime guidance stays current.
-- Editors are appointed by the maintainers of the Agentic Delivery Framework repositories. Additions or removals are proposed via change request and confirmed through the RFC process.
+## Editors & Maintainers
+
+- **Program Director Editors** oversee Iteration planning guidance, conformance expectations, and Program Director responsibilities.
+- **Delivery Team Editors** focus on workspace runtime practices, safety rails, and change-request lifecycle content.
+- **Maintainers** (appointed by Airnub) delegate editor seats, manage security disclosures, and ensure trademark and licensing policies remain current.
+- Editor appointments or removals are proposed via change request, recorded through an RFC or ADR when substantive, and ratified by the maintainers.
 
 ## Decision Process
 
-1. **Proposal** — Contributors open a change request referencing an RFC (when required) or a documentation update.
-2. **Review** — Editors assign reviewers from both steward groups to ensure methodology and execution perspectives are covered.
-3. **Consensus** — Changes are merged when at least one Program Director Steward and one Delivery Team Steward approve, and all required gates pass.
-4. **Appeals** — Unresolved disagreements escalate to the maintainer group, which issues a final decision documented in an ADR.
+1. **Proposal** — Open a change request that cites relevant issues or RFCs. Normative updates REQUIRE an RFC using the repository template.
+2. **Review** — At least one Program Director Editor and one Delivery Team Editor review each normative change. Additional subject-matter reviewers (e.g., trademark counsel) join when policy updates are involved.
+3. **Approval** — Changes merge after both editor groups approve and all documentation checks (lint, link, policy enforcement) succeed. Non-normative edits may be merged by a single editor when consensus is clear.
+4. **Appeals** — Disagreements escalate to the maintainer group, which issues a written decision captured in an ADR or governance note.
 
 ## Release Cadence
 
-- Specification releases follow semantic versioning. Minor bumps (v0.x.y) capture terminology or structural updates; major bumps introduce normative changes.
-- Editors target a quarterly review of open RFCs and profile updates.
-- Emergency releases MAY occur to address security or governance issues with immediate effect.
+- Specification releases follow semantic versioning. Patch releases capture policy, licensing, and clarifying edits without changing normative behavior.
+- Editors target a quarterly review of pending RFCs, conformance clarifications, and profile updates.
+- Out-of-band releases may occur to address urgent legal, security, or terminology issues.
 
-## Transparency
+## Transparency & Records
 
-- Meeting notes, release plans, and governance updates MUST be recorded in the repository (docs/governance-notes/ when needed).
-- Profiles and conformance clarifications SHOULD reference the RFC that introduced them.
-- Historical documents remain accessible to show the evolution from platform-specific framing to the vendor-neutral methodology.
+- Publish meeting notes, editor rosters, and governance updates under `docs/governance-notes/` (create as needed) or within RFCs/ADRs.
+- Link normative decisions back to the approving RFC, ADR, or changelog entry.
+- Maintain historical documents for context while clearly marking superseded guidance.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

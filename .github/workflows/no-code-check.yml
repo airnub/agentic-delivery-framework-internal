@@ -1,0 +1,47 @@
+name: no-code-check
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  workflow_dispatch:
+
+jobs:
+  enforce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ensure no executable code is added
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            base="${{ github.event.pull_request.base.sha }}"
+          else
+            base="$(git rev-parse HEAD^)"
+          fi
+          changed_files=$(git diff --name-only --diff-filter=AMR "$base"...HEAD)
+          if [[ -z "$changed_files" ]]; then
+            echo "No added or modified files to check."
+            exit 0
+          fi
+          violations=()
+          while IFS= read -r file; do
+            [[ -z "$file" ]] && continue
+            case "$file" in
+              docs/*|*.md|*.mmd|*.svg|*.png|*.jpg|*.jpeg|*.gif|*.webp|*.avif|*.pdf|*.drawio|*.dio)
+                continue
+                ;;
+            esac
+            if [[ "$file" =~ \.(js|jsx|ts|tsx|py|rb|go|rs|java|cs|cpp|c|h|hpp|php|swift|kt|m|scala|sh|bash|zsh|ps1|bat|sql|pl|lua|dart|erl|ex|exs|clj|cljs|coffee|groovy|gradle|nim|r|hs|ml|mli|fs|fsi|fsx|vb|wasm|ipynb|rb|rake|cob|for|f90|f95|f03|f08|asm|psm1|pm|tcl|vbproj|csproj|sln|vb|mm)$ || "$file" == Dockerfile || "$file" == dockerfile ]]; then
+              violations+=("$file")
+            fi
+          done <<< "$changed_files"
+          if (( ${#violations[@]} > 0 )); then
+            printf '::error::Disallowed executable or source files detected:%s' "\n"
+            printf '%s\n' "${violations[@]}"
+            exit 1
+          fi
+          echo "No disallowed file types detected."
+

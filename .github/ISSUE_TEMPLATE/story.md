@@ -1,6 +1,6 @@
 ---
 name: "Story"
-about: "Describe a user story with acceptance criteria"
+about: "Capture a methodology or documentation story with acceptance criteria"
 title: "story: "
 labels: [story]
 assignees: []
@@ -10,19 +10,23 @@ assignees: []
 As a ___, I want ___ so that ___.
 
 ## Acceptance Criteria
-- [ ] Criteria 1
-- [ ] Criteria 2
-- [ ] Criteria 3
+- [ ] Criterion 1
+- [ ] Criterion 2
+- [ ] Criterion 3
 
-## Sprint / Iteration
-- Target Iteration:
+## Iteration / Milestone
+- Target Iteration or milestone:
 - Dependencies / Linked Issues:
 
 ## Definition of Ready
-- [ ] Story pointed / prioritized
-- [ ] Acceptance criteria clear
-- [ ] Test strategy identified
-- [ ] Secrets/config requirements documented
+- [ ] Story prioritized and sized
+- [ ] Acceptance criteria are testable in documentation
+- [ ] Stakeholders identified (Program Director / Delivery Team editors)
+- [ ] Reference implementation impact noted (if any)
 
 ## Notes
-Additional context, designs, links.
+Additional context, diagrams, or supporting links.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

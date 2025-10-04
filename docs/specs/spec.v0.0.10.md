@@ -27,3 +27,7 @@
 
 ## 5. Acceptance
 - From a clean repo, orchestrator can: pick one Issue, spin a Codespace, start inner agent, get a PR, pass checks, merge, close Issue, stop Codespace.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

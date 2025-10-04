@@ -1,11 +1,10 @@
+# Delivery Team Prompt — Bootstrap ADF Documentation
 
-# Coding Agent Prompt — Bootstrap ADF Docs & Delivery Rails
-
-> Use this prompt with a Delivery Team agent (Aider/Continue/OpenHands/Cline) **inside a Codespace** for this repo. The agent should generate or update the documentation and Agentic Delivery Framework (ADF) rails without touching application code.
+> Use this prompt with a Delivery Team agent (Aider/Continue/OpenHands/Cline) **inside the approved workspace runtime** for this repository. The agent should generate or update methodology documentation and scaffolding without touching application code.
 
 ## High-Level Objective
 
-Create/refresh the repo’s documentation and ADF scaffolding so that the **Program Director** can pick Issues in the current **Iteration** and run the loop safely.
+Establish or refresh the repository documentation so the **Program Director** can select Issues in the active **Iteration** and run the loop safely.
 
 ## Must-Have Outputs
 
@@ -16,21 +15,21 @@ Create/refresh the repo’s documentation and ADF scaffolding so that the **Prog
    - `/docs/problem-statement.md`
    - `/docs/goals.md`
    - `/docs/roadmap.md`
-   - `/docs/specs/spec.v0.0.13.md` (semver spec)
+   - `/docs/specs/spec.v0.0.21.md` (latest semver spec)
    - `/docs/adrs/0001-architecture-dual-loop.md`
    - `/docs/naming/enterprise-friendly-naming.md`
-2. Add GitHub hygiene if missing:
-   - `.github/ISSUE_TEMPLATE/` (Epic, Story w/ acceptance criteria, Task, Change Request optional)
-   - `.github/PULL_REQUEST_TEMPLATE.md` (checklist incl. tests, links to Issue, security note)
+2. Add methodology hygiene if missing:
+   - `.github/ISSUE_TEMPLATE/` set (Story, Task, Bug, plus optional Change Request template)
+   - `.github/PULL_REQUEST_TEMPLATE.md` with documentation-focused checklist
    - `.github/CODEOWNERS` (placeholder owners)
-   - `.github/dependabot.yml` (placeholders)
-3. Add **Projects** and **Iteration** guidance to docs; do not create Projects programmatically unless instructed.
+   - `.github/dependabot.yml` (docs/dependency placeholder if required)
+3. Provide guidance in docs for selecting the appropriate platform profile (e.g., link to [docs/profiles/github.md](../profiles/github.md) for GitHub adopters). Do not automate platform setup unless explicitly instructed.
 
 ## Guardrails
 
 - Do **not** push to `main`. Create branch `docs/bootstrap-<date>`.
 - All changes via **PR** titled `docs: bootstrap agentic delivery framework documentation` with body referencing Issues.
-- Keep secrets out of files. Do not modify devcontainer or CI here unless instructed.
+- Keep secrets out of files. Do not modify devcontainer or executable workflows unless instructed.
 
 ## Visual References
 - [ADF overview flow Mermaid source](../diagrams/adf-overview-flow.mmd)
@@ -38,21 +37,25 @@ Create/refresh the repo’s documentation and ADF scaffolding so that the **Prog
 
 ## Inputs (from conversation distilled)
 
-- Program Director outside Codespaces controls lifecycle via GitHub APIs/`gh codespace ssh -c`.
-- Delivery Team agents inside Codespaces (Aider/Cline/Continue/OpenHands) iterate on Stories and open PRs.
-- Use GitHub Models (OpenAI GPT-5-Codex where available) for reasoning; remain model-agnostic.
-- Safety: never edit local machines. Everything is in Codespaces with Branch Protection + required checks + Copilot Code Review + Code Scanning.
-- Optional stack needs: Docker-in-Docker, Supabase CLI support in devcontainer.
-- ADF Iterations (Sprint/Cycle) as timeboxes; fresh Codespace per Iteration.
+- Program Director operates outside the workspace runtime and controls lifecycle via the chosen platform APIs or tooling.
+- Delivery Team agents run inside the managed workspace runtime (devcontainer, cloud IDE, etc.) and iterate on Stories before opening change requests.
+- Use platform-neutral terminology and link to the relevant profile when platform-specific guidance is needed.
+- Safety: keep work inside the governed workspace runtime with branch protection, required checks, and automated review configured per conformance level.
+- Optional stack needs: container tooling, database emulation, or other services defined in the workspace baseline.
+- ADF Iterations (Sprint/Cycle) define the timebox; reset or resume the workspace runtime per Iteration policy.
 
 ## Tasks
 
 1. Verify and (re)generate the files listed under **Must-Have Outputs** using the content and intent in this repo.
-2. Create `.github/` templates described above with succinct, high-signal checklists.
-3. Open a PR with a summary explaining how this enables the Program Director + Delivery Team dual-loop architecture.
+2. Create `.github/` templates described above with concise, policy-aligned checklists.
+3. Open a PR summarizing how the updates reinforce the Program Director + Delivery Team dual-loop architecture.
 
 ## Definition of Done
 
-- PR created from `docs/bootstrap-<date>` containing only documentation and .github templates.
-- All markdown lints pass; links work.
+- PR created from `docs/bootstrap-<date>` containing only documentation and configuration templates.
+- Markdown lint and link checks pass.
 - PR reviewed/approved; Issues closed via keywords where applicable.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

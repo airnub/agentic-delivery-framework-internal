@@ -63,3 +63,7 @@ This repo defines two cooperating agent layers inside the Agentic Delivery Frame
 - **Change Request**: PR/MR/CL depending on the selected platform.
 - **Automated Review**: any automated code review tool (examples live in platform profiles).
 - **Security Review**: SAST/DAST/dependency scanning pipelines applicable to the selected platform.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

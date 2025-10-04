@@ -1,27 +1,31 @@
 ---
 name: "Bug"
-about: "Report a defect found in the Codespaces-driven workflow"
+about: "Report an issue in the methodology/spec documentation"
 title: "bug: "
 labels: [bug]
 assignees: []
 ---
 
 ## Summary
-Describe the issue and where it was observed.
+Describe the problem and where it appears (file, section, link).
 
 ## Steps to Reproduce
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Expected vs. Actual
 - **Expected:**
 - **Actual:**
 
 ## Impact
-- [ ] Blocks sprint goal
-- [ ] Degrades developer experience
-- [ ] Security/privacy risk
+- [ ] Blocks adoption or conformance
+- [ ] Creates ambiguity in governance or policy
+- [ ] Breaks links or diagrams
 
 ## Additional Context
-Logs, screenshots, related Issues/PRs.
+Relevant links, screenshots, or reference implementation notes.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

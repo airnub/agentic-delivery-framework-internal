@@ -27,3 +27,7 @@
 
 ## 5. Acceptance
 - From a clean repo, Program Director can: pick one Issue, spin a Codespace, start the Delivery Team, get a PR, pass checks, merge, close Issue, stop Codespace.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

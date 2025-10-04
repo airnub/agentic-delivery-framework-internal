@@ -1,6 +1,6 @@
 # ADR 0001: Dual-Loop Architecture (Program Director + Delivery Team)
 
-> Status: Accepted — superseded terms retained historically; see spec v0.0.20 for neutral nomenclature.
+> Status: Accepted — superseded terms retained historically; see spec v0.0.21 for neutral nomenclature.
 > Also Known As: formerly Agentic-Agile dual-loop (Outer Orchestrator / Inner Dev Agents).
 
 ## Context
@@ -58,3 +58,7 @@ _Figure: Sequence diagram documents the Program Director ↔ Delivery Team inter
 
 - **Pros**: safety (no unmanaged edits), governance through change request gates, model choice via open APIs, reproducible environments, enterprise naming alignment.
 - **Cons**: we own orchestration costs (workspace runtime minutes, warm starts, secrets). Mitigate with idle shutdowns, budgets, and telemetry per [Conformance L3](../CONFORMANCE.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.
