@@ -19,7 +19,7 @@ The Agentic Delivery Framework brings together two collaborating roles:
 
 ## Spec & Conformance
 
-- [ADF Specification v0.2.0](docs/specs/spec.v0.2.0.md)
+- [ADF Specification v0.0.20](docs/specs/spec.v0.0.20.md)
 - [Conformance Levels (L1–L3)](docs/CONFORMANCE.md)
 
 ## Platform Profiles
@@ -66,7 +66,7 @@ Program Director (outer loop) orchestrates Iterations and workspace runtimes; th
 - `docs/problem-statement.md` – challenges with waterfall agents, unsafe local writes, and vendor lock-in.
 - `docs/goals.md` – measurable methodology goals and guardrails.
 - `docs/roadmap.md` – evolution of conformance, governance, and profile support.
-- `docs/specs/spec.v0.2.0.md` – semver-tracked specification for orchestration and Delivery Team loop.
+- `docs/specs/spec.v0.0.20.md` – semver-tracked specification for orchestration and Delivery Team loop.
 - `docs/specs/CHANGELOG.md` – release notes for specification revisions.
 - `docs/CONFORMANCE.md` – normative conformance levels (L1–L3).
 - `docs/PROFILES.md` – platform profiles and mappings to neutral terminology.

@@ -1,4 +1,4 @@
-# Spec v0.1.3 — MVP (docs-only repo rename)
+# Spec v0.0.13 — MVP (docs-only repo rename)
 
 ## Changelog
 

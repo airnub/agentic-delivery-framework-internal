@@ -1,13 +1,13 @@
 # Goals (MVP → Near-term)
 
-## MVP (v0.1.x)
+## MVP (v0.0.1x)
 - ✅ Two-loop architecture documented and reproducible.
 - ✅ Program Director can **create/reuse/stop** a workspace runtime and **start** the Delivery Team.
 - ✅ Delivery Team works on a single work item, opens a change request with “Closes <work-item>”.
 - ✅ Change request gates: branch protection + required checks + automated review + human review.
 - ✅ Secrets stored in managed vaults; **no unmanaged local execution**.
 
-## Near-term (v0.2.x)
+## Near-term (v0.0.2x)
 - 🔶 Work management Iterations drive cadence automatically.
 - 🔶 Warm-start images enabled; < 5 minutes cold-start target for workspace runtimes.
 - 🔶 Story templates with acceptance criteria and test stubs.

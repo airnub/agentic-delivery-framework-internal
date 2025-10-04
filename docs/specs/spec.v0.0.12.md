@@ -1,4 +1,4 @@
-# Spec v0.1.2 — MVP (documentation enhancements)
+# Spec v0.0.12 — MVP (documentation enhancements)
 
 ## 1. Architecture
 - **Program Director** (service or GitHub App) manages Iterations and Codespaces lifecycle.
