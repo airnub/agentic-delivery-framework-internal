@@ -71,7 +71,7 @@
 
 ---
 
-## Planning & Delivery Flow (formerly “dual-loop”)
+## Planning & Delivery Flow
 1. The Delivery Lead and Product Owner align on the Sprint Goal and ordered PBIs.
 2. The Delivery Lead prepares or resumes a workspace runtime, briefs the Developers, and ensures WIP limits are respected.
 3. Developers iterate (plan → edit → run → test) inside the runtime, raising Change Requests for every slice.
@@ -79,8 +79,6 @@
 5. Story Previews provide reviewers with runnable demos before Stories move to Done.
 6. Delivery Pulse publishes the daily Pulse Increment, surfaces impediments, and steers next actions.
 7. After merge, the Delivery Lead updates the work management system, captures telemetry, and may hibernate or stop the workspace runtime.
-
-> Historical terms such as “Program Director” or “dual-loop” remain in archived specs for provenance. Current work SHOULD use the vocabulary above.
 
 ---
 

@@ -61,7 +61,8 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 - **Profiles:** Platform-specific terminology and automation live in [docs/PROFILES.md](../PROFILES.md) and companion profile files (e.g., [GitHub profile](../profiles/github.md)). Core spec remains vendor-neutral.
 
 ## 9. References & History
-- Previous specs (v0.0.10–v0.0.21) retain historical terminology (Program Director, Daily Scrum) for provenance.
+- Previous specs (v0.0.10–v0.0.21) retain historical vocabulary for provenance; consult repository history if earlier naming is
+  required.
 - Companion implementations: see [airnub/adf-github-suite](https://github.com/airnub/adf-github-suite) for a GitHub-aligned stack.
 
 ---
