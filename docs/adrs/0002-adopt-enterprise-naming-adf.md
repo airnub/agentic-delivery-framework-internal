@@ -5,6 +5,8 @@
 
 Accepted
 
+> Repository renamed from `airnub/agentic-agile` to `airnub/agentic-delivery-framework` (docs-only update; no change to decision).
+
 ## Context
 
 Early documentation used “Agentic-Agile,” “Outer Orchestrator,” and “Inner Dev Agents.”

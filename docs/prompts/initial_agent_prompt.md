@@ -16,7 +16,7 @@ Create/refresh the repo’s documentation and ADF scaffolding so that the **Prog
    - `/docs/problem-statement.md`
    - `/docs/goals.md`
    - `/docs/roadmap.md`
-   - `/docs/specs/spec.v0.1.1.md` (semver spec)
+   - `/docs/specs/spec.v0.1.3.md` (semver spec)
    - `/docs/adrs/0001-architecture-dual-loop.md`
    - `/docs/naming/enterprise-friendly-naming.md`
 2. Add GitHub hygiene if missing:
