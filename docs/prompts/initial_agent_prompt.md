@@ -32,6 +32,10 @@ Create/refresh the repo’s documentation and ADF scaffolding so that the **Prog
 - All changes via **PR** titled `docs: bootstrap agentic delivery framework documentation` with body referencing Issues.
 - Keep secrets out of files. Do not modify devcontainer or CI here unless instructed.
 
+## Visual References
+- [ADF overview flow Mermaid source](../diagrams/adf-overview-flow.mmd)
+- [ADF dual-loop sequence Mermaid source](../diagrams/adf-sequence.mmd)
+
 ## Inputs (from conversation distilled)
 
 - Program Director outside Codespaces controls lifecycle via GitHub APIs/`gh codespace ssh -c`.

@@ -19,6 +19,38 @@ Adopt a **dual-loop** architecture:
 - **Delivery Team** (engineering layer) runs inside Codespaces and implements Stories via
   PRs under strict gates.
 
+## Diagrams
+- [Mermaid overview flow](../diagrams/adf-overview-flow.mmd)
+- [Mermaid dual-loop sequence](../diagrams/adf-sequence.mmd)
+
+```mermaid
+sequenceDiagram
+  %% Agentic Delivery Framework — Dual-Loop Sequence
+  participant PD as Program Director (Outer)
+  participant GH as GitHub Projects (Iterations)
+  participant CS as GitHub Codespaces
+  participant DT as Delivery Team (Inner)
+  participant PR as Pull Request Gates
+
+  PD->>GH: Select active Iteration & Stories
+  PD->>CS: Create/Resume Codespace (prebuilds, secrets)
+  PD->>CS: Start DT via `gh codespace ssh -c`
+  DT->>CS: git switch -c feat/<issue-key>
+  DT->>CS: Implement Tasks (edit/run/test)
+  DT->>PR: Open PR with "Closes #<issue-id>"
+  PR->>PR: CI / QA Verification / Security Review / Copilot Review / Human Review
+  alt All gates pass
+    PR->>CS: Merge to default branch
+    PD->>GH: Move Story to Done
+    PD->>CS: Stop/Hibernate Codespace
+  else Any gate fails
+    PR->>DT: Comments & failing checks
+    DT->>CS: Iterate fixes on branch
+  end
+  PD->>GH: Iteration Review & Plan Next
+```
+_Figure: Sequence diagram documents the Program Director ↔ Delivery Team interactions and review gates (formerly Agentic-Agile dual-loop)._
+
 ## Alternatives Considered
 
 - **Managed cloud agents** (OpenAI Codex, Anthropic Computer Use, Google/Gemini IDEs):
