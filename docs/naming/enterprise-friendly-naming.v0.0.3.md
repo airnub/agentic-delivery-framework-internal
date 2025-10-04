@@ -69,7 +69,7 @@ A story cannot be set to Done unless its **Change Request** includes:
 |---|---:|---|
 | **Sprint** *(aka Iteration)* | 2–5 days (allow 1-day) | One Sprint Goal; multiple stories may complete per day. |
 | **Sprint Planning** | 30–90 min (short sprints) | Set Sprint Goal; forecast PBIs; plan first slices. |
-| **Delivery Pulse** *(replaces Daily Scrum)* | 10–15 min human + **overnight automated pulse** | Inspect status/risks; publish **Pulse Increment**; set next actions. |
+| **Delivery Pulse** | 10–15 min human + **overnight automated pulse** | Inspect status/risks; publish **Pulse Increment**; set next actions. |
 | **Sprint Review** | 30–60 min | Demo Increment with stakeholders; adapt Backlog. |
 | **Sprint Retrospective** | 20–40 min | Improve ways of working, tools, guardrails. |
 | **Backlog Refinement** | continuous | Prepare PBIs: clarify, split, size, add acceptance tests. |

@@ -5,14 +5,14 @@
 
 ## Context
 
-Earlier documentation referenced a Daily Scrum cadence and focused on merge-ready increments only. Enterprises adopting agentic teams asked for:
+Earlier documentation referenced a daily cadence focused solely on merge-ready increments. Enterprises adopting agentic teams asked for:
 - Automation-aware language that still maps to Scrum.
 - Clear expectations for per-story demos before marking work Done.
 - Alignment of change request gates with performance guardrails.
 
 ## Decision
 
-1. **Delivery Pulse replaces Daily Scrum.**
+1. **Adopt Delivery Pulse as the daily cadence.**
    - Automated overnight pulse generates summaries, runs tests/scans, and prepares a Pulse Increment demo build.
    - Human sync (10–15 minutes) inspects the automated output, surfaces impediments, and agrees on next steps.
 2. **Introduce Story Preview artifact.**
@@ -30,7 +30,7 @@ Earlier documentation referenced a Daily Scrum cadence and focused on merge-read
 - Repo-wide vocabulary now references Delivery Lead, Delivery Pulse, Story Preview, and Pulse Increment.
 - Conformance levels include evidence for Story Previews and Pulse Increments.
 - Templates and checklists call out Performance Budget verification and WIP policy knobs.
-- Historical references to “Daily Scrum” or “two-loop system” remain only for provenance in archived specs.
+- Historical references remain only in archived specs.
 
 ## Related Documents
 

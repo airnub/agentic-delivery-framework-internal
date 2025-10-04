@@ -45,7 +45,7 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 ## 6. Workspace Runtime Baseline
 - Provide reproducible environments (devcontainer, VM image, cloud IDE, VDI) with required dependencies, tooling, and automation.
 - Configure least-privilege access; ensure secrets flow through managed vaults.
-- Install Delivery Team tooling (Aider, Cline, Continue, OpenHands, etc.) and onboarding scripts for agents/humans.
+- Install Developer tooling (Aider, Cline, Continue, OpenHands, etc.) and onboarding scripts for Humans / AI / Hybrid pairs.
 - Capture telemetry (runtime utilization, spend, gate durations) for Delivery Pulse inspection and Conformance L3.
 
 ## 7. Planning & Delivery Flow
@@ -61,7 +61,8 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 - **Profiles:** Platform-specific terminology and automation live in [docs/PROFILES.md](../PROFILES.md) and companion profile files (e.g., [GitHub profile](../profiles/github.md)). Core spec remains vendor-neutral.
 
 ## 9. References & History
-- Previous specs (v0.0.10–v0.0.21) retain historical terminology (Program Director, Daily Scrum) for provenance.
+- Previous specs (v0.0.10–v0.0.21) retain historical vocabulary for provenance; consult repository history if earlier naming is
+  required.
 - Companion implementations: see [airnub/adf-github-suite](https://github.com/airnub/adf-github-suite) for a GitHub-aligned stack.
 
 ---
