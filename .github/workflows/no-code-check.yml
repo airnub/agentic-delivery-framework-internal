@@ -45,3 +45,5 @@ jobs:
           fi
           echo "No disallowed file types detected."
 
+# This methodology/spec is licensed under CC BY-SA 4.0.
+
