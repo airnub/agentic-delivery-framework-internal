@@ -5,6 +5,8 @@
 
 ## Context
 
+> Repository renamed from `airnub/agentic-agile` to `airnub/agentic-delivery-framework` (docs-only update; no behavioral changes).
+
 We need safe, auditable agentic development that maps onto ADF Iterations and keeps all
 execution inside GitHub’s ecosystem (existing NDAs, org policies, and audit).
 

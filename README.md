@@ -2,7 +2,7 @@
 
 A GitHub‑native framework for **agentic software delivery** that enterprises can adopt without changing their governance model.
 
-> Formerly **Agentic‑Agile**.
+> Formerly **agentic-agile**.
 
 - **Program Director (Product/Program layer)** runs **outside Codespaces**. It spins or reuses Codespaces per Iteration/story, seeds tasks, watches progress via Projects (Iterations), and gates merges with PR rules and Copilot Code Review.
 - **Delivery Team (Engineering layer)** runs **inside Codespaces** (your devcontainer) using tools like **Aider**, **Cline**, **Continue**, or **OpenHands**. They iterate on stories, run the stack (Docker/Supabase), push branches, and open PRs. **No local machine** is touched.
@@ -29,7 +29,7 @@ A GitHub‑native framework for **agentic software delivery** that enterprises c
 - `docs/problem-statement.md` – what breaks today (waterfallish agents, unsafe local writes).
 - `docs/goals.md` – measurable MVP goals and guardrails.
 - `docs/roadmap.md` – phased plan (P0→P3).
-- `docs/specs/spec.v0.1.1.md` – semver MVP spec for orchestration + Delivery Team loop (naming update).
+- `docs/specs/spec.v0.1.3.md` – semver MVP spec for orchestration + Delivery Team loop (naming update).
 - `docs/adrs/0001-architecture-dual-loop.md` – ADR for dual‑loop (Program Director + Codespaces).
 - `docs/prompts/initial_agent_prompt.md` – comprehensive coding‑agent prompt to (re)generate docs and wire the loop.
 
