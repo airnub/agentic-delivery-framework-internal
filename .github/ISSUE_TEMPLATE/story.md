@@ -26,3 +26,5 @@ As a ___, I want ___ so that ___.
 
 ## Notes
 Additional context, designs, links.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

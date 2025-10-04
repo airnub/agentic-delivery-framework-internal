@@ -24,3 +24,5 @@ For an opinionated GitHub implementation, see [airnub/adf-github-suite](https://
 - Security review may include CodeQL, dependency review, or partner scanners triggered via GitHub Actions.
 
 To contribute updates or clarifications to this profile, follow the process in [CONTRIBUTING.md](../CONTRIBUTING.md) and the [RFC guidelines](../RFCs/README.md).
+
+This methodology/spec is licensed under CC BY-SA 4.0.

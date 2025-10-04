@@ -1,5 +1,8 @@
 # ADF Specification Changelog
 
+## v0.2.1 — 2025-10-04
+- Docs/legal update: adopt CC BY-SA 4.0 for the methodology/spec; clarify the docs-only policy; add governance and trademark guidance. No normative behavior change relative to v0.2.0.
+
 ## v0.2.0 — 2025-10-04
 - Methodology refactor: neutral terminology, platform profiles, and conformance references.
 - No normative behavior change relative to v0.1.3.
@@ -9,3 +12,5 @@
 
 ## v0.1.2 and earlier
 - See respective spec files (`spec.v0.1.x.md`) for historical GitHub-centric framing.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

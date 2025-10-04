@@ -25,3 +25,5 @@ Describe the issue and where it was observed.
 
 ## Additional Context
 Logs, screenshots, related Issues/PRs.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

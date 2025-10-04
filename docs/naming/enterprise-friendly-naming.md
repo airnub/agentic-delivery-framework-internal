@@ -86,3 +86,5 @@ Pick the aesthetic that fits your culture; each keeps the same dual‑loop model
 
 ## Recommendation
 Adopt **Agentic Delivery Framework (ADF)** with **Program Director** (outer) and **Delivery Team** (inner), using **Iteration** for the timebox and **Epic/Story/Task** for work items. It reads naturally for directors, PM/PMO, product, scrum, dev, and QA—without locking you into a single methodology.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

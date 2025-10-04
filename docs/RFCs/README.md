@@ -23,3 +23,5 @@ Minor clarifications, typo fixes, or non-normative examples typically do **not**
 - Accepted/Rejected RFCs remain in this directory for historical context.
 
 Refer to [CONTRIBUTING.md](../CONTRIBUTING.md) for expectations on change requests linked to RFCs.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

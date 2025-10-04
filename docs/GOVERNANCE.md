@@ -1,26 +1,27 @@
 # Governance
 
-## Editors & Stewards
-
-- **Program Director Stewards**: maintain the methodology, curate releases, and coordinate profile updates.
-- **Delivery Team Stewards**: evaluate tooling changes, ensure workspace runtime guidance stays current.
-- Editors are appointed by the maintainers of the Agentic Delivery Framework repositories. Additions or removals are proposed via change request and confirmed through the RFC process.
+## Maintainers & Editors
+- **Maintainers** steward the methodology direction, approve editor appointments, and ensure trademark and licensing obligations are met.
+- **Program Director Editors** focus on orchestration, governance, and conformance materials.
+- **Delivery Team Editors** focus on workspace runtime guidance, change-request execution, and safety rails.
+- Editor updates (additions/removals) are proposed via pull request and require approval from the maintainers plus consensus from both editor groups.
 
 ## Decision Process
-
-1. **Proposal** — Contributors open a change request referencing an RFC (when required) or a documentation update.
-2. **Review** — Editors assign reviewers from both steward groups to ensure methodology and execution perspectives are covered.
-3. **Consensus** — Changes are merged when at least one Program Director Steward and one Delivery Team Steward approve, and all required gates pass.
-4. **Appeals** — Unresolved disagreements escalate to the maintainer group, which issues a final decision documented in an ADR.
+1. **Proposal** — Open a pull request describing the change and referencing an RFC when normative updates are proposed.
+2. **Review** — At least one Program Director Editor and one Delivery Team Editor must review normative changes; non-normative updates require a single editor sign-off.
+3. **Consensus** — Agreement is recorded via approvals. Disagreements escalate to the maintainer group for resolution with a documented decision (e.g., ADR or governance note).
+4. **Publication** — On merge, editors update the specification version, changelog, and relevant roadmap items as needed.
 
 ## Release Cadence
-
-- Specification releases follow semantic versioning. Minor bumps (v0.x.y) capture terminology or structural updates; major bumps introduce normative changes.
-- Editors target a quarterly review of open RFCs and profile updates.
-- Emergency releases MAY occur to address security or governance issues with immediate effect.
+- The specification follows semantic versioning. **Patch releases** cover legal, licensing, or clarifying documentation updates with no normative change. **Minor releases** introduce terminology or structural updates. **Major releases** introduce new normative behavior.
+- Editors aim to bundle accepted RFCs into at least quarterly releases; urgent governance or safety updates may ship out-of-band.
 
 ## Transparency
+- Meeting notes, editor decisions, and release plans are documented in this repository (e.g., `docs/governance-notes/` when required).
+- RFC dispositions and roadmap changes cite the relevant pull request or ADR for traceability.
 
-- Meeting notes, release plans, and governance updates MUST be recorded in the repository (docs/governance-notes/ when needed).
-- Profiles and conformance clarifications SHOULD reference the RFC that introduced them.
-- Historical documents remain accessible to show the evolution from platform-specific framing to the vendor-neutral methodology.
+## Stewardship Changes
+- Community members may nominate new editors via RFC. Maintainers review nominations alongside documented participation and adherence to the methodology.
+- Editors may be removed for inactivity, policy violations, or repeated failure to uphold the no-code policy. Removals are documented with rationale.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

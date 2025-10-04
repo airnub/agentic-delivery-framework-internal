@@ -20,3 +20,5 @@ Related stories, PRs, documents.
 - [ ] Tests/automation updated (if needed)
 - [ ] Documentation updated (if needed)
 - [ ] Reviewed with stakeholder/agent lead
+
+This methodology/spec is licensed under CC BY-SA 4.0.

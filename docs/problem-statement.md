@@ -11,7 +11,9 @@ Current “AI builds my app” approaches feel **waterfall**: one giant plan, on
 We require a system that:
 - Executes **only in a governed workspace runtime**, under enterprise policies and audit.
 - Is **ADF-first** (Epics/Stories/Tasks, Iterations) with observable state in the work management system and change requests.
-- Provides **full environment control** (devcontainer, Docker-in-Docker, Supabase optional) regardless of platform vendor.
+- Provides **full environment control** (devcontainer, Docker-in-Docker, optional managed services) regardless of platform vendor.
 - Uses **automated review** + branch protection + security review as guardrails.
 - Allows **multi-model** reasoning across commercial and open models.
 - Speaks enterprise language—**Program Director** and **Delivery Team**—so PMO, product, security, and engineering stay aligned with the Agentic Delivery Framework.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

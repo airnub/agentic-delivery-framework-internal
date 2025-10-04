@@ -42,7 +42,7 @@ Create/refresh the repo’s documentation and ADF scaffolding so that the **Prog
 - Delivery Team agents inside Codespaces (Aider/Cline/Continue/OpenHands) iterate on Stories and open PRs.
 - Use GitHub Models (OpenAI GPT-5-Codex where available) for reasoning; remain model-agnostic.
 - Safety: never edit local machines. Everything is in Codespaces with Branch Protection + required checks + Copilot Code Review + Code Scanning.
-- Optional stack needs: Docker-in-Docker, Supabase CLI support in devcontainer.
+- Optional stack needs: Docker-in-Docker, database tooling support in the devcontainer.
 - ADF Iterations (Sprint/Cycle) as timeboxes; fresh Codespace per Iteration.
 
 ## Tasks
@@ -56,3 +56,5 @@ Create/refresh the repo’s documentation and ADF scaffolding so that the **Prog
 - PR created from `docs/bootstrap-<date>` containing only documentation and .github templates.
 - All markdown lints pass; links work.
 - PR reviewed/approved; Issues closed via keywords where applicable.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

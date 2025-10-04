@@ -18,3 +18,5 @@
 - **Velocity**: median time work item → merged change request < 24h (pilot), CI pass rate > 95%.
 - **Reproducibility**: new workspace runtime yields green CI on fresh clone.
 - **Cost**: idle workspace runtimes stopped within 30 minutes; monthly spend within budget signals.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

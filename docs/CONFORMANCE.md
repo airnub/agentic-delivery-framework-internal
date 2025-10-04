@@ -41,3 +41,5 @@ Organizations **SHOULD**:
 
 Organizations **MAY**:
 - Integrate anomaly detection or predictive scaling for workspace runtimes based on Iteration forecasts.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

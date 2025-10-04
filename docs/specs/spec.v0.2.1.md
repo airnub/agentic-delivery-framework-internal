@@ -1,8 +1,9 @@
-# Spec v0.2.0 — Methodology Terminology Refactor
+# Spec v0.2.1 — Methodology Terminology Refactor
 
 ## Changelog
 
-- Structural/terminology update: reframed ADF as a vendor-neutral methodology with platform profiles. No behavioral change relative to v0.1.3.
+- Docs/legal update: adopt CC BY-SA 4.0 for the methodology/spec; clarify the docs-only policy; add governance and trademark guidance. No normative behavior change relative to v0.2.0.
+- Structural/terminology update (v0.2.0): reframed ADF as a vendor-neutral methodology with platform profiles. No behavioral change relative to v0.1.3.
 - Introduced references to [Conformance Levels](../CONFORMANCE.md) and [Platform Profiles](../PROFILES.md).
 
 ## 1. Architecture
@@ -23,7 +24,7 @@
 - **Behavior**: branch from protected default, implement acceptance criteria, run tests/linters, and open a change request referencing the work item; iterate until all gates pass.
 
 ## 3. Workspace Runtime Baseline
-- Provide reproducible environments (e.g., devcontainer, VM image) with source control tooling, runtime dependencies, and optional services (e.g., databases, Supabase, Docker-in-Docker).
+- Provide reproducible environments (e.g., devcontainer, VM image) with source control tooling, runtime dependencies, and optional services (e.g., databases, container runtimes).
 - Configure network exposure according to policy; prefer least privilege.
 - Install selected Delivery Team tooling (Aider, Cline, Continue, OpenHands, or equivalents) and bootstrap scripts to brief agents.
 
@@ -31,6 +32,7 @@
 - Branch protection on the primary branch with required CI/tests, automated review, security scanning, and human approval.
 - Document gate results and retain change request history for audit.
 - Apply idle shutdown policies and telemetry consistent with [L3 Conformance](../CONFORMANCE.md).
+- Maintain a documentation-only repository for the methodology/spec; host executable reference implementations in companion repositories under their own software licenses.
 
 ## 5. Acceptance Criteria
 - From a clean repository, the Program Director can select a work item, provision or resume a workspace runtime, start the Delivery Team, obtain a change request that passes required gates, merge it, update the work management system, and hibernate/stop the workspace runtime.

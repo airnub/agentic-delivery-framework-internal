@@ -37,7 +37,7 @@ This repo defines two cooperating agent layers inside the Agentic Delivery Frame
 - **Continue (ext/CLI)** – extensible agent framework with MCP tools and custom tools.
 - **OpenHands (OpenDevin)** – sandboxed “AI engineer,” runs commands/tests and proposes change requests.
 
-**Responsible for**: cloning Story context, running the stack (Docker/Supabase if enabled), writing code and tests, opening change requests that **reference and close** Stories/Tasks, and iterating until acceptance.
+**Responsible for**: cloning Story context, running the stack (containers or managed services if enabled), writing code and tests, opening change requests that **reference and close** Stories/Tasks, and iterating until acceptance.
 
 **Safety rails**:
 
@@ -63,3 +63,5 @@ This repo defines two cooperating agent layers inside the Agentic Delivery Frame
 - **Change Request**: PR/MR/CL depending on the selected platform.
 - **Automated Review**: any automated code review tool (examples live in platform profiles).
 - **Security Review**: SAST/DAST/dependency scanning pipelines applicable to the selected platform.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

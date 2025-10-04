@@ -12,3 +12,5 @@
 - [ ] Copilot Code Review requested
 - [ ] Required checks passing (CI, lint, CodeQL, etc.)
 - [ ] Documentation updated (if needed)
+
+This methodology/spec is licensed under CC BY-SA 4.0.

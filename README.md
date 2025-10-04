@@ -1,13 +1,14 @@
 # Agentic Delivery Framework (ADF) — Methodology
 
-A vendor-neutral methodology for **agentic software delivery** that enterprises can adopt without changing governance.
+**Licensed under CC BY-SA 4.0.**
 
-> Formerly positioned as a GitHub-native delivery framework; historic references remain in prior spec versions and profiles.
+The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for agentic software delivery that coordinates a Program Director and Delivery Team through iterative planning, change-request gates, and workspace runtime controls.
 
-The Agentic Delivery Framework brings together two collaborating roles:
+This repository contains the ADF methodology and specification only. It captures governance, conformance, and guidance so teams can adopt the framework regardless of tooling.
 
-- **Program Director (outer orchestration)** operates outside the workspace runtime to select Iterations, manage work items, govern change requests, and monitor cost/safety.
-- **Delivery Team (inner execution)** works inside a workspace runtime to implement Stories/Tasks, run tests, and iterate on change requests until acceptance.
+## Implementations & Code
+
+No executable code lives in this repository. Reference implementations are maintained separately, such as the [ADF GitHub Suite](https://github.com/airnub/adf-github-suite), and are governed by their own software licenses (e.g., MIT or Apache-2.0).
 
 ## Core Concepts
 
@@ -19,17 +20,14 @@ The Agentic Delivery Framework brings together two collaborating roles:
 
 ## Spec & Conformance
 
-- [ADF Specification v0.2.0](docs/specs/spec.v0.2.0.md)
+- [ADF Specification v0.2.1](docs/specs/spec.v0.2.1.md)
+- [Specification Changelog](docs/specs/CHANGELOG.md)
 - [Conformance Levels (L1–L3)](docs/CONFORMANCE.md)
 
 ## Platform Profiles
 
 - [Profiles Overview](docs/PROFILES.md)
 - [GitHub Profile Mapping](docs/profiles/github.md)
-
-## Implementations
-
-- [ADF GitHub Suite](https://github.com/airnub/adf-github-suite) — example implementation aligned with the GitHub profile (informative).
 
 ## Method Diagram
 
@@ -61,25 +59,32 @@ Program Director (outer loop) orchestrates Iterations and workspace runtimes; th
 
 ## What’s Inside
 
-- `AGENTS.md` – roles, capabilities, and safety rails for the Program Director and Delivery Team.
-- `docs/vision.md` – long-term method outcomes (safety, auditability, iterative delivery).
-- `docs/problem-statement.md` – challenges with waterfall agents, unsafe local writes, and vendor lock-in.
-- `docs/goals.md` – measurable methodology goals and guardrails.
-- `docs/roadmap.md` – evolution of conformance, governance, and profile support.
-- `docs/specs/spec.v0.2.0.md` – semver-tracked specification for orchestration and Delivery Team loop.
-- `docs/specs/CHANGELOG.md` – release notes for specification revisions.
-- `docs/CONFORMANCE.md` – normative conformance levels (L1–L3).
-- `docs/PROFILES.md` – platform profiles and mappings to neutral terminology.
-- `docs/profiles/github.md` – informative mapping for GitHub implementations; links to example tooling.
-- `docs/adrs/0001-architecture-dual-loop.md` & `docs/adrs/0002-methodology-reframe.md` – architectural decisions and methodology evolution.
-- `docs/prompts/initial_methodology_prompt.md` – initial operator prompt for neutral methodology adoption.
+- `LICENSE` & `NOTICE` — CC BY-SA 4.0 licensing summary.
+- `TRADEMARKS.md` — use of the "Agentic Delivery Framework" and "ADF" marks.
+- `AGENTS.md` — roles, capabilities, and safety rails for the Program Director and Delivery Team.
+- `docs/NO-CODE-POLICY.md` — policy that this repository remains methodology/spec only.
+- `docs/vision.md` — long-term method outcomes (safety, auditability, iterative delivery).
+- `docs/problem-statement.md` — challenges with waterfall agents, unsafe local writes, and vendor lock-in.
+- `docs/goals.md` — measurable methodology goals and guardrails.
+- `docs/roadmap.md` — evolution of conformance, governance, and profile support.
+- `docs/specs/spec.v0.2.1.md` — semver-tracked specification for orchestration and Delivery Team loop.
+- `docs/specs/CHANGELOG.md` — release notes for specification revisions.
+- `docs/CONFORMANCE.md` — normative conformance levels (L1–L3).
+- `docs/PROFILES.md` — platform profiles and mappings to neutral terminology.
+- `docs/profiles/github.md` — informative mapping for GitHub implementations; links to example tooling.
+- `docs/adrs/0001-architecture-dual-loop.md` & `docs/adrs/0002-methodology-reframe.md` — architectural decisions and methodology evolution.
+- `docs/prompts/initial_methodology_prompt.md` — initial operator prompt for neutral methodology adoption.
+- `docs/RFCs/README.md` & `docs/RFCs/0000-template.md` — RFC process and template for proposing normative changes.
 
 ## Governance & Contribution
 
-- [Governance](docs/GOVERNANCE.md) – editors, decision process, and release cadence.
-- [Contributing](docs/CONTRIBUTING.md) – propose changes via change requests and RFCs.
-- [RFC Process](docs/RFCs/README.md) – submit RFCs using the provided template.
+- [Governance](docs/GOVERNANCE.md) — editors, decision process, and release cadence.
+- [Contributing](docs/CONTRIBUTING.md) — propose changes via change requests and RFCs.
+- [RFC Process](docs/RFCs/README.md) — submit RFCs using the provided template.
+- [Trademark Guidelines](TRADEMARKS.md) — usage of the Agentic Delivery Framework marks.
 
 ## Status
 
 Documentation scaffold for the vendor-neutral methodology. Platform-specific implementations live in companion repositories and profiles; use the GitHub profile for the `adf-github-suite` example stack.
+
+This methodology/spec is licensed under CC BY-SA 4.0.

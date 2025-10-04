@@ -10,3 +10,5 @@ Use this prompt to onboard agents or operators to the vendor-neutral Agentic Del
 6. Submit improvements through change requests that follow [CONTRIBUTING.md](../CONTRIBUTING.md) and, when needed, the [RFC process](../RFCs/README.md).
 
 _Distribute this prompt alongside local runbooks or workspace runtime setup instructions._
+
+This methodology/spec is licensed under CC BY-SA 4.0.

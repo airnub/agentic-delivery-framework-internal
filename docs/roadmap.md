@@ -47,3 +47,5 @@ flowchart TD
 Telemetry and budget controls attach at workspace runtime creation/resume (nodes C1/C2) and at hibernate/stop (node H) so the Program Director can meter spend across Iterations.
 
 _Figure: Overview flow anchors roadmap stages to the outer Program Director loop and inner Delivery Team cadence using neutral terminology. Formerly Agentic-Agile iteration flow._
+
+This methodology/spec is licensed under CC BY-SA 4.0.
