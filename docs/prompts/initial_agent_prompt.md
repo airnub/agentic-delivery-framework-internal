@@ -1,10 +1,10 @@
-# Delivery Team Prompt — Bootstrap ADF Documentation
+# Developers Prompt — Bootstrap ADF Documentation
 
-> Use this prompt with a Delivery Team agent (Aider/Continue/OpenHands/Cline) **inside the approved workspace runtime** for this repository. The agent should generate or update methodology documentation and scaffolding without touching application code.
+> Use this prompt with Developer agents (Aider/Continue/OpenHands/Cline) **inside the approved workspace runtime** for this repository. The agent should generate or update methodology documentation and scaffolding without touching application code.
 
 ## High-Level Objective
 
-Establish or refresh the repository documentation so the **Delivery Lead** can select Issues in the active **Sprint (aka Iteration)** and run the loop safely.
+Establish or refresh the repository documentation so the **Delivery Lead**, **Product Owner**, and **Developers** can operate each **Sprint (aka Iteration)** safely with Delivery Pulse cadences and inspectable artifacts.
 
 ## Must-Have Outputs
 
@@ -38,11 +38,12 @@ Establish or refresh the repository documentation so the **Delivery Lead** can s
 ## Inputs (from conversation distilled)
 
 - Delivery Lead operates outside the workspace runtime and controls lifecycle via the chosen platform APIs or tooling.
-- Delivery Team agents run inside the managed workspace runtime (devcontainer, cloud IDE, etc.) and iterate on Stories before opening change requests.
+- Product Owner curates the Product Goal and Product Backlog; collaborate on Story Previews and Sprint Reviews.
+- Developers (Human / AI / Hybrid) run inside the managed workspace runtime (devcontainer, cloud IDE, etc.), produce Story Previews, and ensure CR gates plus Performance Budget checks pass before merge.
 - Use platform-neutral terminology and link to the relevant profile when platform-specific guidance is needed.
-- Safety: keep work inside the governed workspace runtime with branch protection, required checks, and automated review configured per conformance level.
+- Safety: keep work inside the governed workspace runtime with branch protection, required checks, automated review, Delivery Pulse reporting, and WIP limits configured per conformance level.
 - Optional stack needs: container tooling, database emulation, or other services defined in the workspace baseline.
-- ADF Iterations (Sprint/Cycle) define the timebox; reset or resume the workspace runtime per Iteration policy.
+- ADF Sprints (aka Iterations) define the timebox; reset or resume the workspace runtime per Sprint policy and publish a daily Pulse Increment.
 
 ## Tasks
 
