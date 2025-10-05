@@ -9,7 +9,7 @@
 ## 1) Principles carried forward
 - **Empiricism:** Transparency → Inspection → Adaptation.
 - **Few simple rules:** Use only what’s necessary to ship safe, valuable increments quickly.
-- **Method ≠ implementation:** This doc avoids runtime details (e.g., “two-loop systems,” vendor features). Those live in platform profiles/implementations.
+- **Method ≠ implementation:** This doc avoids runtime details (e.g., orchestration service specifics). Those live in platform profiles/implementations.
 
 ---
 
@@ -68,7 +68,7 @@ A story cannot be set to Done unless its **Change Request** includes:
 |---|---:|---|
 | **Sprint** *(aka Iteration)* | 2–5 days (allow 1-day) | One Sprint Goal; multiple stories may complete per day. |
 | **Sprint Planning** | 30–90 min (short sprints) | Set Sprint Goal; forecast PBIs; plan first slices. |
-| **Delivery Pulse** *(replaces Daily Scrum)* | 10–15 min human + **overnight automated pulse** | Inspect status/risks; publish **Pulse Increment**; set next actions. |
+| **Delivery Pulse** *(replaces the Scrum Daily event)* | 10–15 min human + **overnight automated pulse** | Inspect status/risks; publish **Pulse Increment**; set next actions and WIP adjustments. |
 | **Sprint Review** | 30–60 min | Demo Increment with stakeholders; adapt Backlog. |
 | **Sprint Retrospective** | 20–40 min | Improve ways of working, tools, guardrails. |
 | **Backlog Refinement** | continuous | Prepare PBIs: clarify, split, size, add acceptance tests. |
@@ -81,17 +81,19 @@ A story cannot be set to Done unless its **Change Request** includes:
 
 ## 7) Few simple rules (tool-neutral)
 1. **All work merges via a Change Request (CR)** — PR/MR/CL depending on platform.  
-2. **Nothing merges unless DoD + CR gates pass:** CI/tests, QA verification, security review, automated review, required human approval (as policy sets).  
+2. **Nothing merges unless DoD + CR gates pass:** CI/tests, QA verification, security review, automated review, **Performance Budget**, required human approval (as policy sets).
 3. **Every Story ships a Story Preview** before Done (runnable demo + evidence).  
 4. **Every day ends with a Pulse Increment** (daily demo env = merged + green).  
 5. **Make it inspectable** — Pulse reports and CR histories provide transparency for humans and agents.
+6. **Respect WIP limits** — Keep ≤3 active Stories per team/agent unless governance grants an exception.
 
 ### Suggested CR gates (copy into templates)
 - Lint/type/static analysis  
 - Unit/integration/e2e tests (scope-appropriate)  
 - Security: dependency review + SAST/DAST (or documented exception)  
 - Automated code review summary  
-- Required human approval(s) per policy  
+- Required human approval(s) per policy
+- Performance Budget verification (or documented exception when not applicable)
 - Docs updated when applicable; rollout/rollback notes when relevant
 
 ---

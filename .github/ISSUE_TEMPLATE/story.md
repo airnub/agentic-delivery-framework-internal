@@ -14,14 +14,14 @@ As a ___, I want ___ so that ___.
 - [ ] Criterion 2
 - [ ] Criterion 3
 
-## Iteration / Milestone
-- Target Iteration or milestone:
+## Sprint / Milestone
+- Target Sprint (aka Iteration) or milestone:
 - Dependencies / Linked Issues:
 
 ## Definition of Ready
 - [ ] Story prioritized and sized
 - [ ] Acceptance criteria are testable in documentation
-- [ ] Stakeholders identified (Program Director / Delivery Team editors)
+- [ ] Stakeholders identified (Delivery Lead / Developer editors)
 - [ ] Reference implementation impact noted (if any)
 
 ## Notes
