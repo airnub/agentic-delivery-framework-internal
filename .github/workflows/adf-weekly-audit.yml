@@ -174,7 +174,7 @@ jobs:
           mv tmp/audit.md docs/audits/${AUDIT_DATE}-adf-audit.md
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "docs(audit): add weekly ADF audit for ${AUDIT_DATE}"
           title: "docs(audit): ${AUDIT_DATE} — Weekly ADF Audit"

@@ -33,7 +33,7 @@ jobs:
           scripts/publish/backflow_from_public.sh "https://github.com/airnub/agentic-delivery-framework.git"
 
       - name: Open PR (if changes)
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "Backflow: sync changes from public (allowlist only)"
           branch: chore/backflow-public
