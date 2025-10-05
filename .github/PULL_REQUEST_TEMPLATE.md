@@ -13,5 +13,3 @@
 - [ ] Documentation updated across affected files (including license notice)
 
 ---
-
-This methodology/spec is licensed under CC BY-SA 4.0.
