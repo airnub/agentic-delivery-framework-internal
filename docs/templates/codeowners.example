@@ -1,0 +1,27 @@
+# Example CODEOWNERS for ADF v0.5.0 (documentation only; do not copy verbatim)
+#
+# Purpose: Demonstrates how to enforce human approval (Gate `human-approval`) on risk-tagged paths.
+# Guidance:
+# - Replace `@org/` handles with your teams.
+# - Use labels such as `risk:pci` to align with Story Preview risk notes.
+# - Combine with branch protections described in docs/profiles/github.md.
+
+# Default ownership — require at least one reviewer from core maintainers
+*                                         @org/core-maintainers
+
+# Sensitive database migrations — require data governance sign-off
+# Matches specification rule: human approval MAY be required for risk-tagged paths.
+db/migrations/                            @org/data-governance
+
+# Security-sensitive services — require security architects
+services/auth/**                          @org/security-architects
+
+# Frontend performance budget areas — include performance leads
+web/perf/**                                @org/frontend-perf @org/core-maintainers
+
+# Documentation updates — allow docs guild to review quickly
+docs/**                                    @org/docs-guild
+
+# Break-glass procedure: add Delivery Lead as fallback reviewer
+# When `break-glass` label applied, this reviewer ensures CAPA linkage
+/.github/workflows/**                      @org/delivery-leads

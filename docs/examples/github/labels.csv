@@ -1,0 +1,8 @@
+name,description,color
+story:planning,Work item linked to backlog planning,0366d6
+story:preview-ready,Story Preview meets evidence checklist,0e8a16
+risk:pci,Touches payment card data paths,d73a4a
+risk:auth,Impacts authentication or authorization logic,fbca04
+break-glass,Break-glass merge requiring CAPA,5319e7
+preview-needs-update,Story Preview missing required artifacts,cfd3d7
+pulse-blocker,Must merge before next Pulse increment,5319e7
