@@ -4,15 +4,15 @@
 
 The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human + AI teams to ship software safely. It centers three Scrum-friendly accountabilities—**Delivery Lead**, **Product Owner**, and **Developers**—who collaborate through a governed planning and delivery flow. Every change moves through a **Change Request (CR)** with Definition of Done (DoD) and gate evidence so Sprints stay auditable.
 
-> **Latest release:** [ADF v0.5.0](docs/specs/adf-spec-v0.5.0.md) introduces the CR-first invariant, Sequential Subtask Pipeline (SSP) algorithm, measurable CR gates, Story Preview schema, Delivery Pulse increment rules, conformance levels, Evidence Bundles, minimal metrics, GitHub profile, and agent safety rails. Profiles/Templates here are informative; ADF remains tool-agnostic. v0.4.0 remains available for teams on the prior specification.
+> **Latest release:** [ADF v0.5.1](docs/specs/adf-spec-v0.5.1.md) adds Capability-Class Routing to the methodology while retaining CR-first flow, SSP algorithm, measurable CR gates, Story Preview schema, Delivery Pulse increment rules, conformance levels, Evidence Bundles, minimal metrics, GitHub profile, and agent safety rails. Profiles/Templates here are informative; ADF remains tool-agnostic. v0.5.0 remains available for teams on the prior specification.
 
 ## Quickstart (one-day adoption)
 
-1. **Read the spec:** Start with the [ADF v0.5.0 specification](docs/specs/adf-spec-v0.5.0.md) for normative requirements.
+1. **Read the spec:** Start with the [ADF v0.5.1 specification](docs/specs/adf-spec-v0.5.1.md) for normative requirements.
 2. **Follow the handbook:** Use the [handbook index](docs/handbook/README.md) for step-by-step SSP, Story Preview, Pulse, evidence, and safety rail guidance.
 3. **Apply templates:** Copy-paste [PR and Story Preview templates](docs/templates/) plus the [conformance checklist](docs/templates/conformance-checklist.md).
 4. **Configure platform:** Mirror the [GitHub profile](docs/profiles/github.md) and accompanying [examples](docs/examples/github/) to map gates, protections, and labels.
-5. **Track upgrades:** Review the [CHANGELOG](CHANGELOG.md) for upgrade notes from v0.4.0.
+5. **Track upgrades:** Review the [CHANGELOG](CHANGELOG.md) for upgrade notes from v0.5.0.
 
 ## Few simple rules
 - **CR-first:** Every code or content change merges via a Change Request targeting a single Story branch.
@@ -20,6 +20,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **Sequential Subtask Pipeline (SSP):** Decompose Stories into ordered subtasks with an exclusive Story Lease, per-subtask checkpoints, and a single CR once green.
 - **Daily Pulse Increment:** Produce a demoable artifact of merged, green work ahead of the Delivery Pulse and retain 14 days.
 - **Make it inspectable:** Story Previews, Evidence Bundles, Pulse reports, and telemetry stay visible to humans and agents.
+- **Route by capability class, not brand name.** Bind phases to `reasoning`, `debugging`, `code_gen`, `code_refactor`, `code_review`, `vision`, or `agent_mode`, and let the profile pick the best model for the job.
 
 > **Delivery Pulse** combines an automated overnight run with a 10–15 minute human sync to inspect progress, surface risks, and agree on next actions using the latest **Pulse Increment**.
 
@@ -31,8 +32,8 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **Events** – Sprint (aka Iteration), Sprint Planning, Delivery Pulse, Sprint Review, Sprint Retrospective, Backlog Refinement.
 
 ## Specification & guidance
-- **Specifications:** [ADF v0.5.0 (latest)](docs/specs/adf-spec-v0.5.0.md), [ADF v0.4.0](docs/specs/spec.v0.4.0.md), [Specification changelog](docs/specs/changelog.md).
-- **Handbook:** [ADF v0.5.0 Handbook index](docs/handbook/README.md) with focused guides for [SSP](docs/handbook/ssp.md), [CR gates](docs/handbook/cr-gates.md), [Story Preview](docs/handbook/story-preview.md), [Pulse Increment](docs/handbook/pulse-increment.md), [Conformance](docs/handbook/conformance.md), [Evidence Bundle](docs/handbook/evidence-bundle.md), [Metrics](docs/handbook/metrics.md), and [Agent safety rails](docs/handbook/safety-rails.md).
+- **Specifications:** [ADF v0.5.1 (latest)](docs/specs/adf-spec-v0.5.1.md), [ADF v0.5.0](docs/specs/adf-spec-v0.5.0.md), [ADF v0.4.0](docs/specs/spec.v0.4.0.md), [Specification changelog](docs/specs/changelog.md).
+- **Handbook:** [ADF Handbook index](docs/handbook/README.md) with focused guides for [SSP](docs/handbook/ssp.md), [CR gates](docs/handbook/cr-gates.md), [Story Preview](docs/handbook/story-preview.md), [Pulse Increment](docs/handbook/pulse-increment.md), [Conformance](docs/handbook/conformance.md), [Evidence Bundle](docs/handbook/evidence-bundle.md), [Metrics](docs/handbook/metrics.md), and [Agent safety rails](docs/handbook/safety-rails.md).
 - **Templates:** [PR template](docs/templates/pr-template.md), [Story Preview template](docs/templates/story-preview.md), [Labels](docs/templates/labels.md), [CODEOWNERS example](docs/templates/codeowners.example), [Conformance checklist](docs/templates/conformance-checklist.md), legacy [CR checklist](docs/templates/cr-checklist.md).
 - **Profiles & examples:** [Profiles overview](docs/profiles/overview.md), [GitHub profile](docs/profiles/github.md), [GitHub examples](docs/examples/github/).
 - **Diagrams:** [ADF method overview](docs/diagrams/adf-method-overview.mmd), [SSP flow](docs/diagrams/ssp-flow.mmd), [Pulse increment](docs/diagrams/pulse-increment.mmd), plus neutral diagrams in `docs/diagrams/`.
@@ -55,10 +56,10 @@ graph TD
 ## What’s inside
 - `AGENTS.md` – modality charter and guardrails for Delivery Lead, Product Owner, and Developers.
 - `docs/overview.md` – consolidated problem statement, vision, goals, and roadmap with Story Preview and Pulse Increment focus.
-- `docs/specs/` – specifications (v0.5.0, v0.4.0) and changelog history.
+- `docs/specs/` – specifications (v0.5.1, v0.5.0, v0.4.0) and changelog history.
 - `docs/handbook/` – operational guides for SSP, gates, Story Preview, Pulse, conformance, evidence, metrics, and agent safety.
 - `docs/templates/` – PR/Story Preview templates, labels, CODEOWNERS example, conformance checklist, and legacy CR checklist.
-- `docs/profiles/` – platform profiles (GitHub refreshed for v0.5.0) plus archival diagrams.
+- `docs/profiles/` – platform profiles (GitHub refreshed for v0.5.1) plus archival diagrams.
 - `docs/examples/github/` – illustrative GitHub snippets for required checks, labels, PR template, and repository settings walkthrough.
 - `docs/diagrams/` – Mermaid diagrams for method overview, SSP, Pulse, and neutral flows.
 - `docs/adrs/` – architectural decisions and vocabulary history.

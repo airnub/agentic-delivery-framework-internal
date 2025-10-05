@@ -25,6 +25,7 @@ In addition to L1, organizations **MUST**:
 - Produce **Story Previews** (runnable demos + evidence) before Stories are marked Done.
 - Publish a daily **Pulse Increment** ahead of the Delivery Pulse.
 - Acquire and enforce an **exclusive Story branch lease** for decomposed Stories, read the declared sub-task queue, and execute the **Subtask Sequencing Policy (SSP)** sequentially on that branch.
+- Publish a capability-class routing policy and bind SSP/orchestration phases to capability classes.
 
 Organizations **SHOULD**:
 - Automate workspace warm starts with seeded secrets and tooling for Humans / AI / Hybrid modalities.
@@ -38,6 +39,7 @@ In addition to L1 and L2, organizations **MUST**:
 - Implement an idle shutdown policy for workspace runtimes to control spend and reduce risk.
 - Track budget usage, Performance Budget trends, and WIP metrics for Delivery Pulse reporting.
 - Surface **SSP telemetry** (queue state, lease holder, checkpoint results, durations, retries) to Delivery Pulse consumers.
+- Periodically evaluate routing policy versus non-functional traits (latency, accuracy, cost, context length) and record `{ capability_class, model_id }` in Change Request evidence for auditability.
 
 Organizations **SHOULD**:
 - Enable warm start strategies (snapshots, caches) to minimize cold-start time while respecting policies.
