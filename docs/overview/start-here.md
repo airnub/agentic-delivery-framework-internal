@@ -19,4 +19,4 @@ For deeper study, continue into the normative `/docs/specs` and `/docs/handbook`
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

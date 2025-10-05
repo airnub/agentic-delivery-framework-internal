@@ -43,4 +43,4 @@ Store audit reports under `docs/audits/` using the provided template. Reference 
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

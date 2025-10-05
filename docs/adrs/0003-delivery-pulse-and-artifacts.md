@@ -40,4 +40,4 @@ Earlier documentation referenced a daily cadence focused solely on merge-ready i
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

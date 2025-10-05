@@ -40,4 +40,4 @@ For historical documents, explore the `docs/specs/archive/` directory and legacy
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

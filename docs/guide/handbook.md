@@ -47,4 +47,4 @@ This policy applies to all directories, including historical branches. Exception
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

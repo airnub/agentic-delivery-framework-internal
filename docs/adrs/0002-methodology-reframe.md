@@ -31,4 +31,4 @@ The initial ADF documentation emphasized GitHub-specific services (Projects, Cod
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

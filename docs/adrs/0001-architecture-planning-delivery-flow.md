@@ -63,4 +63,4 @@ _Figure: Sequence diagram documents how the Delivery Lead, Product Owner, and De
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

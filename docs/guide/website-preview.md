@@ -22,4 +22,4 @@ description: Steps for running the informative Docusaurus site locally and verif
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

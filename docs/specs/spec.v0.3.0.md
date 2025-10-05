@@ -67,4 +67,4 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

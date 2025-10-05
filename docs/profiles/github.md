@@ -150,4 +150,4 @@ For additional background on platform-neutral requirements, review the [specific
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

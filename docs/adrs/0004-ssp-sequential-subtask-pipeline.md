@@ -33,4 +33,4 @@ Parallel sub-task execution by multiple agents on the same Story branch repeated
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

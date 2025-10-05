@@ -13,4 +13,4 @@ Refer to the [CHANGELOG](../CHANGELOG.md) for upgrade notes between minor versio
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

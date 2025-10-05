@@ -12,4 +12,4 @@ Add this checklist to your platform’s PR/MR template to reinforce ADF guardrai
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

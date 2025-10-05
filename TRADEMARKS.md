@@ -33,4 +33,4 @@ For trademark questions, contact the maintainers via the repository issue tracke
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

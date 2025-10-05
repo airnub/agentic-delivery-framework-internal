@@ -12,4 +12,4 @@ _Informative._ Use `docs/examples/github/required-checks.list` to seed the `test
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

@@ -26,4 +26,4 @@ Refer to [contributing.md](../contributing.md) for expectations on change reques
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

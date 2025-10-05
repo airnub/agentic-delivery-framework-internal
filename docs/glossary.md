@@ -25,4 +25,4 @@ _Informative._ Use this glossary to align on shared terminology when applying th
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

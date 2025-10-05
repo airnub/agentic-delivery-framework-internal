@@ -107,4 +107,4 @@ Use this guide to plan adoption of the [ADF conformance levels](../specs/adf-spe
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

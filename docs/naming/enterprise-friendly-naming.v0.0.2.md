@@ -118,4 +118,4 @@ A story cannot be set to Done unless its **Change Request** includes:
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.
