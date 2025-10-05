@@ -17,7 +17,7 @@ Adopt a **planning & delivery flow** architecture anchored by Delivery Lead, Pro
 - **Change Request Gates** provide layered assurance: CI/tests, QA verification, security review, automated review, required human approvals, and Performance Budget verification before merge.
 
 ## Diagrams
-- Historical diagrams: [Mermaid overview flow (GitHub-centric)](../diagrams/adf-overview-flow.mmd), [Mermaid sequence (GitHub-centric)](../diagrams/adf-sequence.mmd).
+- Historical diagrams: [Mermaid overview flow (GitHub-centric)](../profiles/github/adf-overview-flow.mmd), [Mermaid sequence (GitHub-centric)](../profiles/github/adf-sequence.mmd).
 - Neutral diagrams (preferred): [Mermaid overview flow](../diagrams/adf-overview-neutral.mmd), [Mermaid planning & delivery sequence](../diagrams/adf-sequence-neutral.mmd).
 
 ```mermaid

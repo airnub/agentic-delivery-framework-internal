@@ -31,8 +31,8 @@ Establish or refresh the repository documentation so the **Delivery Lead**, **Pr
 - Keep secrets out of files. Do not modify devcontainer or executable workflows unless instructed.
 
 ## Visual References
-- [ADF overview flow Mermaid source](../diagrams/adf-overview-flow.mmd)
-- [ADF planning & delivery sequence Mermaid source](../diagrams/adf-sequence.mmd)
+- [ADF overview flow Mermaid source](../diagrams/adf-overview-neutral.mmd)
+- [ADF planning & delivery sequence Mermaid source](../diagrams/adf-sequence-neutral.mmd)
 
 ## Inputs (from conversation distilled)
 
