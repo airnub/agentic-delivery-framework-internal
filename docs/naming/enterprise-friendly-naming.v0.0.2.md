@@ -115,3 +115,7 @@ A story cannot be set to Done unless its **Change Request** includes:
 - Prior naming docs remain for history; implementations should prefer the vocabulary herein moving forward.
 
 ---
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

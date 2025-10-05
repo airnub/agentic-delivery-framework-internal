@@ -9,3 +9,7 @@ _Informative._ Use `docs/examples/github/required-checks.list` to seed the `test
 **Key references**
 - `docs/examples/github/required-checks.list` — newline-delimited list of required status checks.
 - `docs/profiles/github.md` — normative mapping of CR gates to GitHub configuration.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

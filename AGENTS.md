@@ -48,3 +48,7 @@
 
 ## 11. Guidance
 - **Kanban visualization:** You MAY present SSP via a minimal Kanban board as an informative lens. Do **not** remove the Story Lease, introduce parallel WIP, or add a second backlog.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

@@ -14,3 +14,7 @@ slug: /audits
 - Local helper scripts are intentionally omitted so the GitHub Action remains the single audit entry point.
 - The workflow calls GitHub Models directly, files the resulting report in a pull request labeled `automation:weekly-audit`, and
   auto-closes unattended audit PRs after seven days to prevent backlog churn.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

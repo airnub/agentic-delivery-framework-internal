@@ -82,3 +82,7 @@ Profile links are **informative** examples; any platform MAY satisfy the intent 
 | `mode-policy`       | Org rules fit               | edit-locality within scope; risky paths flagged | See `docs/profiles/github.md#mode-policy` |
 | `preview-build`     | Inspectable preview         | preview assets attached                         | See `docs/profiles/github.md#preview-build` |
 | `human-approval`    | Accountable review          | CODEOWNERS/approvers present                    | See `docs/profiles/github.md#human-approval` |
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

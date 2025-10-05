@@ -25,3 +25,7 @@
 - **SSP (how the work flows)** → `../handbook/ssp.md`
 - **CR Gates (what must be green)** → `../handbook/cr-gates.md`
 - **Delivery Pulse** → `../handbook/pulse-increment.md`
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

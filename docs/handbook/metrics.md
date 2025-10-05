@@ -77,3 +77,7 @@ Optional metrics **MUST NOT** block merges unless organizational policy explicit
 - Ensure privacy considerations when publishing metrics derived from sensitive data.
 
 For additional guardrails, reference the [Pulse guide](pulse-increment.md) and [Conformance roadmap](conformance.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

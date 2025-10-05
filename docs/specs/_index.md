@@ -10,3 +10,7 @@ summary: "Index of Agentic Delivery Framework specifications with latest release
 - **Archive:** [Historical specifications](archive/)
 
 Refer to the [CHANGELOG](../CHANGELOG.md) for upgrade notes between minor versions.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

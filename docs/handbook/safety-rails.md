@@ -70,3 +70,7 @@ Adhering to these rails keeps agent contributions auditable, safe, and aligned w
 - [ ] Rationale in Story Preview for schema/security changes
 - [ ] Idempotent scripts; deterministic re-runs
 - [ ] No secrets in previews/logs; sanitize before attach
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

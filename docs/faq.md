@@ -38,3 +38,7 @@ Most teams complete L1 in a day using the [Quickstart](overview/quickstart-l1.md
 
 **Where do we log audits?**  
 Store audit reports under `docs/audits/` using the provided template. Reference them in the [Audits sidebar](audits/).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

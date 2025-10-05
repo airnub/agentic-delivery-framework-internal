@@ -92,3 +92,7 @@ Reviewers **SHOULD** verify:
 - Preview references outstanding tasks or TODOs clearly.
 
 For additional review guardrails, pair this guide with the [CR Gates operations guide](cr-gates.md) and the [Evidence Bundle procedures](evidence-bundle.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

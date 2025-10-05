@@ -23,3 +23,7 @@ Adopt ADF foundations in a single day. Pair this playbook with the [Adoption Gui
 - Update your conformance checklist for L1 completion and plan the L2 hardening items.
 
 From here, continue through L2 and L3 in the [Adoption Guide](adoption-guide.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

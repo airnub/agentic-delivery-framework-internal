@@ -19,3 +19,7 @@ ADF preserves the Scrum skeleton. Use this alignment to explain the overlay quic
 - **Pulse Increment** surfaces merged value daily for inspection.
 
 Need detail? Dive into the [Handbook](../handbook/ssp.md) and [CR Gates playbook](../handbook/cr-gates.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

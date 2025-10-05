@@ -19,3 +19,7 @@ description: Steps for running the informative Docusaurus site locally and verif
 - Re-run `npm ci --prefix website` after updating dependencies to clear stale modules.
 - Confirm that new Markdown files live under `docs/` so they are included in the Docusaurus content pipeline.
 - Use the GitHub Actions run summary to review build logs whenever the `docs-deploy` workflow reports a failure.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

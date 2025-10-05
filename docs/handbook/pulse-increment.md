@@ -77,3 +77,7 @@ This guide explains how to produce and govern the Pulse Increment mandated in [S
 - Track recurring break-glass themes to inform process changes or additional guardrails.
 
 For platform-specific automation pointers, reference the [GitHub profile](../profiles/github.md) and associated examples.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

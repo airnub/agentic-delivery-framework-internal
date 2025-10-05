@@ -39,3 +39,7 @@
 ## Handoff Notes (if applicable)
 - Current status:
 - Next executor:
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

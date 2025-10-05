@@ -56,3 +56,7 @@ gh api \
 - Document who can apply the `break-glass` label and ensure automation opens CAPA issues.
 - Track metrics via GitHub Insights or export to BI tools using the [Metrics guide](../../handbook/metrics.md).
 - Review settings quarterly to maintain L2/L3 conformance.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

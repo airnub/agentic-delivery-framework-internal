@@ -22,3 +22,7 @@
 
 ## v0.4.0 — 2024-02-01
 - Previous baseline covering Story Previews, Pulse Increment, and SSP foundations. See [docs/specs/spec.v0.4.0.md](docs/specs/spec.v0.4.0.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.
