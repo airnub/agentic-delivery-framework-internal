@@ -1,39 +1,93 @@
-# GitHub Platform Profile (Informative)
-
-This profile maps the Agentic Delivery Framework (ADF) neutral terminology to GitHub services. It is informative and does not change the normative specification.
-
-| ADF Term | GitHub Mapping |
-| --- | --- |
-| Delivery Lead | GitHub App / workflow orchestrator managing Projects Iterations and branch policies |
-| Product Owner | Product manager using Projects (Sprint views) + Issues |
-| Developers | Contributors (human or agent) working inside Codespaces |
-| Work Management System | GitHub Issues + Projects (Iterations) |
-| Workspace Runtime | GitHub Codespaces |
-| Change Request | Pull Request |
-| Story Preview | PR body checklist + Codespaces preview URL or `npm start` / `docker compose up` instructions |
-| Pulse Increment | Nightly GitHub Actions workflow deploying latest green main branch to demo environment |
-| Automated Review | Copilot Code Review or GitHub Actions review bots |
-| Security Review | CodeQL, dependency review, or third-party scanning via Actions |
-| Performance Budget | Lighthouse/Artillery/Custom perf checks in GitHub Actions |
-| WIP Limits | Projects Iteration WIP column limits or automation enforcing ≤3 in-progress Issues per team |
-
-## Implementation Reference
-
-For an opinionated GitHub implementation, see [airnub/adf-github-suite](https://github.com/airnub/adf-github-suite). It provides automation, configuration, and integration aligned with this profile.
-
-GitHub-specific Mermaid diagrams for the overview flow and planning sequence live in [`adf-overview-flow.mmd`](./github/adf-overview-flow.mmd) and [`adf-sequence.mmd`](./github/adf-sequence.mmd).
-
-## Additional Notes
-
-- Branch protection rules enforce required status checks and reviews before merge; include Performance Budget workflows when performance-sensitive code changes.
-- Projects (Iterations) drive the Sprint timebox; automation can move Issues based on Change Request events and Delivery Pulse summaries.
-- Codespaces prebuilds and retention policies fulfill the workspace runtime lifecycle requirements.
-- Story Preview checklists live in `.github/pull_request_template.md` and reference preview URLs or run recipes.
-- Daily Pulse Increment may deploy to GitHub Pages, an ephemeral environment, or another demo target triggered by Actions.
-- WIP dashboards can be implemented with Projects views or custom Actions that flag when teams exceed policy.
-
-To contribute updates or clarifications to this profile, follow the process in [contributing.md](../contributing.md) and the [RFC guidelines](../rfcs/process.md).
-
+---
+title: "GitHub Profile — ADF v0.5.0"
+summary: "Mapping ADF v0.5.0 controls to GitHub features, with references to examples and templates."
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+# GitHub Platform Profile (Informative)
+
+This profile explains how to implement the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.0.md) using GitHub features. It is informative and **MUST NOT** be interpreted as normative configuration. Use it as a guide when tailoring repository settings.
+
+## Table of Contents
+- [Repository Topology](#repository-topology)
+- [Branch Protection & Merge Policy](#branch-protection--merge-policy)
+- [Required Status Checks](#required-status-checks)
+- [Story Preview & PR Templates](#story-preview--pr-templates)
+- [CODEOWNERS & Approvals](#codeowners--approvals)
+- [Environment & Deployment Protections](#environment--deployment-protections)
+- [Labels & Automation](#labels--automation)
+- [Evidence Bundle & Pulse Hooks](#evidence-bundle--pulse-hooks)
+- [Examples](#examples)
+
+## Repository Topology
+
+- Adopt a protected `main` branch for production-ready code.
+- Create Story branches using `story/<id>-<slug>` naming to align with [Appendix A](../specs/adf-spec-v0.5.0.md#appendix-a-naming-and-labels).
+- Use GitHub Projects for Sprint planning; link Issues to Story branches and CRs to maintain traceability.
+
+## Branch Protection & Merge Policy
+
+Configure the following on the `main` branch via **Settings → Branches → Branch Protection Rules**:
+
+- Require pull request reviews before merging.
+- Enable **Require status checks to pass before merging** and list the gates from [Section 3](../specs/adf-spec-v0.5.0.md#3-change-request-gates).
+- Enforce **Require branches to be up to date** to ensure SSP checkpoints are merged on fresh heads.
+- Allow only squash merges to preserve single-story history (aligns with CR-first invariant).
+- Enable **Automatically delete head branches** after merge to keep Story branch lifecycle clean.
+
+## Required Status Checks
+
+Define the following required checks (names are normative). Example names are provided in [`docs/examples/github/required-checks.list`](../examples/github/required-checks.list).
+
+1. `spec-verify`
+2. `tests-ci`
+3. `security-static`
+4. `deps-supply-chain`
+5. `perf-budget`
+6. `framework-guard`
+7. `mode-policy`
+8. `preview-build`
+9. `human-approval`
+
+Implement these checks using GitHub Actions or external CI providers. Ensure gate outputs are archived into Evidence Bundles post-merge.
+
+## Story Preview & PR Templates
+
+- Place the [PR template](../templates/pr-template.md) at `.github/pull_request_template.md` to enforce Story Preview content.
+- Encourage teams to maintain standalone Story Preview documents using [`docs/templates/story-preview.md`](../templates/story-preview.md) for larger Stories.
+- Configure repository settings to require PR body completion before review (e.g., using form fields or automation bots).
+
+## CODEOWNERS & Approvals
+
+- Store CODEOWNERS at `/.github/CODEOWNERS` (reference [`docs/templates/codeowners.example`](../templates/codeowners.example)).
+- Map sensitive paths (e.g., `db/migrations/`, `services/auth/**`) to appropriate review teams.
+- Combine CODEOWNERS with branch protection requiring review from code owners.
+- Use the `human-approval` gate to fail when required reviewers have not approved. GitHub can enforce this via protected branch review count.
+
+## Environment & Deployment Protections
+
+- Use **Environments** to gate deployments behind manual approvals or required checks, mirroring Pulse Increment promotion flows.
+- Configure **Deployment Branch Policies** to restrict who can deploy to production environments, aligning with risk labels.
+- For preview environments, integrate with GitHub Actions to publish Story Preview assets and link them in the PR.
+
+## Labels & Automation
+
+- Seed repository labels using [`docs/templates/labels.md`](../templates/labels.md) and the CSV in [`docs/examples/github/labels.csv`](../examples/github/labels.csv).
+- Automate label application based on file paths or Issue metadata (e.g., using Actions).
+- Use GitHub Actions or third-party apps to enforce Edit Locality metrics and populate the `mode-policy` gate result.
+
+## Evidence Bundle & Pulse Hooks
+
+- Configure a post-merge GitHub Action to assemble Evidence Bundles using guidance from the [Evidence Bundle procedures](../handbook/evidence-bundle.md).
+- Schedule a daily workflow to build the Pulse Increment artifact from `main`, publish to storage, and notify stakeholders (see [Pulse guide](../handbook/pulse-increment.md)).
+- Emit metrics to GitHub Insights or external dashboards to satisfy the [Metrics guide](../handbook/metrics.md).
+
+## Examples
+
+All examples are illustrative and should be adapted before use:
+
+- [`docs/examples/github/required-checks.list`](../examples/github/required-checks.list) — plain text list of gate names for branch protection.
+- [`docs/examples/github/pr-template.example.md`](../examples/github/pr-template.example.md) — example `.github/pull_request_template.md` referencing Story Preview sections.
+- [`docs/examples/github/labels.csv`](../examples/github/labels.csv) — label seeds with descriptions and color suggestions.
+- [`docs/examples/github/repo-settings.md`](../examples/github/repo-settings.md) — step-by-step instructions for configuring branch protection and environments via UI/CLI.
+
+For additional background on platform-neutral requirements, review the [specification](../specs/adf-spec-v0.5.0.md) and [handbook](../handbook/README.md).

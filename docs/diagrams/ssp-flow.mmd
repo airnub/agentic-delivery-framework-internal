@@ -1,0 +1,10 @@
+```mermaid
+graph LR
+  A[Acquire Story Lease] --> B[Decompose → Subtask Queue]
+  B --> C[Execute Subtask]
+  C --> D[Checkpoint Green]
+  D --> E[Update Story Preview]
+  E --> F[CR Gates]
+  F -->|fail| B
+  F -->|green| G[Merge & Release]
+```

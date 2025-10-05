@@ -1,0 +1,11 @@
+```mermaid
+graph TD
+  PO[PO] -->|Plan| SP[Sprint Planning]
+  DL[Delivery Lead] --> SP
+  SP --> ST[Story + SSP]
+  ST --> CR[Change Request]
+  CR --> GATES[CR Gates]
+  GATES -->|green| MERGE[Merge]
+  MERGE --> PULSE[Pulse Increment]
+  PULSE --> REVIEW[Review/Retro]
+```
