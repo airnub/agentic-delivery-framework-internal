@@ -1,4 +1,3 @@
-# This work is licensed under CC BY-SA 4.0.
 version: 1
 public_repo: airnub/agentic-delivery-framework
 default_branch: main
@@ -66,3 +65,5 @@ deny:
   - Makefile*
   - **/.env*
   - **/.git*
+
+# This work is licensed under CC BY-SA 4.0.

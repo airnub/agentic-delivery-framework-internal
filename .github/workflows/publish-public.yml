@@ -1,4 +1,3 @@
-# This work is licensed under CC BY-SA 4.0.
 name: Publish → Public (NO-CODE export)
 
 on:
@@ -67,3 +66,5 @@ jobs:
           git remote add public https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/airnub/agentic-delivery-framework.git
           git branch -M main
           git push public main:main --follow-tags
+
+# This work is licensed under CC BY-SA 4.0.
