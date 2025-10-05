@@ -39,3 +39,5 @@ This appendix is **informative** and aligns ADF artifacts with common enterprise
 
 > **Reminder:** Autonomy levels beyond A2 remain opt-in; adopting them requires the additional normative gates specified in the [Autonomy Levels appendix](appendix-autonomy-levels.md).
 
+This work is licensed under CC BY-SA 4.0.
+

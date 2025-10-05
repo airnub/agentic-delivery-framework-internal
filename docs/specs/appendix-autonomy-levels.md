@@ -17,3 +17,5 @@ Teams **MAY** adopt autonomy levels. If adopting A3 or A4, the following **SHALL
 
 > **Normative note:** Autonomy Levels A3–A4 inherit all obligations from lower levels in addition to the required gates listed above.
 
+This work is licensed under CC BY-SA 4.0.
+

@@ -114,3 +114,5 @@ Keep GitHub as worked example; add stubs for GitLab & Azure DevOps to demonstrat
 
 ## Changelog
 - **v0.1.0** — Initial roadmap added (non-normative)
+
+This work is licensed under CC BY-SA 4.0.
