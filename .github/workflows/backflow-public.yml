@@ -1,0 +1,42 @@
+name: Backflow ← Public (allowlist NO-CODE)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * *"  # daily 05:00 UTC
+
+concurrency:
+  group: backflow-public
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  backflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout internal
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup deps
+        run: |
+          pipx install git-filter-repo
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
+      - name: Sync from public
+        run: |
+          scripts/publish/backflow_from_public.sh "https://github.com/airnub/agentic-delivery-framework.git"
+
+      - name: Open PR (if changes)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Backflow: sync changes from public (allowlist only)"
+          branch: chore/backflow-public
+          title: "Backflow: sync changes from public"
+          body: "This PR syncs NO-CODE allowlisted files from the public repo back into internal."
+          labels: "backflow"
