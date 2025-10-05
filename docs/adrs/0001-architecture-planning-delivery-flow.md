@@ -37,10 +37,10 @@ sequenceDiagram
   DEV->>WR: git switch -c feat/&lt;story&gt;
   DEV->>CRG: Open Change Request ("Closes &lt;story&gt;") with Story Preview
   CRG->>CRG: CI/Tests | QA | Security | Automated | Human | Performance Budget
-  alt All gates pass
+  alt All signals pass
     CRG->>WR: Merge to protected branch (Increment meets DoD)
     DL->>WM: Update Sprint board & telemetry
-  else Any gate fails
+  else Any signal fails
     CRG->>DEV: Feedback & failing checks
     DEV->>WR: Iterate fixes on branch
   end
@@ -48,7 +48,7 @@ sequenceDiagram
   DL->>WM: Sprint Review & plan next Sprint
 ```
 
-_Figure: Sequence diagram documents how the Delivery Lead, Product Owner, and Developers collaborate through Story Previews, Pulse Increment, and CR gates._
+_Figure: Sequence diagram documents how the Delivery Lead, Product Owner, and Developers collaborate through Story Previews, Pulse Increment, and DoD Signals._
 
 ## Alternatives Considered
 
@@ -58,7 +58,7 @@ _Figure: Sequence diagram documents how the Delivery Lead, Product Owner, and De
 
 ## Consequences
 
-- **Pros**: safety (no unmanaged edits), transparent Story Previews and Pulse Increments, governance through change request gates, model choice via open APIs, reproducible environments, enterprise naming alignment.
+- **Pros**: safety (no unmanaged edits), transparent Story Previews and Pulse Increments, governance through Definition of Done signals, model choice via open APIs, reproducible environments, enterprise naming alignment.
 - **Cons**: orchestration costs (workspace runtime minutes, warm starts, secrets). Mitigate with idle shutdowns, budgets, telemetry, and Delivery Pulse inspections per [Conformance L3](../conformance.md).
 
 ---

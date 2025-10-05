@@ -41,7 +41,7 @@ This handbook elaborates on the [Agent safety rails](../specs/adf-spec-v0.5.0.md
 - Populate the Story Preview template with rationale for schema/security adjustments.
 - Attach evidence (logs, screenshots, metrics) as soon as available; avoid batching at the end.
 - Clearly state limitations (e.g., environment not accessible, tests skipped) and mitigation steps.
-- Note any human approvals required, tagging reviewers early via `human-approval` gate expectations.
+- Note any human approvals required, tagging reviewers early via `human-approval` signal expectations.
 
 ## Idempotent Execution
 
@@ -57,8 +57,8 @@ This handbook elaborates on the [Agent safety rails](../specs/adf-spec-v0.5.0.md
 
 ## Escalation Protocols
 
-- On gate failure, log diagnosis steps, attempted fixes, and next actions in the Story Preview.
-- Use the `break-glass` label only when authorized and ensure CAPA linkage per [CR Gates guide](cr-gates.md).
+- On signal failure, log diagnosis steps, attempted fixes, and next actions in the Story Preview.
+- Use the `break-glass` label only when authorized and ensure CAPA linkage per [DoD Signals guide](cr-gates.md).
 - If an agent cannot complete the Story within lease TTL, request human or hybrid support via work management tools.
 
 Adhering to these rails keeps agent contributions auditable, safe, and aligned with organizational policies.

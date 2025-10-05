@@ -1,11 +1,11 @@
 ---
-title: "CR Gates Operations Guide"
-summary: "Operational playbook for running and troubleshooting ADF v0.5.0 Change Request gates."
+title: "DoD Signals Operations Guide"
+summary: "Operational playbook for running and troubleshooting ADF v0.5.0 Definition of Done signals."
 ---
 
-# Change Request Gates — Operations Guide
+# DoD Signals — Operations Guide
 
-This handbook expands on the normative [CR Gates](../specs/adf-spec-v0.5.0.md#3-change-request-gates) and documents minimum expectations, evidence capture, and break-glass handling.
+This handbook expands on the normative [DoD Signals](../specs/adf-spec-v0.5.0.md#3-change-request-gates) and documents minimum expectations, evidence capture, and break-glass handling.
 
 ## Table of Contents
 - [Gate Overview](#gate-overview)

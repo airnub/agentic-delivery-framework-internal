@@ -5,7 +5,7 @@ flowchart TD
   SP --> SB[Sprint Backlog]
   SB --> DEV[Development (Developers: Human/AI/Hybrid)]
   DEV --> CR[Change Request]
-  CR --> G{{CR Gates\nCI/Tests | QA | Security | Automated | Human | Performance Budget}}
+  CR --> G{{DoD Signals\nCI/Tests | QA | Security | Automated | Human | Performance Budget}}
   G -->|pass| INC[Increment (meets DoD)]
   G -->|changes requested| DEV
   INC --> REV[Sprint Review]

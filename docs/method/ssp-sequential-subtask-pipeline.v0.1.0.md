@@ -24,7 +24,7 @@ When a Story/Task is decomposed into smaller sub‑tasks and worked on in parall
 - **Pulse Increment**: still built daily from **merged** work; SSP checkpoints are **not** included until the final CR merges.
 
 **Gates:**
-- DoD + CR gates apply at the Story CR; sub‑task checkpoints **SHOULD** run a scoped subset (lint/tests/security/perf budget when touched) to maintain continuity.
+- Definition of Done (DoD) Signals apply at the Story CR; sub‑task checkpoints **SHOULD** run a scoped subset (lint/tests/security/perf budget when touched) to maintain continuity.
 
 **Transparency:**
 - Queue state, lease holder, and checkpoint results **MUST** be visible (e.g., as a status note on the Story, updated by automation).

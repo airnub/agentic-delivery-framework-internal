@@ -38,7 +38,7 @@ Establish or refresh the repository documentation so the **Delivery Lead**, **Pr
 
 - Delivery Lead operates outside the workspace runtime and controls lifecycle via the chosen platform APIs or tooling.
 - Product Owner curates the Product Goal and Product Backlog; collaborate on Story Previews and Sprint Reviews.
-- Developers (Human / AI / Hybrid) run inside the managed workspace runtime (devcontainer, cloud IDE, etc.), produce Story Previews, and ensure CR gates plus Performance Budget checks pass before merge.
+- Developers (Human / AI / Hybrid) run inside the managed workspace runtime (devcontainer, cloud IDE, etc.), produce Story Previews, and ensure DoD Signals plus Performance Budget checks pass before merge.
 - Use platform-neutral terminology and link to the relevant profile when platform-specific guidance is needed.
 - Safety: keep work inside the governed workspace runtime with branch protection, required checks, automated review, Delivery Pulse reporting, and WIP limits configured per conformance level.
 - Optional stack needs: container tooling, database emulation, or other services defined in the workspace baseline.

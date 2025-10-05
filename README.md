@@ -4,19 +4,31 @@
 
 The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human + AI teams to ship software safely. It centers three Scrum-friendly accountabilities—**Delivery Lead**, **Product Owner**, and **Developers**—who collaborate through a governed planning and delivery flow. Every change moves through a **Change Request (CR)** with Definition of Done (DoD) and gate evidence so Sprints stay auditable.
 
-> **Latest release:** [ADF v0.5.0](docs/specs/adf-spec-v0.5.0.md) introduces the CR-first invariant, Sequential Subtask Pipeline (SSP) algorithm, measurable CR gates, Story Preview schema, Delivery Pulse increment rules, conformance levels, Evidence Bundles, minimal metrics, GitHub profile, and agent safety rails. Profiles/Templates here are informative; ADF remains tool-agnostic. v0.4.0 remains available for teams on the prior specification.
+> **Latest release:** [ADF v0.5.0](docs/specs/adf-spec-v0.5.0.md) introduces the CR-first invariant, Sequential Subtask Pipeline (SSP) algorithm, measurable DoD Signals, Story Preview schema, Delivery Pulse increment rules, conformance levels, Evidence Bundles, minimal metrics, GitHub profile, and agent safety rails. Profiles/Templates here are informative; ADF remains tool-agnostic. v0.4.0 remains available for teams on the prior specification.
+
+## Method framing
+
+- **Scrum Core (normative):** Upholds Scrum’s three accountabilities, three artifacts, and four events without alteration.
+- **ADF Extension Practices (optional):** Supplements such as SSP, Daily Pulse, Story Preview, Evidence Bundles, and safety rails that teams MAY adopt to strengthen evidence.
+
+Any item outside the Scrum Core is treated as an Extension Practice—useful, optional, and swappable based on team context.
 
 ## Quickstart (one-day adoption)
 
 1. **Read the spec:** Start with the [ADF v0.5.0 specification](docs/specs/adf-spec-v0.5.0.md) for normative requirements.
 2. **Follow the handbook:** Use the [handbook index](docs/handbook/README.md) for step-by-step SSP, Story Preview, Pulse, evidence, and safety rail guidance.
 3. **Apply templates:** Copy-paste [PR and Story Preview templates](docs/templates/) plus the [conformance checklist](docs/templates/conformance-checklist.md).
-4. **Configure platform:** Mirror the [GitHub profile](docs/profiles/github.md) and accompanying [examples](docs/examples/github/) to map gates, protections, and labels.
+4. **Configure platform:** Mirror the [GitHub profile](docs/profiles/github.md) and accompanying [examples](docs/examples/github/) to map signals, protections, and labels.
 5. **Track upgrades:** Review the [CHANGELOG](CHANGELOG.md) for upgrade notes from v0.4.0.
+
+## Conformance rails
+
+- **ADF-S (Scrum-only):** Daily Pulse + DoD Signals recommended; SSP optional.
+- **ADF-SA (Scrum + Agent controls):** Daily Pulse + DoD Signals + SSP required.
 
 ## Few simple rules
 - **CR-first:** Every code or content change merges via a Change Request targeting a single Story branch.
-- **DoD + CR gates:** `spec-verify`, `tests-ci`, `security-static`, `deps-supply-chain`, `perf-budget`, `framework-guard`, `mode-policy`, `preview-build`, and `human-approval` must pass before merge. Apply `break-glass` only with CAPA follow-up.
+- **Definition of Done (DoD) Signals:** `spec-verify`, `tests-ci`, `security-static`, `deps-supply-chain`, `perf-budget`, `framework-guard`, `mode-policy`, `preview-build`, and `human-approval` must pass before merge. Apply `break-glass` only with CAPA follow-up.
 - **Sequential Subtask Pipeline (SSP):** Decompose Stories into ordered subtasks with an exclusive Story Lease, per-subtask checkpoints, and a single CR once green.
 - **Daily Pulse Increment:** Produce a demoable artifact of merged, green work ahead of the Delivery Pulse and retain 14 days.
 - **Make it inspectable:** Story Previews, Evidence Bundles, Pulse reports, and telemetry stay visible to humans and agents.
@@ -24,7 +36,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 > **Delivery Pulse** combines an automated overnight run with a 10–15 minute human sync to inspect progress, surface risks, and agree on next actions using the latest **Pulse Increment**.
 
 ## Core vocabulary
-- **Delivery Lead** – steers flow outside the workspace runtime; facilitates Sprint events, enforces WIP limits, and upholds CR gates.
+- **Delivery Lead** – steers flow outside the workspace runtime; facilitates Sprint events, enforces WIP limits, and upholds DoD Signals.
 - **Product Owner** – maintains the Product Backlog and Product Goal; partners on Story Previews and Sprint Review outcomes.
 - **Developers** – plan, build, and verify increments inside the governed workspace runtime (Humans / AI / Hybrid pairs).
 - **Artifacts** – Product Backlog, Sprint Backlog, Increment, **Story Preview**, **Pulse Increment**, **Evidence Bundle**.
@@ -34,7 +46,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **Specifications:** [ADF v0.5.0 (latest)](docs/specs/adf-spec-v0.5.0.md), [ADF v0.4.0](docs/specs/spec.v0.4.0.md), [Specification changelog](docs/specs/changelog.md).
 - **Roadmaps:** [Roadmap: 24×7 Autonomous Delivery](docs/roadmaps/adf-roadmap-autonomous-delivery.md).
 - **Guiding principle:** Autonomy-with-Accountability → [docs/vision/autonomy-principle.md](docs/vision/autonomy-principle.md).
-- **Handbook:** [ADF v0.5.0 Handbook index](docs/handbook/README.md) with focused guides for [SSP](docs/handbook/ssp.md), [CR gates](docs/handbook/cr-gates.md), [Story Preview](docs/handbook/story-preview.md), [Pulse Increment](docs/handbook/pulse-increment.md), [Conformance](docs/handbook/conformance.md), [Evidence Bundle](docs/handbook/evidence-bundle.md), [Metrics](docs/handbook/metrics.md), and [Agent safety rails](docs/handbook/safety-rails.md).
+- **Handbook:** [ADF v0.5.0 Handbook index](docs/handbook/README.md) with focused guides for [SSP](docs/handbook/ssp.md), [DoD Signals](docs/handbook/cr-gates.md), [Story Preview](docs/handbook/story-preview.md), [Pulse Increment](docs/handbook/pulse-increment.md), [Conformance](docs/handbook/conformance.md), [Evidence Bundle](docs/handbook/evidence-bundle.md), [Metrics](docs/handbook/metrics.md), and [Agent safety rails](docs/handbook/safety-rails.md).
 - **Templates:** [PR template](docs/templates/pr-template.md), [Story Preview template](docs/templates/story-preview.md), [Labels](docs/templates/labels.md), [CODEOWNERS example](docs/templates/codeowners.example), [Conformance checklist](docs/templates/conformance-checklist.md), legacy [CR checklist](docs/templates/cr-checklist.md).
 - **Profiles & examples:** [Profiles overview](docs/profiles/overview.md), [GitHub profile](docs/profiles/github.md), [GitHub examples](docs/examples/github/).
 - **Diagrams:** [ADF method overview](docs/diagrams/adf-method-overview.mmd), [SSP flow](docs/diagrams/ssp-flow.mmd), [Pulse increment](docs/diagrams/pulse-increment.mmd), plus neutral diagrams in `docs/diagrams/`.
@@ -50,7 +62,7 @@ graph TD
   DL[Delivery Lead] --> SP
   SP --> ST[Story + SSP]
   ST --> CR[Change Request]
-  CR --> GATES[CR Gates]
+  CR --> GATES[DoD Signals]
   GATES -->|green| MERGE[Merge]
   MERGE --> PULSE[Pulse Increment]
   PULSE --> REVIEW[Review/Retro]
@@ -60,7 +72,7 @@ graph TD
 - `AGENTS.md` – modality charter and guardrails for Delivery Lead, Product Owner, and Developers.
 - `docs/overview.md` – consolidated problem statement, vision, goals, and roadmap with Story Preview and Pulse Increment focus.
 - `docs/specs/` – specifications (v0.5.0, v0.4.0) and changelog history.
-- `docs/handbook/` – operational guides for SSP, gates, Story Preview, Pulse, conformance, evidence, metrics, and agent safety.
+- `docs/handbook/` – operational guides for SSP, DoD Signals, Story Preview, Pulse, conformance, evidence, metrics, and agent safety.
 - `docs/templates/` – PR/Story Preview templates, labels, CODEOWNERS example, conformance checklist, and legacy CR checklist.
 - `docs/profiles/` – platform profiles (GitHub refreshed for v0.5.0) plus archival diagrams.
 - `docs/examples/github/` – illustrative GitHub snippets for required checks, labels, PR template, and repository settings walkthrough.

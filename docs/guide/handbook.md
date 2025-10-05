@@ -11,7 +11,7 @@ This handbook distills the working agreements for Delivery Leads, Product Owners
 
 ## Change Request governance
 
-Every change merges via a **Change Request (CR)**. To pass the DoD and CR gates, the Delivery Lead confirms evidence for:
+Every change merges via a **Change Request (CR)**. To satisfy the Definition of Done (DoD) Signals, the Delivery Lead confirms evidence for:
 
 1. **CI/tests** – automated verification of the workspace runtime recipe.
 2. **QA verification** – Story Preview instructions or recorded walkthrough proving acceptance criteria.
@@ -20,7 +20,7 @@ Every change merges via a **Change Request (CR)**. To pass the DoD and CR gates,
 5. **Human approval** – accountable reviewers sign off; hybrid pairs document provenance.
 6. **Performance Budget** – latency/resource checks (or documented exceptions) when performance-sensitive surfaces change.
 
-The Delivery Lead records gates inside the CR and attaches links to Story Previews and Pulse Increment reports.
+The Delivery Lead records signals inside the CR and attaches links to Story Previews and Pulse Increment reports.
 
 ## Story Preview & Pulse Increment practice
 

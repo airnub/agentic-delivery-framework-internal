@@ -88,15 +88,15 @@ Automation **MAY** enforce WIP limits by blocking Step 2 when another executor h
 - **Gate instability:** Capture logs in the Evidence Bundle and flag the Delivery Lead for systemic fixes.
 - **Reviewer unavailable:** Use the `mode-policy` gate to enforce fallback CODEOWNERS or escalate to the Delivery Lead.
 
-For detailed gate remediation steps, consult the [CR Gates guide](cr-gates.md).
+For detailed gate remediation steps, consult the [DoD Signals guide](cr-gates.md).
 
 ## Kanban Lens (informative)
 
-Teams MAY visualize the Sequential Subtask Pipeline (SSP) with a minimal Kanban board to aid transparency and flow control. This lens introduces **no new ceremonies** and **no new backlogs**; SSP’s normative rules (Story Lease, WIP=1 per Story, ordered subtask queue, single CR, CR Gates) remain unchanged.
+Teams MAY visualize the Sequential Subtask Pipeline (SSP) with a minimal Kanban board to aid transparency and flow control. This lens introduces **no new ceremonies** and **no new backlogs**; SSP’s normative rules (Story Lease, WIP=1 per Story, ordered subtask queue, single CR, DoD Signals) remain unchanged.
 
 ```mermaid
 flowchart LR
-  R[Ready (ordered)] --> IP[In Progress (leased, WIP=1)] --> CG[Checkpoint Green] --> G[CR Gates] --> D[Done]
+  R[Ready (ordered)] --> IP[In Progress (leased, WIP=1)] --> CG[Checkpoint Green] --> G[DoD Signals] --> D[Done]
 ```
 
 **Explicit policies (lens)**
@@ -106,7 +106,7 @@ flowchart LR
 * **Blocked:** Mark with a reason and aging; escalate if aging exceeds your SLE.
 * **Replenish:** PO/Delivery Lead may reorder **Ready** between subtasks (not mid-subtask); document the reason in the Story.
 * **Expedite:** Use break-glass only with approval; auto-file CAPA; flag in the Delivery Pulse.
-* **Done:** A subtask is Done when merged via the Story’s CR and **CR Gates** are green.
+* **Done:** A subtask is Done when merged via the Story’s CR and **DoD Signals** are green.
 
 ---
 

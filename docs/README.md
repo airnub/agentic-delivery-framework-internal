@@ -15,7 +15,7 @@ Use this index to navigate ADF v0.5.0 artifacts.
 
 ## Key Guides
 - [Sequential Subtask Pipeline](handbook/ssp.md)
-- [CR Gates Operations](handbook/cr-gates.md)
+- [DoD Signals Operations](handbook/cr-gates.md)
 - [Story Preview Playbook](handbook/story-preview.md)
 - [Pulse Increment Procedures](handbook/pulse-increment.md)
 - [Conformance Levels](handbook/conformance.md)

@@ -8,12 +8,12 @@ ADF conformance is structured across three levels. Higher levels include lower-l
 Organizations **MUST**:
 - Operate Sprints (aka Iterations) in a work management system that tracks Epics → Stories → Tasks with a Sprint Goal.
 - Require Change Requests before merging to protected branches (**CR-first**).
-- Enforce CR gates so CI/tests, QA verification, security review, automated review, required human approval(s), and **Performance Budget** checks (when performance-sensitive paths change) pass before merge.
+- Enforce DoD Signals so CI/tests, QA verification, security review, automated review, required human approval(s), and **Performance Budget** checks (when performance-sensitive paths change) pass before merge.
 - Define and publish a Definition of Done (DoD) that includes Story Preview expectations.
 
 Organizations **SHOULD**:
 - Link work items to Change Requests via automation or templates.
-- Maintain audit trails for Sprint decisions, gate outcomes, and DoD/Performance Budget exceptions.
+- Maintain audit trails for Sprint decisions, signal outcomes, and DoD/Performance Budget exceptions.
 
 Organizations **MAY**:
 - Incorporate additional governance such as compliance sign-offs or portfolio reviews.
@@ -28,7 +28,7 @@ In addition to L1, organizations **MUST**:
 
 Organizations **SHOULD**:
 - Automate workspace warm starts with seeded secrets and tooling for Humans / AI / Hybrid modalities.
-- Provide observable status of Change Requests, including outstanding gates, Performance Budget status, and Story Preview evidence.
+- Provide observable status of Change Requests, including outstanding signals, Performance Budget status, and Story Preview evidence.
 
 Organizations **MAY**:
 - Employ multiple specialized agents (e.g., testing, documentation, cost analysis) inside the workspace runtime.
@@ -41,7 +41,7 @@ In addition to L1 and L2, organizations **MUST**:
 
 Organizations **SHOULD**:
 - Enable warm start strategies (snapshots, caches) to minimize cold-start time while respecting policies.
-- Surface Sprint-level telemetry (lead time, gate rework, runtime utilization, Pulse Increment health) to Delivery Lead dashboards.
+- Surface Sprint-level telemetry (lead time, signal rework, runtime utilization, Pulse Increment health) to Delivery Lead dashboards.
 - Enforce configurable **WIP limits** (e.g., `wip_limits.active_stories_per_team: 3`) and align them with SSP queue capacity.
 
 Organizations **MAY**:

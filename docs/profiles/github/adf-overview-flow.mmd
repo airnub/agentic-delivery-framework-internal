@@ -9,7 +9,7 @@ flowchart TD
   DEV --> G[Create branch<br/>feat/&lt;issue-key&gt;]
   G --> H[Implement slices<br/>plan → edit → run → test]
   H --> I[Open PR with checklist<br/>"Closes #&lt;issue-id&gt;" + Story Preview]
-  I --> J{{PR / CR Gates}}
+  I --> J{{PR / DoD Signals}}
   J --> J1[CI / Tests]
   J --> J2[QA Verification]
   J --> J3[Security Review<br/>(CodeQL / deps)]

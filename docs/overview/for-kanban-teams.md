@@ -3,12 +3,12 @@
 ADF’s **Sequential Subtask Pipeline (SSP)** behaves like **single‑piece flow**:
 - Pull the **next subtask** in order; **WIP=1** per Story is enforced via the **Story Lease**.
 - Reach a local **Checkpoint Green**, then push.
-- Merge via a single **Change Request**; **CR Gates** (tests, security, perf, policy) decide.
+- Merge via a single **Change Request**; **DoD Signals** (tests, security, perf, policy) decide.
 
 ## Minimal board (lens)
 ```mermaid
 flowchart LR
-  R[Ready (ordered)] --> IP[In Progress (leased, WIP=1)] --> CG[Checkpoint Green] --> G[CR Gates] --> D[Done]
+  R[Ready (ordered)] --> IP[In Progress (leased, WIP=1)] --> CG[Checkpoint Green] --> G[DoD Signals] --> D[Done]
 ```
 
 **Explicit policies (lens)**
@@ -18,7 +18,7 @@ flowchart LR
 * **Blocked:** Mark reason + aging; escalate if SLE breached.
 * **Replenish:** Leads may reorder between subtasks (not mid-subtask); document reason in the Story.
 * **Expedite:** Break-glass with approval; CAPA; Pulse flag.
-* **Done:** Subtask Done when merged (gates green).
+* **Done:** Subtask Done when merged (signals green).
 
 ## Minimal metrics (helpful, not mandatory)
 
@@ -29,7 +29,7 @@ flowchart LR
 ## Where to go next
 
 * **SSP (normative rules)** → `../handbook/ssp.md`
-* **CR Gates (portable checks)** → `../handbook/cr-gates.md`
+* **DoD Signals (portable checks)** → `../handbook/cr-gates.md`
 * **Delivery Pulse (inspectability)** → `../handbook/pulse-increment.md`
 
 
