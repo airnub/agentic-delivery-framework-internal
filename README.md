@@ -78,6 +78,11 @@ graph TD
 ## Status
 Documentation scaffold for the vendor-neutral methodology. Platform-specific implementations live in companion repositories and profiles; use the GitHub profile for the example configuration stack.
 
+## Documentation site (informative)
+- The `website/` directory hosts the Docusaurus-powered informative site that mirrors the normative specs in `docs/`.
+- Install Node.js 18.17 or newer and run `npm install` inside `website/` to prepare local builds.
+- Use `npm run start` for local previews, `npm run build` for static output, and `npm run serve` to inspect the generated `website/build/` directory.
+
 ---
 
 This methodology/spec is licensed under CC BY-SA 4.0.

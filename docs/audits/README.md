@@ -1,3 +1,8 @@
+---
+title: ADF Audits (Informative)
+slug: /audits
+---
+
 # ADF Audits
 
 - This folder contains **dated, immutable** audit documents of the ADF repo.

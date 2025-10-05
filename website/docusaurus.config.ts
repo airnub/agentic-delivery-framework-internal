@@ -22,7 +22,7 @@ const config: Config = {
       {
         docs: {
           path: '../docs',
-          routeBasePath: '/',
+          routeBasePath: 'docs',
           sidebarPath: require.resolve('./sidebars.ts'),
           editUrl: 'https://github.com/airnub/agentic-delivery-framework/edit/work/',
           showLastUpdateAuthor: true,
@@ -40,14 +40,14 @@ const config: Config = {
       title: 'ADF',
       logo: { alt: 'ADF', src: 'img/favicon.svg' },
       items: [
-        { to: '/overview/start-here', label: 'Start', position: 'left' },
-        { to: '/overview/adoption-guide', label: 'Adopt', position: 'left' },
-        { to: '/specs/adf-spec-v0.5.0', label: 'Spec', position: 'left' },
-        { to: '/handbook/ssp', label: 'Handbook', position: 'left' },
-        { to: '/templates/pr-template', label: 'Templates', position: 'left' },
-        { to: '/profiles/github', label: 'Profiles', position: 'left' },
-        { to: '/audits/README', label: 'Audits', position: 'left' },
-        { to: '/CHANGELOG', label: 'Changelog', position: 'left' },
+        { to: '/docs/overview/start-here', label: 'Start', position: 'left' },
+        { to: '/docs/overview/adoption-guide', label: 'Adopt', position: 'left' },
+        { to: '/docs/specs/adf-spec-v0.5.0', label: 'Spec', position: 'left' },
+        { to: '/docs/handbook/ssp', label: 'Handbook', position: 'left' },
+        { to: '/docs/templates/pr-template', label: 'Templates', position: 'left' },
+        { to: '/docs/profiles/github', label: 'Profiles', position: 'left' },
+        { to: '/docs/audits', label: 'Audits', position: 'left' },
+        { to: '/docs/CHANGELOG', label: 'Changelog', position: 'left' },
         { href: 'https://github.com/airnub/agentic-delivery-framework', label: 'GitHub', position: 'right' },
       ],
     },
@@ -57,17 +57,17 @@ const config: Config = {
         {
           title: 'Learn',
           items: [
-            { label: 'Start', to: '/overview/start-here' },
-            { label: 'Spec', to: '/specs/adf-spec-v0.5.0' },
-            { label: 'Handbook', to: '/handbook/ssp' },
+            { label: 'Start', to: '/docs/overview/start-here' },
+            { label: 'Spec', to: '/docs/specs/adf-spec-v0.5.0' },
+            { label: 'Handbook', to: '/docs/handbook/ssp' },
           ],
         },
         {
           title: 'Operate',
           items: [
-            { label: 'Templates', to: '/templates/pr-template' },
-            { label: 'Profiles', to: '/profiles/github' },
-            { label: 'Audits', to: '/audits/README' },
+            { label: 'Templates', to: '/docs/templates/pr-template' },
+            { label: 'Profiles', to: '/docs/profiles/github' },
+            { label: 'Audits', to: '/docs/audits' },
           ],
         },
         {

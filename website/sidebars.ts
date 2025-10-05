@@ -26,7 +26,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'specs/adf-spec-v0.5.0',
-        { type: 'link', label: 'v0.4.0 (Historical)', href: '/specs/adf-spec-v0.4.0' },
+        { type: 'link', label: 'v0.4.0 (Historical)', href: '/docs/specs/spec.v0.4.0' },
       ],
     },
   ],
@@ -70,9 +70,12 @@ const sidebars: SidebarsConfig = {
       label: 'Profiles (Informative)',
       collapsed: false,
       items: [
+        'profiles/overview',
         'profiles/github',
-        { type: 'link', label: 'GitLab (stub)', href: '/profiles/gitlab' },
-        { type: 'link', label: 'Azure DevOps (stub)', href: '/profiles/azure' },
+        {
+          type: 'html',
+          value: '<em>Additional platform profiles stay informative and may land in future releases.</em>',
+        },
       ],
     },
   ],
@@ -85,7 +88,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'examples/github/labels',
         'examples/github/pr-template.example',
-        'examples/github/required-checks.list',
+        'examples/github/required-checks',
         'examples/github/repo-settings',
       ],
     },

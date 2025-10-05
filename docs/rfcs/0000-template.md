@@ -1,10 +1,10 @@
 # RFC-0000: Title
 
 - Status: Draft
-- Authors: <Name(s)>
+- Authors: `<Name(s)>`
 - Stakeholders: Delivery Lead Editors, Product Owner Editors, Developer Editors, Maintainers
-- Start Date: <YYYY-MM-DD>
-- Target Release: <v0.x.y>
+- Start Date: `<YYYY-MM-DD>`
+- Target Release: `<v0.x.y>`
 
 ## Summary
 

@@ -4,7 +4,7 @@ ADF adoption follows a three-level ladder. Each level builds on Scrum without ad
 
 ## Level 1 — Foundations
 - Enable the [PR template](../templates/pr-template.md) and Story Preview checklist.
-- Require `tests-ci` and `spec-verify` gates per [Specification §4](../specs/adf-spec-v0.5.0.md#change-request-gates).
+- Require `tests-ci` and `spec-verify` gates per [Specification §4](../specs/adf-spec-v0.5.0.md#3-change-request-gates).
 - Schedule a daily Delivery Pulse (≤10 minutes) and nominate a Delivery Lead.
 - Capture Pulse Increment notes in your Evidence Bundle (`requirements-trace.json`).
 

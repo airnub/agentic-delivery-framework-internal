@@ -6,7 +6,7 @@ The Agentic Delivery Framework (ADF) repository is a methodology and specificati
 
 - Review the [Governance model](governance.md) and the latest [Specification](specs/spec.v0.4.0.md).
 - Check open RFCs in [docs/rfcs](rfcs/process.md#workflow) to avoid duplicating proposals.
-- Align terminology with the neutral glossary in [AGENTS.md](../AGENTS.md) and the [ADF Delivery Handbook](guide/handbook.md#repository-guardrails-no-code-policy).
+- Align terminology with the neutral glossary in `AGENTS.md` and the [ADF Delivery Handbook](guide/handbook.md#repository-guardrails-no-code-policy).
 - Install the repository Git hooks so the CC BY-SA footer is auto-applied: `git config core.hooksPath .githooks`.
 
 ## Contribution Paths

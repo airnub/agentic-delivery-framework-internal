@@ -1,0 +1,11 @@
+# Node build artifacts
+website/node_modules/
+website/build/
+
+# Logs and caches
+website/.docusaurus/
+website/.cache-loader/
+
+# Editor settings
+.vscode/
+.DS_Store
