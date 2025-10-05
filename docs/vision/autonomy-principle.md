@@ -11,3 +11,5 @@
 - **Human Governance:** Delivery Pulse and Retros keep humans in the loop for priorities, exceptions, and policy evolution.
 
 This principle is non-normative; see the ADF specification for requirements.
+
+This work is licensed under CC BY-SA 4.0.
