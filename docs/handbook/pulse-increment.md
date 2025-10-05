@@ -6,6 +6,7 @@ summary: "Operating the daily Pulse Increment cadence defined by ADF v0.5.0."
 # Delivery Pulse & Pulse Increment
 
 This guide explains how to produce and govern the Pulse Increment mandated in [Section 5 of the specification](../specs/adf-spec-v0.5.0.md#5-delivery-pulse-and-pulse-increment).
+> **Purpose:** Delivery Pulse fulfills the Daily Scrum’s intent (inspect/adapt for next 24h) while using automated evidence from the Pulse Increment.
 
 ## Table of Contents
 - [Cadence Overview](#cadence-overview)

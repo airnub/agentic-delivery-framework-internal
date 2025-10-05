@@ -5,6 +5,8 @@ summary: "Operational playbook for running and troubleshooting ADF v0.5.0 Change
 
 # Change Request Gates — Operations Guide
 
+> **Terminology:** “CR gates” are the method’s canonical checks. You may also refer to them as **DoD Signals** when emphasizing their role as Definition-of-Done evidence.
+
 This handbook expands on the normative [CR Gates](../specs/adf-spec-v0.5.0.md#3-change-request-gates) and documents minimum expectations, evidence capture, and break-glass handling.
 
 ## Table of Contents

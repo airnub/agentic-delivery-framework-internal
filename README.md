@@ -4,6 +4,18 @@
 
 The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human + AI teams to ship software safely. It centers three Scrum-friendly accountabilities—**Delivery Lead**, **Product Owner**, and **Developers**—who collaborate through a governed planning and delivery flow. Every change moves through a **Change Request (CR)** with Definition of Done (DoD) and gate evidence so Sprints stay auditable.
 
+## Method framing
+**Scrum-compatible core:** We keep the spirit of Scrum’s roles, artifacts, and events.
+**ADF extension practices:** 
+- SSP (Sequential Subtask Pipeline) – developer practice to prevent agent collisions
+- CR gates (aka DoD Signals) – automated evidence required for merge
+- Daily Pulse – the daily inspection/adaptation using the Pulse Increment (auto demo build)
+*Rule:* If it isn’t a core role/artifact/event, it’s an Extension Practice—useful, optional, swappable.
+
+**Conformance rails**
+- **ADF-S (Scrum-only):** Daily Pulse + CR gates recommended; SSP optional
+- **ADF-SA (Scrum + Agent controls):** Daily Pulse + CR gates + SSP required
+
 > **Latest release:** [ADF v0.5.0](docs/specs/adf-spec-v0.5.0.md) introduces the CR-first invariant, Sequential Subtask Pipeline (SSP) algorithm, measurable CR gates, Story Preview schema, Delivery Pulse increment rules, conformance levels, Evidence Bundles, minimal metrics, GitHub profile, and agent safety rails. Profiles/Templates here are informative; ADF remains tool-agnostic. v0.4.0 remains available for teams on the prior specification.
 
 ## Quickstart (one-day adoption)
