@@ -21,3 +21,5 @@
 
 ## Secrets (Informative)
 - `PUBLISH_APP_ID` and `PUBLISH_APP_PRIVATE_KEY` store GitHub App credentials for the publish workflow.
+
+This work is licensed under CC BY-SA 4.0.
