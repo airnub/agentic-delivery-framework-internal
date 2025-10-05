@@ -1,0 +1,93 @@
+name: Weekly ADF Audit (informative)
+
+on:
+  schedule:
+    # Mondays 09:00 Europe/Dublin
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+    inputs:
+      audit_date:
+        description: 'Override date (YYYY-MM-DD)'
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      REPO_URL: https://github.com/${{ github.repository }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch || 'main' }}
+      METHOD_VERSION: v0.5.0
+      MODEL: gpt-4o
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Compute audit date (fallback to today UTC)
+        id: date
+        run: |
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve audit date env
+        env:
+          AUDIT_DATE_INPUT: ${{ github.event_name == 'workflow_dispatch' && inputs.audit_date || '' }}
+          FALLBACK_DATE: ${{ steps.date.outputs.date }}
+        run: |
+          if [ -n "$AUDIT_DATE_INPUT" ]; then
+            echo "AUDIT_DATE=$AUDIT_DATE_INPUT" >> "$GITHUB_ENV"
+          else
+            echo "AUDIT_DATE=$FALLBACK_DATE" >> "$GITHUB_ENV"
+          fi
+
+      - name: Render prompt payload
+        run: |
+          mkdir -p tmp
+          cat .github/prompts/adf-weekly-audit.prompt.yaml > tmp/prompt.yaml
+          {
+            echo "repo_url: $REPO_URL"
+            echo "default_branch: $DEFAULT_BRANCH"
+            echo "audit_date: $AUDIT_DATE"
+            echo "method_version: $METHOD_VERSION"
+          } > tmp/inputs.yaml
+
+      - name: Call GitHub Model (example stub)
+        id: call
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # NOTE: Replace this stub with your org's approved GitHub Models invocation.
+          # Example patterns (choose one you support):
+          # 1) Use a reusable action your org provides to run prompts from .github/prompts
+          # 2) Use `gh api` to call GitHub Models endpoint with the prompt+inputs
+          # 3) Use actions/github-script to call an internal endpoint
+          #
+          # For safety in this public scaffold, we create a placeholder audit body.
+          {
+            echo "# Agentic Delivery Framework — Main Branch Audit ($AUDIT_DATE)"
+            echo ""
+            echo "> Replace this placeholder with the model output. See .github/prompts/adf-weekly-audit.prompt.yaml"
+          } > tmp/audit.md
+
+      - name: Write dated audit file
+        run: |
+          mkdir -p docs/audits
+          mv tmp/audit.md docs/audits/${AUDIT_DATE}-adf-audit.md
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "docs(audit): add weekly ADF audit for ${AUDIT_DATE}"
+          title: "docs(audit): ${AUDIT_DATE} — Weekly ADF Audit"
+          body: |
+            This PR adds the weekly **informative** ADF audit generated via `.github/prompts/adf-weekly-audit.prompt.yaml`.
+
+            - Repo: ${{ env.REPO_URL }}
+            - Branch: ${{ env.DEFAULT_BRANCH }}
+            - Date: ${AUDIT_DATE}
+
+            Replace the placeholder model output step with your org's GitHub Models invocation.
+          branch: chore/weekly-adf-audit-${{ steps.date.outputs.date }}
+          delete-branch: true
