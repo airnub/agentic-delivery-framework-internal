@@ -85,41 +85,11 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --quiet --disable-pip-version-check pyyaml
-          python - <<'PY'
-import json
-import os
-import re
-from pathlib import Path
-
-import yaml
-
-
-def render_template(template: str, context: dict[str, str]) -> str:
-    pattern = re.compile(r"{{\s*([^}]+)\s*}}")
-    return pattern.sub(lambda m: str(context[m.group(1)]), template)
-
-
-prompt_path = Path("tmp/prompt.yaml")
-inputs_path = Path("tmp/inputs.yaml")
-
-prompt_data = yaml.safe_load(prompt_path.read_text(encoding="utf-8"))
-inputs = yaml.safe_load(inputs_path.read_text(encoding="utf-8"))
-
-model = prompt_data.get("model") or os.environ.get("MODEL", "openai/gpt-5")
-payload = {
-    "model": model,
-    "messages": [
-        {"role": "system", "content": prompt_data["system"]},
-        {"role": "user", "content": render_template(prompt_data["prompt"], inputs)},
-    ],
-}
-
-for optional_key in ("temperature", "max_tokens"):
-    if optional_key in prompt_data:
-        payload[optional_key] = prompt_data[optional_key]
-
-Path("tmp/payload.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-PY
+          python .github/scripts/weekly_audit.py render-payload \
+            --prompt tmp/prompt.yaml \
+            --inputs tmp/inputs.yaml \
+            --output tmp/payload.json \
+            --default-model "${MODEL:-openai/gpt-5}"
           # Example REST request using the default model:
           #   curl -X POST "https://models.github.ai/inference/chat/completions" \
           #     -H "Content-Type: application/json" \
@@ -142,23 +112,9 @@ PY
             -H "Authorization: Bearer $GH_TOKEN" \
             -d @tmp/payload.json > tmp/response.json
 
-          python - <<'PY'
-import json
-from pathlib import Path
-
-response_path = Path("tmp/response.json")
-data = json.loads(response_path.read_text(encoding="utf-8"))
-
-if "error" in data:
-    raise SystemExit(f"Model API error: {data['error']}")
-
-try:
-    content = data["choices"][0]["message"]["content"]
-except (KeyError, IndexError) as exc:
-    raise SystemExit(f"Model response missing content: {data}") from exc
-
-Path("tmp/audit.md").write_text(content, encoding="utf-8")
-PY
+          python .github/scripts/weekly_audit.py extract-audit \
+            --response tmp/response.json \
+            --output tmp/audit.md
 
       - name: Write dated audit file
         run: |
