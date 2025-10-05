@@ -21,6 +21,8 @@ This profile maps the Agentic Delivery Framework (ADF) neutral terminology to Gi
 
 For an opinionated GitHub implementation, see [airnub/adf-github-suite](https://github.com/airnub/adf-github-suite). It provides automation, configuration, and integration aligned with this profile.
 
+GitHub-specific Mermaid diagrams for the overview flow and planning sequence live in [`adf-overview-flow.mmd`](./github/adf-overview-flow.mmd) and [`adf-sequence.mmd`](./github/adf-sequence.mmd).
+
 ## Additional Notes
 
 - Branch protection rules enforce required status checks and reviews before merge; include Performance Budget workflows when performance-sensitive code changes.

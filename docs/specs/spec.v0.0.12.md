@@ -32,7 +32,7 @@
 - From a clean repo, Delivery Lead can: pick one Issue, spin a Codespace, start the Developers, get a Change Request, pass gates (CI/tests, QA, security, automated review, human approval, Performance Budget), merge, close Issue, publish the daily Pulse Increment note, and stop Codespace.
 
 ## 6. Documentation Enhancements (Non-behavioral)
-- Added **Mermaid overview flow** and **planning & delivery sequence** diagrams (`docs/diagrams/adf-overview-flow.mmd`, `docs/diagrams/adf-sequence.mmd`).
+- Added **Mermaid overview flow** and **planning & delivery sequence** diagrams (`docs/diagrams/adf-overview-neutral.mmd`, `docs/diagrams/adf-sequence-neutral.mmd`).
 - Embedded diagrams across `README.md`, `docs/overview.md`, and `docs/adrs/0001-architecture-planning-delivery-flow.md` for quick reference.
 - Updated `docs/prompts/initial-agent-prompt.md` with links so future agents keep visuals and behavior in sync.
 
