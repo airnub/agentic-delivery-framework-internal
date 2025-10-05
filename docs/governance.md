@@ -7,6 +7,7 @@ ADF governance balances neutrality with traceability. Editors steward the method
 - **Delivery Lead Editors** oversee Sprint planning guidance, conformance expectations, and Delivery Lead responsibilities.
 - **Developer Editors** focus on workspace runtime practices, safety rails, Story Preview requirements, and Change Request lifecycle content.
 - **Maintainers** (appointed by Airnub) delegate editor seats, manage security disclosures, and ensure trademark and licensing policies remain current.
+- Editors collectively review WIP limit policies and Performance Budget thresholds during each Sprint Review cycle to keep governance controls current.
 - Editor appointments or removals are proposed via change request, recorded through an RFC or ADR when substantive, and ratified by the maintainers.
 
 ## Decision Process

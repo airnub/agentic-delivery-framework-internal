@@ -5,29 +5,30 @@
 
 ## Recommended set (conservative, PMO‑friendly)
 - **Framework (repo/project name):** **Agentic Delivery Framework** *(ADF)*
-- **Outer orchestrator (service/GitHub App):** **Program Director** *(component codename: `director`)*
-- **Inner team (agents inside Codespaces):** **Delivery Team** *(component codename: `delivery-team`)*
-- **Timebox:** **Iteration** *(configurable to Sprint/Cycle)*
+- **Outer orchestrator (service/GitHub App):** **Delivery Lead** *(component codename: `delivery-lead`)*
+- **Inner team (agents inside Codespaces):** **Developers** *(component codename: `developers`)*
+- **Timebox:** **Sprint (aka Iteration)** *(configurable to Cycle)*
+- **Cadence:** **Delivery Pulse** with daily **Pulse Increment** updates and published WIP limits (e.g., ≤3 in-progress Stories).
 - **Work items:** **Epic → Story → Task** *(with optional Change Request)*
-- **Quality gates:** **QA Verification** + **Security Review** + **PR Governance**
+- **CR Gates:** **CI/Tests**, **QA Verification**, **Security Review**, **Automated Review**, **Performance Budget**, **Human Approval**
 
-> Rationale: “Delivery,” “Program,” and “Director” are familiar to enterprises; “Iteration” is GitHub‑native and methodology‑neutral. “Team” avoids “Crew” (conflicts) and reads well alongside Dev/QA roles.
+> Rationale: “Delivery” and “Lead” are familiar to enterprises; “Iteration” is GitHub‑native and methodology‑neutral. “Developers” keeps the Scrum-friendly label and reads well alongside Dev/QA roles while supporting Human / AI / Hybrid modalities.
 
 ### Role alignment (examples)
 | Traditional role            | ADF term / capability                                              |
 |---|---|
-| Director / Senior Manager   | Oversees **Program Director** service configuration & budgets      |
+| Director / Senior Manager   | Oversees **Delivery Lead** service configuration & budgets      |
 | Product Manager / Owner     | Owns **Epics/Stories**, acceptance criteria, roadmap in Projects   |
-| Project/Program Manager     | Operates **Program Director** (orchestration), schedules Iterations|
-| Scrum Master / Iteration Mgr| Facilitates **Iteration** ceremonies; monitors PR flow             |
-| Developers                  | Part of **Delivery Team** (inner agents + humans)                  |
+| Project/Program Manager     | Operates **Delivery Lead** orchestration; schedules Sprints |
+| Scrum Master / Iteration Mgr| Facilitates **Sprint (aka Iteration)** events; monitors CR flow             |
+| Developers                  | Part of the **Developers** accountability (inner agents + humans)                  |
 | QA / SDET                   | **QA Verification** checks, test plans, test agents                |
 | Security / Compliance       | **Security Review** checks, code scanning gates                    |
 
 ---
 
 ## Alternative naming sets
-Pick the aesthetic that fits your culture; each keeps the same dual‑loop model.
+Pick the aesthetic that fits your culture; each preserves the same planning and delivery flow.
 
 ### Set A — “Workstreams” (classic enterprise)
 - **Framework:** **Agentic Workstreams**
@@ -60,17 +61,17 @@ Pick the aesthetic that fits your culture; each keeps the same dual‑loop model
 ---
 
 ## Artifact & folder naming suggestions
-- `/conductor/` → `/director/` or `/orchestrator/` (outer service)
-- `/crew/` → `/delivery-team/` or `/workstream-team/` (inner)
-- Docs: keep **Iteration**; allow synonyms in a glossary.
-- Issues/PR templates: use **Epic/Story/Task**, **QA Verification**, **Security Review**.
+- `/conductor/` → `/delivery-lead/` or `/orchestrator/` (outer service)
+- `/crew/` → `/developers/` or `/workstream-team/` (inner)
+- Docs: keep **Sprint (aka Iteration)**; allow synonyms in a glossary when cross-referencing platforms.
+- Issues/CR templates: use **Epic/Story/Task**, **QA Verification**, **Security Review**, **Performance Budget**, and **WIP limit** reminders.
 
 ---
 
 ## Glossary (for the docs)
 - **Agentic Delivery Framework (ADF):** The overall system and conventions.
-- **Program Director:** The outer orchestrator that manages Codespaces lifecycle, planning, and PR governance.
-- **Delivery Team:** Inner automation + humans working inside Codespaces to implement Stories via PRs.
+- **Delivery Lead:** The outer orchestrator that manages workspace runtime lifecycle, planning, Delivery Pulse cadences, and CR governance (including Performance Budget review).
+- **Developers:** Inner automation + humans working inside workspace runtimes to implement Stories via Change Requests and uphold Story Preview expectations.
 - **Iteration:** A timeboxed period; synonymous with Sprint/Cycle depending on org preference.
 - **QA Verification:** Test plan execution (automated + manual) before merge.
 - **Security Review:** Code scanning, dependency checks, policy gates.
@@ -79,13 +80,13 @@ Pick the aesthetic that fits your culture; each keeps the same dual‑loop model
 
 ## Messaging snippets for enterprise decks
 - *“ADF keeps all autonomous work inside GitHub Codespaces, with PR‑first governance and your existing QA/Sec gates.”*
-- *“Program Director orchestrates Iterations and enforces branch protection, Copilot Code Review, and required checks.”*
-- *“Delivery Teams (agents + devs) iterate safely; merges happen only when definition‑of‑done and gates pass.”*
+- *“Delivery Lead orchestrates Sprints and enforces CR gates, Performance Budget checks, and Delivery Pulse telemetry.”*
+- *“Developers (agents + devs) iterate safely; merges happen only when Definition of Done, Story Preview, and gates pass.”*
 
 ---
 
 ## Recommendation
-Adopt **Agentic Delivery Framework (ADF)** with **Program Director** (outer) and **Delivery Team** (inner), using **Iteration** for the timebox and **Epic/Story/Task** for work items. It reads naturally for directors, PM/PMO, product, scrum, dev, and QA—without locking you into a single methodology.
+Adopt **Agentic Delivery Framework (ADF)** with **Delivery Lead** (outer) and **Developers** (inner), using **Sprint (aka Iteration)** for the timebox and **Epic/Story/Task** for work items. It reads naturally for directors, PM/PMO, product, scrum, dev, and QA—without locking you into a single methodology.
 
 ---
 
