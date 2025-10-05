@@ -61,13 +61,13 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 
 When a Story is decomposed into ordered sub-tasks, teams **MUST** follow the Subtask Sequencing Policy:
 
-1. **Single Story Branch.** Implement all related sub-tasks on one dedicated Story branch.
-2. **Exclusive Lease.** Ensure exactly one worker (human or agent) holds an exclusive lease on that Story branch at a time; others MUST NOT push edits until the lease is released.
-3. **Queued Order.** Execute sub-tasks in the declared queue order, starting each sub-task from the HEAD produced by the previous checkpoint (no parallel edits to the Story branch).
-4. **Checkpoint per Sub-task.** Create a checkpoint commit for each sub-task with tests, verification notes, and a runnable Story Preview. Checkpoints MUST NOT merge to the default branch.
-5. **One Change Request.** Open a single Change Request after all queued sub-tasks reach “checkpoint-green” (Story-level DoD). Aggregate checkpoint evidence in the CR description.
-6. **Failure Handling.** On checkpoint failure, fix forward or revert before requeuing the sub-task.
-7. **WIP Limits.** Set WIP limits (e.g., ≤3 active Stories per team/agent) to reduce thrash.
+1. **Single Story Branch.** When a Story is decomposed, the Team **MUST** implement all related sub-tasks on **one dedicated Story branch**.
+2. **Exclusive Lease.** At any time, **exactly one worker (human or agent)** **MUST** hold an **exclusive lease** on that Story branch. Others **MUST NOT** push edits until the lease is released.
+3. **Queued Order.** Sub-tasks **MUST** be executed in a **declared queue order**. Each sub-task starts from the **HEAD** produced by the previous sub-task (no parallel edits to the Story branch).
+4. **Checkpoint per Sub-task.** Each sub-task **MUST** create a **checkpoint commit** with: tests, verification notes, and a runnable **Story Preview**. Checkpoints **MUST NOT** merge to the default branch.
+5. **One Change Request.** A Story that used SSP **MUST** open **one Change Request** only **after** all queued sub-tasks reach “checkpoint-green” (DoD at Story scope). The CR description **SHOULD** aggregate evidence from all checkpoints.
+6. **Failure Handling.** If a sub-task fails gates, the lease holder **MUST** either fix forward or revert the checkpoint, then requeue.
+7. **WIP Limits.** Teams **SHOULD** set WIP limits (e.g., ≤3 active Stories per Team/agent) to reduce thrash.
 
 Refer to the [Sequential Subtask Pipeline (SSP) method guide](../method/ssp-sequential-subtask-pipeline.v0.1.0.md) for detailed flow, queue formats, and informative implementation notes.
 
