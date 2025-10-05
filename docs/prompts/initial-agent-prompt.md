@@ -11,11 +11,10 @@ Establish or refresh the repository documentation so the **Delivery Lead**, **Pr
 1. Ensure these files exist and match intent:
    - `/README.md`
    - `/AGENTS.md`
-   - `/docs/vision.md`
-   - `/docs/problem-statement.md`
-   - `/docs/goals.md`
-   - `/docs/roadmap.md`
+   - `/docs/overview.md`
+   - `/docs/guide/handbook.md`
    - `/docs/specs/spec.v0.3.0.md` (latest semver spec)
+   - `/docs/specs/changelog.md`
    - `/docs/adrs/0001-architecture-planning-delivery-flow.md`
    - `/docs/naming/enterprise-friendly-naming.v0.0.3.md`
 2. Add methodology hygiene if missing:
@@ -28,7 +27,7 @@ Establish or refresh the repository documentation so the **Delivery Lead**, **Pr
 ## Guardrails
 
 - Do **not** push to `main`. Create branch `docs/bootstrap-<date>`.
-- All changes via **PR** titled `docs: bootstrap agentic delivery framework documentation` with body referencing Issues.
+- All changes via **Change Request (CR)** titled `docs: bootstrap agentic delivery framework documentation` with body referencing Issues.
 - Keep secrets out of files. Do not modify devcontainer or executable workflows unless instructed.
 
 ## Visual References

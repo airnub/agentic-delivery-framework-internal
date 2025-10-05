@@ -59,7 +59,7 @@ _Figure: Sequence diagram documents how the Delivery Lead, Product Owner, and De
 ## Consequences
 
 - **Pros**: safety (no unmanaged edits), transparent Story Previews and Pulse Increments, governance through change request gates, model choice via open APIs, reproducible environments, enterprise naming alignment.
-- **Cons**: orchestration costs (workspace runtime minutes, warm starts, secrets). Mitigate with idle shutdowns, budgets, telemetry, and Delivery Pulse inspections per [Conformance L3](../CONFORMANCE.md).
+- **Cons**: orchestration costs (workspace runtime minutes, warm starts, secrets). Mitigate with idle shutdowns, budgets, telemetry, and Delivery Pulse inspections per [Conformance L3](../conformance.md).
 
 ---
 

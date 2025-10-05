@@ -57,8 +57,8 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 6. After merge, Delivery Lead updates the work management system, captures telemetry, and may hibernate or stop the workspace runtime.
 
 ## 8. Conformance & Profiles
-- **Conformance:** Implementations SHOULD map to [L1–L3 requirements](../CONFORMANCE.md). L2+ MUST demonstrate Story Previews and Pulse Increment generation; L3 includes telemetry, cost controls, and WIP policy enforcement.
-- **Profiles:** Platform-specific terminology and automation live in [docs/PROFILES.md](../PROFILES.md) and companion profile files (e.g., [GitHub profile](../profiles/github.md)). Core spec remains vendor-neutral.
+- **Conformance:** Implementations SHOULD map to [L1–L3 requirements](../conformance.md). L2+ MUST demonstrate Story Previews and Pulse Increment generation; L3 includes telemetry, cost controls, and WIP policy enforcement.
+- **Profiles:** Platform-specific terminology and automation live in [profiles overview](../profiles/overview.md) and companion profile files (e.g., [GitHub profile](../profiles/github.md)). Core spec remains vendor-neutral.
 
 ## 9. References & History
 - Previous specs (v0.0.10–v0.0.21) retain historical vocabulary for provenance; consult repository history if earlier naming is

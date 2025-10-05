@@ -4,15 +4,15 @@ The Agentic Delivery Framework (ADF) repository is a methodology and specificati
 
 ## Before You Start
 
-- Review the [Governance model](GOVERNANCE.md) and the latest [Specification](specs/spec.v0.3.0.md).
-- Check open RFCs in [docs/RFCs](RFCs/README.md) to avoid duplicating proposals.
-- Align terminology with the neutral glossary in [AGENTS.md](../AGENTS.md) and the [No-Code Policy](NO-CODE-POLICY.md).
+- Review the [Governance model](governance.md) and the latest [Specification](specs/spec.v0.3.0.md).
+- Check open RFCs in [docs/rfcs](rfcs/process.md#workflow) to avoid duplicating proposals.
+- Align terminology with the neutral glossary in [AGENTS.md](../AGENTS.md) and the [ADF Delivery Handbook](guide/handbook.md#repository-guardrails-no-code-policy).
 - Install the repository Git hooks so the CC BY-SA footer is auto-applied: `git config core.hooksPath .githooks`.
 
 ## Contribution Paths
 
 1. **Documentation Updates** — Fix typos, clarify language, add diagrams, or improve guidance. Reference related issues in your change request.
-2. **Spec or Conformance Changes** — Require an RFC. Draft the RFC using [RFCs/0000-template.md](RFCs/0000-template.md), open it in `docs/RFCs/`, and link it in your change request.
+2. **Spec or Conformance Changes** — Require an RFC. Draft the RFC using [rfcs/0000-template.md](rfcs/0000-template.md), open it in `docs/rfcs/`, and link it in your change request.
 3. **Profiles & Informative Guides** — Platform mappings, prompts, or adoption playbooks should live in the appropriate docs directory. Normative terminology changes require an RFC.
 4. **Policy & Governance** — Updates to licensing, trademarks, or governance processes must cite prior decisions and may require maintainer approval.
 

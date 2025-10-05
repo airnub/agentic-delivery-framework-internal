@@ -36,7 +36,7 @@ Earlier documentation referenced a daily cadence focused solely on merge-ready i
 
 - [Spec v0.3.0](../specs/spec.v0.3.0.md)
 - [Enterprise-friendly naming v0.0.3](../naming/enterprise-friendly-naming.v0.0.3.md)
-- [Conformance](../CONFORMANCE.md)
+- [Conformance](../conformance.md)
 
 ---
 

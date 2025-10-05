@@ -30,7 +30,7 @@ For an opinionated GitHub implementation, see [airnub/adf-github-suite](https://
 - Daily Pulse Increment may deploy to GitHub Pages, an ephemeral environment, or another demo target triggered by Actions.
 - WIP dashboards can be implemented with Projects views or custom Actions that flag when teams exceed policy.
 
-To contribute updates or clarifications to this profile, follow the process in [CONTRIBUTING.md](../CONTRIBUTING.md) and the [RFC guidelines](../RFCs/README.md).
+To contribute updates or clarifications to this profile, follow the process in [contributing.md](../contributing.md) and the [RFC guidelines](../rfcs/process.md).
 
 ---
 
