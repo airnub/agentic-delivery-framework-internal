@@ -119,3 +119,7 @@ A story cannot be set to Done unless its **Change Request** includes:
 
 ## Changelog
 - **v0.0.3** — add Performance Budget gate guidance and WIP Limits policy example.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

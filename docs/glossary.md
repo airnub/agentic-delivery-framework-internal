@@ -20,3 +20,7 @@
 | **Story Preview** | Pre-merge demonstration artifact showing acceptance criteria satisfied before Product Owner approval. |
 | **tests-ci** | Required automated verification gate proving code health for each CR. |
 | **WIP Limit** | Policy capping concurrent Stories or CRs to preserve flow and prevent gate overload. |
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

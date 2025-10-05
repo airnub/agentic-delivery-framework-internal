@@ -27,3 +27,7 @@ ADF adoption follows a three-level ladder. Each level builds on Scrum without ad
 ✅ Completion signal: Independent auditors can replay Delivery Pulse, CR evidence, and compliance decisions from your repository.
 
 Need to tailor per platform? Consult the [Profiles](../profiles/github.md) and [Examples](../examples/github/labels.md) (informative).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

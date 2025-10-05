@@ -16,3 +16,7 @@ ADF is aimed at product teams adopting human+AI delivery. Keep Scrum roles, even
 4. **Use Templates and Profiles**: Start with the [PR template](../templates/pr-template.md) and the [GitHub profile](../profiles/github.md) to implement CR gates.
 
 For deeper study, continue into the normative `/docs/specs` and `/docs/handbook` sections.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

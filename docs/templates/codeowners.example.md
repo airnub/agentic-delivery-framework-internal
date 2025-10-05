@@ -34,3 +34,7 @@ docs/**                                    @org/docs-guild
 /.github/workflows/**                      @org/delivery-leads
 ```
 
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

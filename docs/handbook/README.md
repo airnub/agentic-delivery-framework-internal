@@ -19,3 +19,7 @@ This handbook complements the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.
 - [Agent Safety Rails Handbook](safety-rails.md)
 
 Cross-reference templates such as [`templates/pr-template.md`](../templates/pr-template.md) and platform profiles starting with [`profiles/overview.md`](../profiles/overview.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

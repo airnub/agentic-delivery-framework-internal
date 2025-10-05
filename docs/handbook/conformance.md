@@ -104,3 +104,7 @@ Use this guide to plan adoption of the [ADF conformance levels](../specs/adf-spe
 - [GitHub profile mapping](../profiles/github.md)
 - [Evidence Bundle procedures](evidence-bundle.md)
 - [Safety Rails handbook](safety-rails.md)
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

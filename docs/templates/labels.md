@@ -8,3 +8,7 @@
 | `break-glass` | Authorized bypass of gates 3–7 with CAPA requirement. | Only Delivery Lead applies; ensure CAPA link in CR and Pulse. |
 | `preview-needs-update` | Signals reviewers that Preview lacks required evidence. | Remove after Story Owner updates Preview assets. |
 | `pulse-blocker` | Marks CRs that must merge before next Pulse. | Use sparingly; escalate during Delivery Pulse planning. |
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

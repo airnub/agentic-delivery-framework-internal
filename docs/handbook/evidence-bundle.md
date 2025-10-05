@@ -81,3 +81,7 @@ Auditors **SHOULD** verify:
 - Emit metrics on bundle creation success/failure to feed the [Metrics guide](metrics.md).
 
 For alignment with conformance goals, refer to the [Conformance guide](conformance.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

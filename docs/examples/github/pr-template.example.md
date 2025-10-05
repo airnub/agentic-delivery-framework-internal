@@ -15,3 +15,7 @@
 - [ ] Conforms to SSP scope & Edit Locality
 - [ ] Required labels: `story:…`, optional `break-glass`
 - [ ] Evidence uploaded to bundle location (post-merge automation consumes)
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

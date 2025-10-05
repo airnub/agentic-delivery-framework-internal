@@ -147,3 +147,7 @@ All examples are illustrative and should be adapted before use:
 - [`docs/examples/github/repo-settings.md`](../examples/github/repo-settings.md) — step-by-step instructions for configuring branch protection and environments via UI/CLI.
 
 For additional background on platform-neutral requirements, review the [specification](../specs/adf-spec-v0.5.0.md) and [handbook](../handbook/README.md).
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

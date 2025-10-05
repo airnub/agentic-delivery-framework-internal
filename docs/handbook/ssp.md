@@ -107,3 +107,7 @@ flowchart LR
 * **Replenish:** PO/Delivery Lead may reorder **Ready** between subtasks (not mid-subtask); document the reason in the Story.
 * **Expedite:** Use break-glass only with approval; auto-file CAPA; flag in the Delivery Pulse.
 * **Done:** A subtask is Done when merged via the Story’s CR and **CR Gates** are green.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

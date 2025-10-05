@@ -163,3 +163,7 @@ SSP status — ABC-123
 * **Method**: add SSP to the ADF spec and naming docs as above.
 * **Implementation**: reference platform profiles for concrete mappings (kept outside this repo).
 
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

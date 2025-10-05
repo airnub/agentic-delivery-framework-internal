@@ -194,3 +194,7 @@ ADF v0.5.0 retains the security posture of v0.4.0 while clarifying Evidence Bund
 
 - **v0.5.0:** Introduced CR-first invariant, SSP algorithm, expanded CR Gates, Story Preview schema, Pulse Increment requirements, conformance levels, Evidence Bundles, metrics vocabulary, platform profiles, and agent safety rails.
 - **v0.4.0:** See [previous specification](spec.v0.4.0.md) for historical requirements.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

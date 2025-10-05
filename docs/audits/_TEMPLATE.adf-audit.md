@@ -28,3 +28,7 @@
 
 ## Suggested Follow-ups
 - [ ] …
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

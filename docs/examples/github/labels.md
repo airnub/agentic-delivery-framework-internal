@@ -8,3 +8,7 @@ _Informative._ Use `docs/examples/github/labels.csv` as the canonical sample lab
 **Key references**
 - `docs/examples/github/labels.csv` — importable GitHub label export with severity, gate, and workflow mappings.
 - `docs/templates/labels.md` — normative description of label expectations.
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.

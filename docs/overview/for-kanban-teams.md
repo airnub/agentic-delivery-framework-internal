@@ -32,3 +32,7 @@ flowchart LR
 * **CR Gates (portable checks)** → `../handbook/cr-gates.md`
 * **Delivery Pulse (inspectability)** → `../handbook/pulse-increment.md`
 
+
+---
+
+This methodology/spec is licensed under CC BY-SA 4.0.
