@@ -21,6 +21,3 @@ Related stories, RFCs, changelog entries, or external implementation issues.
 - [ ] Governance reviewers consulted as needed
 - [ ] Follow-up actions captured in roadmap or reference repos
 
----
-
-This methodology/spec is licensed under CC BY-SA 4.0.

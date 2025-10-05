@@ -17,12 +17,17 @@ jobs:
       - name: Ensure CC BY-SA notice exists on Markdown and YAML files
         run: |
           set -euo pipefail
-          license_line="This methodology/spec is licensed under CC BY-SA 4.0."
+          license_line="This work is licensed under CC BY-SA 4.0."
           missing_files=""
           while IFS= read -r file; do
             if [ -z "$file" ]; then
               continue
             fi
+            case "$file" in
+              .github/ISSUE_TEMPLATE/*|.github/PULL_REQUEST_TEMPLATE.md)
+                continue
+                ;;
+            esac
             if ! grep -Fq "$license_line" "$file"; then
               missing_files+="$file\n"
             fi
@@ -33,4 +38,4 @@ jobs:
             exit 1
           fi
           echo "All Markdown and YAML files include the CC BY-SA license notice."
-# This methodology/spec is licensed under CC BY-SA 4.0.
+# This work is licensed under CC BY-SA 4.0.

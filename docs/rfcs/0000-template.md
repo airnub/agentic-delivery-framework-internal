@@ -38,4 +38,4 @@ Highlight open issues or risks that need resolution before acceptance.
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

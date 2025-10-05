@@ -82,4 +82,4 @@ Refer to the [Sequential Subtask Pipeline (SSP) method guide](../method/ssp-sequ
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

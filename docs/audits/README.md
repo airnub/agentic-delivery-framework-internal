@@ -19,4 +19,4 @@ _Informative._ Audit reports provide optional references; the normative method r
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

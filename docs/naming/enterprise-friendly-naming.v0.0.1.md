@@ -90,4 +90,4 @@ Adopt **Agentic Delivery Framework (ADF)** with **Delivery Lead** (outer) and **
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

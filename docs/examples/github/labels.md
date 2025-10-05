@@ -11,4 +11,4 @@ _Informative._ Use `docs/examples/github/labels.csv` as the canonical sample lab
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

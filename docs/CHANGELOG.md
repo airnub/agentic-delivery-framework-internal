@@ -4,4 +4,4 @@ _Informative._ This page mirrors the repository root `CHANGELOG.md`. Refer to th
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

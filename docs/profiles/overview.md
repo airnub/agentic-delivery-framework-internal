@@ -24,4 +24,4 @@ Community contributions are welcome. See [contributing.md](../contributing.md) f
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

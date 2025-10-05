@@ -197,4 +197,4 @@ ADF v0.5.0 retains the security posture of v0.4.0 while clarifying Evidence Bund
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.

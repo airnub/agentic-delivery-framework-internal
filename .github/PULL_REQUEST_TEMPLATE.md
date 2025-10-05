@@ -12,6 +12,3 @@
 - [ ] Governance reviewers assigned (Delivery Lead & Developer editors for normative changes)
 - [ ] Documentation updated across affected files (including license notice)
 
----
-
-This methodology/spec is licensed under CC BY-SA 4.0.

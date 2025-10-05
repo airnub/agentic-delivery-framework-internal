@@ -84,4 +84,4 @@ For alignment with conformance goals, refer to the [Conformance guide](conforman
 
 ---
 
-This methodology/spec is licensed under CC BY-SA 4.0.
+This work is licensed under CC BY-SA 4.0.
