@@ -34,6 +34,9 @@ provenance/            # Attestations, signatures, provenance metadata (informat
 sanitized-logs/        # Optional sanitized logs if policy demands
 ```
 
+ADF documentation references `requirements-trace.json` as the neutral example filename for the requirements slice. Treat any
+other legacy filenames as migration artifacts and update them to this canonical example when revising content.
+
 ## Creation Workflow
 
 1. **Trigger:** Upon CR merge, an automation job packages required artifacts.

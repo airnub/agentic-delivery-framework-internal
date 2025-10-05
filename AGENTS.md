@@ -34,10 +34,14 @@
 
 ## 8. Quality Bar
 - Validate there are no broken links; ensure Mermaid diagrams render on GitHub.
-- Run repo-wide searches for disallowed terms (vendor names, `rtm.json`, etc.) before opening a PR.
+- Run repo-wide searches for disallowed terms and legacy filenames (anything other than `requirements-trace.json`) before opening a PR.
 - Confirm optional examples remain clearly informative.
 
 ## 9. Commit & PR Hygiene
 - Use conventional commits and keep changes atomic and reviewable.
 - Summarize affected pages in PR descriptions and restate the tool-agnostic stance.
 - Include a checklist confirming link checks, terminology updates, and neutrality scans were performed.
+
+## 10. Canonical Examples
+- Use `requirements-trace.json` when referencing the example Evidence Bundle requirements filename.
+- Do not introduce alternative example filenames for the same artifact; treat non-canonical names as legacy references to replace.
