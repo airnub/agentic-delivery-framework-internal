@@ -1,6 +1,8 @@
-# Frequently Asked Questions (Informative)
+# Frequently Asked Questions
 
-**Is ADF more complex than Scrum?**  
+_Informative._ Use this FAQ to clarify common adoption and operations questions.
+
+**Is ADF more complex than Scrum?**
 No. Scrum roles, events, and artifacts remain intact. ADF adds guardrails (CR-First, SSP, Delivery Pulse) without new ceremonies. See the [Agile/Scrum map](overview/agile-scrum-map.md).
 
 **Do we need extra meetings?**  

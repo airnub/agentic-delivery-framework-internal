@@ -3,9 +3,9 @@ title: "GitHub Profile — ADF v0.5.0"
 summary: "Mapping ADF v0.5.0 controls to GitHub features, with references to examples and templates."
 ---
 
-# GitHub Platform Profile (Informative)
+# GitHub Platform Profile
 
-This profile explains how to implement the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.0.md) using GitHub features. It is informative and **MUST NOT** be interpreted as normative configuration. Use it as a guide when tailoring repository settings.
+_Informative._ This profile explains how to implement the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.0.md) using GitHub features. It is informative and **MUST NOT** be interpreted as normative configuration. Use it as a guide when tailoring repository settings.
 
 > **Informative guidance:** All mappings below illustrate one way to fulfill the specification on GitHub. Teams MAY implement equivalent controls on any platform.
 

@@ -26,9 +26,9 @@ This guide explains how to compute and report the metrics defined in [Section 8 
 | Change Failure Rate (CFR) | Percentage of CRs requiring hotfix or rollback within defined window. | Weekly review. |
 | Mean Time to Restore (MTTR) | Average time to restore service after incident triggered by a change. | Incident retrospectives. |
 
-### Optional Metrics (Informative)
+### Optional Metrics
 
-Optional metrics **MUST NOT** block merges unless organizational policy explicitly elevates them to mandatory status.
+_Informative._ Optional metrics **MUST NOT** block merges unless organizational policy explicitly elevates them to mandatory status.
 
 | Metric | Definition | Target Cadence |
 | --- | --- | --- |

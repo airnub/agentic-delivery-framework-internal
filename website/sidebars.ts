@@ -67,7 +67,7 @@ const sidebars: SidebarsConfig = {
   profiles: [
     {
       type: 'category',
-      label: 'Profiles (Informative)',
+      label: 'Profiles',
       collapsed: false,
       items: [
         'profiles/overview',
@@ -83,7 +83,7 @@ const sidebars: SidebarsConfig = {
   examples: [
     {
       type: 'category',
-      label: 'Examples (Informative)',
+      label: 'Examples',
       collapsed: true,
       items: [
         'examples/github/labels',
@@ -97,7 +97,7 @@ const sidebars: SidebarsConfig = {
   audits: [
     {
       type: 'category',
-      label: 'Audits (Informative)',
+      label: 'Audits',
       collapsed: true,
       items: [
         'audits/README',

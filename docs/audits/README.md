@@ -1,9 +1,11 @@
 ---
-title: ADF Audits (Informative)
+title: ADF Audits
 slug: /audits
 ---
 
 # ADF Audits
+
+_Informative._ Audit reports provide optional references; the normative method remains in `docs/specs`.
 
 - This folder contains **dated, immutable** audit documents of the ADF repo.
 - Naming: `YYYY-MM-DD-adf-audit.md`

@@ -1,8 +1,10 @@
 ---
-title: CODEOWNERS Example (Informative)
+title: CODEOWNERS Example
 ---
 
-This page mirrors the [`CODEOWNERS` example](codeowners.example) for quick reference. Copy the raw file when applying to your repository.
+_Informative._ This reference mirrors the [`CODEOWNERS` example](codeowners.example) for quick application.
+
+Copy the raw file when applying to your repository.
 
 ```text
 # Example CODEOWNERS for ADF v0.5.0 (documentation only; do not copy verbatim)

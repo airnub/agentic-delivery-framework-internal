@@ -1,4 +1,6 @@
-# ADF Glossary (Informative)
+# ADF Glossary
+
+_Informative._ Use this glossary to align on shared terminology when applying the ADF specification.
 
 | Term | Definition |
 | --- | --- |

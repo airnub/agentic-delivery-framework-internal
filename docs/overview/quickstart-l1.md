@@ -1,6 +1,6 @@
-# L1 Quickstart (Informative)
+# L1 Quickstart
 
-Adopt ADF foundations in a single day. Pair this playbook with the [Adoption Guide](adoption-guide.md) and formal rules in the [Specification](../specs/adf-spec-v0.5.0.md).
+_Informative._ Adopt ADF foundations in a single day. Pair this playbook with the [Adoption Guide](adoption-guide.md) and formal rules in the [Specification](../specs/adf-spec-v0.5.0.md).
 
 ## Morning — Prepare the Workspace
 - Add the [PR template](../templates/pr-template.md) and Story Preview checklist to your repository.

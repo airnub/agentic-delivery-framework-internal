@@ -1,6 +1,6 @@
-# Start Here (Informative)
+# Start Here
 
-The Agentic Delivery Framework (ADF) keeps **Scrum as the baseline** while adding agent-aware safety rails. It combines:
+_Informative._ The Agentic Delivery Framework (ADF) keeps **Scrum as the baseline** while adding agent-aware safety rails. It combines:
 
 - **Change Request (CR)-First flow** so every Increment is governed by a single merge request.
 - **Sequential Subtask Pipeline (SSP)** to serialize human/agent contributions on one Story branch.

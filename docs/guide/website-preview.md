@@ -1,5 +1,5 @@
 ---
-title: Preview Build Workflow (Informative)
+title: Preview Build Workflow
 description: Steps for running the informative Docusaurus site locally and verifying the GitHub Pages deployment.
 ---
 
