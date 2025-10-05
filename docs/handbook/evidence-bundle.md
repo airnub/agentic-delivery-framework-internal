@@ -62,6 +62,27 @@ other legacy filenames as migration artifacts and update them to this canonical 
 - Index bundles by CR ID, Story ID, and Sprint for easy retrieval.
 - Mirror metadata in the risk register or compliance tracker.
 
+## Agent Run Ledger
+
+The Agent Run Ledger captures deterministic provenance for automated execution. It is **REQUIRED** for autonomy levels A2 and above and **SHALL** be hash-linked (previous hash to current hash) for A3–A4 Story components.
+
+Store the ledger entry inside the Evidence Bundle (for example `provenance/agent-run-ledger.json`) using a schema similar to the example below:
+
+```json
+{
+  "model": {"name": "gpt-5-codex", "version": "2024-05-15", "hash": "sha256-abc123"},
+  "prompts": {"system_sha": "sha256-sys000", "user_sha": "sha256-user999"},
+  "tools": {"edit": "v1.2.3", "tests": "v0.9.5"},
+  "datasets": {"fixtures": "sha256-fixture555"},
+  "cost": {"tokens": 45872, "usd": 12.44},
+  "risk": {"tier": "medium", "flag": "feature-flag/payment-toggle"},
+  "prev_hash": "sha256-ledger-prev", 
+  "hash": "sha256-ledger-current"
+}
+```
+
+> **Note:** Include additional neutral keys (such as environment version or story lease ID) when necessary, but retain the core provenance fields above for audit parity.
+
 ## Audit Checklist
 
 Auditors **SHOULD** verify:

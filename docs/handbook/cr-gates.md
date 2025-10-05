@@ -31,6 +31,27 @@ All gates run on every CR unless explicitly bypassed via `break-glass`. Required
 | `preview-build` | Story Preview assets successfully generated and attached. | Artifact link, screenshot thumbnail, build log. |
 | `human-approval` | Required reviewers approved. | Reviewer list, approval timestamps, CODEOWNERS match. |
 
+### `cost-budget`
+
+- **Purpose:** Constrain spend for each CR by defining token or USD ceilings per Story and cumulative caps per repository or organization.
+- **Operation:** Delivery Leads declare the budget in the Story Preview. Pipelines enforce ceilings and fail when forecasts exceed limits.
+- **Evidence:** Record the declared ceiling, actual consumption, and variance within the Evidence Bundle (`gates/cost-budget.json` or equivalent neutral format).
+- **Policy:** OPTIONAL for autonomy levels A0–A2; **REQUIRED** for components operating at Autonomy Levels A3–A4.
+
+### `risk-budget`
+
+- **Purpose:** Guard blast radius by assigning risk tiers to paths and features.
+- **Operation:** Map repository paths to low, medium, or high tiers. Medium and high tiers **MUST** ship behind feature flags or equivalent toggles.
+- **Evidence:** Include the evaluated tier, gating decision, and mitigating flag reference in the Evidence Bundle. Update the risk register when thresholds change.
+- **Policy:** OPTIONAL for autonomy levels A0–A2; **REQUIRED** for components operating at Autonomy Levels A3–A4.
+
+### `lease-broker`
+
+- **Purpose:** Enforce single-writer semantics for each Story by verifying that only the active lease holder commits changes.
+- **Operation:** Automations apply labels `lease:active` and `lease:released` as the Story Lease transitions. The CI check `adf/lease-broker` **MUST** fail when multiple writers or expired leases attempt to push.
+- **Evidence:** Capture lease events and check outputs in the Evidence Bundle. Reference the Agent Run Ledger when agents execute under the lease.
+- **Policy:** OPTIONAL for autonomy levels A0–A2; **REQUIRED** for components operating at Autonomy Levels A3–A4.
+
 ## Gate Procedures
 
 1. **Pre-flight:** Ensure the Story Preview declares scope, risks, and dependencies. This prevents avoidable gate failures.
