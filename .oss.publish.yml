@@ -1,0 +1,67 @@
+version: 1
+public_repo: airnub/agentic-delivery-framework
+default_branch: main
+
+# Only these files/dirs are candidates for export (history-preserving)
+# Keep this conservative. You can expand later.
+allow:
+  - README.md
+  - LICENSE
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - GOVERNANCE.md
+  - docs/**/*.md
+  - docs/**/*.pdf
+  - docs/**/*.png
+  - docs/**/*.jpg
+  - docs/**/*.jpeg
+  - docs/**/*.gif
+  - docs/**/*.svg
+  - docs/**/*.webp
+  - docs/**/*.csv
+  - docs/**/*.txt
+
+# Always excluded from export (even if matched in 'allow')
+deny:
+  - .github/**
+  - scripts/**
+  - tools/**
+  - private/**
+  - internal/**
+  - **/internal/**
+  - **/pre-release/**
+  - **/drafts/**
+  - **/*.sh
+  - **/*.bash
+  - **/*.zsh
+  - **/*.ps1
+  - **/*.py
+  - **/*.ipynb
+  - **/*.js
+  - **/*.mjs
+  - **/*.ts
+  - **/*.tsx
+  - **/*.go
+  - **/*.rs
+  - **/*.java
+  - **/*.kt
+  - **/*.gradle
+  - **/*.cs
+  - **/*.rb
+  - **/*.php
+  - **/*.sql
+  - **/*.toml
+  - **/*.ini
+  - **/*.cfg
+  - **/*.yml
+  - **/*.yaml
+  - **/*.lock
+  - package*.json
+  - pnpm-lock.yaml
+  - poetry.lock
+  - Pipfile*
+  - Dockerfile*
+  - docker-compose*.yml
+  - Makefile*
+  - **/.env*
+  - **/.git*

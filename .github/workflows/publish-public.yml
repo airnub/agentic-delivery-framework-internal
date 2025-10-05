@@ -1,0 +1,68 @@
+name: Publish → Public (NO-CODE export)
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (do not push)"
+        required: false
+        default: "false"
+  push:
+    tags:
+      - "v*.*.*"
+
+concurrency:
+  group: publish-public
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write  # for provenance attestation if desired
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup deps
+        run: |
+          pipx install git-filter-repo
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
+      - name: Build filtered export (history-preserving)
+        run: scripts/publish/build_export.sh .oss.publish.yml _oss/repo
+
+      - name: Create provenance (optional)
+        if: always()
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: _oss/repo
+
+      - name: Dry-run listing
+        if: ${{ inputs.dry_run == 'true' }}
+        run: |
+          echo "Dry-run: listing exported files"
+          (cd _oss/repo && git ls-files | sort)
+
+      - name: Create GitHub App token for push
+        if: ${{ inputs.dry_run != 'true' }}
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PUBLISH_APP_ID }}
+          private-key: ${{ secrets.PUBLISH_APP_PRIVATE_KEY }}
+          owner: airnub
+          repositories: 'agentic-delivery-framework'
+
+      - name: Push to public (main)
+        if: ${{ inputs.dry_run != 'true' }}
+        run: |
+          cd _oss/repo
+          git remote add public https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/airnub/agentic-delivery-framework.git
+          git branch -M main
+          git push public main:main --follow-tags
