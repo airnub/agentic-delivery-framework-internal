@@ -23,6 +23,11 @@ jobs:
             if [ -z "$file" ]; then
               continue
             fi
+            case "$file" in
+              .github/ISSUE_TEMPLATE/*|.github/PULL_REQUEST_TEMPLATE.md)
+                continue
+                ;;
+            esac
             if ! grep -Fq "$license_line" "$file"; then
               missing_files+="$file\n"
             fi

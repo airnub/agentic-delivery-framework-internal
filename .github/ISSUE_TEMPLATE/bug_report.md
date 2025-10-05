@@ -27,5 +27,3 @@ Describe the problem and where it appears (file, section, link).
 Relevant links, screenshots, or reference implementation notes.
 
 ---
-
-This methodology/spec is licensed under CC BY-SA 4.0.

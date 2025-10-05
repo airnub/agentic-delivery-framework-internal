@@ -22,5 +22,3 @@ Related stories, RFCs, changelog entries, or external implementation issues.
 - [ ] Follow-up actions captured in roadmap or reference repos
 
 ---
-
-This methodology/spec is licensed under CC BY-SA 4.0.
