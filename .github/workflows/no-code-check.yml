@@ -29,8 +29,9 @@ jobs:
           violations=()
           while IFS= read -r file; do
             [[ -z "$file" ]] && continue
+            # Allow informative documentation sources and binary assets.
             case "$file" in
-              docs/*|*.md|*.mmd|*.svg|*.png|*.jpg|*.jpeg|*.gif|*.webp|*.avif|*.pdf|*.drawio|*.dio)
+              docs/*|website/*|*.md|*.mmd|*.svg|*.png|*.jpg|*.jpeg|*.gif|*.webp|*.avif|*.pdf|*.drawio|*.dio)
                 continue
                 ;;
             esac
