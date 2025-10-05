@@ -29,14 +29,14 @@
 ## 4. Governance Expectations
 - Branch protection on the primary branch with required CI/tests, automated review, security scanning, and human approval.
 - Document gate results and retain change request history for audit.
-- Apply idle shutdown policies and telemetry consistent with [L3 Conformance](../CONFORMANCE.md).
+- Apply idle shutdown policies and telemetry consistent with [L3 Conformance](../conformance.md).
 
 ## 5. Acceptance Criteria
 - From a clean repository, the Program Director can select a work item, provision or resume a workspace runtime, start the Delivery Team, obtain a change request that passes required gates, merge it, update the work management system, and hibernate/stop the workspace runtime.
 
 ## 6. Conformance & Profiles
-- **Conformance**: Implementations **SHOULD** map to [L1–L3 requirements](../CONFORMANCE.md) based on organizational goals.
-- **Profiles**: Platform-specific terminology and automation belong in [docs/PROFILES.md](../PROFILES.md) and related files (e.g., [GitHub profile](../profiles/github.md)).
+- **Conformance**: Implementations **SHOULD** map to [L1–L3 requirements](../conformance.md) based on organizational goals.
+- **Profiles**: Platform-specific terminology and automation belong in [profiles overview](../profiles/overview.md) and related files (e.g., [GitHub profile](../profiles/github.md)).
 
 ## 7. References
 - Previous spec versions (v0.0.10–v0.0.13) retain platform-specific language for historical context.

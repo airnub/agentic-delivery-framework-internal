@@ -11,8 +11,8 @@ The initial ADF documentation emphasized GitHub-specific services (Projects, Cod
 ## Decision
 
 - Reposition ADF as a vendor-neutral methodology with the Delivery Lead, Product Owner, and Developers accountabilities as the neutral core.
-- Introduce [CONFORMANCE.md](../CONFORMANCE.md) to define L1–L3 requirements using RFC 2119/8174 language.
-- Create [PROFILES.md](../PROFILES.md) and profile directories to map neutral terminology to specific platforms (initially GitHub).
+- Introduce [conformance.md](../conformance.md) to define L1–L3 requirements using RFC 2119/8174 language.
+- Create [profiles/overview.md](../profiles/overview.md) and profile directories to map neutral terminology to specific platforms (initially GitHub).
 - Preserve historical documents and diagrams while adding neutral equivalents.
 - Link platform implementations (e.g., `adf-github-suite`) separately from the core methodology.
 

@@ -4,7 +4,7 @@ The Agentic Delivery Framework (ADF) specification is vendor-neutral. Platform p
 
 ## Using Profiles
 
-1. Implement the neutral methodology by following the [ADF Specification](specs/spec.v0.3.0.md) and [Conformance Levels](CONFORMANCE.md).
+1. Implement the neutral methodology by following the [ADF Specification](../specs/spec.v0.3.0.md) and [Conformance Levels](../conformance.md).
 2. Select a platform profile to understand how Sprints (aka Iterations), workspace runtimes, and change request gates map to specific products.
 3. Extend or author new profiles as your organization adopts additional platforms.
 
@@ -12,7 +12,7 @@ Profiles may include references to companion repositories, automation scripts, o
 
 ## Available Profiles
 
-- [GitHub](profiles/github.md) — mapping for Issues/Projects, Codespaces, change requests, and automated reviews; links to the `adf-github-suite` implementation.
+- [GitHub](github.md) — mapping for Issues/Projects, Codespaces, change requests, and automated reviews; links to the `adf-github-suite` implementation.
 
 ## Planned Profiles
 
@@ -20,7 +20,7 @@ Profiles may include references to companion repositories, automation scripts, o
 - Bitbucket — Jira integration, pull requests, and Bitbucket Cloud/Datacenter workspaces.
 - Azure DevOps — Boards, Repos, Environments, and Pipeline gates.
 
-Community contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the RFC process to propose or update profiles.
+Community contributions are welcome. See [contributing.md](../contributing.md) for the RFC process to propose or update profiles.
 
 ---
 
