@@ -11,6 +11,8 @@ const sidebars: SidebarsConfig = {
         'overview/agile-scrum-map',
         'overview/adoption-guide',
         'overview/quickstart-l1',
+        'overview/for-scrum-teams',
+        'overview/for-kanban-teams',
         'faq',
         'glossary',
       ],

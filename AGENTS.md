@@ -45,3 +45,6 @@
 ## 10. Canonical Examples
 - Use `requirements-trace.json` when referencing the example Evidence Bundle requirements filename.
 - Do not introduce alternative example filenames for the same artifact; treat non-canonical names as legacy references to replace.
+
+## 11. Guidance
+- **Kanban visualization:** You MAY present SSP via a minimal Kanban board as an informative lens. Do **not** remove the Story Lease, introduce parallel WIP, or add a second backlog.
