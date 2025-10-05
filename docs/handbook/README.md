@@ -18,4 +18,4 @@ This handbook complements the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.
 - [Metrics Implementation Guide](metrics.md)
 - [Agent Safety Rails Handbook](safety-rails.md)
 
-Cross-reference templates in [docs/templates](../templates/) and platform profiles in [docs/profiles](../profiles/).
+Cross-reference templates such as [`templates/pr-template.md`](../templates/pr-template.md) and platform profiles starting with [`profiles/overview.md`](../profiles/overview.md).

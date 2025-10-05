@@ -53,7 +53,7 @@ Optional metrics **MUST NOT** block merges unless organizational policy explicit
 4. **MTTR:** Average duration from incident start to restoration (end time).
 5. **Edit Locality %:** `in_scope_changed_lines / total_changed_lines * 100`. Source from `mode-policy` gate output.
 6. **Lease Churn:** `(lease_renewals + handoffs) / stories_completed` within period.
-7. **Preview→Merge Ratio:** `previews_ready / merges_completed` within period. Values <1 signal blockers post-preview.
+7. **Preview→Merge Ratio:** `previews_ready / merges_completed` within period. Values &lt;1 signal blockers post-preview.
 8. **Gate Failure Taxonomy:** Categorize each gate failure with tags (e.g., `tests-ci::flaky`, `security-static::secret`) and compute distribution.
 
 ## Reporting Cadence
@@ -65,7 +65,7 @@ Optional metrics **MUST NOT** block merges unless organizational policy explicit
 ## Dashboards & Alerts
 
 - Use BI tools or spreadsheets to visualize trends. Dashboards **SHOULD** link to underlying Evidence Bundles.
-- Configure alerts for thresholds, e.g., CFR > 15%, Edit Locality < 80%, or Lease Churn spikes.
+- Configure alerts for thresholds, e.g., CFR > 15%, Edit Locality &lt; 80%, or Lease Churn spikes.
 - Integrate with communication channels to notify Delivery Leads when metrics degrade.
 
 ## Quality Tips

@@ -28,7 +28,7 @@ summary: "Normative specification for ADF v0.5.0 including CR-first invariant, S
 
 This specification defines the normative requirements for the Agentic Delivery Framework (ADF) v0.5.0. It applies to delivery teams composed of humans, agents, or hybrid pairs building software or documentation artifacts under governance. Non-normative rationale and implementation guidance live in the [handbook](../handbook/README.md) and associated profiles.
 
-ADF v0.5.0 is backward compatible with v0.4.0. Teams MAY remain on v0.4.0 artifacts while assessing the upgrade. The upgrade path is detailed in the [changelog](../../CHANGELOG.md) and [handbook conformance guide](../handbook/conformance.md).
+ADF v0.5.0 is backward compatible with v0.4.0. Teams MAY remain on v0.4.0 artifacts while assessing the upgrade. The upgrade path is detailed in the [changelog](../CHANGELOG.md) and [handbook conformance guide](../handbook/conformance.md).
 
 > **Tool-agnostic scope.** ADF is a vendor-neutral methodology. Profiles and templates in this repository are **informative** (non-normative) examples; adopters MAY implement equivalent checks and artifacts on any platform.
 

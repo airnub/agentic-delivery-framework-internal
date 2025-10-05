@@ -10,7 +10,7 @@ No. The Delivery Pulse replaces the Daily Scrum with a ≤10 minute evidence rev
 Yes. The framework is platform neutral and improves human-only teams while preparing for AI contributors.
 
 **What is “CR-First”?**  
-Every change flows through one Change Request that must pass the normative gates defined in the [Specification](specs/adf-spec-v0.5.0.md#change-request-gates).
+Every change flows through one Change Request that must pass the normative gates defined in the [Specification](specs/adf-spec-v0.5.0.md#3-change-request-gates).
 
 **How do Story Previews fit with Sprint Reviews?**  
 Story Preview happens before merge, giving the Product Owner confidence that Sprint Review demos will succeed. Sprint Review remains a Sprint-level inspection.
@@ -37,4 +37,4 @@ Yes, but keep SSP constraints: one Story per branch with exclusive lease. Use WI
 Most teams complete L1 in a day using the [Quickstart](overview/quickstart-l1.md). It focuses on PR templates, minimum gates, and the first Delivery Pulse.
 
 **Where do we log audits?**  
-Store audit reports under `docs/audits/` using the provided template. Reference them in the [Audits sidebar](audits/README.md).
+Store audit reports under `docs/audits/` using the provided template. Reference them in the [Audits sidebar](audits/).
