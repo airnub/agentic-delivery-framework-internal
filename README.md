@@ -32,6 +32,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 
 ## Specification & guidance
 - **Specifications:** [ADF v0.5.0 (latest)](docs/specs/adf-spec-v0.5.0.md), [ADF v0.4.0](docs/specs/spec.v0.4.0.md), [Specification changelog](docs/specs/changelog.md).
+- **Roadmaps:** [Roadmap: 24×7 Autonomous Delivery](docs/roadmaps/adf-roadmap-autonomous-delivery.md).
 - **Guiding principle:** Autonomy-with-Accountability → [docs/vision/autonomy-principle.md](docs/vision/autonomy-principle.md).
 - **Handbook:** [ADF v0.5.0 Handbook index](docs/handbook/README.md) with focused guides for [SSP](docs/handbook/ssp.md), [CR gates](docs/handbook/cr-gates.md), [Story Preview](docs/handbook/story-preview.md), [Pulse Increment](docs/handbook/pulse-increment.md), [Conformance](docs/handbook/conformance.md), [Evidence Bundle](docs/handbook/evidence-bundle.md), [Metrics](docs/handbook/metrics.md), and [Agent safety rails](docs/handbook/safety-rails.md).
 - **Templates:** [PR template](docs/templates/pr-template.md), [Story Preview template](docs/templates/story-preview.md), [Labels](docs/templates/labels.md), [CODEOWNERS example](docs/templates/codeowners.example), [Conformance checklist](docs/templates/conformance-checklist.md), legacy [CR checklist](docs/templates/cr-checklist.md).

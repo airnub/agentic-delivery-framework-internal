@@ -5,6 +5,7 @@ summary: "Normative specification for ADF v0.5.0 including CR-first invariant, S
 
 # Agentic Delivery Framework (ADF) v0.5.0 Specification
 
+_Related: See the non-normative [ADF Roadmap to 24×7 Autonomous Delivery](../roadmaps/adf-roadmap-autonomous-delivery.md) for an adoption path and design intent._
 > _Informative note:_ See [ADF Guiding Principle: Autonomy-with-Accountability](../vision/autonomy-principle.md) for the overarching autonomy vision.
 
 > **Status:** Latest (v0.5.0). v0.4.0 remains normative for teams pinned to the previous minor version.

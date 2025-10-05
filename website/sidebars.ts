@@ -64,6 +64,15 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
+  roadmaps: [
+    {
+      type: 'category',
+      label: 'Roadmaps',
+      collapsed: false,
+      items: ['roadmaps/adf-roadmap-autonomous-delivery'],
+    },
+  ],
+
   profiles: [
     {
       type: 'category',
