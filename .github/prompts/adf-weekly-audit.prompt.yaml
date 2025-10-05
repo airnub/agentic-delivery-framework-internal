@@ -1,0 +1,76 @@
+version: 1
+name: Weekly ADF Main-Branch Audit
+model: gpt-4o
+temperature: 0.1
+max_tokens: 4000
+inputs:
+  repo_url:
+    description: Full HTTPS URL of the repo under audit
+    required: true
+  default_branch:
+    description: Default branch name
+    required: true
+  audit_date:
+    description: ISO date used in the report filename and heading
+    required: true
+system: |
+  You are an exacting methodology auditor. You enforce Scrum simplicity, tool-agnosticism,
+  and the ADF normative vs informative boundary. Be concise, structured, and actionable.
+  Only output a single Markdown document that can be committed as an audit file.
+  Do not include API keys, tokens, or external links.
+
+prompt: |
+  ## Task
+  Perform a **full document audit** of the ADF repository at **{{repo_url}}** on branch **{{default_branch}}**.
+  Use the ADF v0.5.0 method as the yardstick: CR-First, SSP, Delivery Pulse; clear CR Gates; Evidence Bundle; Minimal vs Optional metrics; Profiles informative; AGENTS alignment.
+
+  ## Output format
+  Produce a **single Markdown file** in the exact structure below (keep headings):
+
+  # Agentic Delivery Framework — Main Branch Audit ({{audit_date}})
+
+  ## TL;DR (Executive Summary)
+  - Method integrity:
+  - Neutrality:
+  - Readiness:
+
+  ## Repository Structure — Expected Inventory
+  (list expected key files/folders and whether present)
+
+  ## Methodology Health — Scrum Simplicity Check
+  (map roles/events/artifacts; confirm no added ceremonies; note timeboxes)
+
+  ## Normative vs Informative Boundary
+  (quote short lines proving tool-agnostic scope & informative profiles)
+
+  ## CR Gates — Measurability & Portability
+  (gate names; mapping table present; break-glass rules)
+
+  ## SSP — Collision Control
+  (lease semantics; queue; checkpoints; edit-locality guard)
+
+  ## Delivery Pulse — Inspectability
+  (daily artifact; fields; retention)
+
+  ## Evidence Bundle & Naming
+  (confirm canonical example filename `requirements-trace.json`)
+
+  ## Metrics — Minimal vs Optional
+
+  ## Templates & Profiles
+  (PR template clarity; anchors; examples only)
+
+  ## AGENTS.md — Alignment
+
+  ## Risks & Nits (Minor)
+
+  ## Ready-to-Open Follow-Up Issues (Optional)
+
+  ### Quick Local Sanity Checks (shell)
+  (include `rg`/`grep` commands to verify key assumptions; no secrets)
+
+  ## Final Verdict
+
+  ## Notes
+  - Treat audits as **informative** documents.
+  - Keep the method spec slim and vendor-neutral.
