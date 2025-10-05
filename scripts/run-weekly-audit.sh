@@ -2,11 +2,13 @@
 set -euo pipefail
 ROOT_DIR=$(cd "$(dirname "$0")/.." && pwd)
 DATE=${1:-$(date -u +%F)}
+METHOD_VERSION=${2:-v0.5.0}
 PROMPT="$ROOT_DIR/.github/prompts/adf-weekly-audit.prompt.yaml"
 INPUTS=$(cat <<YAML
 repo_url: https://github.com/$(basename "$(dirname "$ROOT_DIR")")/$(basename "$ROOT_DIR")
 default_branch: main
 audit_date: $DATE
+method_version: $METHOD_VERSION
 YAML
 )
 mkdir -p "$ROOT_DIR/tmp"

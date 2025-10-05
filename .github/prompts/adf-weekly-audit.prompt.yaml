@@ -13,6 +13,9 @@ inputs:
   audit_date:
     description: ISO date used in the report filename and heading
     required: true
+  method_version:
+    description: ADF method version identifier used as the audit yardstick (e.g., v0.5.0)
+    required: true
 system: |
   You are an exacting methodology auditor. You enforce Scrum simplicity, tool-agnosticism,
   and the ADF normative vs informative boundary. Be concise, structured, and actionable.
@@ -22,7 +25,7 @@ system: |
 prompt: |
   ## Task
   Perform a **full document audit** of the ADF repository at **{{repo_url}}** on branch **{{default_branch}}**.
-  Use the ADF v0.5.0 method as the yardstick: CR-First, SSP, Delivery Pulse; clear CR Gates; Evidence Bundle; Minimal vs Optional metrics; Profiles informative; AGENTS alignment.
+  Use the ADF {{method_version}} method as the yardstick: CR-First, SSP, Delivery Pulse; clear CR Gates; Evidence Bundle; Minimal vs Optional metrics; Profiles informative; AGENTS alignment.
 
   ## Output format
   Produce a **single Markdown file** in the exact structure below (keep headings):

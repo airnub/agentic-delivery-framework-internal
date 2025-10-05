@@ -20,6 +20,7 @@ jobs:
     env:
       REPO_URL: https://github.com/${{ github.repository }}
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch || 'main' }}
+      METHOD_VERSION: v0.5.0
       MODEL: gpt-4o
     steps:
       - name: Check out
@@ -49,6 +50,7 @@ jobs:
             echo "repo_url: $REPO_URL"
             echo "default_branch: $DEFAULT_BRANCH"
             echo "audit_date: $AUDIT_DATE"
+            echo "method_version: $METHOD_VERSION"
           } > tmp/inputs.yaml
 
       - name: Call GitHub Model (example stub)
