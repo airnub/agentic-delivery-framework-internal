@@ -1,6 +1,6 @@
-# Adoption Guide (Informative)
+# Adoption Guide
 
-ADF adoption follows a three-level ladder. Each level builds on Scrum without adding ceremonies. Use the checklists to stage your rollout.
+_Informative._ ADF adoption follows a three-level ladder. Each level builds on Scrum without adding ceremonies. Use the checklists to stage your rollout.
 
 ## Level 1 — Foundations
 - Enable the [PR template](../templates/pr-template.md) and Story Preview checklist.

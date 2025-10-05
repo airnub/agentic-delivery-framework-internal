@@ -1,5 +1,5 @@
 ---
-title: GitHub Labels (Informative)
+title: GitHub Labels
 sidebar_label: Labels CSV
 ---
 

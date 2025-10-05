@@ -1,6 +1,6 @@
-# CHANGELOG (Informative)
+# CHANGELOG
 
-This page mirrors the repository root `CHANGELOG.md`. Refer to that file for authoritative release notes.
+_Informative._ This page mirrors the repository root `CHANGELOG.md`. Refer to that file for authoritative release notes.
 
 ---
 

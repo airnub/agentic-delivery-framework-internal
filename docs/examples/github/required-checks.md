@@ -1,5 +1,5 @@
 ---
-title: Required Checks (Informative)
+title: Required Checks
 sidebar_label: Required Checks
 slug: /examples/github/required-checks
 ---

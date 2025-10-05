@@ -1,6 +1,6 @@
-# Agile/Scrum Map (Informative)
+# Agile/Scrum Map
 
-ADF preserves the Scrum skeleton. Use this alignment to explain the overlay quickly.
+_Informative._ ADF preserves the Scrum skeleton. Use this alignment to explain the overlay quickly.
 
 | Scrum Element | ADF Alignment | Notes |
 | --- | --- | --- |
