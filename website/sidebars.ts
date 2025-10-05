@@ -8,6 +8,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'overview/start-here',
+        'method-charter',
         'overview/agile-scrum-map',
         'overview/adoption-guide',
         'overview/quickstart-l1',
@@ -95,6 +96,15 @@ const sidebars: SidebarsConfig = {
           value: '<em>Additional platform profiles stay informative and may land in future releases.</em>',
         },
       ],
+    },
+  ],
+
+  checklists: [
+    {
+      type: 'category',
+      label: 'Checklists',
+      collapsed: false,
+      items: ['checklists/scrum-purity-scorecard'],
     },
   ],
 
