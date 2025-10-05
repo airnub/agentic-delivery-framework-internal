@@ -78,6 +78,7 @@ Every CR must attach: (a) generated tests + coverage deltas, (b) ephemeral Previ
 ### 3.8 Enterprise mappings (adoption aids)
 - **Change Management:** Map CR artifacts → CAB-lite policy by autonomy level; allow pre-authorized A3/A4 merges within guardrails.
 - **Compliance:** Appendix mapping Evidence Bundle → SOC2/ISO change evidence.
+- **Metrics:** Tie Minimal Metrics → DORA (lead time, CFR, MTTR, deploy freq) to prove safety as autonomy rises.
 
 ### 3.9 Multi-platform profiles
 Keep GitHub as worked example; add stubs for GitLab & Azure DevOps to demonstrate neutrality.
