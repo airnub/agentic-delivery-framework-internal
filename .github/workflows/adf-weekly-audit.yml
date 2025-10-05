@@ -44,6 +44,7 @@ jobs:
 
       - name: Render prompt payload
         run: |
+          set -euo pipefail
           mkdir -p tmp
           cat .github/prompts/adf-weekly-audit.prompt.yaml > tmp/prompt.yaml
           {
@@ -52,6 +53,45 @@ jobs:
             echo "audit_date: $AUDIT_DATE"
             echo "method_version: $METHOD_VERSION"
           } > tmp/inputs.yaml
+          python -m pip install --quiet --disable-pip-version-check pyyaml
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+          from typing import Any, Dict
+
+          import yaml
+
+
+          def render_template(template: str, context: Dict[str, Any]) -> str:
+            pattern = re.compile(r"{{\s*([^}]+)\s*}}")
+            return pattern.sub(lambda match: str(context[match.group(1)]), template)
+
+
+          prompt_path = Path("tmp/prompt.yaml")
+          inputs_path = Path("tmp/inputs.yaml")
+          output_path = Path("tmp/payload.json")
+
+          prompt_data = yaml.safe_load(prompt_path.read_text(encoding="utf-8"))
+          inputs = yaml.safe_load(inputs_path.read_text(encoding="utf-8"))
+
+          model = prompt_data.get("model") or os.environ.get("MODEL", "openai/gpt-5")
+
+          payload: Dict[str, Any] = {
+            "model": model,
+            "messages": [
+              {"role": "system", "content": prompt_data["system"]},
+              {"role": "user", "content": render_template(prompt_data["prompt"], inputs)},
+            ],
+          }
+
+          for optional_key in ("temperature", "max_tokens"):
+            if optional_key in prompt_data:
+              payload[optional_key] = prompt_data[optional_key]
+
+          output_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+          PY
 
       - name: Ensure weekly audit label exists
         env:
@@ -84,42 +124,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          python -m pip install --quiet --disable-pip-version-check pyyaml
-          python - <<'PY'
-import json
-import os
-import re
-from pathlib import Path
-
-import yaml
-
-
-def render_template(template: str, context: dict[str, str]) -> str:
-    pattern = re.compile(r"{{\s*([^}]+)\s*}}")
-    return pattern.sub(lambda m: str(context[m.group(1)]), template)
-
-
-prompt_path = Path("tmp/prompt.yaml")
-inputs_path = Path("tmp/inputs.yaml")
-
-prompt_data = yaml.safe_load(prompt_path.read_text(encoding="utf-8"))
-inputs = yaml.safe_load(inputs_path.read_text(encoding="utf-8"))
-
-model = prompt_data.get("model") or os.environ.get("MODEL", "openai/gpt-5")
-payload = {
-    "model": model,
-    "messages": [
-        {"role": "system", "content": prompt_data["system"]},
-        {"role": "user", "content": render_template(prompt_data["prompt"], inputs)},
-    ],
-}
-
-for optional_key in ("temperature", "max_tokens"):
-    if optional_key in prompt_data:
-        payload[optional_key] = prompt_data[optional_key]
-
-Path("tmp/payload.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-PY
           # Example REST request using the default model:
           #   curl -X POST "https://models.github.ai/inference/chat/completions" \
           #     -H "Content-Type: application/json" \
@@ -142,23 +146,27 @@ PY
             -H "Authorization: Bearer $GH_TOKEN" \
             -d @tmp/payload.json > tmp/response.json
 
+      - name: Extract audit content
+        run: |
           python - <<'PY'
-import json
-from pathlib import Path
+          import json
+          from pathlib import Path
 
-response_path = Path("tmp/response.json")
-data = json.loads(response_path.read_text(encoding="utf-8"))
+          response_path = Path("tmp/response.json")
+          output_path = Path("tmp/audit.md")
 
-if "error" in data:
-    raise SystemExit(f"Model API error: {data['error']}")
+          data = json.loads(response_path.read_text(encoding="utf-8"))
 
-try:
-    content = data["choices"][0]["message"]["content"]
-except (KeyError, IndexError) as exc:
-    raise SystemExit(f"Model response missing content: {data}") from exc
+          if "error" in data:
+            raise SystemExit(f"Model API error: {data['error']}")
 
-Path("tmp/audit.md").write_text(content, encoding="utf-8")
-PY
+          try:
+            content = data["choices"][0]["message"]["content"]
+          except (KeyError, IndexError) as exc:
+            raise SystemExit(f"Model response missing content: {data}") from exc
+
+          output_path.write_text(content, encoding="utf-8")
+          PY
 
       - name: Write dated audit file
         run: |
