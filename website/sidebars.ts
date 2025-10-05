@@ -73,6 +73,15 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
+  vision: [
+    {
+      type: 'category',
+      label: 'Vision',
+      collapsed: false,
+      items: ['vision/autonomy-principle'],
+    },
+  ],
+
   profiles: [
     {
       type: 'category',

@@ -39,6 +39,8 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **Profiles & examples:** [Profiles overview](docs/profiles/overview.md), [GitHub profile](docs/profiles/github.md), [GitHub examples](docs/examples/github/).
 - **Diagrams:** [ADF method overview](docs/diagrams/adf-method-overview.mmd), [SSP flow](docs/diagrams/ssp-flow.mmd), [Pulse increment](docs/diagrams/pulse-increment.mmd), plus neutral diagrams in `docs/diagrams/`.
 - **Legacy references:** [Conformance levels (pre-v0.5)](docs/conformance.md), [Method SSP design](docs/method/ssp-sequential-subtask-pipeline.v0.1.0.md), [Guide handbook](docs/guide/handbook.md).
+- **Appendices:**
+  - [Enterprise mapping: Evidence ↔ SOC2/ISO, metrics ↔ DORA, CAB-lite policy](docs/specs/appendix-enterprise-mapping.md).
 
 ## Method diagram
 

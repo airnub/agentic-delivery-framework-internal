@@ -5,8 +5,7 @@ summary: "Normative specification for ADF v0.5.0 including CR-first invariant, S
 
 # Agentic Delivery Framework (ADF) v0.5.0 Specification
 
-_Related: See the non-normative [ADF Roadmap to 24×7 Autonomous Delivery](../roadmaps/adf-roadmap-autonomous-delivery.md) for an adoption path and design intent._
-> _Informative note:_ See [ADF Guiding Principle: Autonomy-with-Accountability](../vision/autonomy-principle.md) for the overarching autonomy vision.
+_Related:_ See **[ADF Roadmap to 24×7 Autonomous Delivery](../roadmaps/adf-roadmap-autonomous-delivery.md)** for adoption steps, and the **[Autonomy-with-Accountability](../vision/autonomy-principle.md)** principle for the north star.
 
 > **Status:** Latest (v0.5.0). v0.4.0 remains normative for teams pinned to the previous minor version.
 
@@ -77,6 +76,8 @@ The Sequential Subtask Pipeline **MUST** implement the following algorithm:
 - Repository-wide refactors **MUST NOT** occur unless the Story is explicitly classified as a refactor and has its own CR.
 
 ## 3. Change Request Gates
+
+When Autonomy Levels A3–A4 are enabled for a component, the `cost-budget`, `risk-budget`, and `lease-broker` gates SHALL be required. See the [Autonomy Levels appendix](appendix-autonomy-levels.md) for capability definitions.
 
 The following gates are normative required status checks for each CR. Names are normative.
 
