@@ -34,5 +34,6 @@ Use this index to navigate ADF v0.5.0 artifacts.
 - [Glossary](glossary.md)
 - [Governance](governance.md)
 - [Contributing](contributing.md)
+- [Preview Build Workflow (Informative)](guide/website-preview.md)
 
 For historical documents, explore the `docs/specs/archive/` directory and legacy guides under `docs/method/` and `docs/guide/`.
