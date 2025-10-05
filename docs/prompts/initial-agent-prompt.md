@@ -18,16 +18,16 @@ Establish or refresh the repository documentation so the **Delivery Lead**, **Pr
    - `/docs/adrs/0001-architecture-planning-delivery-flow.md`
    - `/docs/naming/enterprise-friendly-naming.v0.0.4.md`
 2. Add methodology hygiene if missing:
-   - `.github/ISSUE_TEMPLATE/` set (Story, Task, Bug, plus optional Change Request template)
-   - `.github/PULL_REQUEST_TEMPLATE.md` with documentation-focused checklist
-   - `.github/CODEOWNERS` (placeholder owners)
-   - `.github/dependabot.yml` (docs/dependency placeholder if required)
+   - Change Request templates covering Story, Task, Bug, and (optionally) Change Request summaries under the directory required by the selected platform profile (e.g., GitHub `.github/ISSUE_TEMPLATE/`, GitLab `.gitlab/issue_templates/`).
+   - A Change Request description template with documentation-focused checklist following the platform profile’s conventions (e.g., GitHub `.github/PULL_REQUEST_TEMPLATE.md`, GitLab `merge_request_templates/`).
+   - Code ownership configuration aligned with the platform profile (e.g., GitHub `.github/CODEOWNERS`, GitLab `CODEOWNERS`).
+   - Dependency update configuration required by the platform profile (e.g., GitHub `.github/dependabot.yml`, Renovate or built-in tooling elsewhere).
 3. Provide guidance in docs for selecting the appropriate platform profile (e.g., link to [docs/profiles/github.md](../profiles/github.md) for GitHub adopters). Do not automate platform setup unless explicitly instructed.
 
 ## Guardrails
 
 - Do **not** push to `main`. Create branch `docs/bootstrap-<date>`.
-- All changes via **Change Request (CR)** titled `docs: bootstrap agentic delivery framework documentation` with body referencing Issues.
+- All changes via **Change Request (CR)** titled `docs: bootstrap agentic delivery framework documentation` with body referencing Issues/Work Items.
 - Keep secrets out of files. Do not modify devcontainer or executable workflows unless instructed.
 
 ## Visual References
@@ -47,14 +47,14 @@ Establish or refresh the repository documentation so the **Delivery Lead**, **Pr
 ## Tasks
 
 1. Verify and (re)generate the files listed under **Must-Have Outputs** using the content and intent in this repo.
-2. Create `.github/` templates described above with concise, policy-aligned checklists.
-3. Open a PR summarizing how the updates reinforce the Delivery Lead + Developers planning and delivery flow.
+2. Create the platform-profile-aligned templates described above with concise, policy-aligned checklists.
+3. Open a Change Request summarizing how the updates reinforce the Delivery Lead + Developers planning and delivery flow, following the workflow steps for the chosen platform profile (GitHub, GitLab, etc.).
 
 ## Definition of Done
 
-- PR created from `docs/bootstrap-<date>` containing only documentation and configuration templates.
+- Change Request created from `docs/bootstrap-<date>` containing only documentation and configuration templates.
 - Markdown lint and link checks pass.
-- PR reviewed/approved; Issues closed via keywords where applicable.
+- Change Request reviewed/approved per the selected platform profile; Issues/Work Items closed via keywords where applicable.
 
 ---
 
