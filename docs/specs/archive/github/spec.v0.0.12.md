@@ -1,5 +1,7 @@
 # Spec v0.0.12 — MVP (documentation enhancements)
 
+> **Historical GitHub implementation:** This version documents the original GitHub-specific workflow. For the current neutral methodology read [spec v0.4.0](../../spec.v0.4.0.md) alongside the [GitHub platform profile](../../../profiles/github.md).
+
 > **Terminology refresh (2025-10):** Vocabulary normalized to Delivery Lead, Product Owner, and Developers with Delivery Pulse, Story Preview, and Pulse Increment references. Functional scope matches the original 0.0.12 release.
 
 ## 1. Architecture
@@ -9,10 +11,12 @@
 ## 2. Required Capabilities
 ### Delivery Lead
 - **Select work**: read Issues with label `iteration:<num>` or in active **Sprint (aka Iteration)**.
-- **Codespaces lifecycle**: create/reuse/stop via REST or `gh codespace`.
-- **Start Developers**: `gh codespace ssh -c 'git switch -c feat/<issue>; ./agent/start.sh <issue>'`.
 - **Governance**: ensure Branch Protection enabled, required checks configured, Copilot Code Review assigned, WIP limits observed (≤3 active Stories), and Delivery Pulse notes capture daily Pulse Increment status.
-- **Secrets**: provision Codespaces Secrets for tokens/keys; never log secrets.
+
+> **GitHub profile (historical):**
+> - **Codespaces lifecycle**: create/reuse/stop via REST or `gh codespace`.
+> - **Start Developers**: `gh codespace ssh -c 'git switch -c feat/<issue>; ./agent/start.sh <issue>'`.
+> - **Secrets**: provision Codespaces Secrets for tokens/keys; never log secrets.
 
 ### Developers
 - **Environment**: devcontainer includes git, Node/PNPM (or your stack), Docker‑in‑Docker, optional Supabase CLI.
@@ -29,7 +33,9 @@
 - Delivery Lead documents Story Previews, Pulse Increment status, and WIP compliance in the Change Request template.
 
 ## 5. Acceptance
-- From a clean repo, Delivery Lead can: pick one Issue, spin a Codespace, start the Developers, get a Change Request, pass gates (CI/tests, QA, security, automated review, human approval, Performance Budget), merge, close Issue, publish the daily Pulse Increment note, and stop Codespace.
+- From a clean repo, Delivery Lead can: pick one Issue, start the Developers, get a Change Request, pass gates (CI/tests, QA, security, automated review, human approval, Performance Budget), merge, close Issue, publish the daily Pulse Increment note, and shut down the workspace runtime.
+
+> **GitHub profile (historical):** Spin a Codespace, run the Developers workflow there, and stop the Codespace after merge.
 
 ## 6. Documentation Enhancements (Non-behavioral)
 - Added **Mermaid overview flow** and **planning & delivery sequence** diagrams (`docs/diagrams/adf-overview-neutral.mmd`, `docs/diagrams/adf-sequence-neutral.mmd`).
