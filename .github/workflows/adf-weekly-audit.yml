@@ -21,7 +21,7 @@ jobs:
       REPO_URL: https://github.com/${{ github.repository }}
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch || 'main' }}
       METHOD_VERSION: v0.5.0
-      MODEL: gpt-4o
+      MODEL: openai/gpt-5
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -53,23 +53,112 @@ jobs:
             echo "method_version: $METHOD_VERSION"
           } > tmp/inputs.yaml
 
-      - name: Call GitHub Model (example stub)
+      - name: Ensure weekly audit label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh label create "automation:weekly-audit" \
+            --color BFD4F2 \
+            --description "Auto-generated weekly audit reports" \
+            >/dev/null 2>&1 || true
+
+      - name: Close stale weekly audit PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mapfile -t stale_prs < <(gh pr list --state open --label "automation:weekly-audit" --json number,updatedAt --jq \
+            '.[] | select((now - (.updatedAt | fromdateiso8601)) > 604800) | .number')
+          if [ ${#stale_prs[@]} -eq 0 ]; then
+            echo "No stale weekly audit PRs to close."
+          else
+            for pr in "${stale_prs[@]}"; do
+              gh pr close "$pr" --comment "Closing stale weekly audit automation PR after 7 days without activity."
+            done
+          fi
+
+      - name: Call GitHub Model (generate audit)
         id: call
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # NOTE: Replace this stub with your org's approved GitHub Models invocation.
-          # Example patterns (choose one you support):
-          # 1) Use a reusable action your org provides to run prompts from .github/prompts
-          # 2) Use `gh api` to call GitHub Models endpoint with the prompt+inputs
-          # 3) Use actions/github-script to call an internal endpoint
+          set -euo pipefail
+          python -m pip install --quiet --disable-pip-version-check pyyaml
+          python - <<'PY'
+import json
+import os
+import re
+from pathlib import Path
+
+import yaml
+
+
+def render_template(template: str, context: dict[str, str]) -> str:
+    pattern = re.compile(r"{{\s*([^}]+)\s*}}")
+    return pattern.sub(lambda m: str(context[m.group(1)]), template)
+
+
+prompt_path = Path("tmp/prompt.yaml")
+inputs_path = Path("tmp/inputs.yaml")
+
+prompt_data = yaml.safe_load(prompt_path.read_text(encoding="utf-8"))
+inputs = yaml.safe_load(inputs_path.read_text(encoding="utf-8"))
+
+model = prompt_data.get("model") or os.environ.get("MODEL", "openai/gpt-5")
+payload = {
+    "model": model,
+    "messages": [
+        {"role": "system", "content": prompt_data["system"]},
+        {"role": "user", "content": render_template(prompt_data["prompt"], inputs)},
+    ],
+}
+
+for optional_key in ("temperature", "max_tokens"):
+    if optional_key in prompt_data:
+        payload[optional_key] = prompt_data[optional_key]
+
+Path("tmp/payload.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+PY
+          # Example REST request using the default model:
+          #   curl -X POST "https://models.github.ai/inference/chat/completions" \
+          #     -H "Content-Type: application/json" \
+          #     -H "Authorization: Bearer $GITHUB_TOKEN" \
+          #     -d '{
+          #       "messages": [
+          #         {"role": "system", "content": "<contents of tmp/prompt.yaml>"},
+          #         {"role": "user", "content": "<contents of tmp/inputs.yaml>"}
+          #       ],
+          #       "model": "openai/gpt-5"
+          #     }'
           #
-          # For safety in this public scaffold, we create a placeholder audit body.
-          {
-            echo "# Agentic Delivery Framework — Main Branch Audit ($AUDIT_DATE)"
-            echo ""
-            echo "> Replace this placeholder with the model output. See .github/prompts/adf-weekly-audit.prompt.yaml"
-          } > tmp/audit.md
+          # Example GitHub CLI invocation:
+          #   gh models run openai/gpt-5 \
+          #     --system-prompt "$(cat tmp/prompt.yaml)" \
+          #     "$(cat tmp/inputs.yaml)"
+          #
+          curl --fail-with-body -sS -X POST "https://models.github.ai/inference/chat/completions" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -d @tmp/payload.json > tmp/response.json
+
+          python - <<'PY'
+import json
+from pathlib import Path
+
+response_path = Path("tmp/response.json")
+data = json.loads(response_path.read_text(encoding="utf-8"))
+
+if "error" in data:
+    raise SystemExit(f"Model API error: {data['error']}")
+
+try:
+    content = data["choices"][0]["message"]["content"]
+except (KeyError, IndexError) as exc:
+    raise SystemExit(f"Model response missing content: {data}") from exc
+
+Path("tmp/audit.md").write_text(content, encoding="utf-8")
+PY
 
       - name: Write dated audit file
         run: |
@@ -88,6 +177,7 @@ jobs:
             - Branch: ${{ env.DEFAULT_BRANCH }}
             - Date: ${AUDIT_DATE}
 
-            Replace the placeholder model output step with your org's GitHub Models invocation.
+            The report content was generated automatically using the GitHub Models API.
           branch: chore/weekly-adf-audit-${{ steps.date.outputs.date }}
           delete-branch: true
+          labels: automation:weekly-audit
