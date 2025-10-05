@@ -1,31 +1,18 @@
 {
-  "name": "agentic-delivery-framework-site",
-  "version": "0.5.0",
+  "name": "adf-docs",
   "private": true,
-  "description": "Informative documentation site for the Agentic Delivery Framework.",
-  "engines": {
-    "node": ">=18.17"
-  },
+  "version": "0.1.0",
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
     "serve": "docusaurus serve",
-    "swizzle": "docusaurus swizzle"
+    "clear": "docusaurus clear"
   },
   "dependencies": {
-    "@docusaurus/core": "3.3.2",
-    "@docusaurus/preset-classic": "3.3.2",
-    "@docusaurus/theme-mermaid": "3.3.2",
-    "clsx": "^2.1.0",
-    "prism-react-renderer": "^1.3.5",
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "clsx": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@tsconfig/docusaurus": "^2.0.2",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.65",
-    "@types/react-dom": "^18.2.22",
-    "typescript": "^5.4.5"
   }
 }

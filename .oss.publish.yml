@@ -2,68 +2,21 @@ version: 1
 public_repo: airnub/agentic-delivery-framework
 default_branch: main
 
-# Only these files/dirs are candidates for export (history-preserving)
-# Keep this conservative. You can expand later.
 allow:
   - README.md
-  - LICENSE
-  - CONTRIBUTING.md
-  - CODE_OF_CONDUCT.md
-  - GOVERNANCE.md
-  - docs/**/*.md
-  - docs/**/*.pdf
-  - docs/**/*.png
-  - docs/**/*.jpg
-  - docs/**/*.jpeg
-  - docs/**/*.gif
-  - docs/**/*.svg
-  - docs/**/*.webp
-  - docs/**/*.csv
-  - docs/**/*.txt
+  - docs/**            # Markdown, images, PDFs, CSVs, etc.
+  - website/**         # Docusaurus site code (docs-only code is OK)
+  - .github/workflows/docs.yml
 
-# Always excluded from export (even if matched in 'allow')
 deny:
-  - .github/**
-  - scripts/**
+  - .github/**         # deny all workflows...
+  - scripts/**         # ...then re-allow the single docs.yml above
   - tools/**
-  - private/**
   - internal/**
-  - **/internal/**
-  - **/pre-release/**
+  - private/**
   - **/drafts/**
-  - **/*.sh
-  - **/*.bash
-  - **/*.zsh
-  - **/*.ps1
-  - **/*.py
-  - **/*.ipynb
-  - **/*.js
-  - **/*.mjs
-  - **/*.ts
-  - **/*.tsx
-  - **/*.go
-  - **/*.rs
-  - **/*.java
-  - **/*.kt
-  - **/*.gradle
-  - **/*.cs
-  - **/*.rb
-  - **/*.php
-  - **/*.sql
-  - **/*.toml
-  - **/*.ini
-  - **/*.cfg
-  - **/*.yml
-  - **/*.yaml
-  - **/*.lock
-  - package*.json
-  - pnpm-lock.yaml
-  - poetry.lock
-  - Pipfile*
+  - **/pre-release/**
+  - **/*.env*
+  - **/.git*
   - Dockerfile*
   - docker-compose*.yml
-  - Makefile*
-  - **/.env*
-  - **/.git*
-
-# This work is licensed under CC BY-SA 4.0.
