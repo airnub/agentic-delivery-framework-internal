@@ -1,0 +1,9 @@
+:root {
+  --ifm-color-primary: #0f7bff;
+  --ifm-color-primary-dark: #0d6ee6;
+  --ifm-color-primary-light: #3f95ff;
+}
+
+.hero .button.button--primary {
+  text-transform: none;
+}
