@@ -1,30 +1,25 @@
-name: docs-deploy
+name: docs-preview-internal
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'website/**'
+      - '.github/workflows/docs-preview-internal.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: docs-deploy-${{ github.ref }}
+  group: docs-preview-internal-${{ github.ref }}
   cancel-in-progress: true
-
-env:
-  SITE_PROFILE: internal
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -34,23 +29,16 @@ jobs:
       - name: Install dependencies
         working-directory: website
         run: npm ci
-      - name: Build site
+      - name: Build internal preview
         working-directory: website
+        env:
+          SITE_PROFILE: internal
         run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: docs-internal-preview
           path: website/build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if-no-files-found: error
 
 # This work is licensed under CC BY-SA 4.0.

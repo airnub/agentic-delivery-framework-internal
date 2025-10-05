@@ -1,13 +1,47 @@
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const shared = {
+  url: 'https://airnub.github.io',
+  organizationName: 'airnub',
+} as const;
+
+const profiles = {
+  public: {
+    ...shared,
+    baseUrl: '/agentic-delivery-framework/',
+    projectName: 'agentic-delivery-framework',
+    editUrl: 'https://github.com/airnub/agentic-delivery-framework/edit/work/',
+    githubUrl: 'https://github.com/airnub/agentic-delivery-framework',
+  },
+  internal: {
+    ...shared,
+    baseUrl: '/agentic-delivery-framework-internal/',
+    projectName: 'agentic-delivery-framework-internal',
+    editUrl: 'https://github.com/airnub/agentic-delivery-framework-internal/edit/work/',
+    githubUrl: 'https://github.com/airnub/agentic-delivery-framework-internal',
+  },
+} as const;
+
+const defaultProfile: keyof typeof profiles = 'internal';
+
+const resolveProfile = (value: string | undefined): keyof typeof profiles => {
+  if (value && value in profiles) {
+    return value as keyof typeof profiles;
+  }
+
+  return defaultProfile;
+};
+
+const activeProfile = profiles[resolveProfile(process.env.SITE_PROFILE)];
+
 const config: Config = {
   title: 'Agentic Delivery Framework',
   tagline: 'Scrum-first, agent-safe delivery',
-  url: 'https://airnub.github.io',
-  baseUrl: '/agentic-delivery-framework/',
-  organizationName: 'airnub',
-  projectName: 'agentic-delivery-framework',
+  url: activeProfile.url,
+  baseUrl: activeProfile.baseUrl,
+  organizationName: activeProfile.organizationName,
+  projectName: activeProfile.projectName,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.svg',
@@ -24,7 +58,7 @@ const config: Config = {
           path: '../docs',
           routeBasePath: 'docs',
           sidebarPath: require.resolve('./sidebars.ts'),
-          editUrl: 'https://github.com/airnub/agentic-delivery-framework/edit/work/',
+          editUrl: activeProfile.editUrl,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
@@ -48,7 +82,7 @@ const config: Config = {
         { to: '/docs/profiles/github', label: 'Profiles', position: 'left' },
         { to: '/docs/audits', label: 'Audits', position: 'left' },
         { to: '/docs/CHANGELOG', label: 'Changelog', position: 'left' },
-        { href: 'https://github.com/airnub/agentic-delivery-framework', label: 'GitHub', position: 'right' },
+        { href: activeProfile.githubUrl, label: 'GitHub', position: 'right' },
       ],
     },
     footer: {
@@ -73,7 +107,7 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            { label: 'GitHub', href: 'https://github.com/airnub/agentic-delivery-framework' },
+            { label: 'GitHub', href: activeProfile.githubUrl },
           ],
         },
       ],
