@@ -40,3 +40,5 @@ jobs:
           title: "Backflow: sync changes from public"
           body: "This PR syncs NO-CODE allowlisted files from the public repo back into internal."
           labels: "backflow"
+
+# This work is licensed under CC BY-SA 4.0.
