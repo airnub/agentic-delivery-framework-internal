@@ -20,7 +20,7 @@
 - Docs-only update reflecting repository rename and GitHub-focused terminology (historical).
 
 ## v0.0.12 and earlier
-- See respective spec files (`spec.v0.0.10.md` through `spec.v0.0.13.md`) for historical GitHub-centric framing.
+- Historical GitHub-centric specs now live under [`archive/github/`](archive/github/); see `spec.v0.0.10.md` through `spec.v0.0.13.md` there for the original framing alongside neutrality notices.
 
 ---
 
