@@ -12,9 +12,9 @@
 ## Scrum Simplicity
 - Roles/Events/Artifacts mapping:
 
-## SSP / CR Gates / Pulse
+## SSP / DoD Signals / Pulse
 - SSP health:
-- Gates measurability:
+- Signals measurability:
 - Pulse artifact:
 
 ## Evidence / Metrics / Profiles / AGENTS

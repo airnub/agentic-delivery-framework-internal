@@ -43,7 +43,7 @@ gh api \
 2. Ensure branch protection requires CODEOWNER review.
 
 ## 6. Workflows & Automation
-- Configure GitHub Actions to run gates (`tests-ci`, `security-static`, etc.).
+- Configure GitHub Actions to run signals (`tests-ci`, `security-static`, etc.).
 - Add a post-merge workflow to assemble Evidence Bundles and upload to storage.
 - Schedule a daily workflow to build Pulse Increment artifact and post summary to chat/email.
 

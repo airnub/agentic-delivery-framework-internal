@@ -84,13 +84,13 @@ A story cannot be set to Done unless its **Change Request** includes:
 
 ## 7) Few simple rules (tool-neutral)
 1. **All work merges via a Change Request (CR)** — PR/MR/CL depending on platform.  
-2. **Nothing merges unless DoD + CR gates pass:** CI/tests, QA verification, security review, automated review, **Performance Budget**, required human approval (as policy sets).
+2. **Nothing merges unless Definition of Done (DoD) Signals pass:** CI/tests, QA verification, security review, automated review, **Performance Budget**, required human approval (as policy sets).
 3. **Every Story ships a Story Preview** before Done (runnable demo + evidence).  
 4. **Every day ends with a Pulse Increment** (daily demo env = merged + green).  
 5. **Make it inspectable** — Pulse reports and CR histories provide transparency for humans and agents.
 6. **Respect WIP limits** — Keep ≤3 active Stories per team/agent unless governance grants an exception.
 
-### Suggested CR gates (copy into templates)
+### Suggested DoD Signals (copy into templates)
 - Lint/type/static analysis  
 - Unit/integration/e2e tests (scope-appropriate)  
 - Security: dependency review + SAST/DAST (or documented exception)  

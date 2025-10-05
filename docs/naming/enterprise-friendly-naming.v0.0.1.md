@@ -10,7 +10,7 @@
 - **Timebox:** **Sprint (aka Iteration)** *(configurable to Cycle)*
 - **Cadence:** **Delivery Pulse** with daily **Pulse Increment** updates and published WIP limits (e.g., ≤3 in-progress Stories).
 - **Work items:** **Epic → Story → Task** *(with optional Change Request)*
-- **CR Gates:** **CI/Tests**, **QA Verification**, **Security Review**, **Automated Review**, **Performance Budget**, **Human Approval**
+- **DoD Signals:** **CI/Tests**, **QA Verification**, **Security Review**, **Automated Review**, **Performance Budget**, **Human Approval**
 
 > Rationale: “Delivery” and “Lead” are familiar to enterprises; “Iteration” is GitHub‑native and methodology‑neutral. “Developers” keeps the Scrum-friendly label and reads well alongside Dev/QA roles while supporting Human / AI / Hybrid modalities.
 
@@ -80,7 +80,7 @@ Pick the aesthetic that fits your culture; each preserves the same planning and 
 
 ## Messaging snippets for enterprise decks
 - *“ADF keeps all autonomous work inside GitHub Codespaces, with PR‑first governance and your existing QA/Sec gates.”*
-- *“Delivery Lead orchestrates Sprints and enforces CR gates, Performance Budget checks, and Delivery Pulse telemetry.”*
+- *“Delivery Lead orchestrates Sprints and enforces DoD Signals, Performance Budget checks, and Delivery Pulse telemetry.”*
 - *“Developers (agents + devs) iterate safely; merges happen only when Definition of Done, Story Preview, and gates pass.”*
 
 ---

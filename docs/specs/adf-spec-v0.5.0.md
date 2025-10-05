@@ -1,6 +1,6 @@
 ---
 title: "Agentic Delivery Framework v0.5.0"
-summary: "Normative specification for ADF v0.5.0 including CR-first invariant, SSP algorithm, CR Gates, Story Preview, Pulse Increment, conformance levels, evidence, metrics, platform profiles, and agent safety rails."
+summary: "Normative specification for ADF v0.5.0 including CR-first invariant, SSP algorithm, DoD Signals, Story Preview, Pulse Increment, conformance levels, evidence, metrics, platform profiles, and agent safety rails."
 ---
 
 # Agentic Delivery Framework (ADF) v0.5.0 Specification
@@ -13,7 +13,7 @@ _Related:_ See **[ADF Roadmap to 24×7 Autonomous Delivery](../roadmaps/adf-road
 - [0. Scope and Context](#0-scope-and-context)
 - [1. Core Rules — CR-First and Evidence](#1-core-rules--cr-first-and-evidence)
 - [2. Sequential Subtask Pipeline (SSP)](#2-sequential-subtask-pipeline-ssp)
-- [3. Change Request Gates](#3-change-request-gates)
+- [3. Definition of Done (DoD) Signals](#3-change-request-gates)
 - [4. Story Preview](#4-story-preview)
 - [5. Delivery Pulse and Pulse Increment](#5-delivery-pulse-and-pulse-increment)
 - [6. Conformance Levels](#6-conformance-levels)
@@ -37,7 +37,7 @@ ADF v0.5.0 is backward compatible with v0.4.0. Teams MAY remain on v0.4.0 artifa
 ## 1. Core Rules — CR-First and Evidence
 
 1. All changes **MUST** land via a **Change Request (CR)** raised against a **single Story branch**.
-2. Every CR **MUST** attach a **Story Preview** and pass all mandated **CR Gates** prior to merge.
+2. Every CR **MUST** attach a **Story Preview** and pass all mandated **DoD Signals** prior to merge.
 3. Every merged change **MUST** be captured in the **Pulse Increment** for the next Delivery Pulse.
 4. Human approval **MAY** be required by policy (for example via CODEOWNERS) for risk-tagged paths.
 5. Teams **MUST** retain CR artifacts according to the Evidence Bundle requirements in [Section 7](#7-evidence-bundle).
@@ -62,11 +62,11 @@ The Sequential Subtask Pipeline **MUST** implement the following algorithm:
 4. **Checkpoint** — Achieve a reproducible, green build/test state. Document results.
 5. **Update Story Preview** — Record the subtask outcome, evidence, and any new risks.
 6. **Push to Story Branch** — Push changes to the single Story branch. Do not fan out to multiple branches.
-7. **Run CR Gates** — Trigger the CR Gates pipeline on the Story CR.
+7. **Run DoD Signals** — Trigger the DoD Signals pipeline on the Story CR.
 8. **Handle Outcomes**:
-   - On gate failure, **MUST** pause new work, create a fix subtask, and resume from Step 3 for that subtask.
-   - On gate success, continue with the next subtask or proceed to merge when all subtasks are complete.
-9. **Merge & Release** — Merge the Story branch when all gates are green and approvals satisfied. Release the Story Lease.
+   - On signal failure, **MUST** pause new work, create a fix subtask, and resume from Step 3 for that subtask.
+   - On signal success, continue with the next subtask or proceed to merge when all subtasks are complete.
+9. **Merge & Release** — Merge the Story branch when all signals are green and approvals satisfied. Release the Story Lease.
 10. **Include in Pulse** — Ensure the merged CR is included in the upcoming Pulse Increment.
 
 ### 2.3 Anti-Collision Controls
@@ -75,11 +75,12 @@ The Sequential Subtask Pipeline **MUST** implement the following algorithm:
 - The **Edit Locality Guard** **MUST** fail the CR if more than the configured percentage of changes occur outside the declared scope.
 - Repository-wide refactors **MUST NOT** occur unless the Story is explicitly classified as a refactor and has its own CR.
 
-## 3. Change Request Gates
+<a id="3-change-request-gates"></a>
+## 3. Definition of Done (DoD) Signals
 
-When Autonomy Levels A3–A4 are enabled for a component, the `cost-budget`, `risk-budget`, and `lease-broker` gates SHALL be required. See the [Autonomy Levels appendix](appendix-autonomy-levels.md) for capability definitions.
+When Autonomy Levels A3–A4 are enabled for a component, the `cost-budget`, `risk-budget`, and `lease-broker` signals SHALL be required. See the [Autonomy Levels appendix](appendix-autonomy-levels.md) for capability definitions.
 
-The following gates are normative required status checks for each CR. Names are normative.
+The following signals are normative required status checks for each CR. Names are normative.
 
 1. `spec-verify` — Specification, requirements traceability, and schema lint. Confirms required fields are present.
 2. `tests-ci` — Unit and integration tests. Coverage **MUST** meet or exceed the organizational threshold.
@@ -91,7 +92,7 @@ The following gates are normative required status checks for each CR. Names are 
 8. `preview-build` — Build and attach Story Preview assets.
 9. `human-approval` — Required reviewers approve the CR when mandated by policy.
 
-**Break-Glass Protocol:** Applying the `break-glass` label **MAY** bypass Gates 3–7. Usage **MUST** be approved by a designated lead and **MUST** auto-file a corrective and preventive action (CAPA) item for the next Sprint. The Delivery Pulse **MUST** flag all break-glass merges.
+**Break-Glass Protocol:** Applying the `break-glass` label **MAY** bypass Signals 3–7. Usage **MUST** be approved by a designated lead and **MUST** auto-file a corrective and preventive action (CAPA) item for the next Sprint. The Delivery Pulse **MUST** flag all break-glass merges.
 
 ## 4. Story Preview
 
@@ -108,7 +109,7 @@ Story Previews **SHOULD** be updated after each SSP checkpoint. Risk-intensive p
 ## 5. Delivery Pulse and Pulse Increment
 
 - Delivery Pulse occurs daily at a fixed time. The team **MUST** produce a demoable artifact built from the `main` branch.
-- The Pulse Increment **MUST** aggregate merged CRs, gate outcomes, break-glass usage, DORA metrics snapshot, and surfaced risk items.
+- The Pulse Increment **MUST** aggregate merged CRs, signal outcomes, break-glass usage, DORA metrics snapshot, and surfaced risk items.
 - Teams **MUST** retain the last 14 Pulse Increment artifacts for auditability.
 - Primary audience includes the Product Owner, Delivery Lead, auditors, and participating agents.
 
@@ -116,8 +117,8 @@ Story Previews **SHOULD** be updated after each SSP checkpoint. Risk-intensive p
 
 ADF defines three conformance levels. Each level inherits obligations from lower levels.
 
-- **Level 1 — Foundations:** Requires CR-first workflow, Story Preview attachment, `tests-ci` gate, and human approval when mandated.
-- **Level 2 — Hardened:** Adds full SSP adherence, Gates 1–8, daily Delivery Pulse, and CODEOWNERS-based policy enforcement.
+- **Level 1 — Foundations:** Requires CR-first workflow, Story Preview attachment, `tests-ci` signal, and human approval when mandated.
+- **Level 2 — Hardened:** Adds full SSP adherence, Signals 1–8, daily Delivery Pulse, and CODEOWNERS-based policy enforcement.
 - **Level 3 — Compliance-grade:** Builds upon L2 with Evidence Bundles, supply-chain attestations (documented in guidance), a maintained risk register, and periodic internal audits.
 
 Organizations **MUST** document their current conformance level and the roadmap to higher levels using the [conformance checklist](../templates/conformance-checklist.md).
@@ -196,7 +197,7 @@ ADF v0.5.0 retains the security posture of v0.4.0 while clarifying Evidence Bund
 
 ## Change History
 
-- **v0.5.0:** Introduced CR-first invariant, SSP algorithm, expanded CR Gates, Story Preview schema, Pulse Increment requirements, conformance levels, Evidence Bundles, metrics vocabulary, platform profiles, and agent safety rails.
+- **v0.5.0:** Introduced CR-first invariant, SSP algorithm, expanded DoD Signals, Story Preview schema, Pulse Increment requirements, conformance levels, Evidence Bundles, metrics vocabulary, platform profiles, and agent safety rails.
 - **v0.4.0:** See [previous specification](spec.v0.4.0.md) for historical requirements.
 
 ---

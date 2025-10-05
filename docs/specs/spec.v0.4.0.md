@@ -32,7 +32,7 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 
 ## 4. Few Simple Rules
 1. **CR-first:** Every change merges via a Change Request (CR).
-2. **DoD + CR gates:** CI/tests, QA verification, security review, automated review, required human approvals, and **Performance Budget** checks (when performance-sensitive paths change) MUST pass before merge.
+2. **Definition of Done (DoD) Signals:** CI/tests, QA verification, security review, automated review, required human approvals, and **Performance Budget** checks (when performance-sensitive paths change) MUST pass before merge.
 3. **Story Preview before Done:** Each Story supplies a runnable demo and evidence inside the CR prior to acceptance.
 4. **Decomposed Stories use SSP:** Queue sub-tasks on one Story branch with an exclusive lease and open a single CR after all checkpoints are green.
 5. **Daily Pulse Increment:** Publish a demo build of merged, green work every day.
@@ -53,7 +53,7 @@ Story Previews MUST include run instructions, test/scan evidence, and rollback g
 1. Delivery Lead and Product Owner align on Sprint Goal and ordered PBIs.
 2. Delivery Lead prepares or resumes the workspace runtime, briefs Developers, and ensures WIP limits are respected.
 3. Developers implement slices inside the runtime, opening CRs for every change and attaching Story Previews.
-4. CR gates + DoD evidence determine readiness to merge; failing gates send work back for iteration.
+4. DoD Signals and DoD evidence determine readiness to merge; failing signals send work back for iteration.
 5. Pulse Increment aggregates merged work daily; Delivery Pulse reviews insights, telemetry, and next actions.
 6. After merge, Delivery Lead updates the work management system, captures telemetry, and may hibernate or stop the workspace runtime.
 

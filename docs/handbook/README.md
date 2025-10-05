@@ -10,7 +10,7 @@ This handbook complements the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.
 ## Contents
 
 - [Sequential Subtask Pipeline](ssp.md)
-- [CR Gates Operations Guide](cr-gates.md)
+- [DoD Signals Operations Guide](cr-gates.md)
 - [Story Preview Playbook](story-preview.md)
 - [Delivery Pulse & Pulse Increment](pulse-increment.md)
 - [Conformance Levels Guide](conformance.md)

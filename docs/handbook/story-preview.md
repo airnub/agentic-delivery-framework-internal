@@ -91,7 +91,7 @@ Reviewers **SHOULD** verify:
 - Rationale for schema/security changes is explicit.
 - Preview references outstanding tasks or TODOs clearly.
 
-For additional review guardrails, pair this guide with the [CR Gates operations guide](cr-gates.md) and the [Evidence Bundle procedures](evidence-bundle.md).
+For additional review guardrails, pair this guide with the [DoD Signals operations guide](cr-gates.md) and the [Evidence Bundle procedures](evidence-bundle.md).
 
 ---
 
