@@ -1,11 +1,11 @@
 ---
-title: "GitHub Profile — ADF v0.5.0"
-summary: "Mapping ADF v0.5.0 controls to GitHub features, with references to examples and templates."
+title: "GitHub Profile — ADF v0.5.1"
+summary: "Mapping ADF v0.5.1 controls to GitHub features, with references to examples and templates."
 ---
 
 # GitHub Platform Profile
 
-_Informative._ This profile explains how to implement the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.0.md) using GitHub features. It is informative and **MUST NOT** be interpreted as normative configuration. Use it as a guide when tailoring repository settings.
+_Informative._ This profile explains how to implement the [ADF v0.5.1 specification](../specs/adf-spec-v0.5.1.md) using GitHub features. It is informative and **MUST NOT** be interpreted as normative configuration. Use it as a guide when tailoring repository settings.
 
 > **Informative guidance:** All mappings below illustrate one way to fulfill the specification on GitHub. Teams MAY implement equivalent controls on any platform.
 
@@ -18,12 +18,12 @@ _Informative._ This profile explains how to implement the [ADF v0.5.0 specificat
 - [Environment & Deployment Protections](#environment--deployment-protections)
 - [Labels & Automation](#labels--automation)
 - [Evidence Bundle & Pulse Hooks](#evidence-bundle--pulse-hooks)
-- [Examples](#examples)
+- [GitHub Profile — Examples](#github-profile--examples-informative)
 
 ## Repository Topology
 
 - Adopt a protected `main` branch for production-ready code.
-- Create Story branches using `story/<id>-<slug>` naming to align with [Appendix A](../specs/adf-spec-v0.5.0.md#appendix-a-naming-and-labels).
+- Create Story branches using `story/<id>-<slug>` naming to align with [Appendix A](../specs/adf-spec-v0.5.1.md#appendix-a-naming-and-labels).
 - Use GitHub Projects for Sprint planning; link Issues to Story branches and CRs to maintain traceability.
 
 ## Branch Protection & Merge Policy
@@ -31,7 +31,7 @@ _Informative._ This profile explains how to implement the [ADF v0.5.0 specificat
 Configure the following on the `main` branch via **Settings → Branches → Branch Protection Rules**:
 
 - Require pull request reviews before merging.
-- Enable **Require status checks to pass before merging** and list the gates from [Section 3](../specs/adf-spec-v0.5.0.md#3-change-request-gates).
+- Enable **Require status checks to pass before merging** and list the gates from [Section 3](../specs/adf-spec-v0.5.1.md#3-change-request-gates).
 - Enforce **Require branches to be up to date** to ensure SSP checkpoints are merged on fresh heads.
 - Allow only squash merges to preserve single-story history (aligns with CR-first invariant).
 - Enable **Automatically delete head branches** after merge to keep Story branch lifecycle clean.
@@ -137,16 +137,23 @@ Implement these checks using GitHub Actions or external CI providers. Ensure gat
 - Schedule a daily workflow to build the Pulse Increment artifact from `main`, publish to storage, and notify stakeholders (see [Pulse guide](../handbook/pulse-increment.md)).
 - Emit metrics to GitHub Insights or external dashboards to satisfy the [Metrics guide](../handbook/metrics.md).
 
-## Examples
+## GitHub Profile — Examples (Informative)
 
-All examples are illustrative and should be adapted before use:
+Example repository-local files used by orchestration (illustrative only):
+
+- `.adf/models.yaml` – declared models with capability claims
+- `.adf/routing.yaml` – phase→capability→preference mapping + constraints
+
+See `/examples/profile-github` in this repo for sample files.
+
+Additional GitHub-focused examples remain illustrative and SHOULD be adapted before use:
 
 - [`docs/examples/github/required-checks.list`](../examples/github/required-checks.list) — plain text list of gate names for branch protection.
 - [`docs/examples/github/pr-template.example.md`](../examples/github/pr-template.example.md) — example `.github/pull_request_template.md` referencing Story Preview sections.
 - [`docs/examples/github/labels.csv`](../examples/github/labels.csv) — label seeds with descriptions and color suggestions.
 - [`docs/examples/github/repo-settings.md`](../examples/github/repo-settings.md) — step-by-step instructions for configuring branch protection and environments via UI/CLI.
 
-For additional background on platform-neutral requirements, review the [specification](../specs/adf-spec-v0.5.0.md) and [handbook](../handbook/README.md).
+For additional background on platform-neutral requirements, review the [specification](../specs/adf-spec-v0.5.1.md) and [handbook](../handbook/README.md).
 
 ---
 

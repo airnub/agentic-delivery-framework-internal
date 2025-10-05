@@ -1,0 +1,17 @@
+models:
+  - id: openai:gpt-5-codex
+    claims: [code_gen, code_refactor, code_review, reasoning, agent_mode]
+  - id: openai:gpt-5
+    claims: [reasoning, debugging]
+  - id: openai:o3
+    claims: [reasoning, debugging]
+  - id: anthropic:claude-sonnet-4
+    claims: [reasoning, debugging, agent_mode]
+  - id: google:gemini-2.5-pro
+    claims: [reasoning, debugging, vision]
+  - id: google:gemini-2.0-flash
+    claims: [vision]    # real-time visual reasoning
+  - id: openai:gpt-4.1
+    claims: [code_gen, vision, agent_mode]
+  - id: xai:grok-code-fast-1
+    claims: [code_gen, agent_mode]

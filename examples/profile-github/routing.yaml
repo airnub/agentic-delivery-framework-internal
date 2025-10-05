@@ -1,0 +1,32 @@
+routes:
+  backlog_refinement:
+    want: reasoning
+    prefer: [openai:gpt-5, anthropic:claude-sonnet-4, openai:o3]
+
+  ssp_implement:
+    want: code_gen
+    prefer: [openai:gpt-5-codex, xai:grok-code-fast-1, openai:gpt-4.1]
+
+  ssp_refactor:
+    want: code_refactor
+    prefer: [openai:gpt-5-codex, openai:gpt-5, anthropic:claude-sonnet-4]
+
+  cr_review:
+    want: code_review
+    prefer: [openai:gpt-5-codex, openai:gpt-5]
+
+  qa_visual_check:
+    want: vision
+    prefer: [google:gemini-2.5-pro, openai:gpt-4.1, google:gemini-2.0-flash]
+
+  tool_driven_ops:
+    want: agent_mode
+    prefer: [openai:gpt-5-codex, anthropic:claude-sonnet-4]
+
+traits:
+  constraints:
+    max_premium_multiplier: 3
+    prefer_lower_latency: false
+    max_context_tokens: null
+  evidence:
+    record_model_selection: true
