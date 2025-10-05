@@ -24,7 +24,7 @@ jobs:
       MODEL: openai/gpt-5
     steps:
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Compute audit date (fallback to today UTC)
         id: date
