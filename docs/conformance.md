@@ -24,6 +24,7 @@ In addition to L1, organizations **MUST**:
 - Ensure Developers iterate inside the workspace runtime from Story intake to merged Change Request.
 - Produce **Story Previews** (runnable demos + evidence) before Stories are marked Done.
 - Publish a daily **Pulse Increment** ahead of the Delivery Pulse.
+- Acquire and enforce an **exclusive Story branch lease** for decomposed Stories, read the declared sub-task queue, and execute the **Subtask Sequencing Policy (SSP)** sequentially on that branch.
 
 Organizations **SHOULD**:
 - Automate workspace warm starts with seeded secrets and tooling for Humans / AI / Hybrid modalities.
@@ -36,11 +37,12 @@ Organizations **MAY**:
 In addition to L1 and L2, organizations **MUST**:
 - Implement an idle shutdown policy for workspace runtimes to control spend and reduce risk.
 - Track budget usage, Performance Budget trends, and WIP metrics for Delivery Pulse reporting.
+- Surface **SSP telemetry** (queue state, lease holder, checkpoint results, durations, retries) to Delivery Pulse consumers.
 
 Organizations **SHOULD**:
 - Enable warm start strategies (snapshots, caches) to minimize cold-start time while respecting policies.
 - Surface Sprint-level telemetry (lead time, gate rework, runtime utilization, Pulse Increment health) to Delivery Lead dashboards.
-- Enforce configurable **WIP limits** (e.g., `wip_limits.active_stories_per_team: 3`).
+- Enforce configurable **WIP limits** (e.g., `wip_limits.active_stories_per_team: 3`) and align them with SSP queue capacity.
 
 Organizations **MAY**:
 - Integrate anomaly detection or predictive scaling for workspace runtimes and Pulse Increment quality based on Sprint forecasts.

@@ -14,3 +14,5 @@
 | **CR Gates** | Required checks on a Change Request (CI/tests, QA, security, automated review, human approval, Performance Budget). |
 | **Performance Budget** | Agreed thresholds for latency, throughput, or resource use that changes MUST respect when touching performance-sensitive paths. |
 | **WIP Limits** | Policies that cap in-progress Stories or tasks (e.g., ≤3 active Stories per team/agent) to preserve flow. |
+| **Exclusive Lease** | Time-bounded control granting exactly one worker (human or agent) the ability to push to a Story branch during SSP execution. |
+| **Subtask Sequencing Policy (SSP)** | Normative practice that runs decomposed sub-tasks sequentially on a single Story branch with exclusive lease control, per-sub-task Story Preview checkpoints, and a single Change Request at completion. |

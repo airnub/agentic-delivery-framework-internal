@@ -1,5 +1,8 @@
 # ADF Specification Changelog
 
+## v0.4.0 — 2025-10-05
+- Add SSP (Sequential Subtask Pipeline) as a normative practice for decomposed Stories; cross-reference Story Preview checkpoints and Pulse Increment handling; Delivery Pulse report SHOULD surface SSP status. Backward compatible (minor).
+
 ## v0.3.0 — 2025-10-04
 - Repo-wide vocabulary alignment (Delivery Lead, Delivery Pulse).
 - Added Story Preview and Pulse Increment artifacts; Performance Budget gate and WIP limit guidance.

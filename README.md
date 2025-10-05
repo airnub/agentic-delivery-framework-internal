@@ -8,6 +8,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **CR-first**: Every code or content change merges via a Change Request.
 - **DoD + CR gates**: CI/tests, QA, security, automated review, human approval, and **Performance Budget** (when performance-sensitive paths change) must pass before merge.
 - **One Sprint Goal**: Keep focus; scope may flex, the goal does not.
+- **Sequential Subtask Pipeline (SSP)**: When a Story is decomposed, queue sub-tasks on one branch with an exclusive lease and open a single CR after checkpoints are green.
 - **Daily Pulse Increment**: Produce a demo build of merged, green work ahead of the Delivery Pulse.
 - **Make it inspectable**: Story Previews, Pulse Increment reports, and telemetry stay visible to humans and agents.
 
@@ -20,10 +21,13 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **Artifacts** – Product Backlog, Sprint Backlog, Increment, **Story Preview**, **Pulse Increment**.
 - **Events** – Sprint (aka Iteration), Sprint Planning, Delivery Pulse, Sprint Review, Sprint Retrospective, Backlog Refinement.
 
+## Sequential Subtask Pipeline (SSP)
+When Stories are split into sub-tasks, the [Sequential Subtask Pipeline](docs/method/ssp-sequential-subtask-pipeline.v0.1.0.md) keeps agents and humans from colliding: one Story branch, exclusive lease, ordered queue, per-sub-task Story Preview checkpoints, and a single Change Request when the Story-level Definition of Done is met.
+
 ## Specification & naming
-- [ADF Specification v0.3.0](docs/specs/spec.v0.3.0.md)
+- [ADF Specification v0.4.0](docs/specs/spec.v0.4.0.md)
 - [Specification Changelog](docs/specs/changelog.md)
-- [Enterprise-friendly naming v0.0.3](docs/naming/enterprise-friendly-naming.v0.0.3.md)
+- [Enterprise-friendly naming v0.0.4](docs/naming/enterprise-friendly-naming.v0.0.4.md)
 - [Conformance Levels (L1–L3)](docs/conformance.md)
 - [Profiles overview](docs/profiles/overview.md) and [GitHub profile](docs/profiles/github.md)
 
@@ -50,15 +54,16 @@ flowchart TD
 ## What’s inside
 - `AGENTS.md` – modality charter and guardrails for Delivery Lead, Product Owner, and Developers.
 - `docs/overview.md` – consolidated problem statement, vision, goals, and roadmap with Story Preview and Pulse Increment focus.
-- `docs/specs/spec.v0.3.0.md` – normative specification (v0.3.0) with Delivery Pulse and new artifacts.
+- `docs/specs/spec.v0.4.0.md` – normative specification (v0.4.0) with Delivery Pulse, Story Preview, Pulse Increment, and SSP requirements for decomposed Stories.
 - `docs/specs/changelog.md` – release notes for specification revisions.
-- `docs/naming/enterprise-friendly-naming.v0.0.3.md` – vocabulary set for enterprise alignment.
+- `docs/naming/enterprise-friendly-naming.v0.0.4.md` – vocabulary set for enterprise alignment plus SSP terminology.
 - `docs/glossary.md` – quick reference for Delivery Lead, Story Preview, Pulse Increment, and core terms.
 - `docs/conformance.md` – normative conformance levels (L1–L3).
+- `docs/method/ssp-sequential-subtask-pipeline.v0.1.0.md` – detailed design & prescription for Sequential Subtask Pipeline (SSP).
 - `docs/guide/handbook.md` – delivery handbook covering CR gates, Story Previews, Pulse Increments, and no-code guardrails.
 - `docs/profiles/overview.md` – platform profile entry point.
 - `docs/profiles/github.md` – informative mapping for GitHub implementations; links to example tooling.
-- `docs/adrs/0001-architecture-planning-delivery-flow.md`, `docs/adrs/0002-adopt-enterprise-naming-adf.md`, `docs/adrs/0002-methodology-reframe.md`, `docs/adrs/0003-delivery-pulse-and-artifacts.md` – architectural decisions and vocabulary history.
+- `docs/adrs/0001-architecture-planning-delivery-flow.md`, `docs/adrs/0002-adopt-enterprise-naming-adf.md`, `docs/adrs/0002-methodology-reframe.md`, `docs/adrs/0003-delivery-pulse-and-artifacts.md`, `docs/adrs/0004-ssp-sequential-subtask-pipeline.md` – architectural decisions and vocabulary history.
 - `docs/templates/cr-checklist.md` – CR template snippet with Story Preview and Performance Budget reminders (if present).
 - `docs/prompts/initial-methodology-prompt.md` – initial operator prompt for neutral methodology adoption.
 

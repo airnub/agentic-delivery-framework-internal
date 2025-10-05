@@ -13,10 +13,10 @@ Establish or refresh the repository documentation so the **Delivery Lead**, **Pr
    - `/AGENTS.md`
    - `/docs/overview.md`
    - `/docs/guide/handbook.md`
-   - `/docs/specs/spec.v0.3.0.md` (latest semver spec)
+   - `/docs/specs/spec.v0.4.0.md` (latest semver spec)
    - `/docs/specs/changelog.md`
    - `/docs/adrs/0001-architecture-planning-delivery-flow.md`
-   - `/docs/naming/enterprise-friendly-naming.v0.0.3.md`
+   - `/docs/naming/enterprise-friendly-naming.v0.0.4.md`
 2. Add methodology hygiene if missing:
    - `.github/ISSUE_TEMPLATE/` set (Story, Task, Bug, plus optional Change Request template)
    - `.github/PULL_REQUEST_TEMPLATE.md` with documentation-focused checklist
