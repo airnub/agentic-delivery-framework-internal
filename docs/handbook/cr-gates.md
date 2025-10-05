@@ -13,6 +13,7 @@ This handbook expands on the normative [CR Gates](../specs/adf-spec-v0.5.0.md#3-
 - [Break-Glass Workflow](#break-glass-workflow)
 - [Escalation Matrix](#escalation-matrix)
 - [Reporting](#reporting)
+- [Gate Mapping](#gate-mapping)
 
 ## Gate Overview
 
@@ -20,7 +21,7 @@ All gates run on every CR unless explicitly bypassed via `break-glass`. Required
 
 | Gate | Minimal Bar | Evidence |
 | --- | --- | --- |
-| `spec-verify` | Required fields present; schema lint passes. | Attach lint logs, RTM diff screenshot or `rtm.json` snippet. |
+| `spec-verify` | Required fields present; schema lint passes. | Attach lint logs, requirements trace diff screenshot, or `requirements-trace.json` snippet. |
 | `tests-ci` | All tests green; coverage meets policy threshold. | Test summary, coverage report path, failing tests annotated when applicable. |
 | `security-static` | SAST and secret scan pass or documented risk acceptance. | SARIF, issue tracker link, acceptance note in Story Preview. |
 | `deps-supply-chain` | SBOM generated; critical/high vulns addressed or deferred with approval. | SBOM artifact reference, vulnerability scan report, approval comment. |
@@ -65,3 +66,19 @@ All gates run on every CR unless explicitly bypassed via `break-glass`. Required
 - During retrospectives, review CAPA status and adjust guardrails where repeated break-glass events occur.
 
 For automation references and GitHub-specific mapping, consult the [GitHub profile](../profiles/github.md).
+
+## Gate Mapping
+
+Profile links are **informative** examples; any platform MAY satisfy the intent with equivalent checks.
+
+| Gate (normative)  | Purpose (neutral)           | Example neutral signals                         | Profile example                           |
+| ----------------- | --------------------------- | ----------------------------------------------- | ----------------------------------------- |
+| `spec-verify`       | Spec/schema present & valid | schema lint passes; required fields             | See `docs/profiles/github.md#spec-verify` |
+| `tests-ci`          | Quality baseline            | unit/integration pass; coverage ≥ threshold     | See `docs/profiles/github.md#tests-ci`    |
+| `security-static`   | Code/secret safety          | SAST clean; no leaked secrets                   | See `docs/profiles/github.md#security-static` |
+| `deps-supply-chain` | Dependency hygiene          | SBOM produced; vulns policy met                 | See `docs/profiles/github.md#deps-supply-chain` |
+| `perf-budget`       | Responsiveness              | key paths under budget                          | See `docs/profiles/github.md#perf-budget` |
+| `framework-guard`   | Platform safety patterns    | e.g., auth/RLS checks                           | See `docs/profiles/github.md#framework-guard` |
+| `mode-policy`       | Org rules fit               | edit-locality within scope; risky paths flagged | See `docs/profiles/github.md#mode-policy` |
+| `preview-build`     | Inspectable preview         | preview assets attached                         | See `docs/profiles/github.md#preview-build` |
+| `human-approval`    | Accountable review          | CODEOWNERS/approvers present                    | See `docs/profiles/github.md#human-approval` |

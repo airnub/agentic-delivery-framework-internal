@@ -15,6 +15,7 @@ This handbook elaborates on the [Agent safety rails](../specs/adf-spec-v0.5.0.md
 - [Idempotent Execution](#idempotent-execution)
 - [Risk Communication](#risk-communication)
 - [Escalation Protocols](#escalation-protocols)
+- [Safety Rails Checklist](#safety-rails-checklist)
 
 ## Principles
 
@@ -61,3 +62,11 @@ This handbook elaborates on the [Agent safety rails](../specs/adf-spec-v0.5.0.md
 - If an agent cannot complete the Story within lease TTL, request human or hybrid support via work management tools.
 
 Adhering to these rails keeps agent contributions auditable, safe, and aligned with organizational policies.
+
+## Safety Rails Checklist
+
+- [ ] Respect Edit Locality & declared scope
+- [ ] No repo-wide refactors unless dedicated refactor story
+- [ ] Rationale in Story Preview for schema/security changes
+- [ ] Idempotent scripts; deterministic re-runs
+- [ ] No secrets in previews/logs; sanitize before attach

@@ -11,6 +11,9 @@
 ### Changed
 - Updated repository README files to highlight v0.5.0 as the latest release and provide quickstart guidance.
 
+### Editorial clarifications
+- Reinforced tool-agnostic scope, standardized evidence filenames, and added gate-to-profile mapping guidance.
+
 ### Upgrade Notes
 - v0.4.0 specification remains available at [docs/specs/spec.v0.4.0.md](docs/specs/spec.v0.4.0.md).
 - Teams should adopt the new Story Preview template and gate names before enabling branch protection updates.

@@ -1,94 +1,43 @@
-# AGENTS — Delivery Lead, Product Owner, Developers
+# AGENTS — Methodology Alignment Guide
 
-> Mini-glossary:
-> - **Agentic Delivery Framework (ADF)** = overall methodology.
-> - **Delivery Lead** = accountability that steers the planning & delivery flow outside the workspace runtime.
-> - **Product Owner** = accountability that curates outcomes and acceptance.
-> - **Developers** = accountability that plans, builds, and verifies increments inside the workspace runtime (Humans / AI / Hybrid pairs).
-> - **Sprint (aka Iteration)** = timebox for planning, Delivery Pulse, and inspection/adaptation.
-> - **Delivery Pulse** = automated overnight pulse + short human sync to inspect progress and publish the Pulse Increment.
-> - **Change Request (CR)** = PR/MR/CL depending on the platform; merges only when all gates + Definition of Done (DoD) pass.
-> - **Story Preview** = per-story demo + evidence before setting a story to Done.
-> - **Pulse Increment** = daily demo build of merged, green work used during the Delivery Pulse.
+## 1. Purpose
+- Keep future human/AI agents aligned with methodology-first goals.
+- Prevent vendor or product specifics from polluting the Agentic Delivery Framework (ADF).
 
----
+## 2. Method vs Implementation
+- **Method (normative):** rules, gates, artifacts, cadence, conformance levels. Edit these with precise MUST/SHOULD/MAY language.
+- **Implementation (informative):** platform profiles, templates, and examples. Mark these clearly as informative and keep them optional.
 
-## Role Modality Charter (applies to all accountabilities)
-- **Allowed modalities:** Human, AI, or Hybrid pair for Delivery Lead, Product Owner, and Developers.
-- **Provenance:** Record actor identity (human id, agent id, or pair), reasoning summary, and outputs (CR links, test evidence, telemetry).
-- **Policy knobs:** Organizations MAY require human sign-off for sensitive domains, set **WIP limits** (e.g., `wip_limits.active_stories_per_team: 3`), or restrict specific modalities per risk appetite.
-- **Enablement:** Maintain tool access, security contexts, and guardrails so each modality can fulfill its accountability.
+## 3. Writing Rules
+- Use RFC 2119-style terms (MUST/SHOULD/MAY) for normative statements.
+- Label informative or example content explicitly; never imply it is required.
+- Keep examples generic (e.g., `requirements-trace.json`, neutral labels) and avoid brand-specific filenames.
+- Prefer relative links and ensure headings produce stable anchors.
 
----
+## 4. Allowed vs Forbidden Content
+- **Allowed:** Normative gate names, Mermaid diagrams, generic evidence structures, neutral policy language.
+- **Forbidden:** Vendor-locked YAML, product API specifics, tool-specific CLI flags outside informative examples.
 
-## 1) Delivery Lead (Flow steward)
+## 5. Editing Scope
+- Focus edits on specs, handbook, templates, profiles, and diagrams.
+- Do not add CI pipelines, policy code, or platform automation to this repo.
+- Place illustrative platform examples under `docs/examples/<platform>/` and mark them informative.
 
-**Lives**: Outside the workspace runtime (SaaS orchestration service, local daemon, or managed application).
+## 6. Terminology & Naming
+- Use the following gate names verbatim: `spec-verify`, `tests-ci`, `security-static`, `deps-supply-chain`, `perf-budget`, `framework-guard`, `mode-policy`, `preview-build`, `human-approval`.
+- Use “Evidence Bundle,” “Pulse Increment,” “Story Preview,” and “Sequential Subtask Pipeline (SSP)” consistently.
 
-**Responsible for**:
-- Sprint cadences: facilitate Sprint Planning, Delivery Pulse, Review, and Retrospective.
-- Backlog & flow: uphold a single Sprint Goal, monitor WIP limits, and remove impediments.
-- Workspace runtime lifecycle: create/reuse/stop per Sprint or Story; seed tasks, secrets, and context.
-- Change request governance: enforce CR-first policy, DoD, Performance Budget checks when applicable, and required gates before merge.
-- Telemetry & budgets: track spend, cost of runbooks, and Delivery Pulse insights.
+## 7. Style & Structure
+- Keep paragraphs short; prefer bullet lists and tables for procedures and checklists.
+- Express one concept per section and cross-link related content instead of duplicating it.
+- Diagrams MUST be Mermaid with descriptive node labels.
 
-**Key tools**: work management system, orchestration hooks, automated review/security scanners, observability, budgeting/telemetry dashboards.
+## 8. Quality Bar
+- Validate there are no broken links; ensure Mermaid diagrams render on GitHub.
+- Run repo-wide searches for disallowed terms (vendor names, `rtm.json`, etc.) before opening a PR.
+- Confirm optional examples remain clearly informative.
 
----
-
-## 2) Product Owner (Outcome steward)
-
-**Lives**: In product/backlog systems integrated with the workspace runtime.
-
-**Responsible for**:
-- Maintaining the Product Goal and Product Backlog.
-- Ordering Product Backlog Items (PBIs) and clarifying acceptance criteria.
-- Partnering during Story Preview and Sprint Review to confirm value and acceptance.
-- Updating stakeholders based on Pulse Increment evidence and Sprint outcomes.
-
----
-
-## 3) Developers (Team delivering increments)
-
-**Lives**: Inside the governed workspace runtime (devcontainer, cloud IDE, ephemeral VM, VDI).
-
-**Responsible for**:
-- Branching from protected defaults, implementing acceptance criteria, running tests/linters, and opening CRs referencing Stories/Tasks.
-- Producing Story Previews and ensuring CR gates (CI/tests, QA, security, automated review, human approvals, Performance Budget) pass.
-- Publishing daily Pulse Increment telemetry and notes during the Delivery Pulse.
-- Iterating with reviewers until merge, then updating documentation/runbooks as needed.
-
-**Safety rails**:
-- No direct pushes to protected branches.
-- Follow CR templates (including Story Preview checklist and Performance Budget check when applicable).
-- Keep environment reproducible; document local run recipes.
-
----
-
-## Story Preview vs. Pulse Increment
-- **Story Preview**: Per-story demo before marking Done. Lives on the feature branch or dedicated preview environment with run instructions, test evidence, and rollback notes inside the CR. Required for each Story.
-- **Pulse Increment**: Daily aggregate demo build of merged, green work. Generated automatically (preferred) ahead of the Delivery Pulse and reviewed during the human sync for transparency.
-
----
-
-## Planning & Delivery Flow
-1. The Delivery Lead and Product Owner align on the Sprint Goal and ordered PBIs.
-2. The Delivery Lead prepares or resumes a workspace runtime, briefs the Developers, and ensures WIP limits are respected.
-3. Developers iterate (plan → edit → run → test) inside the runtime, raising Change Requests for every slice.
-4. **CR gates** (CI/tests, QA verification, security review, automated review, Performance Budget, human approvals) plus the DoD govern merges.
-5. Story Previews provide reviewers with runnable demos before Stories move to Done.
-6. Delivery Pulse publishes the daily Pulse Increment, surfaces impediments, and steers next actions.
-7. After merge, the Delivery Lead updates the work management system, captures telemetry, and may hibernate or stop the workspace runtime.
-
----
-
-### Glossary
-- **Workspace Runtime**: Any controlled development environment (cloud dev container, ephemeral VM, or VDI).
-- **Change Request (CR)**: Platform-specific request to merge (PR/MR/CL).
-- **Automated Review**: Tooling that summarizes code deltas, risks, and suggestions.
-- **Security Review**: SAST/DAST/dependency scanning pipelines applicable to the selected platform.
-- **Performance Budget**: Agreed-upon thresholds for latency, resource use, or throughput enforced at CR/DoD gates when performance-sensitive paths change.
-
----
-
-This methodology/spec is licensed under CC BY-SA 4.0.
+## 9. Commit & PR Hygiene
+- Use conventional commits and keep changes atomic and reviewable.
+- Summarize affected pages in PR descriptions and restate the tool-agnostic stance.
+- Include a checklist confirming link checks, terminology updates, and neutrality scans were performed.

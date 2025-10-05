@@ -30,6 +30,8 @@ This specification defines the normative requirements for the Agentic Delivery F
 
 ADF v0.5.0 is backward compatible with v0.4.0. Teams MAY remain on v0.4.0 artifacts while assessing the upgrade. The upgrade path is detailed in the [changelog](../../CHANGELOG.md) and [handbook conformance guide](../handbook/conformance.md).
 
+> **Tool-agnostic scope.** ADF is a vendor-neutral methodology. Profiles and templates in this repository are **informative** (non-normative) examples; adopters MAY implement equivalent checks and artifacts on any platform.
+
 ## 1. Core Rules — CR-First and Evidence
 
 1. All changes **MUST** land via a **Change Request (CR)** raised against a **single Story branch**.
@@ -120,7 +122,7 @@ Organizations **MUST** document their current conformance level and the roadmap 
 
 Each merged CR **MUST** generate an Evidence Bundle stored at `/artifacts/evidence/<cr-id>.zip`. The bundle **MUST** contain:
 
-- `rtm.json` slice referencing relevant requirements.
+- `requirements-trace.json` slice referencing relevant requirements.
 - `gates/` directory containing outputs such as JUnit results, SARIF files, SBOM documents, performance reports, and policy enforcement logs.
 - `preview/` directory with Story Preview assets.
 - `provenance/` directory with attestations and signatures (examples documented; implementations MAY vary).
@@ -137,6 +139,8 @@ ADF standardizes the following metrics:
 - **Agent-Specific Metrics:** Edit Locality percentage, Lease Churn rate, Story Preview to Merge ratio, and Gate Failure taxonomy distribution.
 
 Teams **MUST** use these terms when reporting or automating dashboards. Calculations are detailed in the [metrics handbook](../handbook/metrics.md).
+
+> **Informative note:** Section 9 profiles describe example implementations and are non-normative. Equivalent controls on other platforms satisfy the specification when they achieve the same intent.
 
 ## 9. Platform Profiles
 

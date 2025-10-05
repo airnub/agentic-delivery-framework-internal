@@ -7,6 +7,8 @@ summary: "Standard operating procedure for creating and auditing Evidence Bundle
 
 This document describes how to produce, store, and audit Evidence Bundles required in [Section 7 of the specification](../specs/adf-spec-v0.5.0.md#7-evidence-bundle).
 
+> Filenames and directory layouts shown below are **examples**. Teams MAY substitute equivalent artifacts that satisfy ADF’s evidence requirements.
+
 ## Table of Contents
 - [Purpose](#purpose)
 - [Bundle Structure](#bundle-structure)
@@ -24,11 +26,11 @@ Evidence Bundles provide a tamper-evident record linking change intent, executio
 Each bundle resides at `/artifacts/evidence/<cr-id>.zip` and **MUST** contain the following directories and files:
 
 ```
-rtm.json               # Requirements slice for the Story/CR
+requirements-trace.json # Requirements slice for the Story/CR
 summary.md             # Change overview, approvals, risks
 preview/               # Story Preview assets (screens, traces, demos)
 gates/                 # CI outputs (JUnit, SARIF, SBOM, perf reports, policy logs)
-provenance/            # Attestations, signatures, provenance metadata (examples documented)
+provenance/            # Attestations, signatures, provenance metadata (informative examples documented)
 sanitized-logs/        # Optional sanitized logs if policy demands
 ```
 
@@ -38,8 +40,8 @@ sanitized-logs/        # Optional sanitized logs if policy demands
 2. **Gather Inputs:**
    - Export Story Preview markdown from the CR.
    - Collect gate outputs (logs, reports) from the CI run.
-   - Pull requirements metadata from RTM or work item tracker.
-   - Capture provenance statements (e.g., build attestations) when available.
+   - Pull requirements metadata from a traceability map or work item tracker.
+   - Capture provenance statements (e.g., build attestations) when available and document them as informative guidance.
 3. **Assemble:**
    - Normalize filenames (snake_case) and ensure timestamps.
    - Generate `summary.md` containing:

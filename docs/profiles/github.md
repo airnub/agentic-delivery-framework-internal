@@ -7,6 +7,8 @@ summary: "Mapping ADF v0.5.0 controls to GitHub features, with references to exa
 
 This profile explains how to implement the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.0.md) using GitHub features. It is informative and **MUST NOT** be interpreted as normative configuration. Use it as a guide when tailoring repository settings.
 
+> **Informative guidance:** All mappings below illustrate one way to fulfill the specification on GitHub. Teams MAY implement equivalent controls on any platform.
+
 ## Table of Contents
 - [Repository Topology](#repository-topology)
 - [Branch Protection & Merge Policy](#branch-protection--merge-policy)
@@ -49,6 +51,60 @@ Define the following required checks (names are normative). Example names are pr
 9. `human-approval`
 
 Implement these checks using GitHub Actions or external CI providers. Ensure gate outputs are archived into Evidence Bundles post-merge.
+
+### spec-verify
+
+- Run schema or requirements lint jobs via GitHub Actions or external CI.
+- Fail the check when required metadata files or Story Preview sections are missing.
+- Surface links to the generated `requirements-trace.json` artifact in the Evidence Bundle.
+
+### tests-ci
+
+- Execute unit and integration test suites.
+- Enforce minimum coverage thresholds using reporters compatible with GitHub.
+- Publish summaries back to the pull request for reviewer visibility.
+
+### security-static
+
+- Integrate secret scanning and SAST tools (e.g., GitHub Advanced Security or external scanners).
+- Require findings to be resolved or explicitly risk accepted before merge.
+- Export SARIF or equivalent reports into the Evidence Bundle `gates/` directory.
+
+### deps-supply-chain
+
+- Generate SBOM artifacts using build jobs and attach them as workflow artifacts.
+- Run dependency vulnerability scans; require approvals for deferrals.
+- Record SBOM paths in the Evidence Bundle metadata.
+
+### perf-budget
+
+- Automate performance tests for critical journeys or bundle sizes.
+- Compare results against stored baselines and fail on regression.
+- Store performance reports alongside other gate outputs.
+
+### framework-guard
+
+- Enforce organization-specific safety patterns (e.g., authentication hooks, RLS checks) through automation scripts.
+- Validate required configuration files or policy bundles before merge.
+- Log enforcement outcomes for Evidence Bundle ingestion.
+
+### mode-policy
+
+- Run Edit Locality analyzers and file-scope policy checks via CI.
+- Fail when changes exceed declared scope or touch restricted paths without labels.
+- Attach locality percentage outputs to the pull request for reviewer inspection.
+
+### preview-build
+
+- Build Story Preview assets (static sites, demo packages) within CI workflows.
+- Upload artifacts for reviewers; ensure links remain accessible until merge.
+- Sync preview outputs into the Evidence Bundle `preview/` directory.
+
+### human-approval
+
+- Combine CODEOWNERS rules with branch protection requiring approving reviews.
+- Block merge until required reviewers respond; include fallback reviewers when primary owners unavailable.
+- Track approval timestamps for Evidence Bundle summaries.
 
 ## Story Preview & PR Templates
 

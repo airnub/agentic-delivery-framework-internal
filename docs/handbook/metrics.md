@@ -17,12 +17,21 @@ This guide explains how to compute and report the metrics defined in [Section 8 
 
 ## Metric Catalog
 
+### Minimal Set (Required)
+
 | Metric | Definition | Target Cadence |
 | --- | --- | --- |
 | Lead Time for Changes | Time from first commit on Story branch to production deploy (or Pulse inclusion for pre-prod teams). | Daily snapshot via Pulse. |
 | Deployment Frequency | Count of CRs merged to `main` (or deployed) per day. | Daily Pulse summary. |
 | Change Failure Rate (CFR) | Percentage of CRs requiring hotfix or rollback within defined window. | Weekly review. |
 | Mean Time to Restore (MTTR) | Average time to restore service after incident triggered by a change. | Incident retrospectives. |
+
+### Optional Metrics (Informative)
+
+Optional metrics **MUST NOT** block merges unless organizational policy explicitly elevates them to mandatory status.
+
+| Metric | Definition | Target Cadence |
+| --- | --- | --- |
 | Edit Locality % | Ratio of changed lines within declared scope vs. total changed lines. | Per CR, aggregated weekly. |
 | Lease Churn | Average number of lease renewals or transfers per Story. | Weekly SSP review. |
 | Preview→Merge Ratio | Number of Story Previews ready vs. merges achieved. Indicates flow efficiency. | Daily Pulse. |
