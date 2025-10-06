@@ -68,7 +68,7 @@ Label optional tooling or formats as **informative** to preserve neutrality.
 
 ## Playbook for Incidents
 
-- **Detection:** If a prompt leak or policy violation occurs, trigger incident response and activate the kill-switch if required (see [Kill-Switch & Rollback guide](kill-switch-rollback.md)).
+- **Detection:** If a prompt leak or policy violation occurs, trigger incident response and activate the kill-switch if required (see [Kill-Switch & Rollback Runbook](kill-switch-runbook.md)).
 - **Containment:** Revoke tokens or credentials potentially exposed. Purge prompt caches.
 - **Remediation:** Update sanitization rules, rotate secrets, and add CAPA items to the Pulse agenda.
 - **Post-Incident Review:** Document root cause and prevention steps in the prompt version log.

@@ -1,0 +1,29 @@
+name: ADF Neutral PR Gate (Example)
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Simulated gates — replace with your org’s real steps
+      - name: tests-ci
+        run: echo "Simulated tests passed"
+      - name: security-static
+        run: echo "Simulated static analysis passed"
+      - name: deps-supply-chain
+        run: echo "Simulated dependency audit passed"
+      - name: perf-budget
+        run: echo "Simulated performance checks passed"
+      - name: spec-verify
+        run: echo "Simulated spec/documentation drift check passed"
+      - name: mode-policy
+        run: echo "Simulated policy-as-code checks passed"
+
+      - name: Summarize gates
+        run: |
+          echo "All gates green. PO to record preview-accept in PR or tracker."

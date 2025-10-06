@@ -63,6 +63,27 @@ _This snippet is **informative** and MAY be expanded within organizational tooli
 - Provide quick-reference glossaries during audits to minimize confusion.
 - Share updates via governance newsletters or Pulse summaries to maintain awareness of mapping changes.
 
+## Quickstart: Jira Story Template (Description)
+
+```text
+Story Spec: <repo>/docs/templates/story-spec.yaml
+Story Preview: <repo>/docs/templates/story-preview.md
+Verification Checklist: <repo>/docs/templates/verification-checklist.yaml
+Change Request (PR): <link to PR>
+Evidence Bundle: requirements-trace.json; test, security, deps, perf reports; Preview snapshot
+Acceptance: PO checked `preview-accept`
+```
+
+## Quickstart: Azure DevOps User Story Template
+
+```text
+Fields to include:
+- Links: Story Spec, Preview, Verification Checklist
+- Acceptance Criteria: copied from Story Spec ACs
+- Evidence: CR link + artifacts
+- Gate Status: tests-ci, security-static, deps-supply-chain, perf-budget, spec-verify, mode-policy, preview-accept
+```
+
 ---
 
 This work is licensed under CC BY-SA 4.0.

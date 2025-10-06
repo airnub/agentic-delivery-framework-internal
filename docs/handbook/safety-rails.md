@@ -7,7 +7,7 @@ summary: "Constraints and operating practices for agents contributing under ADF 
 
 This handbook elaborates on the [Agent safety rails](../specs/adf-spec-v0.5.0.md#10-safety-rails-for-agents) to support responsible automation.
 
-> **Complementary guidance:** Pair this handbook with the [Prompt Hygiene guide](../guides/prompt-hygiene.md) and [Kill-Switch & Rollback guide](../guides/kill-switch-rollback.md) (both informative) to apply the v0.6.0 controls around sanitized prompts, Trust Scores, and suspension protocols.
+> **Complementary guidance:** Pair this handbook with the [Prompt Hygiene guide](../guides/prompt-hygiene.md) and [Kill-Switch & Rollback Runbook](../guides/kill-switch-runbook.md) (both informative) to apply the v0.6.0 controls around sanitized prompts, Trust Scores, and suspension protocols.
 
 ## Table of Contents
 - [Principles](#principles)

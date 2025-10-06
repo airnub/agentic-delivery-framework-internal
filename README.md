@@ -4,7 +4,12 @@
 
 The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human + AI teams to ship software safely. It centers three Scrum-friendly accountabilities—**Delivery Lead**, **Product Owner**, and **Developers**—who collaborate through a governed planning and delivery flow. Every change moves through a **Change Request (CR)** with Definition of Done (DoD) and gate evidence so Sprints stay auditable.
 
-> **Latest release:** [ADF v0.6.0](docs/specs/adf-spec-v0.6.0.md) adds spec-driven workflow enforcement, multi-agent SSP handoffs, refreshed gates with the `trust-metrics` kill-switch controls, prompt hygiene safeguards, Delivery Pulse metrics, and compliance/DORA integration guidance. Profiles/Templates here are informative; ADF remains tool-agnostic. v0.5.0 and v0.4.0 remain available for teams on prior specifications.
+> **Latest specification:** [ADF v0.6.0](./docs/specs/adf-spec-v0.6.0.md)
+>
+> Quickstart: [Spec-Driven Story Workflow](./docs/guides/spec-driven-story.md) ·
+> [Multi-Agent Patterns](./docs/guides/multi-agent-patterns.md) ·
+> [Trust Metrics](./docs/guides/trust-metrics.md) ·
+> [Enterprise Mapping](./docs/guides/enterprise-mapping.md)
 
 ## Quickstart (one-day adoption)
 
@@ -29,7 +34,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 
 ## Few simple rules
 - **CR-first:** Every code or content change merges via a Change Request targeting a single Story branch.
-- **DoD + CR gates:** `spec-verify`, `tests-ci`, `security-static`, `deps-supply-chain`, `perf-budget`, `framework-guard`, `mode-policy`, `preview-build`, and `human-approval` must pass before merge. Apply `break-glass` only with CAPA follow-up.
+- **DoD + CR gates:** `tests-ci`, `security-static`, `deps-supply-chain`, `perf-budget`, `spec-verify`, `mode-policy`, and `preview-accept` must pass before merge. Apply `break-glass` only with CAPA follow-up.
 - **Sequential Subtask Pipeline (SSP):** Decompose Stories into ordered subtasks with an exclusive Story Lease, per-subtask checkpoints, and a single CR once green.
 - **Daily Pulse Increment:** Produce a demoable artifact of merged, green work ahead of the Delivery Pulse and retain 14 days.
 - **Make it inspectable:** Story Previews, Evidence Bundles, Pulse reports, and telemetry stay visible to humans and agents.
@@ -48,6 +53,7 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **Roadmaps:** [Roadmap: 24×7 Autonomous Delivery](docs/roadmaps/adf-roadmap-autonomous-delivery.md).
 - **Guiding principle:** Autonomy-with-Accountability → [docs/vision/autonomy-principle.md](docs/vision/autonomy-principle.md).
 - **Handbook:** [ADF Handbook index (v0.6.0 aligned)](docs/handbook/README.md) with focused guides for [SSP](docs/handbook/ssp.md), [CR gates](docs/handbook/cr-gates.md), [Story Preview](docs/handbook/story-preview.md), [Pulse Increment](docs/handbook/pulse-increment.md), [Conformance](docs/handbook/conformance.md), [Evidence Bundle](docs/handbook/evidence-bundle.md), [Metrics](docs/handbook/metrics.md), and [Agent safety rails](docs/handbook/safety-rails.md).
+- **Metrics Glossary:** [Standard delivery and autonomy metrics definitions](docs/guides/metrics-glossary.md) for scorecards and Delivery Pulse.
 - **Templates:** [PR template](docs/templates/pr-template.md), [Story Preview template](docs/templates/story-preview.md), [Labels](docs/templates/labels.md), [CODEOWNERS example](docs/templates/codeowners.example), [Conformance checklist](docs/templates/conformance-checklist.md), legacy [CR checklist](docs/templates/cr-checklist.md).
 - **Profiles & examples:** [Profiles overview](docs/profiles/overview.md), [GitHub profile](docs/profiles/github.md), [GitHub examples](docs/examples/github/).
 - **Diagrams:** [ADF method overview](docs/diagrams/adf-method-overview.mmd), [SSP flow](docs/diagrams/ssp-flow.mmd), [Pulse increment](docs/diagrams/pulse-increment.mmd), plus neutral diagrams in `docs/diagrams/`.
@@ -73,7 +79,7 @@ flowchart TD
   LEASE --> SSP[Sequential Subtask Pipeline]
   SSP --> CR[Change Request]
 
-  CR --> GATES["CR Gates\n`spec-verify` → `tests-ci` → `security-static` → `deps-supply-chain` → `perf-budget` → `framework-guard` → `mode-policy` → `preview-build` → `human-approval`"]
+  CR --> GATES["CR Gates\n`tests-ci` → `security-static` → `deps-supply-chain` → `perf-budget` → `spec-verify` → `mode-policy` → `preview-accept`"]
   GATES --> MERGE[Merge]
   GATES -.->|Rework as required| SSP
 
