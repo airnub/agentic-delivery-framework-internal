@@ -153,8 +153,12 @@ Recommendations **MAY** be adapted locally; adaptations **SHOULD** preserve tool
 ## Appendices
 
 - [Appendix A — Autonomy Levels](appendix-autonomy-levels.md) _(normative definitions for autonomy capabilities)_
-- [Appendix B — Enterprise Compliance Mapping](appendix-enterprise-mapping.md) _(informative mappings to regulatory frameworks)_
-- [Appendix C — Historical Specifications](archive/) _(informative references to legacy versions)_
+- [Appendix B — Compliance Mapping](../appendix/compliance-mapping.md) _(normative control alignment requirements)_
+- [Appendix C — DORA Alignment](../appendix/dora-alignment.md) _(normative Delivery Pulse metric guidance)_
+- [Appendix D — Enterprise Compliance Mapping](appendix-enterprise-mapping.md) _(informative mappings to regulatory frameworks)_
+- [Appendix E — Informative CI Workflow](../appendix/example-ci.md) _(informative optional CI pattern)_
+- [Appendix F — Informative Spec Tooling](../appendix/example-spec-tooling.md) _(informative optional maintenance practices)_
+- [Appendix G — Historical Specifications](archive/) _(informative references to legacy versions)_
 
 ## Change History
 
