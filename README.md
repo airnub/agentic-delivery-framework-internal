@@ -62,17 +62,28 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 
 ## Method diagram
 
+High-level SSP governance flow:
+
 ```mermaid
-graph TD
-  PO[PO] -->|Plan| SP[Sprint Planning]
-  DL[Delivery Lead] --> SP
-  SP --> ST[Story + SSP]
-  ST --> CR[Change Request]
-  CR --> GATES[CR Gates]
-  GATES -->|green| MERGE[Merge]
+flowchart TD
+  PO[Product Owner] -->|Draft Story Preview| PREVIEW[Story Preview]
+  PREVIEW -->|Meets Definition of Ready| READY[Story Ready]
+  DL[Delivery Lead] -->|Lease Story| LEASE[Story Lease]
+  READY --> LEASE
+  LEASE --> SSP[Sequential Subtask Pipeline]
+  SSP --> CR[Change Request]
+
+  CR --> GATES["CR Gates\n`spec-verify` → `tests-ci` → `security-static` → `deps-supply-chain` → `perf-budget` → `framework-guard` → `mode-policy` → `preview-build` → `human-approval`"]
+  GATES --> MERGE[Merge]
+  GATES -.->|Rework as required| SSP
+
   MERGE --> PULSE[Pulse Increment]
-  PULSE --> REVIEW[Review/Retro]
+  PULSE --> REVIEW[Review / Retro]
+  REVIEW -->|Backlog insights| PO
+  PULSE -->|Daily/Weekly telemetry| DL
 ```
+
+See [ADF method — detailed diagram](docs/diagrams/adf-method-detailed.mmd) for the full gate-level feedback loops.
 
 ## What’s inside
 - `AGENTS.md` – modality charter and guardrails for Delivery Lead, Product Owner, and Developers.
