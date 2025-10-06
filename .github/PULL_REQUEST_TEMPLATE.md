@@ -9,15 +9,13 @@
 - [ ] Pulse Increment notes linked or attached (see [Pulse Increment guide](../docs/handbook/pulse-increment.md))
 
 ## Gate Checklist
-- [ ] `spec-verify`
 - [ ] `tests-ci`
 - [ ] `security-static`
 - [ ] `deps-supply-chain`
 - [ ] `perf-budget`
-- [ ] `framework-guard`
+- [ ] `spec-verify`
 - [ ] `mode-policy`
-- [ ] `preview-build`
-- [ ] `human-approval`
+- [ ] `preview-accept`
 
 ## Skipped Items Rationale
 List any unchecked items above and document the rationale, mitigation plan, and follow-up owner.

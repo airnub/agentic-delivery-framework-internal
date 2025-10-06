@@ -72,22 +72,32 @@ The Sequential Subtask Pipeline defined in v0.5.0 remains in force with the foll
 
 ## 3. Change Request Gates
 
-When Autonomy Levels A3–A4 are enabled for a component, the `cost-budget`, `risk-budget`, and `lease-broker` gates remain required. See the [Autonomy Levels appendix](appendix-autonomy-levels.md) for capability definitions.
+ADF v0.6.0 defines the canonical Change Request (CR) gates. Every CR **MUST** pass the following gates, in any order consistent with organizational automation, before merge:
 
-ADF v0.6.0 updates the normative gate set as follows:
+1. `tests-ci` — Unit, integration, or scenario tests **MUST** run with a green result aligned to the Story scope.
+2. `security-static` — Static analysis and secret scanning **MUST** report no open Critical or High severities without documented risk acceptance.
+3. `deps-supply-chain` — Dependency and SBOM checks **MUST** confirm a clean supply chain posture with pinned versions and no disallowed licenses.
+4. `perf-budget` — Performance budget verification **MUST** demonstrate adherence to agreed budgets for primary user journeys.
+5. `spec-verify` — Specification trace validation **MUST** reconcile requirements, Evidence Bundle, and documentation updates with the Story scope.
+6. `mode-policy` — Policy-as-code checks **MUST** enforce workspace guardrails, prompt hygiene, and Edit Locality boundaries.
+7. `preview-accept` — Product Owner or delegate **MUST** accept the Story Preview artifacts prior to merge.
 
-1. `spec-verify` — Specification trace validation, schema linting, and `spec-variance` collection.
-2. `tests-ci` — Unit and integration tests. Coverage **MUST** meet or exceed the organizational threshold.
-3. `security-static` — Static application security testing (SAST) and secret scanning. Policy deviations **MUST** be risk-accepted.
-4. `deps-supply-chain` — Software bill of materials (SBOM) generation, vulnerability policy compliance, and pinned dependencies.
-5. `perf-budget` — Performance budget enforcement for key journeys.
-6. `framework-guard` — Framework or platform safety controls (for example authentication or row-level security patterns).
-7. `mode-policy` — Organizational policy enforcement, including Edit Locality, prompt hygiene compliance, and restricted file scopes.
-8. `preview-build` — Build and attach Story Preview assets.
-9. `human-approval` — Required reviewers approve the CR when mandated by policy.
-10. `trust-metrics` — New gate aggregating trust score computation, Guard Timer breaches, and kill-switch state (see [Section 5](#5-trust-metrics-and-kill-switch)).
+**Gate Glossary**
+- `tests-ci`: unit/integration tests passed.
+- `security-static`: static analysis/secret scans passed.
+- `deps-supply-chain`: dependency audit clean (no High/Critical).
+- `perf-budget`: performance budgets met.
+- `spec-verify`: specification/docs drift checks passed.
+- `mode-policy`: policy-as-code rules satisfied (incl. mode/preset guardrails).
+- `preview-accept`: Product Owner acceptance of Story Preview.
 
 **Break-glass.** May be invoked **only** by the Delivery Lead for time-critical remediation. When used, the CR **MUST** (a) record `break_glass.used=true` in the Evidence Bundle with reason; (b) open a **CAPA** issue within 24 hours; (c) pass all gates retroactively within 72 hours or revert.
+
+**Related:**
+- Templates: [Story Spec YAML](../templates/story-spec.yaml) · [Verification Checklist](../templates/verification-checklist.yaml) · [Story Preview](../templates/story-preview.md)
+- Guides: [Spec-Driven Story](../guides/spec-driven-story.md) · [Multi-Agent Patterns](../guides/multi-agent-patterns.md) · [Prompt Hygiene](../guides/prompt-hygiene.md) · [Trust Metrics](../guides/trust-metrics.md) · [Delivery Pulse](../guides/delivery-pulse.md) · [Kill-Switch Runbook](../guides/kill-switch-runbook.md) · [Enterprise Mapping](../guides/enterprise-mapping.md)
+- Appendices: [Compliance Mapping](../appendix/compliance-mapping.md) · [DORA Alignment](../appendix/dora-alignment.md) · [Example CI](../appendix/example-ci.md)
+- Mapping: [Recommendations → Challenges](../mappings/recommendations-vs-challenges.md)
 
 ## 4. Prompt Hygiene Requirements
 
@@ -99,6 +109,12 @@ ADF v0.6.0 updates the normative gate set as follows:
 
 > **Implementation guidance (informative):** The [Prompt Hygiene guide](../guides/prompt-hygiene.md) documents lifecycle controls, sanitization scans, and version log expectations.
 
+**Related:**
+- Templates: [Story Spec YAML](../templates/story-spec.yaml) · [Verification Checklist](../templates/verification-checklist.yaml) · [Story Preview](../templates/story-preview.md)
+- Guides: [Spec-Driven Story](../guides/spec-driven-story.md) · [Multi-Agent Patterns](../guides/multi-agent-patterns.md) · [Prompt Hygiene](../guides/prompt-hygiene.md) · [Trust Metrics](../guides/trust-metrics.md) · [Delivery Pulse](../guides/delivery-pulse.md) · [Kill-Switch Runbook](../guides/kill-switch-runbook.md) · [Enterprise Mapping](../guides/enterprise-mapping.md)
+- Appendices: [Compliance Mapping](../appendix/compliance-mapping.md) · [DORA Alignment](../appendix/dora-alignment.md) · [Example CI](../appendix/example-ci.md)
+- Mapping: [Recommendations → Challenges](../mappings/recommendations-vs-challenges.md)
+
 ## 5. Trust Metrics and Kill-Switch
 
 ### 5.1 Trust Metrics
@@ -109,14 +125,24 @@ ADF v0.6.0 updates the normative gate set as follows:
 
 > **Implementation guidance (informative):** Use the [Trust Metrics Implementation guide](../guides/trust-metrics.md) for scoring models, gate automation, and remediation workflows.
 
+See: [Metrics Glossary](../guides/metrics-glossary.md) for definitions and formulas.
+
+**Related:**
+- Templates: [Story Spec YAML](../templates/story-spec.yaml) · [Verification Checklist](../templates/verification-checklist.yaml) · [Story Preview](../templates/story-preview.md)
+- Guides: [Spec-Driven Story](../guides/spec-driven-story.md) · [Multi-Agent Patterns](../guides/multi-agent-patterns.md) · [Prompt Hygiene](../guides/prompt-hygiene.md) · [Trust Metrics](../guides/trust-metrics.md) · [Delivery Pulse](../guides/delivery-pulse.md) · [Kill-Switch Runbook](../guides/kill-switch-runbook.md) · [Enterprise Mapping](../guides/enterprise-mapping.md)
+- Appendices: [Compliance Mapping](../appendix/compliance-mapping.md) · [DORA Alignment](../appendix/dora-alignment.md) · [Example CI](../appendix/example-ci.md)
+- Mapping: [Recommendations → Challenges](../mappings/recommendations-vs-challenges.md)
+
 ### 5.2 Kill-Switch Protocol
 
 1. A global **Kill-Switch** control **MUST** exist for each delivery environment, enabling immediate suspension of autonomous execution.
 2. Kill-switch activation **MUST** be logged in the Evidence Bundle and Delivery Pulse with timestamp, initiator, and rationale.
-3. Following activation, new CRs **MUST NOT** merge until a remediation plan is documented and reviewed via the `human-approval` gate.
+3. Following activation, new CRs **MUST NOT** merge until a remediation plan is documented and reviewed via the `preview-accept` gate (or an equivalent manual approval recorded in the Evidence Bundle).
 4. Reactivation of autonomous execution **MUST** require an explicit Trust Score review and Delivery Lead approval.
 
-> **Implementation guidance (informative):** The [Kill-Switch & Rollback guide](../guides/kill-switch-rollback.md) covers activation criteria, rollback coordination, and reactivation steps.
+> **Implementation guidance (informative):** The [Kill-Switch & Rollback Runbook](../guides/kill-switch-runbook.md) covers activation criteria, rollback coordination, and reactivation steps.
+
+See operational details in the [Kill-Switch & Rollback Runbook](../guides/kill-switch-runbook.md).
 
 ## 6. Delivery Pulse Metrics
 
@@ -131,12 +157,24 @@ ADF v0.6.0 updates the normative gate set as follows:
 
 > **Implementation guidance (informative):** Refer to the [Delivery Pulse Operations guide](../guides/delivery-pulse.md) for telemetry packages, preparation workflow, and retention practices.
 
+**Related:**
+- Templates: [Story Spec YAML](../templates/story-spec.yaml) · [Verification Checklist](../templates/verification-checklist.yaml) · [Story Preview](../templates/story-preview.md)
+- Guides: [Spec-Driven Story](../guides/spec-driven-story.md) · [Multi-Agent Patterns](../guides/multi-agent-patterns.md) · [Prompt Hygiene](../guides/prompt-hygiene.md) · [Trust Metrics](../guides/trust-metrics.md) · [Delivery Pulse](../guides/delivery-pulse.md) · [Kill-Switch Runbook](../guides/kill-switch-runbook.md) · [Enterprise Mapping](../guides/enterprise-mapping.md)
+- Appendices: [Compliance Mapping](../appendix/compliance-mapping.md) · [DORA Alignment](../appendix/dora-alignment.md) · [Example CI](../appendix/example-ci.md)
+- Mapping: [Recommendations → Challenges](../mappings/recommendations-vs-challenges.md)
+
 ## 7. Compliance and DORA Integration
 
 1. Conformance Levels defined in v0.5.0 remain, with Level 3 now requiring Trust Score monitoring and kill-switch validation evidence.
 2. Compliance mapping **MUST** reference applicable regulations or internal policies. The [Compliance Appendix](appendix-enterprise-mapping.md) remains informative; teams **SHOULD** extend it locally.
 3. DORA metrics **MUST** be computed at least weekly and stored with Pulse artifacts. Calculation methods **MUST** be documented in the Evidence Bundle (`metrics/` directory).
 4. Organizations pursuing audit-ready status **SHOULD** link DORA metrics to risk registers and compliance control IDs.
+
+**Related:**
+- Templates: [Story Spec YAML](../templates/story-spec.yaml) · [Verification Checklist](../templates/verification-checklist.yaml) · [Story Preview](../templates/story-preview.md)
+- Guides: [Spec-Driven Story](../guides/spec-driven-story.md) · [Multi-Agent Patterns](../guides/multi-agent-patterns.md) · [Prompt Hygiene](../guides/prompt-hygiene.md) · [Trust Metrics](../guides/trust-metrics.md) · [Delivery Pulse](../guides/delivery-pulse.md) · [Kill-Switch Runbook](../guides/kill-switch-runbook.md) · [Enterprise Mapping](../guides/enterprise-mapping.md)
+- Appendices: [Compliance Mapping](../appendix/compliance-mapping.md) · [DORA Alignment](../appendix/dora-alignment.md) · [Example CI](../appendix/example-ci.md)
+- Mapping: [Recommendations → Challenges](../mappings/recommendations-vs-challenges.md)
 
 ## 8. Recommendations Mapping
 
@@ -153,7 +191,7 @@ The following recommendations are **informative** mappings between specification
 | §4 | `guides/prompt-hygiene.md` | Lifecycle controls and sanitization practices (informative). |
 | §5 | `handbook/safety-rails.md` | Documents trust metrics, kill-switch deployment patterns. |
 | §5 | `guides/trust-metrics.md` | Informative scoring, gate automation, and remediation guidance. |
-| §5 | `guides/kill-switch-rollback.md` | Informative kill-switch activation and rollback procedures. |
+| §5 | `guides/kill-switch-runbook.md` | Informative kill-switch activation and rollback procedures. |
 | §6 | `handbook/pulse-increment.md` | Provides reporting cadence examples. |
 | §6 | `guides/delivery-pulse.md` | Informative telemetry package and retention checklist. |
 | §7 | `handbook/metrics.md` | Connects DORA metrics to compliance registers. |
@@ -163,6 +201,12 @@ The following recommendations are **informative** mappings between specification
 Recommendations **MAY** be adapted locally; adaptations **SHOULD** preserve tool-agnostic language.
 
 > **Implementation guidance (informative):** The [Enterprise Mapping Playbook](../guides/enterprise-mapping.md) illustrates neutral control mappings, audit preparation steps, and stakeholder communication tips.
+
+**Related:**
+- Templates: [Story Spec YAML](../templates/story-spec.yaml) · [Verification Checklist](../templates/verification-checklist.yaml) · [Story Preview](../templates/story-preview.md)
+- Guides: [Spec-Driven Story](../guides/spec-driven-story.md) · [Multi-Agent Patterns](../guides/multi-agent-patterns.md) · [Prompt Hygiene](../guides/prompt-hygiene.md) · [Trust Metrics](../guides/trust-metrics.md) · [Delivery Pulse](../guides/delivery-pulse.md) · [Kill-Switch Runbook](../guides/kill-switch-runbook.md) · [Enterprise Mapping](../guides/enterprise-mapping.md)
+- Appendices: [Compliance Mapping](../appendix/compliance-mapping.md) · [DORA Alignment](../appendix/dora-alignment.md) · [Example CI](../appendix/example-ci.md)
+- Mapping: [Recommendations → Challenges](../mappings/recommendations-vs-challenges.md)
 
 ## Glossary
 

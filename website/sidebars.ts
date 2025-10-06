@@ -64,7 +64,21 @@ const sidebars: SidebarsConfig = {
         'guides/trust-metrics',
         'guides/delivery-pulse',
         'guides/enterprise-mapping',
-        'guides/kill-switch-rollback',
+        'guides/metrics-glossary',
+        'guides/kill-switch-runbook',
+      ],
+    },
+  ],
+
+  appendix: [
+    {
+      type: 'category',
+      label: 'Appendices',
+      collapsed: false,
+      items: [
+        'appendix/compliance-mapping',
+        'appendix/dora-alignment',
+        'appendix/example-ci',
       ],
     },
   ],
