@@ -1,14 +1,23 @@
 ## Summary
 - [ ] Linked Issue: Closes #____ (or N/A for housekeeping)
 - [ ] Scope aligns with current Sprint (aka Iteration) or roadmap item
+- [ ] Story Preview updated and linked (see [Story Preview guide](../docs/handbook/story-preview.md))
 
-## Validation
-- [ ] Markdown lint / link checks pass
-- [ ] No executable code introduced (per [No-Code Policy](../docs/no-code-policy.md))
-- [ ] Spec versioning updated if normative text changes
+## Evidence Bundle Checklist
+- [ ] Evidence Bundle reference added (`requirements-trace.json` per [Evidence Bundle procedures](../docs/handbook/evidence-bundle.md))
+- [ ] Gate outputs archived in Evidence Bundle (`gates/` directory per [CR Gates guide](../docs/handbook/cr-gates.md))
+- [ ] Pulse Increment notes linked or attached (see [Pulse Increment guide](../docs/handbook/pulse-increment.md))
 
-## Checklist
-- [ ] Branch named `docs/<topic>` or similar
-- [ ] Governance reviewers assigned (Delivery Lead & Developer editors for normative changes)
-- [ ] Documentation updated across affected files (including license notice)
+## Gate Checklist
+- [ ] `spec-verify`
+- [ ] `tests-ci`
+- [ ] `security-static`
+- [ ] `deps-supply-chain`
+- [ ] `perf-budget`
+- [ ] `framework-guard`
+- [ ] `mode-policy`
+- [ ] `preview-build`
+- [ ] `human-approval`
 
+## Skipped Items Rationale
+List any unchecked items above and document the rationale, mitigation plan, and follow-up owner.
