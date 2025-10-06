@@ -76,7 +76,7 @@ const config: Config = {
       items: [
         { to: '/docs/overview/start-here', label: 'Start', position: 'left' },
         { to: '/docs/overview/adoption-guide', label: 'Adopt', position: 'left' },
-        { to: '/docs/specs/adf-spec-v0.5.0', label: 'Spec', position: 'left' },
+        { to: '/docs/specs/adf-spec-v0.6.0', label: 'Spec', position: 'left' },
         { to: '/docs/handbook/ssp', label: 'Handbook', position: 'left' },
         { to: '/docs/templates/pr-template', label: 'Templates', position: 'left' },
         { to: '/docs/profiles/github', label: 'Profiles', position: 'left' },
@@ -92,7 +92,7 @@ const config: Config = {
           title: 'Learn',
           items: [
             { label: 'Start', to: '/docs/overview/start-here' },
-            { label: 'Spec', to: '/docs/specs/adf-spec-v0.5.0' },
+            { label: 'Spec', to: '/docs/specs/adf-spec-v0.6.0' },
             { label: 'Handbook', to: '/docs/handbook/ssp' },
           ],
         },
