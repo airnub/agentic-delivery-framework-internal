@@ -7,6 +7,8 @@ summary: "Operating the daily Pulse Increment cadence defined by ADF v0.5.0."
 
 This guide explains how to produce and govern the Pulse Increment mandated in [Section 5 of the specification](../specs/adf-spec-v0.5.0.md#5-delivery-pulse-and-pulse-increment).
 
+> **Need the v0.6.0 telemetry expansion?** Consult the [Delivery Pulse Operations guide](../guides/delivery-pulse.md) (informative) for Trust Score trends, Guard Timer breach tracking, and retention practices introduced in the latest spec.
+
 ## Table of Contents
 - [Cadence Overview](#cadence-overview)
 - [Preparation Checklist](#preparation-checklist)

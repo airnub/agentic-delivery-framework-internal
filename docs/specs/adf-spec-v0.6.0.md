@@ -40,6 +40,8 @@ ADF v0.6.0 is backward compatible with v0.5.0. Teams MAY remain on v0.5.0 artifa
 
 The spec-driven workflow keeps governance explicit and avoids undocumented changes to the framework.
 
+> **Implementation guidance (informative):** See the [Spec-Driven Story Guide](../guides/spec-driven-story.md) for backlog hygiene, spec map management, and variance handling patterns.
+
 ## 2. Sequential Subtask Pipeline (SSP) Multi-Agent Handoffs
 
 ### 2.1 Concepts
@@ -65,6 +67,8 @@ The Sequential Subtask Pipeline defined in v0.5.0 remains in force with the foll
 
 - Concurrent editing on the Story branch **MUST NOT** occur. Automation **MUST** block parallel pushes when a lease is active.
 - Informative Kanban visualizations **MAY** depict handoffs but **MUST** keep SSP sequential semantics intact.
+
+> **Implementation guidance (informative):** Follow the [Multi-Agent SSP Patterns guide](../guides/multi-agent-patterns.md) for Handoff Packet templates, Guard Timer enforcement, and attribution logging.
 
 ## 3. Change Request Gates
 
@@ -93,6 +97,8 @@ ADF v0.6.0 updates the normative gate set as follows:
 4. Prompt edits **MUST** undergo peer review equivalent to code changes and adhere to the SSP workflow.
 5. Informative prompt templates MAY reside under `docs/prompts/` but MUST declare their informative status and exclude organization-specific data.
 
+> **Implementation guidance (informative):** The [Prompt Hygiene guide](../guides/prompt-hygiene.md) documents lifecycle controls, sanitization scans, and version log expectations.
+
 ## 5. Trust Metrics and Kill-Switch
 
 ### 5.1 Trust Metrics
@@ -101,12 +107,16 @@ ADF v0.6.0 updates the normative gate set as follows:
 - **Lease Continuity** and **Edit Locality** metrics **MUST** feed into the Trust Score calculation.
 - Trust metric thresholds **MUST** be stored in policy configuration and versioned with the repository.
 
+> **Implementation guidance (informative):** Use the [Trust Metrics Implementation guide](../guides/trust-metrics.md) for scoring models, gate automation, and remediation workflows.
+
 ### 5.2 Kill-Switch Protocol
 
 1. A global **Kill-Switch** control **MUST** exist for each delivery environment, enabling immediate suspension of autonomous execution.
 2. Kill-switch activation **MUST** be logged in the Evidence Bundle and Delivery Pulse with timestamp, initiator, and rationale.
 3. Following activation, new CRs **MUST NOT** merge until a remediation plan is documented and reviewed via the `human-approval` gate.
 4. Reactivation of autonomous execution **MUST** require an explicit Trust Score review and Delivery Lead approval.
+
+> **Implementation guidance (informative):** The [Kill-Switch & Rollback guide](../guides/kill-switch-rollback.md) covers activation criteria, rollback coordination, and reactivation steps.
 
 ## 6. Delivery Pulse Metrics
 
@@ -118,6 +128,8 @@ ADF v0.6.0 updates the normative gate set as follows:
   - Break-glass events and CAPA status.
 - Teams **MUST** retain the last 21 Pulse Increment artifacts for auditability.
 - Delivery Pulse minutes **SHOULD** link to the `spec-map.md` artifact when reviewing backlog alignment.
+
+> **Implementation guidance (informative):** Refer to the [Delivery Pulse Operations guide](../guides/delivery-pulse.md) for telemetry packages, preparation workflow, and retention practices.
 
 ## 7. Compliance and DORA Integration
 
@@ -133,15 +145,24 @@ The following recommendations are **informative** mappings between specification
 | Spec Clause | Recommended Material | Notes |
 |-------------|----------------------|-------|
 | §1 | `handbook/README.md` | Maintains spec-driven backlog alignment playbooks. |
+| §1 | `guides/spec-driven-story.md` | Informative spec-map maintenance and variance handling. |
 | §2 | `handbook/ssp.md` | Includes multi-agent handoff checklist templates. |
+| §2 | `guides/multi-agent-patterns.md` | Informative Handoff Packet and Guard Timer operations. |
 | §3 | `handbook/cr-gates.md` | Details gate operations and sample policies. |
 | §4 | `prompts/initial-agent-prompt.md` | Informative prompt baseline incorporating hygiene requirements. |
+| §4 | `guides/prompt-hygiene.md` | Lifecycle controls and sanitization practices (informative). |
 | §5 | `handbook/safety-rails.md` | Documents trust metrics, kill-switch deployment patterns. |
+| §5 | `guides/trust-metrics.md` | Informative scoring, gate automation, and remediation guidance. |
+| §5 | `guides/kill-switch-rollback.md` | Informative kill-switch activation and rollback procedures. |
 | §6 | `handbook/pulse-increment.md` | Provides reporting cadence examples. |
+| §6 | `guides/delivery-pulse.md` | Informative telemetry package and retention checklist. |
 | §7 | `handbook/metrics.md` | Connects DORA metrics to compliance registers. |
 | §7 | `specs/appendix-enterprise-mapping.md` | Informative compliance references. |
+| §8 | `guides/enterprise-mapping.md` | Informative enterprise control translation tips. |
 
 Recommendations **MAY** be adapted locally; adaptations **SHOULD** preserve tool-agnostic language.
+
+> **Implementation guidance (informative):** The [Enterprise Mapping Playbook](../guides/enterprise-mapping.md) illustrates neutral control mappings, audit preparation steps, and stakeholder communication tips.
 
 ## Glossary
 

@@ -7,6 +7,8 @@ summary: "Operational playbook for running and troubleshooting ADF v0.5.0 Change
 
 This handbook expands on the normative [CR Gates](../specs/adf-spec-v0.5.0.md#3-change-request-gates) and documents minimum expectations, evidence capture, and break-glass handling.
 
+> **New in v0.6.0:** The `trust-metrics` gate now complements the catalog below. See the [Trust Metrics Implementation guide](../guides/trust-metrics.md) (informative) for scoring details and remediation loops.
+
 ## Table of Contents
 - [Gate Overview](#gate-overview)
 - [Gate Procedures](#gate-procedures)
