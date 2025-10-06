@@ -18,6 +18,7 @@ This guide explains how to produce and govern the Pulse Increment mandated in [S
 
 ## Cadence Overview
 
+- **When agents participate, part of the Pulse is reviewing SSP status (current lease holder, queue, checkpoints) and adapting today’s plan accordingly.**
 - Runs daily at a fixed time aligned with team time zones.
 - Produces a demoable artifact from the `main` branch.
 - Aggregates telemetry: merged CRs, gate outcomes, DORA snapshot, risk register updates, and break-glass usage.
