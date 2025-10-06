@@ -14,6 +14,19 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 4. **Configure platform:** Mirror the [GitHub profile](docs/profiles/github.md) and accompanying [examples](docs/examples/github/) to map gates, protections, and labels.
 5. **Track upgrades:** Review the [CHANGELOG](CHANGELOG.md) for upgrade notes from v0.4.0.
 
+## Method framing
+
+- **Scrum-compatible core:** Preserve Scrum roles, events, and artifacts so Delivery Leads, Product Owners, and Developers operate within a familiar cadence.
+- **Extension practices:** Layer CR-first governance, CR gates, Story Previews, Evidence Bundles, and the Delivery Pulse to "light-purify" execution without adding new ceremonies.
+- **Agent safety rails:** Apply SSP sequencing, workspace runtime guardrails, and telemetry so human and AI contributors stay conflict-free.
+
+**Normative rule:** **SSP is required** for all ADF teams. It is a core practice that enables safe, conflict-free agent execution.
+
+## Conformance levels (L1–L3) — SSP is required
+- **L1 – Supervised Agents:** Agents may propose/commit changes under human oversight. **SSP required** (exclusive Story lease, ordered subtasks, one CR). **CR gates required.** Daily Pulse required.
+- **L2 – Autonomy-Guarded:** Agents can execute outside working hours. **SSP required** with stricter lease timeouts and checkpoint criteria; **CR gates required** with expanded policy set (security, secrets, perf). Daily Pulse required.
+- **L3 – Autonomy-First (24/7):** Agents primarily drive delivery. **SSP required** with hard lease enforcement, rollback/escape-hatch policy; **CR gates required** as policy-as-code; human approval only for risk-tagged changes. Daily Pulse required.
+
 ## Few simple rules
 - **CR-first:** Every code or content change merges via a Change Request targeting a single Story branch.
 - **DoD + CR gates:** `spec-verify`, `tests-ci`, `security-static`, `deps-supply-chain`, `perf-budget`, `framework-guard`, `mode-policy`, `preview-build`, and `human-approval` must pass before merge. Apply `break-glass` only with CAPA follow-up.
