@@ -1,0 +1,97 @@
+# Story Specification Template (Normative)
+# Version history MUST be updated when template structure changes.
+version: 1
+
+metadata:
+  story_id: ""
+  title: ""
+  lease:
+    start: ""
+    end: ""
+  authors:
+    - name: ""
+      role: ""
+  stakeholders:
+    - name: ""
+      responsibility: ""
+  related_artifacts:
+    preview_template: "docs/templates/story-preview.md"
+    verification_checklist_template: "docs/templates/verification-checklist.yaml"
+    evidence_bundle_example: "requirements-trace.json"
+
+context:
+  problem_statement: ""
+  background: ""
+  goals:
+    - id: goal-1
+      description: ""
+  non_goals:
+    - ""
+  assumptions:
+    - ""
+  dependencies:
+    - description: ""
+      owner: ""
+
+scope:
+  included:
+    - path: ""
+      rationale: ""
+    - path: ""
+      rationale: ""
+  excluded:
+    - path: ""
+      rationale: ""
+
+scenarios:
+  - id: scenario-1
+    title: ""
+    type: functional # functional | data | api | resilience | experience
+    description: ""
+    preconditions:
+      - ""
+    steps:
+      - action: ""
+        expected_result: ""
+    acceptance_criteria:
+      - ""
+    evidence_expectations:
+      - artifact: ""
+        link: ""
+        gate: spec-verify
+
+risks_and_controls:
+  security: ""
+  privacy: ""
+  compliance: ""
+  migrations: ""
+  rollout_strategy: ""
+
+verification_alignment:
+  checklist_ref: "docs/templates/verification-checklist.yaml"
+  gates:
+    - gate: spec-verify
+      rationale: ""
+    - gate: tests-ci
+      rationale: ""
+    - gate: security-static
+      rationale: ""
+    - gate: deps-supply-chain
+      rationale: ""
+    - gate: perf-budget
+      rationale: ""
+    - gate: framework-guard
+      rationale: ""
+    - gate: mode-policy
+      rationale: ""
+    - gate: preview-build
+      rationale: ""
+    - gate: human-approval
+      rationale: ""
+
+change_log:
+  - date: ""
+    description: ""
+    author: ""
+
+# End of template.

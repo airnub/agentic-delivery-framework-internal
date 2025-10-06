@@ -1,0 +1,68 @@
+# Verification Checklist Template (Normative)
+# Update `version` when structure or required gates change.
+version: 1
+
+story:
+  id: ""
+  title: ""
+  spec_path: "docs/templates/story-spec.yaml"
+  preview_path: "docs/templates/story-preview.md"
+  evidence_bundle: "requirements-trace.json"
+
+review_window:
+  opened: ""
+  closed: ""
+  approvers:
+    - name: ""
+      role: ""
+
+scenarios:
+  - id: scenario-1
+    title: ""
+    evidence_links:
+      - label: ""
+        url: ""
+    gates:
+      spec-verify:
+        status: pending # pending | satisfied | rejected
+        notes: ""
+      tests-ci:
+        status: pending
+        notes: ""
+      security-static:
+        status: pending
+        notes: ""
+      deps-supply-chain:
+        status: pending
+        notes: ""
+      perf-budget:
+        status: pending
+        notes: ""
+      framework-guard:
+        status: pending
+        notes: ""
+      mode-policy:
+        status: pending
+        notes: ""
+      preview-build:
+        status: pending
+        notes: ""
+      human-approval:
+        status: pending
+        notes: ""
+
+open_issues:
+  - id: ""
+    description: ""
+    owner: ""
+    due: ""
+
+signoff:
+  verifier:
+    name: ""
+    date: ""
+  approver:
+    name: ""
+    date: ""
+
+# End of template.

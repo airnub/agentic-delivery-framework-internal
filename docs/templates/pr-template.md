@@ -1,17 +1,29 @@
-## Story Preview
-- **What/Why:**
-- **Scope (dirs/files):**
-- **Risks (auth/PII/schema):**
+## Story Preview (Spec-aligned)
+- **Story Spec:** `[link to story-spec.yaml instance]`
+- **Story Preview:** `[link to updated preview doc]`
+- **Verification Checklist:** `[link to verification-checklist.yaml instance]`
+- **Evidence Bundle:** ``requirements-trace.json`` (path in repo or storage)
 
-### Evidence
-- [ ] Screens / API trace / Demo link
-- [ ] Tests summary
-- [ ] Schema/RLS diff
-- [ ] Perf budget snapshot
+### Scope & Scenarios
+- [ ] Scope table in Preview matches `scope.included` / `scope.excluded`
+- [ ] Scenario IDs align with `scenarios[].id` in the Story Spec
+- [ ] Evidence links in Preview map to Verification Checklist entries
 
-### Checklists
-- [ ] Conforms to SSP scope & Edit Locality
-- [ ] Required labels: `story:…`, optional `break-glass`
+### Gate Evidence (MUST reference artifacts or job URLs)
+- [ ] `spec-verify`
+- [ ] `tests-ci`
+- [ ] `security-static`
+- [ ] `deps-supply-chain`
+- [ ] `perf-budget`
+- [ ] `framework-guard`
+- [ ] `mode-policy`
+- [ ] `preview-build`
+- [ ] `human-approval`
+
+### Neutrality & Hygiene
+- [ ] Terminology and filenames match ADF canon (`requirements-trace.json`, gate names)
+- [ ] Links validated and scoped to repository or neutral hosts
+- [ ] SSP board updated with current status and owners
 
 ---
 
