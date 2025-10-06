@@ -55,6 +55,11 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 - **Appendices:**
   - [Enterprise mapping: Evidence ↔ SOC2/ISO, metrics ↔ DORA, CAB-lite policy](docs/specs/appendix-enterprise-mapping.md).
 
+**Onboarding & Profiles**
+- [Onboarding (Scrum)](docs/handbook/onboarding-scrum.md)
+- [Onboarding (Kanban)](docs/handbook/onboarding-kanban.md)
+- [Profiles contract](docs/profiles/contract.md)
+
 ## Method diagram
 
 ```mermaid
