@@ -140,7 +140,7 @@ ADF v0.6.0 updates the normative gate set as follows:
 
 ## 8. Recommendations Mapping
 
-The following recommendations are **informative** mappings between specification obligations and supporting materials:
+The following recommendations are **informative** mappings between specification obligations and supporting materials. See the [Recommendations vs Challenges mapping](../mappings/recommendations-vs-challenges.md) for rationale on how each reference mitigates adoption risks:
 
 | Spec Clause | Recommended Material | Notes |
 |-------------|----------------------|-------|
