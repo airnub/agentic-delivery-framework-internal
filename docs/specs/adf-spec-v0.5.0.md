@@ -5,6 +5,8 @@ summary: "Normative specification for ADF v0.5.0 including CR-first invariant, S
 
 # Agentic Delivery Framework (ADF) v0.5.0 Specification
 
+> **Conventions used in this spec.** The key words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** are to be interpreted as described in RFC 2119. ADF remains **tool-agnostic**; platform “Profiles” are **informative** bindings and MUST NOT be required to claim conformance.
+
 _Related:_ See **[ADF Roadmap to 24×7 Autonomous Delivery](../roadmaps/adf-roadmap-autonomous-delivery.md)** for adoption steps, and the **[Autonomy-with-Accountability](../vision/autonomy-principle.md)** principle for the north star.
 
 > **Status:** Latest (v0.5.0). v0.4.0 remains normative for teams pinned to the previous minor version.
@@ -31,8 +33,6 @@ _Related:_ See **[ADF Roadmap to 24×7 Autonomous Delivery](../roadmaps/adf-road
 This specification defines the normative requirements for the Agentic Delivery Framework (ADF) v0.5.0. It applies to delivery teams composed of humans, agents, or hybrid pairs building software or documentation artifacts under governance. Non-normative rationale and implementation guidance live in the [handbook](../handbook/README.md) and associated profiles.
 
 ADF v0.5.0 is backward compatible with v0.4.0. Teams MAY remain on v0.4.0 artifacts while assessing the upgrade. The upgrade path is detailed in the [changelog](../CHANGELOG.md) and [handbook conformance guide](../handbook/conformance.md).
-
-> **Tool-agnostic scope.** ADF is a vendor-neutral methodology. Profiles and templates in this repository are **informative** (non-normative) examples; adopters MAY implement equivalent checks and artifacts on any platform.
 
 ## 1. Core Rules — CR-First and Evidence
 
@@ -91,7 +91,7 @@ The following gates are normative required status checks for each CR. Names are 
 8. `preview-build` — Build and attach Story Preview assets.
 9. `human-approval` — Required reviewers approve the CR when mandated by policy.
 
-**Break-Glass Protocol:** Applying the `break-glass` label **MAY** bypass Gates 3–7. Usage **MUST** be approved by a designated lead and **MUST** auto-file a corrective and preventive action (CAPA) item for the next Sprint. The Delivery Pulse **MUST** flag all break-glass merges.
+**Break-glass.** May be invoked **only** by the Delivery Lead for time-critical remediation. When used, the CR **MUST** (a) record `break_glass.used=true` in the Evidence Bundle with reason; (b) open a **CAPA** issue within 24 hours; (c) pass all gates retroactively within 72 hours or revert.
 
 ## 4. Story Preview
 
@@ -134,6 +134,23 @@ Each merged CR **MUST** generate an Evidence Bundle stored at `/artifacts/eviden
 - `sanitized-logs/` directory (optional per policy) containing redacted execution logs.
 
 Evidence Bundles **MUST** be referenced during audits and Delivery Pulse reviews.
+
+**Minimal JSON descriptor:**
+
+```json
+{
+  "id": "uuid",
+  "cr": "org/repo#123",
+  "gate": "security-static",
+  "actor": {"type":"agent|human","id":"<principal>"},
+  "artifact": {"uri":"<https://...>", "sha256":"<hash>"},
+  "result": "pass|fail|waived",
+  "timestamp": "2025-10-06T00:00:00Z",
+  "retention_days": 180,
+  "notes": "optional",
+  "break_glass": {"used": false, "reason": "", "capa_issue": ""}
+}
+```
 
 ## 8. Metrics Vocabulary
 
