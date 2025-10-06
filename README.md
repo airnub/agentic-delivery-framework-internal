@@ -62,6 +62,8 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 
 ## Method diagram
 
+High-level SSP governance flow:
+
 ```mermaid
 flowchart TD
   PO[Product Owner] -->|Draft Story Preview| PREVIEW[Story Preview]
@@ -69,34 +71,19 @@ flowchart TD
   DL[Delivery Lead] -->|Lease Story| LEASE[Story Lease]
   READY --> LEASE
   LEASE --> SSP[Sequential Subtask Pipeline]
-  SSP -->|Update Evidence & Preview| PREVIEW
   SSP --> CR[Change Request]
 
-  CR --> SPEC[spec-verify]
-  SPEC -->|pass| TESTS[tests-ci]
-  SPEC -->|rework| SSP
-  TESTS -->|pass| SEC[security-static]
-  TESTS -->|rework| SSP
-  SEC -->|pass| DEPS[deps-supply-chain]
-  SEC -->|rework| SSP
-  DEPS -->|pass| PERF[perf-budget]
-  DEPS -->|rework| SSP
-  PERF -->|pass| FRAMEWORK[framework-guard]
-  PERF -->|rework| SSP
-  FRAMEWORK -->|pass| MODE[mode-policy]
-  FRAMEWORK -->|rework| SSP
-  MODE -->|pass| PREVIEWBUILD[preview-build]
-  MODE -->|rework| SSP
-  PREVIEWBUILD -->|pass| HUMAN[human-approval]
-  PREVIEWBUILD -->|changes requested| SSP
-  HUMAN -->|approve| MERGE[Merge]
-  HUMAN -->|changes requested| SSP
+  CR --> GATES["CR Gates\n`spec-verify` → `tests-ci` → `security-static` → `deps-supply-chain` → `perf-budget` → `framework-guard` → `mode-policy` → `preview-build` → `human-approval`"]
+  GATES --> MERGE[Merge]
+  GATES -.->|Rework as required| SSP
 
   MERGE --> PULSE[Pulse Increment]
   PULSE --> REVIEW[Review / Retro]
   REVIEW -->|Backlog insights| PO
   PULSE -->|Daily/Weekly telemetry| DL
 ```
+
+See [ADF method — detailed diagram](docs/diagrams/adf-method-detailed.mmd) for the full gate-level feedback loops.
 
 ## What’s inside
 - `AGENTS.md` – modality charter and guardrails for Delivery Lead, Product Owner, and Developers.
