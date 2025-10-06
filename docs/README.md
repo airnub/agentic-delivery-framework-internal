@@ -1,17 +1,17 @@
 # Agentic Delivery Framework Documentation Index
 
-Use this index to navigate ADF v0.5.0 artifacts.
+Use this index to navigate ADF v0.6.0 artifacts.
 
 ## Latest Release
-- **Specification:** [ADF v0.5.0](specs/adf-spec-v0.5.0.md)
-- **Handbook:** [ADF v0.5.0 Handbook](handbook/README.md)
+- **Specification:** [ADF v0.6.0](specs/adf-spec-v0.6.0.md)
+- **Handbook:** [ADF v0.6.0 Handbook](handbook/README.md)
 - **Templates:** [Operational templates](templates/pr-template.md)
 - **Profiles:** [Platform profiles](profiles/overview.md) (start with [GitHub](profiles/github.md))
 - **Diagrams:** Mermaid sources live in the repository `docs/diagrams/` folder.
 
 ## Upgrade Path
-- Review the [CHANGELOG](CHANGELOG.md) for v0.4.0 → v0.5.0 notes.
-- Legacy specification remains at [spec.v0.4.0.md](specs/spec.v0.4.0.md).
+- Review the [CHANGELOG](CHANGELOG.md) for v0.5.0 → v0.6.0 notes.
+- Previous specification remains at [adf-spec-v0.5.0.md](specs/adf-spec-v0.5.0.md) with links to [v0.4.0](specs/spec.v0.4.0.md).
 
 ## Key Guides
 - [Sequential Subtask Pipeline](handbook/ssp.md)
@@ -25,6 +25,7 @@ Use this index to navigate ADF v0.5.0 artifacts.
 
 ## Examples & Templates
 - [PR & Story Preview templates](templates/pr-template.md)
+- [Change Request checklist](templates/cr-checklist.md)
 - [Conformance checklist](templates/conformance-checklist.md)
 - [CODEOWNERS example](templates/codeowners.example)
 - [GitHub examples](examples/github/pr-template.example.md)
