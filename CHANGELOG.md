@@ -1,5 +1,30 @@
 # Agentic Delivery Framework Changelog
 
+## v0.6.0 — 2026-02-15
+### Added
+- Published [ADF v0.6.0 specification](docs/specs/adf-spec-v0.6.0.md) introducing the spec-driven workflow mandate, expanded gate
+  coverage, and sequential verification guidance across the Evidence Bundle lifecycle.
+- Documented multi-agent collaboration patterns covering SSP role handoffs, escalation protocols, and neutral delegation
+  templates for Story Previews.
+- Expanded trust and safety metrics with Delivery Pulse instrumentation, data retention rules, and transparency guardrails for
+  evidence review.
+- Delivered compliance and DORA outcome mapping playbooks, including normative traceability checkpoints and informative
+  crosswalk tables.
+- Added template updates for Story Preview, Evidence Bundle, onboarding checklists, and gate configuration briefs in
+  [docs/templates](docs/templates/).
+- Introduced onboarding guidance for new teams, covering initial Pulse Increment setup, gate readiness milestones, and safety
+  reviews.
+
+### Changed
+- Elevated Delivery Pulse to first-class cadence guidance with explicit inputs, outputs, and escalation policy hooks.
+- Updated gate catalog to require spec-driven verification ordering for `spec-verify`, `tests-ci`, and `security-static` before
+  `human-approval`.
+
+### Upgrade Notes
+- Teams upgrading from v0.5.0 SHOULD review the new trust metrics and Delivery Pulse instrumentation to ensure data governance
+  policies remain compliant.
+- Update automation to align with the spec-driven workflow rules before enabling expanded gate sequencing in branch protection.
+
 ## v0.5.0 — 2025-10-05
 ### Added
 - Published [ADF v0.5.0 specification](docs/specs/adf-spec-v0.5.0.md) with CR-first invariant, Sequential Subtask Pipeline algorithm, expanded CR gates, Story Preview schema, Delivery Pulse rules, conformance levels, Evidence Bundle format, metrics vocabulary, platform profiles, and agent safety rails.
