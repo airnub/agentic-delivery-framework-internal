@@ -63,23 +63,39 @@ The Agentic Delivery Framework (ADF) is a vendor-neutral methodology for human +
 ## Method diagram
 
 ```mermaid
-graph TD
-  PO[Product Owner] -->|Story Preview| READY[Story Ready]
-  DL[Delivery Lead] -->|Lease Story| READY
-  READY --> SSP[Sequential Subtask Pipeline]
+flowchart TD
+  PO[Product Owner] -->|Draft Story Preview| PREVIEW[Story Preview]
+  PREVIEW -->|Meets Definition of Ready| READY[Story Ready]
+  DL[Delivery Lead] -->|Lease Story| LEASE[Story Lease]
+  READY --> LEASE
+  LEASE --> SSP[Sequential Subtask Pipeline]
+  SSP -->|Update Evidence & Preview| PREVIEW
   SSP --> CR[Change Request]
+
   CR --> SPEC[spec-verify]
-  SPEC --> TESTS[tests-ci]
-  TESTS --> SEC[security-static]
-  SEC --> DEPS[deps-supply-chain]
-  DEPS --> PERF[perf-budget]
-  PERF --> FRAMEWORK[framework-guard]
-  FRAMEWORK --> MODE[mode-policy]
-  MODE --> PREVIEW[preview-build]
-  PREVIEW --> HUMAN[human-approval]
-  HUMAN --> MERGE[Merge]
+  SPEC -->|pass| TESTS[tests-ci]
+  SPEC -->|rework| SSP
+  TESTS -->|pass| SEC[security-static]
+  TESTS -->|rework| SSP
+  SEC -->|pass| DEPS[deps-supply-chain]
+  SEC -->|rework| SSP
+  DEPS -->|pass| PERF[perf-budget]
+  DEPS -->|rework| SSP
+  PERF -->|pass| FRAMEWORK[framework-guard]
+  PERF -->|rework| SSP
+  FRAMEWORK -->|pass| MODE[mode-policy]
+  FRAMEWORK -->|rework| SSP
+  MODE -->|pass| PREVIEWBUILD[preview-build]
+  MODE -->|rework| SSP
+  PREVIEWBUILD -->|pass| HUMAN[human-approval]
+  PREVIEWBUILD -->|changes requested| SSP
+  HUMAN -->|approve| MERGE[Merge]
+  HUMAN -->|changes requested| SSP
+
   MERGE --> PULSE[Pulse Increment]
   PULSE --> REVIEW[Review / Retro]
+  REVIEW -->|Backlog insights| PO
+  PULSE -->|Daily/Weekly telemetry| DL
 ```
 
 ## What’s inside
