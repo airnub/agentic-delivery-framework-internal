@@ -7,6 +7,8 @@ summary: "Guidance and examples for producing Story Previews that satisfy ADF v0
 
 This playbook converts the normative [Story Preview requirements](../specs/adf-spec-v0.5.0.md#4-story-preview) into actionable patterns and examples.
 
+> **Spec-driven linkage:** Pair this playbook with the [Spec-Driven Story Guide](../guides/spec-driven-story.md) (informative) to ensure clause references, spec maps, and Evidence Bundle hooks remain in sync with ADF v0.6.0 expectations.
+
 ## Table of Contents
 - [Purpose](#purpose)
 - [Required Sections](#required-sections)

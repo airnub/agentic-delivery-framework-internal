@@ -7,6 +7,8 @@ summary: "How to calculate and report DORA and agent-specific metrics for ADF v0
 
 This guide explains how to compute and report the metrics defined in [Section 8 of the specification](../specs/adf-spec-v0.5.0.md#8-metrics-vocabulary).
 
+> **Trust metrics update:** For the `trust-metrics` gate introduced in v0.6.0, reference the [Trust Metrics Implementation guide](../guides/trust-metrics.md) (informative) to extend dashboards and remediation loops.
+
 ## Table of Contents
 - [Metric Catalog](#metric-catalog)
 - [Data Sources](#data-sources)

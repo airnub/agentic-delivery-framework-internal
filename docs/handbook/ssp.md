@@ -7,6 +7,8 @@ summary: "Step-by-step handbook for running the Sequential Subtask Pipeline with
 
 This guide operationalizes the SSP defined in the [ADF v0.5.0 specification](../specs/adf-spec-v0.5.0.md#2-sequential-subtask-pipeline-ssp). It is optimized for day-one adoption by human or agent executors.
 
+> **Looking for multi-agent extensions?** See the [Multi-Agent SSP Patterns guide](../guides/multi-agent-patterns.md) (informative) for Handoff Packet templates, Guard Timer operations, and attribution logging aligned with ADF v0.6.0.
+
 **Status:** **Normative across all conformance levels.** SSP is required whenever software changes are delivered. It enforces an exclusive Story lease, ordered subtask queue, explicit checkpoints, and a single CR.
 
 ## Table of Contents
