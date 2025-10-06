@@ -1,44 +1,53 @@
 # Story Preview Template
 
-## Context
-- **Story ID / Link:**
-- **Owner(s):**
-- **Lease Start:**
+## Spec Alignment
+- **Story Spec:** `[link to story-spec.yaml instance]`
+- **Verification Checklist:** `[link to verification-checklist.yaml instance]`
+- **Evidence Bundle:** ``requirements-trace.json`` (update with bundle location)
+- **Pulse Increment Window:** `start ➝ end`
 
-## What & Why
-- Summary of the change:
-- Value hypothesis / acceptance criteria:
+## Scope Snapshot
+| Path / Component | Intent | Evidence Link |
+| --- | --- | --- |
+| `path/to/file-or-dir` | Brief summary of change | [Spec §reference](#) |
 
-## Scope
-- Declared directories/files:
-- External systems/services touched:
+## Scenario Traceability
+| Scenario ID | Title | Evidence | Gate Coverage |
+| --- | --- | --- | --- |
+| scenario-1 | Short description | [Demo / Log / Screenshot](#) | spec-verify ✅ · tests-ci ✅ |
 
-## Risks
-- Authentication / Authorization:
-- PII / Compliance:
-- Schema / Migration impacts:
-- Feature flags / Rollout plan:
+- Note: Align scenario IDs with `scenarios[].id` in the Story Spec.
 
-## Evidence
-- Screenshots / API traces / Demo link:
-- Tests summary:
-- Schema / RLS diff explanation:
-- Performance snapshot:
+## Preview Evidence
+### Demos & Visuals
+- [ ] Link to recorded demo or screenshot album
+- [ ] API trace or log excerpt supporting key scenario
 
-## Work Plan
-- Subtasks (`todo` / `doing` / `done`):
+### Quality Signals
+- [ ] Tests summary (unit/integration/SSP tasks)
+- [ ] Schema / RLS diff explanation
+- [ ] Performance snapshot vs perf-budget gate
+- [ ] Security/static analysis notes
+- [ ] Dependency / supply-chain review outcome
+
+## Sequential Subtask Pipeline (SSP)
+- `todo` → `doing` → `done`
+  - [ ] Subtask / owner / evidence target
   - [ ]
-  - [ ]
 
-## Rationale (schema/security changes)
-- Provide justification and mitigation steps:
+## Decision & Risk Log
+- **Security / Privacy:** `call out mitigations`
+- **Rollout / Flags:** `launch plan`
+- **Open Risks:** `link to issue or checklist item`
 
-## Open Questions / Follow-ups
-- 
+## Open Questions & Follow-ups
+- [ ] Question / reference to spec section or checklist gate
+- [ ]
 
 ## Handoff Notes (if applicable)
-- Current status:
-- Next executor:
+- **Current status:**
+- **Next executor:**
+- **Pending evidence:**
 
 ---
 
