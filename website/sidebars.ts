@@ -25,7 +25,8 @@ const sidebars: SidebarsConfig = {
       label: 'Specification',
       collapsed: false,
       items: [
-        'specs/adf-spec-v0.5.0',
+        'specs/adf-spec-v0.6.0',
+        { type: 'doc', id: 'specs/adf-spec-v0.5.0', label: 'v0.5.0 (Historical)' },
         { type: 'link', label: 'v0.4.0 (Historical)', href: '/docs/specs/spec.v0.4.0' },
       ],
     },
@@ -49,6 +50,18 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
+  guides: [
+    {
+      type: 'category',
+      label: 'Guides',
+      collapsed: false,
+      items: [
+        'guide/handbook',
+        'guide/website-preview',
+      ],
+    },
+  ],
+
   templates: [
     {
       type: 'category',
@@ -57,6 +70,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'templates/pr-template',
         'templates/story-preview',
+        'templates/cr-checklist',
         'templates/conformance-checklist',
         'templates/labels',
         'templates/codeowners.example',
